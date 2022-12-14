@@ -25,6 +25,22 @@ import '../../graphql_operations/queries/get_n_products.dart';
 import '../../graphql_operations/queries/get_products.dart';
 import '../../models/src/collection/collection.dart';
 import '../../shopify_config.dart';
+import 'package:normalize/utils.dart';
+import 'package:gql/language.dart';
+import 'package:gql/ast.dart';
+
+
+class AddNestedTypenameVisitor extends AddTypenameVisitor {
+  @override
+  visitOperationDefinitionNode(node) {
+    return node;
+  }
+}
+
+DocumentNode mgql(String document) => transform(
+      parseString(document),
+      [AddNestedTypenameVisitor()],
+);
 
 /// ShopifyStore provides various methods related to the shopify store.
 class ShopifyStore with ShopifyError {
@@ -45,7 +61,7 @@ class ShopifyStore with ShopifyError {
     WatchQueryOptions _options;
     do {
       _options = WatchQueryOptions(
-        document: gql(getProductsQuery),
+        document: mgql(getProductsQuery),
         variables: {
           'cursor': cursor,
           'metafieldsNamespace': metafieldsNamespace,
@@ -69,13 +85,13 @@ class ShopifyStore with ShopifyError {
   ///
   /// Returns the first [limit] Products after the given [startCursor].
   /// [limit] has to be in the range of 0 and 250.
-  Future<List<Product>> getXProductsAfterCursor(int limit, String startCursor,
+  Future<List<Product>> getXProductsAfterCursor(int limit, String? startCursor,
       {bool deleteThisPartOfCache = false,
       bool reverse = false,
       SortKeyProduct sortKeyProduct = SortKeyProduct.TITLE}) async {
     List<Product> productList = [];
     Products tempProduct;
-    String cursor = startCursor;
+    String? cursor = startCursor;
     final WatchQueryOptions _options = WatchQueryOptions(
         document: gql(getXProductsAfterCursorQuery),
         variables: {
@@ -212,7 +228,7 @@ class ShopifyStore with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
-    return Shop.fromJson(result.data!['shop']);
+    return Shop.fromJson(result.data!);
   }
 
   /// Returns a collection by handle.
@@ -342,18 +358,16 @@ class ShopifyStore with ShopifyError {
   Future<List<Product>?> getXProductsAfterCursorWithinCollection(
       String id, int limit,
       {String? startCursor = null,
-      SortKeyProductCollection sortKey = SortKeyProductCollection.BEST_SELLING,
+        SortKeyCollection sortKey = SortKeyCollection.ID,
       bool deleteThisPartOfCache = false,
       bool reverse = false}) async {
     String? cursor = startCursor;
     final WatchQueryOptions _options = WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
         document: gql(getXProductsAfterCursorWithinCollectionQuery),
         variables: {
           'id': id,
-          'cursor': cursor,
-          'limit': limit,
-          'sortKey': sortKey.parseToString(),
-          'reverse': reverse,
+          'limit': limit
         });
     final QueryResult result = await _graphQLClient!.query(_options);
     checkForError(result);
@@ -406,15 +420,23 @@ class ShopifyStore with ShopifyError {
       bool deleteThisPartOfCache = false,
       bool reverse = false}) async {
     final WatchQueryOptions _options = WatchQueryOptions(
-      document: gql(getXProductsOnQueryAfterCursorQuery),
-      variables: {
-        if (cursor != null) 'cursor': cursor,
-        'limit': limit,
-        'sortKey': sortKey?.parseToString(),
-        'query': query,
-        'reverse': reverse,
-      },
-    );
+        // fetchPolicy:FetchPolicy.networkOnly ,
+         fetchPolicy:FetchPolicy.cacheAndNetwork,
+        document: gql(getXProductsOnQueryAfterCursorQuery),
+        variables: cursor == null
+            ? {
+                'limit': limit,
+                'sortKey': sortKey?.parseToString(),
+                'query': query,
+                'reverse': reverse
+              }
+            : {
+                'cursor': cursor,
+                'limit': limit,
+                'sortKey': sortKey?.parseToString(),
+                'query': query,
+                'reverse': reverse
+              });
     final QueryResult result =
         await ShopifyConfig.graphQLClient!.query(_options);
     checkForError(result);

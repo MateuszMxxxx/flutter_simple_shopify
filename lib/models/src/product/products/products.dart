@@ -12,12 +12,16 @@ class Products with _$Products {
       required bool hasNextPage}) = _Products;
 
   static Products fromGraphJson(Map<String, dynamic> json) {
+    if (json == null)
+      return Products(productList: <Product>[],hasNextPage: false);
     return Products(
         productList: _getProductList(json),
         hasNextPage: (json['pageInfo'] ?? const {})['hasNextPage'] ?? false);
   }
 
   static List<Product> _getProductList(Map<String, dynamic> json) {
+    if (json == null)
+      return <Product>[];
     return (json['edges'] as List?)
             ?.map((e) => Product.fromGraphJson(e ?? const {}))
             .toList() ??

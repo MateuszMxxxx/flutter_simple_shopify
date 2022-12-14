@@ -1,6 +1,6 @@
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:graphql/client.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive/hive.dart';
 
 import '../../graphql_operations/mutations/access_token_delete.dart';
 import '../../graphql_operations/mutations/customer_access_token_create.dart';
@@ -29,12 +29,16 @@ class ShopifyAuth with ShopifyError {
   Future<String?> get currentCustomerAccessToken async {
     if (_currentCustomerAccessToken.containsKey(ShopifyConfig.storeUrl))
       return _currentCustomerAccessToken[ShopifyConfig.storeUrl];
-    final _prefs = await SharedPreferences.getInstance();
-    if (_prefs.containsKey(ShopifyConfig.storeUrl!))
+
+    final _prefs = await _getBox();
+
+    if (_prefs.containsKey(ShopifyConfig.storeUrl!)) {
       return _currentCustomerAccessToken[ShopifyConfig.storeUrl] =
-          _prefs.getString(ShopifyConfig.storeUrl!);
+          _prefs.get(ShopifyConfig.storeUrl!);
+    }
+
     return _currentCustomerAccessToken[ShopifyConfig.storeUrl] =
-        _prefs.getString(_shopifyKey);
+        _prefs.get(_shopifyKey);
   }
 
   /// Tries to create a new user account with the given email address and password.
@@ -106,6 +110,7 @@ class ShopifyAuth with ShopifyError {
       password,
     );
     final WatchQueryOptions _getCustomer = WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
         document: gql(getCustomerQuery),
         variables: {'customerAccessToken': customerAccessToken});
     final QueryResult result = await _graphQLClient!.query(_getCustomer);
@@ -154,7 +159,7 @@ class ShopifyAuth with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
-    return _extractAccessToken(result.data, "customerAccessTokenCreate");
+    return _extractAccessToken(result.data);
   }
 
   /// Helper method for creating the accessToken with Multipass.
@@ -167,19 +172,22 @@ class ShopifyAuth with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
-    return _extractAccessToken(
-      result.data,
-      "customerAccessTokenCreateWithMultipass",
-    );
+    return _extractAccessTokenMultipass(result.data);
   }
 
   /// Helper method for extracting the customerAccessToken from the mutation.
-  String? _extractAccessToken(
-    Map<String, dynamic>? mutationData,
-    String mutation,
-  ) {
-    return (((mutationData ?? const {})[mutation] ??
+  String? _extractAccessToken(Map<String, dynamic>? mutationData) {
+    return (((mutationData ??
+                const {})['customerAccessTokenCreate'] ??
             const {})['customerAccessToken'] ??
+        const {})['accessToken'];
+  }
+
+  /// Helper method for extracting the customerAccessToken from the mutation.
+  String? _extractAccessTokenMultipass(Map<String, dynamic>? mutationData) {
+    return (((mutationData ??
+        const {})['customerAccessTokenCreateWithMultipass'] ??
+        const {})['customerAccessToken'] ??
         const {})['accessToken'];
   }
 
@@ -210,7 +218,7 @@ class ShopifyAuth with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
-    return _extractAccessToken(result.data, "customerAccessTokenRenew");
+    return _extractAccessToken(result.data);
   }
 
   /// Returns the currently signed-in [ShopifyUser] or [null] if there is none.
@@ -239,16 +247,23 @@ class ShopifyAuth with ShopifyError {
     String? sharedPrefsToken,
     ShopifyUser? shopifyUser,
   ) async {
-    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    final _prefs = await _getBox();
+
     if (sharedPrefsToken == null) {
       _shopifyUser.remove(ShopifyConfig.storeUrl);
       _currentCustomerAccessToken.remove(ShopifyConfig.storeUrl);
-      _prefs.remove(_shopifyKey);
-      _prefs.remove(ShopifyConfig.storeUrl!);
+      _prefs.delete(_shopifyKey);
+      _prefs.delete(ShopifyConfig.storeUrl!);
     } else {
       _shopifyUser[ShopifyConfig.storeUrl] = shopifyUser;
       _currentCustomerAccessToken[ShopifyConfig.storeUrl] = sharedPrefsToken;
-      _prefs.setString(ShopifyConfig.storeUrl!, sharedPrefsToken);
+      _prefs.put(ShopifyConfig.storeUrl!, sharedPrefsToken);
     }
   }
+}
+
+Future<Box<String>> _getBox() async {
+  final String _boxName = 'shopify_user';
+  final Box<String> _box = await Hive.openBox<String>(_boxName);
+  return _box;
 }
