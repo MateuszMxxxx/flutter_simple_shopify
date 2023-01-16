@@ -124,7 +124,9 @@ class ShopifyAuth with ShopifyError {
   }
 
   Future<void> renewCurrentAccessToken(String accessToken) async {
+    print(accessToken);
     final updatedAccessToken = await _renewAccessToken(accessToken);
+    print(updatedAccessToken);
     await _setShopifyUser(
         updatedAccessToken, _shopifyUser[ShopifyConfig.storeUrl]);
   }
@@ -179,6 +181,8 @@ class ShopifyAuth with ShopifyError {
   String? _extractAccessToken(Map<String, dynamic>? mutationData) {
     return (((mutationData ??
                 const {})['customerAccessTokenCreate'] ??
+        (mutationData ??
+            const {})['customerAccessTokenRenew'] ??
             const {})['customerAccessToken'] ??
         const {})['accessToken'];
   }
@@ -212,6 +216,7 @@ class ShopifyAuth with ShopifyError {
   Future<String?> _renewAccessToken(String customerAccessToken,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
+      fetchPolicy:FetchPolicy.networkOnly ,
         document: gql(customerAccessTokenRenewMutation),
         variables: {'customerAccessToken': customerAccessToken});
     final QueryResult result = await _graphQLClient!.mutate(_options);
@@ -224,6 +229,7 @@ class ShopifyAuth with ShopifyError {
   /// Returns the currently signed-in [ShopifyUser] or [null] if there is none.
   Future<ShopifyUser?> currentUser({bool deleteThisPartOfCache = false}) async {
     final WatchQueryOptions _getCustomer = WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
         document: gql(getCustomerQuery),
         variables: {'customerAccessToken': await currentCustomerAccessToken});
     if (deleteThisPartOfCache) {
@@ -233,6 +239,25 @@ class ShopifyAuth with ShopifyError {
       return _shopifyUser[ShopifyConfig.storeUrl];
       //TODO look into shared prefs (@adam)
     } else if (await currentCustomerAccessToken != null) {
+      final QueryResult result = (await _graphQLClient!.query(_getCustomer));
+      checkForError(result);
+      ShopifyUser user = ShopifyUser.fromGraphJson(
+          (result.data ?? const {})['customer'] ?? const {});
+      return user;
+    } else {
+      return null;
+    }
+  }
+
+  Future<ShopifyUser?> refreshUser({bool deleteThisPartOfCache = false}) async {
+    final WatchQueryOptions _getCustomer = WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
+        document: gql(getCustomerQuery),
+        variables: {'customerAccessToken': await currentCustomerAccessToken});
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_getCustomer.asRequest, data: {});
+    }
+    if (await currentCustomerAccessToken != null) {
       final QueryResult result = (await _graphQLClient!.query(_getCustomer));
       checkForError(result);
       ShopifyUser user = ShopifyUser.fromGraphJson(

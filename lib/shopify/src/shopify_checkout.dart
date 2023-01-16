@@ -452,6 +452,71 @@ class ShopifyCheckout with ShopifyError {
             const {}));
   }
 
+  Future<Checkout> addLineItemToCheckout(
+      {required String checkoutId,
+        required String variantId,
+        bool deleteThisPartOfCache = false}) async {
+    final MutationOptions _options = MutationOptions(
+        document: gql(addLineItemsToCheckoutMutation),
+        variables: {
+          'checkoutId': checkoutId,
+          'lineItems': [
+            {
+              'variantId': variantId,
+              'quantity': 1
+            }
+          ],
+        });
+    final QueryResult result = await _graphQLClient!.mutate(_options);
+    checkForError(
+      result,
+      key: 'addLineItemsToCheckout',
+      errorKey: 'checkoutUserErrors',
+    );
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+
+    return Checkout.fromJson(
+        ((result.data!['checkoutLineItemsAdd'] ?? const {})['checkout'] ??
+            const {}));
+  }
+
+  Future<void> updateOnlyLineItemsInCheckout(
+      {required String checkoutId,
+        required List<LineItem> lineItems,
+        bool deleteThisPartOfCache = false}) async {
+    final MutationOptions _options = MutationOptions(
+        document: gql(updateLineItemsInCheckoutMutation),
+        variables: {
+          'checkoutId': checkoutId,
+          'lineItems': [
+            for (var lineItem in lineItems)
+              {
+                'variantId': lineItem.variant!.id,
+                'quantity': lineItem.quantity,
+                'customAttributes': lineItem.customAttributes
+                    .map((e) => {
+                  'key': e.key,
+                  'value': e.value,
+                })
+                    .toList(),
+              }
+          ],
+        });
+    final QueryResult result = await _graphQLClient!.mutate(_options);
+    checkForError(
+      result,
+      key: 'updateLineItemsInCheckout',
+      errorKey: 'checkoutUserErrors',
+    );
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+
+    return;
+  }
+
   Future<Checkout> updateLineItemsInCheckout(
       {required String checkoutId,
       required List<LineItem> lineItems,
@@ -463,7 +528,7 @@ class ShopifyCheckout with ShopifyError {
           'lineItems': [
             for (var lineItem in lineItems)
               {
-                'variantId': lineItem.id,
+                'variantId': lineItem.variant!.id,
                 'quantity': lineItem.quantity,
                 'customAttributes': lineItem.customAttributes
                     .map((e) => {

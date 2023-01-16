@@ -17,7 +17,7 @@ query getFeaturedCollectionQuery($query: String!){
         products(first: 20) {
           edges {
             node {
-              variants(first: 1) {
+              variants(first: 3) {
                 edges {
                   node {
                     title
@@ -37,6 +37,7 @@ query getFeaturedCollectionQuery($query: String!){
                     weight
                     weightUnit
                     sku
+                    id
                     requiresShipping
                     availableForSale
                     quantityAvailable

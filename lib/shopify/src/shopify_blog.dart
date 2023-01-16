@@ -27,7 +27,9 @@ class ShopifyBlog with ShopifyError {
       bool reverseBlogs = false,
       bool reverseArticles = false}) async {
     final WatchQueryOptions _options =
-        WatchQueryOptions(document: gql(getAllBlogsQuery), variables: {
+        WatchQueryOptions(document: gql(getAllBlogsQuery),
+            fetchPolicy:FetchPolicy.networkOnly,
+            variables: {
       'reverseBlogs': reverseBlogs,
       'reverseArticles': reverseArticles,
       'sortKey': sortKeyBlog.parseToString(),
@@ -72,7 +74,9 @@ class ShopifyBlog with ShopifyError {
       {SortKeyArticle sortKeyArticle = SortKeyArticle.RELEVANCE,
       bool deleteThisPartOfCache = false}) async {
     final QueryOptions _options =
-        WatchQueryOptions(document: gql(getNArticlesSortedQuery), variables: {
+        WatchQueryOptions(document: gql(getNArticlesSortedQuery),
+            fetchPolicy:FetchPolicy.networkOnly,
+            variables: {
       'x': articleAmount,
       'sortKey': sortKeyArticle.parseToString(),
     });

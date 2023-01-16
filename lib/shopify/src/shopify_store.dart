@@ -93,6 +93,7 @@ class ShopifyStore with ShopifyError {
     Products tempProduct;
     String? cursor = startCursor;
     final WatchQueryOptions _options = WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
         document: gql(getXProductsAfterCursorQuery),
         variables: {
           'x': limit,
@@ -221,6 +222,7 @@ class ShopifyStore with ShopifyError {
   /// Returns the Shop.
   Future<Shop> getShop({bool deleteThisPartOfCache = false}) async {
     final WatchQueryOptions _options = WatchQueryOptions(
+      fetchPolicy:FetchPolicy.networkOnly,
       document: gql(getShopQuery),
     );
     final QueryResult result = await _graphQLClient!.query(_options);
@@ -231,11 +233,25 @@ class ShopifyStore with ShopifyError {
     return Shop.fromJson(result.data!);
   }
 
+  // Future<dynamic> getMenuByHandle(String menuHandle, {bool deleteThisPartOfCache = false}) async {
+  //   final WatchQueryOptions _options = WatchQueryOptions(
+  //     fetchPolicy:FetchPolicy.networkOnly,
+  //     document: gql(getMenuByHandle),
+  //   );
+  //   final QueryResult result = await _graphQLClient!.query(_options);
+  //   checkForError(result);
+  //   if (deleteThisPartOfCache) {
+  //     _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+  //   }
+  //   return result.data;
+  // }
+
   /// Returns a collection by handle.
   Future<Collection> getCollectionByHandle(String collectionName,
       {bool deleteThisPartOfCache = false}) async {
     try {
       final WatchQueryOptions _options = WatchQueryOptions(
+          fetchPolicy:FetchPolicy.networkOnly,
           document: gql(getFeaturedCollectionQuery),
           variables: {'query': collectionName});
       final QueryResult result = await _graphQLClient!.query(_options);

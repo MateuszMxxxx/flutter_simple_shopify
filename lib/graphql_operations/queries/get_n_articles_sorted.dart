@@ -37,7 +37,6 @@ query($x : Int, $sortKey : ArticleSortKeys, $reverse: Boolean){
         publishedAt
         tags
         title
-        url
       }
     }
   }
