@@ -24,11 +24,14 @@ String createValidMutationString(Map variableMap){
         secondString += r"lastName: $lastName,";
       }
       break;
+      case "password":{
+        firstString += r"$password: String!,";
+        secondString += r"password: $password,";
+      }
+      break;
       case "phone":{
-        if(v.toString().length > 0) {
-          firstString += r"$phone: String,";
-          secondString += r"phone: $phone,";
-        }
+        firstString += r"$phone: String,";
+        secondString += r"phone: $phone,";
       }
       break;
       case "customerAccessToken":{
