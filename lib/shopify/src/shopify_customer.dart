@@ -91,6 +91,31 @@ class ShopifyCustomer with ShopifyError {
     }
   }
 
+  /// Updates the customer password.
+  Future<void> customerPasswordUpdate(
+      {String password,
+        String customerAccessToken,
+        bool deleteThisPartOfCache = false}) async {
+    Map<String, dynamic> variableMap = {};
+    ({
+      'password': password,
+      'customerAccessToken': customerAccessToken
+    }).forEach((k, v) => v != {} ? variableMap[k] = v : {});
+
+    final MutationOptions _options = MutationOptions(
+        document: gql(createValidMutationString(variableMap)),
+        variables: variableMap);
+    QueryResult result = await _graphQLClient!.mutate(_options);
+    checkForError(
+      result,
+      key: 'customerUpdate',
+      errorKey: 'customerUserErrors',
+    );
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+  }
+
   /// Creates a address for the customer to which [customerAccessToken] belongs to.
   Future<Address> customerAddressCreate(
       {String? address1,
