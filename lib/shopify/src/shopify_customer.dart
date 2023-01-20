@@ -93,8 +93,8 @@ class ShopifyCustomer with ShopifyError {
 
   /// Updates the customer password.
   Future<void> customerPasswordUpdate(
-      {String password,
-        String customerAccessToken,
+      {String? password,
+        String? customerAccessToken,
         bool deleteThisPartOfCache = false}) async {
     Map<String, dynamic> variableMap = {};
     ({
