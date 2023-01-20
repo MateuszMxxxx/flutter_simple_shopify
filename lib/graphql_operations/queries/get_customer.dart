@@ -49,6 +49,7 @@ query($customerAccessToken : String!){
     firstName
     id
     lastName
+    phone
     lastIncompleteCheckout {
         completedAt
         createdAt
