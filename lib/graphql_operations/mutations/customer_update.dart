@@ -28,7 +28,7 @@ String createValidMutationString(Map variableMap){
         if(v.toString().length > 0) {
           firstString += r"$phone: String,";
           secondString += r"phone: $phone,";
-        {
+        }
       }
       break;
       case "customerAccessToken":{
