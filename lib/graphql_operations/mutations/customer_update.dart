@@ -2,6 +2,7 @@ String createValidMutationString(Map variableMap){
   String firstString = "";
   String secondString = "";
   String thirdString = "";
+  bool hasPassword = false;
   variableMap.forEach((k,v){
     switch(k){
       case "acceptsMarketing":{
@@ -25,6 +26,7 @@ String createValidMutationString(Map variableMap){
       }
       break;
       case "password":{
+        hasPassword = true;
         firstString += r"$password: String!,";
         secondString += r"password: $password,";
       }
@@ -52,6 +54,7 @@ mutation myNewMutation($firstString) {
       field
       message
     }
+     ${hasPassword? "customerAccessToken { accessToken, expiresAt},":""}
   }
 }
 ''';

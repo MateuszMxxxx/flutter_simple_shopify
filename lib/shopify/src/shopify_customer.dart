@@ -92,7 +92,7 @@ class ShopifyCustomer with ShopifyError {
   }
 
   /// Updates the customer password.
-  Future<void> customerPasswordUpdate(
+  Future<String> customerPasswordUpdate(
       {String? password,
         String? customerAccessToken,
         bool deleteThisPartOfCache = false}) async {
@@ -114,6 +114,7 @@ class ShopifyCustomer with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
+    return result.data?["customerUpdate"]["customerAccessToken"]["accessToken"];
   }
 
   /// Creates a address for the customer to which [customerAccessToken] belongs to.
