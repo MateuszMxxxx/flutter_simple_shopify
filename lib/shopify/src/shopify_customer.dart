@@ -63,7 +63,6 @@ class ShopifyCustomer with ShopifyError {
       {String? email,
       String? firstName,
       String? lastName,
-      String? password,
       String? phoneNumber,
       String? customerAccessToken,
       bool? acceptsMarketing,
@@ -73,7 +72,6 @@ class ShopifyCustomer with ShopifyError {
       'email': email,
       'firstName': firstName,
       'lastName': lastName,
-      'password': password,
       'phone': phoneNumber,
       'acceptsMarketing': acceptsMarketing,
       'customerAccessToken': customerAccessToken
