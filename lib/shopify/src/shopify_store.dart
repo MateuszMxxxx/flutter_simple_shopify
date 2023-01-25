@@ -14,6 +14,7 @@ import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_products
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_products_on_query_after_cursor.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:flutter_simple_shopify/models/src/collection/collections/collections.dart';
+import 'package:flutter_simple_shopify/models/src/menu/menu/menu.dart';
 import 'package:flutter_simple_shopify/models/src/product/metafield/metafield.dart';
 import 'package:flutter_simple_shopify/models/src/product/product.dart';
 import 'package:flutter_simple_shopify/models/src/product/products/products.dart';
@@ -28,6 +29,7 @@ import '../../shopify_config.dart';
 import 'package:normalize/utils.dart';
 import 'package:gql/language.dart';
 import 'package:gql/ast.dart';
+import 'package:flutter_simple_shopify/graphql_operations/queries/get_menu.dart';
 
 
 class AddNestedTypenameVisitor extends AddTypenameVisitor {
@@ -233,18 +235,18 @@ class ShopifyStore with ShopifyError {
     return Shop.fromJson(result.data!);
   }
 
-  // Future<dynamic> getMenuByHandle(String menuHandle, {bool deleteThisPartOfCache = false}) async {
-  //   final WatchQueryOptions _options = WatchQueryOptions(
-  //     fetchPolicy:FetchPolicy.networkOnly,
-  //     document: gql(getMenuByHandle),
-  //   );
-  //   final QueryResult result = await _graphQLClient!.query(_options);
-  //   checkForError(result);
-  //   if (deleteThisPartOfCache) {
-  //     _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
-  //   }
-  //   return result.data;
-  // }
+  Future<Menu> getMenuByHandle(String menuHandle, {bool deleteThisPartOfCache = false}) async {
+    final WatchQueryOptions _options = WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
+        document: gql(getMenu), variables: {'handle': menuHandle},
+    );
+    final QueryResult result = await _graphQLClient!.query(_options);
+    checkForError(result);
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+    return Menu.fromJson(result.data!["menu"]);
+  }
 
   /// Returns a collection by handle.
   Future<Collection> getCollectionByHandle(String collectionName,

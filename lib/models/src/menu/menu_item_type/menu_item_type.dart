@@ -1,0 +1,13 @@
+enum MenuItemType{
+  ARTICLE,
+  BLOG,
+  CATALOG,
+  COLLECTION,
+  COLLECTIONS,
+  FRONTPAGE,
+  HTTP,
+  PAGE,
+  PRODUCT,
+  SEARCH,
+  SHOP_POLICY
+}
