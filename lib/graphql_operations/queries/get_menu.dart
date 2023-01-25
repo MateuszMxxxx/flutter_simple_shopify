@@ -1,4 +1,4 @@
-const String getMenuByHandle = r'''
+const String getMenu = r'''
 query($handle: String!) {
   menu(handle: $handle) {
     handle
