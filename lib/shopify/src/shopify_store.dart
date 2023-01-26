@@ -121,6 +121,7 @@ class ShopifyStore with ShopifyError {
       {bool deleteThisPartOfCache = false}) async {
     List<Product>? productList = [];
     final QueryOptions _options = WatchQueryOptions(
+        fetchPolicy: FetchPolicy.networkOnly,
         document: gql(getProductsByIdsQuery), variables: {'ids': idList});
     final QueryResult result = await _graphQLClient!.query(_options);
     checkForError(result);
