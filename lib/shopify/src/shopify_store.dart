@@ -437,28 +437,27 @@ class ShopifyStore with ShopifyError {
   Future<List<Product>?> getXProductsOnQueryAfterCursor(
       String query, int limit, String? cursor,
       {SortKeyProduct? sortKey,
-      bool deleteThisPartOfCache = false,
-      bool reverse = false}) async {
+        bool deleteThisPartOfCache = false,
+        bool reverse = false}) async {
     final WatchQueryOptions _options = WatchQueryOptions(
-        // fetchPolicy:FetchPolicy.networkOnly ,
-         fetchPolicy:FetchPolicy.cacheAndNetwork,
+        fetchPolicy: FetchPolicy.networkOnly,
         document: gql(getXProductsOnQueryAfterCursorQuery),
         variables: cursor == null
             ? {
-                'limit': limit,
-                'sortKey': sortKey?.parseToString(),
-                'query': query,
-                'reverse': reverse
-              }
+          'limit': limit,
+          'sortKey': sortKey?.parseToString(),
+          'query': query,
+          'reverse': reverse
+        }
             : {
-                'cursor': cursor,
-                'limit': limit,
-                'sortKey': sortKey?.parseToString(),
-                'query': query,
-                'reverse': reverse
-              });
+          'cursor': cursor,
+          'limit': limit,
+          'sortKey': sortKey?.parseToString(),
+          'query': query,
+          'reverse': reverse
+        });
     final QueryResult result =
-        await ShopifyConfig.graphQLClient!.query(_options);
+    await ShopifyConfig.graphQLClient!.query(_options);
     checkForError(result);
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
