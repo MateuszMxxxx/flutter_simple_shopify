@@ -351,6 +351,7 @@ class ShopifyStore with ShopifyError {
     QueryOptions _options;
     do {
       _options = WatchQueryOptions(
+          fetchPolicy:FetchPolicy.networkOnly,
           document: gql(getCollectionByIdQuery),
           variables: {
             'id': id,
