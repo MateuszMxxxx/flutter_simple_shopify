@@ -387,7 +387,8 @@ class ShopifyStore with ShopifyError {
         document: gql(getXProductsAfterCursorWithinCollectionQuery),
         variables: {
           'id': id,
-          'limit': limit
+          'limit': limit,
+          'cursor' : cursor
         });
     final QueryResult result = await _graphQLClient!.query(_options);
     checkForError(result);
