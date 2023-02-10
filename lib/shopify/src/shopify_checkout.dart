@@ -482,6 +482,36 @@ class ShopifyCheckout with ShopifyError {
             const {}));
   }
 
+  Future<Checkout> addVariantItemsToCheckout(
+      {required String checkoutId,
+        required List<Map<String, dynamic>> variants,
+        bool deleteThisPartOfCache = false}) async {
+    final MutationOptions _options = MutationOptions(
+        document: gql(addLineItemsToCheckoutMutation),
+        variables: {
+          'checkoutId': checkoutId,
+          'lineItems': variants.map<Map<String, dynamic>>((e) {
+            return {
+              'variantId': e["id"],
+              'quantity': e["quantity"]
+            };
+          }).toList(),
+        });
+    final QueryResult result = await _graphQLClient!.mutate(_options);
+    checkForError(
+      result,
+      key: 'addLineItemsToCheckout',
+      errorKey: 'checkoutUserErrors',
+    );
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+
+    return Checkout.fromJson(
+        ((result.data!['checkoutLineItemsAdd'] ?? const {})['checkout'] ??
+            const {}));
+  }
+
   Future<void> updateOnlyLineItemsInCheckout(
       {required String checkoutId,
         required List<LineItem> lineItems,
