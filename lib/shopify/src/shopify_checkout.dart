@@ -133,13 +133,22 @@ class ShopifyCheckout with ShopifyError {
     final QueryResult result =
         await ShopifyConfig.graphQLClient!.query(_options);
     checkForError(result);
-    Orders orders = Orders.fromJson(
-        (((result.data ?? const {})['customer'] ?? const {})['orders'] ??
-            const {}));
+    List<Order>? ordersList;
+    Map<String, dynamic>? data = result.data;
+
+    if(data!= null){
+      Map<String, dynamic>? orders = data["customer"]["orders"];
+      if(orders != null && orders.containsKey("edges")){
+        List<dynamic> edges = orders["edges"] as List<dynamic>;
+        ordersList = edges.map((dynamic order) => Order.fromGraphJson(order)).toList();
+        return ordersList;
+      }
+    }
+
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
-    return orders.orderList;
+    return ordersList;
   }
 
   /// Replaces the [LineItems] in the [Checkout] associated to the [checkoutId].
