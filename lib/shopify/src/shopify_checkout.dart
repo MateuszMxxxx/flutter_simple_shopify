@@ -125,7 +125,9 @@ class ShopifyCheckout with ShopifyError {
       bool reverse = true,
       bool deleteThisPartOfCache = false}) async {
     final QueryOptions _options =
-        WatchQueryOptions(document: gql(getAllOrdersQuery), variables: {
+        WatchQueryOptions(
+            fetchPolicy:FetchPolicy.networkOnly,
+            document: gql(getAllOrdersQuery), variables: {
       'accessToken': customerAccessToken,
       'sortKey': sortKey.parseToString(),
       'reverse': reverse
