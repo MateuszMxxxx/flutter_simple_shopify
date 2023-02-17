@@ -6,6 +6,8 @@ customer(customerAccessToken: $accessToken) {
         node {
           id
           email
+          fulfillmentStatus
+          financialStatus
           currencyCode
           customerUrl
           lineItems(first: 250) {

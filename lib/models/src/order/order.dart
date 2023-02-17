@@ -1,6 +1,8 @@
+import 'package:flutter_simple_shopify/models/src/order/financial_status/financial_status.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'fulfillment_status/fulfillment_status.dart';
 import 'line_items_order/line_items_order.dart';
 import 'shipping_address/shipping_address.dart';
 
@@ -26,6 +28,8 @@ class Order with _$Order {
     required PriceV2 totalPriceV2,
     required PriceV2 totalShippingPriceV2,
     required PriceV2 totalTaxV2,
+    required FulfillmentStatus fulfillmentStatus,
+    FinancialStatus? financialStatus,
     PriceV2? totalRefundedV2,
     String? phone,
     String? cursor,
@@ -56,7 +60,9 @@ class Order with _$Order {
             (json['node'] ?? const {})['totalShippingPriceV2'] ?? const {}),
         totalTaxV2: PriceV2.fromJson(
             (json['node'] ?? const {})['totalTaxV2'] ?? const {}),
-        cursor: json['cursor']);
+        cursor: json['cursor'],
+        fulfillmentStatus: fulfillmentStatusFromString((json['node'] ?? const {})['fulfillmentStatus']),
+        financialStatus: financialStatusFromString((json['node'] ?? const {})['financialStatus']));
   }
 
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
