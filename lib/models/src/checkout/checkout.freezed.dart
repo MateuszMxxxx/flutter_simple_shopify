@@ -37,7 +37,7 @@ class _$CheckoutTearOff {
       required List<AppliedGiftCards> appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.lineItems)
           required List<LineItem> lineItems,
-      Order? order,
+      CheckoutOrder? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
       MailingAddress? shippingAddress,
@@ -100,7 +100,7 @@ mixin _$Checkout {
       throw _privateConstructorUsedError;
   @JsonKey(fromJson: JsonHelper.lineItems)
   List<LineItem> get lineItems => throw _privateConstructorUsedError;
-  Order? get order => throw _privateConstructorUsedError;
+  CheckoutOrder? get order => throw _privateConstructorUsedError;
   String? get orderStatusUrl => throw _privateConstructorUsedError;
   String? get shopifyPaymentsAccountId => throw _privateConstructorUsedError;
   MailingAddress? get shippingAddress => throw _privateConstructorUsedError;
@@ -135,7 +135,7 @@ abstract class $CheckoutCopyWith<$Res> {
       bool requiresShipping,
       List<AppliedGiftCards> appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.lineItems) List<LineItem> lineItems,
-      Order? order,
+      CheckoutOrder? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
       MailingAddress? shippingAddress,
@@ -150,7 +150,7 @@ abstract class $CheckoutCopyWith<$Res> {
   $PriceV2CopyWith<$Res> get totalTaxV2;
   $PriceV2CopyWith<$Res> get totalPriceV2;
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
-  $OrderCopyWith<$Res>? get order;
+  $CheckoutOrderCopyWith<$Res>? get order;
   $MailingAddressCopyWith<$Res>? get shippingAddress;
   $ShippingRatesCopyWith<$Res>? get shippingLine;
 }
@@ -245,7 +245,7 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
       order: order == freezed
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
-              as Order?,
+              as CheckoutOrder?,
       orderStatusUrl: orderStatusUrl == freezed
           ? _value.orderStatusUrl
           : orderStatusUrl // ignore: cast_nullable_to_non_nullable
@@ -319,12 +319,12 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
   }
 
   @override
-  $OrderCopyWith<$Res>? get order {
+  $CheckoutOrderCopyWith<$Res>? get order {
     if (_value.order == null) {
       return null;
     }
 
-    return $OrderCopyWith<$Res>(_value.order!, (value) {
+    return $CheckoutOrderCopyWith<$Res>(_value.order!, (value) {
       return _then(_value.copyWith(order: value));
     });
   }
@@ -371,7 +371,7 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
       bool requiresShipping,
       List<AppliedGiftCards> appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.lineItems) List<LineItem> lineItems,
-      Order? order,
+      CheckoutOrder? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
       MailingAddress? shippingAddress,
@@ -391,7 +391,7 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
   @override
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   @override
-  $OrderCopyWith<$Res>? get order;
+  $CheckoutOrderCopyWith<$Res>? get order;
   @override
   $MailingAddressCopyWith<$Res>? get shippingAddress;
   @override
@@ -489,7 +489,7 @@ class __$CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
       order: order == freezed
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
-              as Order?,
+              as CheckoutOrder?,
       orderStatusUrl: orderStatusUrl == freezed
           ? _value.orderStatusUrl
           : orderStatusUrl // ignore: cast_nullable_to_non_nullable
@@ -590,7 +590,7 @@ class _$_Checkout extends _Checkout {
   @JsonKey(fromJson: JsonHelper.lineItems)
   final List<LineItem> lineItems;
   @override
-  final Order? order;
+  final CheckoutOrder? order;
   @override
   final String? orderStatusUrl;
   @override
@@ -713,7 +713,7 @@ abstract class _Checkout extends Checkout {
       required List<AppliedGiftCards> appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.lineItems)
           required List<LineItem> lineItems,
-      Order? order,
+      CheckoutOrder? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
       MailingAddress? shippingAddress,
@@ -755,7 +755,7 @@ abstract class _Checkout extends Checkout {
   @JsonKey(fromJson: JsonHelper.lineItems)
   List<LineItem> get lineItems;
   @override
-  Order? get order;
+  CheckoutOrder? get order;
   @override
   String? get orderStatusUrl;
   @override

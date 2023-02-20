@@ -1,4 +1,4 @@
-import 'package:flutter_simple_shopify/models/src/order/order.dart';
+import 'package:flutter_simple_shopify/models/src/order/checkout_order/checkout_order.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -30,7 +30,7 @@ class Checkout with _$Checkout {
     required bool requiresShipping,
     required List<AppliedGiftCards> appliedGiftCards,
     @JsonKey(fromJson: JsonHelper.lineItems) required List<LineItem> lineItems,
-    Order? order,
+    CheckoutOrder? order,
     String? orderStatusUrl,
     String? shopifyPaymentsAccountId,
     MailingAddress? shippingAddress,

@@ -49,6 +49,7 @@ class ShopifyCheckout with ShopifyError {
       bool withPaymentId = false,
       bool deleteThisPartOfCache = false}) async {
     final WatchQueryOptions _optionsRequireShipping = WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
         document: gql(getCheckoutInfoAboutShipping),
         variables: {
           'id': checkoutId,
@@ -56,6 +57,7 @@ class ShopifyCheckout with ShopifyError {
     QueryResult result = await _graphQLClient!.query(_optionsRequireShipping);
 
     final WatchQueryOptions _options = WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
         document: gql(_requiresShipping(result) == true && getShippingInfo
             ? withPaymentId
                 ? getCheckoutInfoWithPaymentId
