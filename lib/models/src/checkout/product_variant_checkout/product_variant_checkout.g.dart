@@ -15,8 +15,10 @@ _$_ProductVariantCheckout _$$_ProductVariantCheckoutFromJson(
       sku: json['sku'] as String,
       requiresShipping: json['requiresShipping'] as bool,
       id: json['id'] as String,
-      product: ProductVariantCheckoutProduct.fromJson(
-          json['product'] as Map<String, dynamic>),
+      product: json['product'] == null
+          ? null
+          : ProductVariantCheckoutProduct.fromJson(
+              json['product'] as Map<String, dynamic>),
       image: json['image'] == null
           ? null
           : ShopifyImage.fromJson(json['image'] as Map<String, dynamic>),

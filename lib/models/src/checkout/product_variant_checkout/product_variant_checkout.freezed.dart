@@ -30,7 +30,7 @@ class _$ProductVariantCheckoutTearOff {
       required String sku,
       required bool requiresShipping,
       required String id,
-      required ProductVariantCheckoutProduct product,
+      required ProductVariantCheckoutProduct? product,
       ShopifyImage? image,
       PriceV2? compareAtPrice,
       double? weight,
@@ -66,7 +66,7 @@ mixin _$ProductVariantCheckout {
   String get sku => throw _privateConstructorUsedError;
   bool get requiresShipping => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
-  ProductVariantCheckoutProduct get product =>
+  ProductVariantCheckoutProduct? get product =>
       throw _privateConstructorUsedError;
   ShopifyImage? get image => throw _privateConstructorUsedError;
   PriceV2? get compareAtPrice => throw _privateConstructorUsedError;
@@ -91,14 +91,14 @@ abstract class $ProductVariantCheckoutCopyWith<$Res> {
       String sku,
       bool requiresShipping,
       String id,
-      ProductVariantCheckoutProduct product,
+      ProductVariantCheckoutProduct? product,
       ShopifyImage? image,
       PriceV2? compareAtPrice,
       double? weight,
       String? weightUnit});
 
   $PriceV2CopyWith<$Res> get priceV2;
-  $ProductVariantCheckoutProductCopyWith<$Res> get product;
+  $ProductVariantCheckoutProductCopyWith<$Res>? get product;
   $ShopifyImageCopyWith<$Res>? get image;
   $PriceV2CopyWith<$Res>? get compareAtPrice;
 }
@@ -154,7 +154,7 @@ class _$ProductVariantCheckoutCopyWithImpl<$Res>
       product: product == freezed
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
-              as ProductVariantCheckoutProduct,
+              as ProductVariantCheckoutProduct?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -182,8 +182,12 @@ class _$ProductVariantCheckoutCopyWithImpl<$Res>
   }
 
   @override
-  $ProductVariantCheckoutProductCopyWith<$Res> get product {
-    return $ProductVariantCheckoutProductCopyWith<$Res>(_value.product,
+  $ProductVariantCheckoutProductCopyWith<$Res>? get product {
+    if (_value.product == null) {
+      return null;
+    }
+
+    return $ProductVariantCheckoutProductCopyWith<$Res>(_value.product!,
         (value) {
       return _then(_value.copyWith(product: value));
     });
@@ -226,7 +230,7 @@ abstract class _$ProductVariantCheckoutCopyWith<$Res>
       String sku,
       bool requiresShipping,
       String id,
-      ProductVariantCheckoutProduct product,
+      ProductVariantCheckoutProduct? product,
       ShopifyImage? image,
       PriceV2? compareAtPrice,
       double? weight,
@@ -235,7 +239,7 @@ abstract class _$ProductVariantCheckoutCopyWith<$Res>
   @override
   $PriceV2CopyWith<$Res> get priceV2;
   @override
-  $ProductVariantCheckoutProductCopyWith<$Res> get product;
+  $ProductVariantCheckoutProductCopyWith<$Res>? get product;
   @override
   $ShopifyImageCopyWith<$Res>? get image;
   @override
@@ -295,7 +299,7 @@ class __$ProductVariantCheckoutCopyWithImpl<$Res>
       product: product == freezed
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
-              as ProductVariantCheckoutProduct,
+              as ProductVariantCheckoutProduct?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -349,7 +353,7 @@ class _$_ProductVariantCheckout extends _ProductVariantCheckout {
   @override
   final String id;
   @override
-  final ProductVariantCheckoutProduct product;
+  final ProductVariantCheckoutProduct? product;
   @override
   final ShopifyImage? image;
   @override
@@ -421,7 +425,7 @@ abstract class _ProductVariantCheckout extends ProductVariantCheckout {
       required String sku,
       required bool requiresShipping,
       required String id,
-      required ProductVariantCheckoutProduct product,
+      required ProductVariantCheckoutProduct? product,
       ShopifyImage? image,
       PriceV2? compareAtPrice,
       double? weight,
@@ -444,7 +448,7 @@ abstract class _ProductVariantCheckout extends ProductVariantCheckout {
   @override
   String get id;
   @override
-  ProductVariantCheckoutProduct get product;
+  ProductVariantCheckoutProduct? get product;
   @override
   ShopifyImage? get image;
   @override
