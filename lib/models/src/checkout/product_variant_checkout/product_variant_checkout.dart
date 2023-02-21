@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/src/checkout/product_variant_checkout/product_variant_checkout_product/product_variant_checkout_product.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:flutter_simple_shopify/models/src/product/shopify_image/shopify_image.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,6 +17,7 @@ class ProductVariantCheckout with _$ProductVariantCheckout {
     required String sku,
     required bool requiresShipping,
     required String id,
+    required ProductVariantCheckoutProduct product,
     ShopifyImage? image,
     PriceV2? compareAtPrice,
     double? weight,

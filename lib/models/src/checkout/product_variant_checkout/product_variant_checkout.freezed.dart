@@ -30,6 +30,7 @@ class _$ProductVariantCheckoutTearOff {
       required String sku,
       required bool requiresShipping,
       required String id,
+      required ProductVariantCheckoutProduct product,
       ShopifyImage? image,
       PriceV2? compareAtPrice,
       double? weight,
@@ -41,6 +42,7 @@ class _$ProductVariantCheckoutTearOff {
       sku: sku,
       requiresShipping: requiresShipping,
       id: id,
+      product: product,
       image: image,
       compareAtPrice: compareAtPrice,
       weight: weight,
@@ -64,6 +66,8 @@ mixin _$ProductVariantCheckout {
   String get sku => throw _privateConstructorUsedError;
   bool get requiresShipping => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
+  ProductVariantCheckoutProduct get product =>
+      throw _privateConstructorUsedError;
   ShopifyImage? get image => throw _privateConstructorUsedError;
   PriceV2? get compareAtPrice => throw _privateConstructorUsedError;
   double? get weight => throw _privateConstructorUsedError;
@@ -87,12 +91,14 @@ abstract class $ProductVariantCheckoutCopyWith<$Res> {
       String sku,
       bool requiresShipping,
       String id,
+      ProductVariantCheckoutProduct product,
       ShopifyImage? image,
       PriceV2? compareAtPrice,
       double? weight,
       String? weightUnit});
 
   $PriceV2CopyWith<$Res> get priceV2;
+  $ProductVariantCheckoutProductCopyWith<$Res> get product;
   $ShopifyImageCopyWith<$Res>? get image;
   $PriceV2CopyWith<$Res>? get compareAtPrice;
 }
@@ -114,6 +120,7 @@ class _$ProductVariantCheckoutCopyWithImpl<$Res>
     Object? sku = freezed,
     Object? requiresShipping = freezed,
     Object? id = freezed,
+    Object? product = freezed,
     Object? image = freezed,
     Object? compareAtPrice = freezed,
     Object? weight = freezed,
@@ -144,6 +151,10 @@ class _$ProductVariantCheckoutCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      product: product == freezed
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductVariantCheckoutProduct,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -167,6 +178,14 @@ class _$ProductVariantCheckoutCopyWithImpl<$Res>
   $PriceV2CopyWith<$Res> get priceV2 {
     return $PriceV2CopyWith<$Res>(_value.priceV2, (value) {
       return _then(_value.copyWith(priceV2: value));
+    });
+  }
+
+  @override
+  $ProductVariantCheckoutProductCopyWith<$Res> get product {
+    return $ProductVariantCheckoutProductCopyWith<$Res>(_value.product,
+        (value) {
+      return _then(_value.copyWith(product: value));
     });
   }
 
@@ -207,6 +226,7 @@ abstract class _$ProductVariantCheckoutCopyWith<$Res>
       String sku,
       bool requiresShipping,
       String id,
+      ProductVariantCheckoutProduct product,
       ShopifyImage? image,
       PriceV2? compareAtPrice,
       double? weight,
@@ -214,6 +234,8 @@ abstract class _$ProductVariantCheckoutCopyWith<$Res>
 
   @override
   $PriceV2CopyWith<$Res> get priceV2;
+  @override
+  $ProductVariantCheckoutProductCopyWith<$Res> get product;
   @override
   $ShopifyImageCopyWith<$Res>? get image;
   @override
@@ -239,6 +261,7 @@ class __$ProductVariantCheckoutCopyWithImpl<$Res>
     Object? sku = freezed,
     Object? requiresShipping = freezed,
     Object? id = freezed,
+    Object? product = freezed,
     Object? image = freezed,
     Object? compareAtPrice = freezed,
     Object? weight = freezed,
@@ -269,6 +292,10 @@ class __$ProductVariantCheckoutCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      product: product == freezed
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductVariantCheckoutProduct,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -299,6 +326,7 @@ class _$_ProductVariantCheckout extends _ProductVariantCheckout {
       required this.sku,
       required this.requiresShipping,
       required this.id,
+      required this.product,
       this.image,
       this.compareAtPrice,
       this.weight,
@@ -321,6 +349,8 @@ class _$_ProductVariantCheckout extends _ProductVariantCheckout {
   @override
   final String id;
   @override
+  final ProductVariantCheckoutProduct product;
+  @override
   final ShopifyImage? image;
   @override
   final PriceV2? compareAtPrice;
@@ -331,7 +361,7 @@ class _$_ProductVariantCheckout extends _ProductVariantCheckout {
 
   @override
   String toString() {
-    return 'ProductVariantCheckout(priceV2: $priceV2, title: $title, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, image: $image, compareAtPrice: $compareAtPrice, weight: $weight, weightUnit: $weightUnit)';
+    return 'ProductVariantCheckout(priceV2: $priceV2, title: $title, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, product: $product, image: $image, compareAtPrice: $compareAtPrice, weight: $weight, weightUnit: $weightUnit)';
   }
 
   @override
@@ -347,6 +377,7 @@ class _$_ProductVariantCheckout extends _ProductVariantCheckout {
             const DeepCollectionEquality()
                 .equals(other.requiresShipping, requiresShipping) &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.product, product) &&
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality()
                 .equals(other.compareAtPrice, compareAtPrice) &&
@@ -364,6 +395,7 @@ class _$_ProductVariantCheckout extends _ProductVariantCheckout {
       const DeepCollectionEquality().hash(sku),
       const DeepCollectionEquality().hash(requiresShipping),
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(product),
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(compareAtPrice),
       const DeepCollectionEquality().hash(weight),
@@ -389,6 +421,7 @@ abstract class _ProductVariantCheckout extends ProductVariantCheckout {
       required String sku,
       required bool requiresShipping,
       required String id,
+      required ProductVariantCheckoutProduct product,
       ShopifyImage? image,
       PriceV2? compareAtPrice,
       double? weight,
@@ -410,6 +443,8 @@ abstract class _ProductVariantCheckout extends ProductVariantCheckout {
   bool get requiresShipping;
   @override
   String get id;
+  @override
+  ProductVariantCheckoutProduct get product;
   @override
   ShopifyImage? get image;
   @override
