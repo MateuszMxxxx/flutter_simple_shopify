@@ -24,6 +24,7 @@ class _$ShopifyUserTearOff {
 
   _ShopifyUser call(
       {Addresses? address,
+      Address? defaultAddress,
       String? createdAt,
       String? displayName,
       String? email,
@@ -35,6 +36,7 @@ class _$ShopifyUserTearOff {
       LastIncompleteCheckout? lastIncompleteCheckout}) {
     return _ShopifyUser(
       address: address,
+      defaultAddress: defaultAddress,
       createdAt: createdAt,
       displayName: displayName,
       email: email,
@@ -58,6 +60,7 @@ const $ShopifyUser = _$ShopifyUserTearOff();
 /// @nodoc
 mixin _$ShopifyUser {
   Addresses? get address => throw _privateConstructorUsedError;
+  Address? get defaultAddress => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
@@ -82,6 +85,7 @@ abstract class $ShopifyUserCopyWith<$Res> {
       _$ShopifyUserCopyWithImpl<$Res>;
   $Res call(
       {Addresses? address,
+      Address? defaultAddress,
       String? createdAt,
       String? displayName,
       String? email,
@@ -93,6 +97,7 @@ abstract class $ShopifyUserCopyWith<$Res> {
       LastIncompleteCheckout? lastIncompleteCheckout});
 
   $AddressesCopyWith<$Res>? get address;
+  $AddressCopyWith<$Res>? get defaultAddress;
   $LastIncompleteCheckoutCopyWith<$Res>? get lastIncompleteCheckout;
 }
 
@@ -107,6 +112,7 @@ class _$ShopifyUserCopyWithImpl<$Res> implements $ShopifyUserCopyWith<$Res> {
   @override
   $Res call({
     Object? address = freezed,
+    Object? defaultAddress = freezed,
     Object? createdAt = freezed,
     Object? displayName = freezed,
     Object? email = freezed,
@@ -122,6 +128,10 @@ class _$ShopifyUserCopyWithImpl<$Res> implements $ShopifyUserCopyWith<$Res> {
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Addresses?,
+      defaultAddress: defaultAddress == freezed
+          ? _value.defaultAddress
+          : defaultAddress // ignore: cast_nullable_to_non_nullable
+              as Address?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -173,6 +183,17 @@ class _$ShopifyUserCopyWithImpl<$Res> implements $ShopifyUserCopyWith<$Res> {
   }
 
   @override
+  $AddressCopyWith<$Res>? get defaultAddress {
+    if (_value.defaultAddress == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_value.defaultAddress!, (value) {
+      return _then(_value.copyWith(defaultAddress: value));
+    });
+  }
+
+  @override
   $LastIncompleteCheckoutCopyWith<$Res>? get lastIncompleteCheckout {
     if (_value.lastIncompleteCheckout == null) {
       return null;
@@ -194,6 +215,7 @@ abstract class _$ShopifyUserCopyWith<$Res>
   @override
   $Res call(
       {Addresses? address,
+      Address? defaultAddress,
       String? createdAt,
       String? displayName,
       String? email,
@@ -206,6 +228,8 @@ abstract class _$ShopifyUserCopyWith<$Res>
 
   @override
   $AddressesCopyWith<$Res>? get address;
+  @override
+  $AddressCopyWith<$Res>? get defaultAddress;
   @override
   $LastIncompleteCheckoutCopyWith<$Res>? get lastIncompleteCheckout;
 }
@@ -223,6 +247,7 @@ class __$ShopifyUserCopyWithImpl<$Res> extends _$ShopifyUserCopyWithImpl<$Res>
   @override
   $Res call({
     Object? address = freezed,
+    Object? defaultAddress = freezed,
     Object? createdAt = freezed,
     Object? displayName = freezed,
     Object? email = freezed,
@@ -238,6 +263,10 @@ class __$ShopifyUserCopyWithImpl<$Res> extends _$ShopifyUserCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Addresses?,
+      defaultAddress: defaultAddress == freezed
+          ? _value.defaultAddress
+          : defaultAddress // ignore: cast_nullable_to_non_nullable
+              as Address?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -283,6 +312,7 @@ class __$ShopifyUserCopyWithImpl<$Res> extends _$ShopifyUserCopyWithImpl<$Res>
 class _$_ShopifyUser implements _ShopifyUser {
   _$_ShopifyUser(
       {this.address,
+      this.defaultAddress,
       this.createdAt,
       this.displayName,
       this.email,
@@ -298,6 +328,8 @@ class _$_ShopifyUser implements _ShopifyUser {
 
   @override
   final Addresses? address;
+  @override
+  final Address? defaultAddress;
   @override
   final String? createdAt;
   @override
@@ -319,7 +351,7 @@ class _$_ShopifyUser implements _ShopifyUser {
 
   @override
   String toString() {
-    return 'ShopifyUser(address: $address, createdAt: $createdAt, displayName: $displayName, email: $email, firstName: $firstName, id: $id, lastName: $lastName, phone: $phone, tags: $tags, lastIncompleteCheckout: $lastIncompleteCheckout)';
+    return 'ShopifyUser(address: $address, defaultAddress: $defaultAddress, createdAt: $createdAt, displayName: $displayName, email: $email, firstName: $firstName, id: $id, lastName: $lastName, phone: $phone, tags: $tags, lastIncompleteCheckout: $lastIncompleteCheckout)';
   }
 
   @override
@@ -328,6 +360,8 @@ class _$_ShopifyUser implements _ShopifyUser {
         (other.runtimeType == runtimeType &&
             other is _ShopifyUser &&
             const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality()
+                .equals(other.defaultAddress, defaultAddress) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality()
                 .equals(other.displayName, displayName) &&
@@ -345,6 +379,7 @@ class _$_ShopifyUser implements _ShopifyUser {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(defaultAddress),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(displayName),
       const DeepCollectionEquality().hash(email),
@@ -369,6 +404,7 @@ class _$_ShopifyUser implements _ShopifyUser {
 abstract class _ShopifyUser implements ShopifyUser {
   factory _ShopifyUser(
       {Addresses? address,
+      Address? defaultAddress,
       String? createdAt,
       String? displayName,
       String? email,
@@ -384,6 +420,8 @@ abstract class _ShopifyUser implements ShopifyUser {
 
   @override
   Addresses? get address;
+  @override
+  Address? get defaultAddress;
   @override
   String? get createdAt;
   @override

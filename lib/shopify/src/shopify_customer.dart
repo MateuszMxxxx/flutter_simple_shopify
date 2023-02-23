@@ -1,6 +1,7 @@
 import 'package:flutter_simple_shopify/graphql_operations/mutations/customer_address_create.dart';
 import 'package:flutter_simple_shopify/graphql_operations/mutations/customer_address_delete.dart';
 import 'package:flutter_simple_shopify/graphql_operations/mutations/customer_address_update.dart';
+import 'package:flutter_simple_shopify/graphql_operations/mutations/customer_default_address_update.dart';
 import 'package:flutter_simple_shopify/graphql_operations/mutations/customer_update.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:flutter_simple_shopify/models/src/shopify_user/address/address.dart';
@@ -182,5 +183,23 @@ class ShopifyCustomer with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
+  }
+
+  /// Update the default address of a Customer.
+  Future<void> customerDefaultAddressUpdate(
+      {required String customerAccessToken,
+        required String id}) async {
+    final MutationOptions _options = MutationOptions(
+        document: gql(customerDefaultAddressUpdateMutation),
+        variables: {
+          'customerAccessToken': customerAccessToken,
+          'addressId': id
+        });
+    final QueryResult result = await _graphQLClient!.mutate(_options);
+    checkForError(
+      result,
+      key: 'customerDefaultAddressUpdate',
+      errorKey: 'customerUserErrors',
+    );
   }
 }

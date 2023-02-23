@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/src/shopify_user/address/address.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'addresses/addresses.dart';
@@ -10,6 +11,7 @@ part 'shopify_user.g.dart';
 class ShopifyUser with _$ShopifyUser {
   factory ShopifyUser({
     Addresses? address,
+    Address? defaultAddress,
     String? createdAt,
     String? displayName,
     String? email,
@@ -24,6 +26,7 @@ class ShopifyUser with _$ShopifyUser {
   static ShopifyUser fromGraphJson(Map<String, dynamic> json) {
     return ShopifyUser(
       address: Addresses.fromGraphJson(json['addresses'] ?? const {}),
+      defaultAddress: Address.fromJson(json["defaultAddress"] ?? const {}),
       createdAt: json['createdAt'],
       displayName: json['displayName'],
       email: json['email'],
