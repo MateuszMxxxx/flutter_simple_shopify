@@ -108,6 +108,15 @@ query($id: ID!){
       orderStatusUrl
       order {
         id
+        orderNumber
+        totalPriceV2 {
+            amount
+            currencyCode
+        }
+        totalShippingPriceV2 {
+            amount
+            currencyCode
+        }
       }
     }
   }

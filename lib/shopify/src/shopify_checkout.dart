@@ -45,26 +45,11 @@ class ShopifyCheckout with ShopifyError {
   ///
   /// Returns the Checkout object of the checkout with the [checkoutId].
   Future<Checkout> getCheckoutInfoQuery(String checkoutId,
-      {bool getShippingInfo = true,
-      bool withPaymentId = false,
-      bool deleteThisPartOfCache = false}) async {
-    final WatchQueryOptions _optionsRequireShipping = WatchQueryOptions(
-        fetchPolicy:FetchPolicy.networkOnly,
-        document: gql(getCheckoutInfoAboutShipping),
-        variables: {
-          'id': checkoutId,
-        });
-    QueryResult result = await _graphQLClient!.query(_optionsRequireShipping);
+      {bool deleteThisPartOfCache = false}) async {
 
     final WatchQueryOptions _options = WatchQueryOptions(
         fetchPolicy:FetchPolicy.networkOnly,
-        document: gql(_requiresShipping(result) == true && getShippingInfo
-            ? withPaymentId
-                ? getCheckoutInfoWithPaymentId
-                : getCheckoutInfo
-            : withPaymentId
-                ? getCheckoutInfoWithPaymentIdWithoutShipping
-                : getCheckoutInfoWithoutShipping),
+        document: gql(getCheckoutInfoWithoutShipping),
         variables: {
           'id': checkoutId,
         });
@@ -75,10 +60,6 @@ class ShopifyCheckout with ShopifyError {
     }
 
     return Checkout.fromJson(_queryResult.data!['node']);
-  }
-
-  bool? _requiresShipping(QueryResult result) {
-    return ((result.data ?? const {})['node'] ?? const {})['requiresShipping'];
   }
 
   /// Updates the attributes of a [Checkout]
