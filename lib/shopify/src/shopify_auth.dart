@@ -124,9 +124,7 @@ class ShopifyAuth with ShopifyError {
   }
 
   Future<void> renewCurrentAccessToken(String accessToken) async {
-    print(accessToken);
     final updatedAccessToken = await _renewAccessToken(accessToken);
-    print(updatedAccessToken);
     await _setShopifyUser(
         updatedAccessToken, _shopifyUser[ShopifyConfig.storeUrl]);
   }

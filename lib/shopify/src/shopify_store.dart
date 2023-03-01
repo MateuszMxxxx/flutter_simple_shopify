@@ -410,7 +410,6 @@ class ShopifyStore with ShopifyError {
           'cursor': cursor
         });
     final QueryResult result = await _graphQLClient!.query(_options);
-    print(result.data);
     checkForError(result);
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
