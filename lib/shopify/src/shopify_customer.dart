@@ -33,6 +33,7 @@ class ShopifyCustomer with ShopifyError {
       required String id,
       bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
+        fetchPolicy: FetchPolicy.noCache,
         document: gql(customerAddressUpdateMutation),
         variables: {
           'address1': address1,
@@ -104,6 +105,7 @@ class ShopifyCustomer with ShopifyError {
     }).forEach((k, v) => v != {} ? variableMap[k] = v : {});
 
     final MutationOptions _options = MutationOptions(
+        fetchPolicy: FetchPolicy.noCache,
         document: gql(createValidMutationString(variableMap)),
         variables: variableMap);
     QueryResult result = await _graphQLClient!.mutate(_options);

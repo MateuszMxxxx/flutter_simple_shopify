@@ -50,6 +50,7 @@ class ShopifyAuth with ShopifyError {
     bool deleteThisPartOfCache = false,
   }) async {
     final MutationOptions _options = MutationOptions(
+      fetchPolicy: FetchPolicy.noCache,
       document: gql(customerCreateMutation),
       variables: {
         'firstName': firstName,
@@ -110,7 +111,7 @@ class ShopifyAuth with ShopifyError {
       password,
     );
     final WatchQueryOptions _getCustomer = WatchQueryOptions(
-        fetchPolicy:FetchPolicy.networkOnly,
+        fetchPolicy: FetchPolicy.noCache,
         document: gql(getCustomerQuery),
         variables: {'customerAccessToken': customerAccessToken});
     final QueryResult result = await _graphQLClient!.query(_getCustomer);
@@ -249,7 +250,7 @@ class ShopifyAuth with ShopifyError {
 
   Future<ShopifyUser?> refreshUser({bool deleteThisPartOfCache = false}) async {
     final WatchQueryOptions _getCustomer = WatchQueryOptions(
-        fetchPolicy:FetchPolicy.networkOnly,
+        fetchPolicy: FetchPolicy.noCache,
         document: gql(getCustomerQuery),
         variables: {'customerAccessToken': await currentCustomerAccessToken});
     if (deleteThisPartOfCache) {
