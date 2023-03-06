@@ -135,6 +135,7 @@ class ShopifyCustomer with ShopifyError {
       String? customerAccessToken,
       bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
+        fetchPolicy: FetchPolicy.noCache,
         document: gql(customerAddressCreateMutation),
         variables: {
           'address1': address1,
