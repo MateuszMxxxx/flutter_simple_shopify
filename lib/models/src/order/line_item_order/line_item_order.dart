@@ -30,11 +30,13 @@ class LineItemOrder with _$LineItemOrder {
         discountedTotalPrice: PriceV2.fromJson(
             (json['node'] ?? const {})['discountedTotalPrice']),
         originalTotalPrice:
-            PriceV2.fromJson((json['node'] ?? const {})['originalTotalPrice']),
+        PriceV2.fromJson((json['node'] ?? const {})['originalTotalPrice']),
         quantity: (json['node'] ?? const {})['quantity'],
         title: (json['node'] ?? const {})['title'],
-        variant: ProductVariantCheckout.fromJson(
-            (json['node'] ?? const {})['variant'] ?? const {}));
+        variant: (json['node'] ?? const {})['variant'] != null
+            ? ProductVariantCheckout.fromJson(
+            (json['node'] ?? const {})['variant'])
+            : null);
   }
 
   static _getDiscountAllocationsList(Map<String, dynamic> json) {
