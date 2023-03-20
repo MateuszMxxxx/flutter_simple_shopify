@@ -348,52 +348,61 @@ class ShopifyCheckout with ShopifyError {
   }
 
   Future<Checkout> createCheckout(List<LineItem> lineItems,
-      {Address? mailingAddress, bool deleteThisPartOfCache = false}) async {
+      {Address? mailingAddress, bool deleteThisPartOfCache = false,
+        required Map<String, dynamic> customAttributes}) async {
     final MutationOptions _options =
-        MutationOptions(document: gql(createCheckoutMutation), variables: {
+    MutationOptions(document: gql(createCheckoutMutation), variables: {
       'input': mailingAddress == null
           ? {
-              'lineItems': [
-                for (var lineItem in lineItems)
-                  {
-                    'variantId': lineItem.variantId,
-                    'quantity': lineItem.quantity,
-                    'customAttributes': lineItem.customAttributes
-                        .map((e) => {
-                              'key': e.key,
-                              'value': e.value,
-                            })
-                        .toList(),
-                  }
-              ],
+        'lineItems': [
+          for (var lineItem in lineItems)
+            {
+              'variantId': lineItem.variantId,
+              'quantity': lineItem.quantity,
+              'customAttributes': lineItem.customAttributes
+                  .map((e) => {
+                'key': e.key,
+                'value': e.value,
+              })
+                  .toList(),
             }
+        ],
+        'customAttributes': customAttributes.entries.map((e) => {
+          'key': e.key,
+          'value': e.value
+        }).toList()
+      }
           : {
-              'lineItems': [
-                for (var lineItem in lineItems)
-                  {
-                    'variantId': lineItem.variantId,
-                    'quantity': lineItem.quantity,
-                    'customAttributes': lineItem.customAttributes
-                        .map((e) => {
-                              'key': e.key,
-                              'value': e.value,
-                            })
-                        .toList(),
-                  }
-              ],
-              'shippingAddress': {
-                'address1': mailingAddress.address1,
-                'address2': mailingAddress.address2,
-                'city': mailingAddress.city,
-                'company': mailingAddress.company,
-                'country': mailingAddress.country,
-                'firstName': mailingAddress.firstName,
-                'lastName': mailingAddress.lastName,
-                'phone': mailingAddress.phone,
-                'province': mailingAddress.province,
-                'zip': mailingAddress.zip
-              }
+        'lineItems': [
+          for (var lineItem in lineItems)
+            {
+              'variantId': lineItem.variantId,
+              'quantity': lineItem.quantity,
+              'customAttributes': lineItem.customAttributes
+                  .map((e) => {
+                'key': e.key,
+                'value': e.value
+              })
+                  .toList(),
             }
+        ],
+        'shippingAddress': {
+          'address1': mailingAddress.address1,
+          'address2': mailingAddress.address2,
+          'city': mailingAddress.city,
+          'company': mailingAddress.company,
+          'country': mailingAddress.country,
+          'firstName': mailingAddress.firstName,
+          'lastName': mailingAddress.lastName,
+          'phone': mailingAddress.phone,
+          'province': mailingAddress.province,
+          'zip': mailingAddress.zip
+        },
+        'customAttributes': customAttributes.entries.map((e) => {
+          'key': e.key,
+          'value': e.value
+        }).toList()
+      }
     });
     final QueryResult result = await _graphQLClient!.mutate(_options);
     checkForError(
