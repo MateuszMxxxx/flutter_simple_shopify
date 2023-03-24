@@ -22,7 +22,7 @@ void main() {
   ShopifyConfig.setConfig(
       'de16cae1ce0b86260703fccaa6b689a3', // Storefront API access token.
       'exampleShopname.myshopify.com', // Store url.
-      '2020-04'); // The Shopify Storefront API version.
+      '2023-01'); // The Shopify Storefront API version.
   
   runApp(MyApp());
 }

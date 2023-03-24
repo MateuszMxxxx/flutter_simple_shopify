@@ -2,11 +2,13 @@ import 'package:flutter_simple_shopify/models/src/order/financial_status/financi
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'custom_attributes/custom_attributes.dart';
 import 'fulfillment_status/fulfillment_status.dart';
 import 'line_items_order/line_items_order.dart';
 import 'shipping_address/shipping_address.dart';
 
 part 'order.freezed.dart';
+
 part 'order.g.dart';
 
 @freezed
@@ -17,6 +19,7 @@ class Order with _$Order {
     required String id,
     required String email,
     required String currencyCode,
+    required CustomAttributes customAttributes,
     required String customerUrl,
     required LineItemsOrder lineItems,
     required String name,
@@ -40,6 +43,8 @@ class Order with _$Order {
         id: (json['node'] ?? const {})['id'],
         email: (json['node'] ?? const {})['email'],
         currencyCode: (json['node'] ?? const {})['currencyCode'],
+        customAttributes: CustomAttributes.fromJson(
+            {'attributes': (json['node'] ?? const [])['customAttributes']}),
         customerUrl: (json['node'] ?? const {})['customerUrl'],
         lineItems: LineItemsOrder.fromGraphJson(
             (json['node'] ?? const {})['lineItems'] ?? const {}),
@@ -61,8 +66,10 @@ class Order with _$Order {
         totalTaxV2: PriceV2.fromJson(
             (json['node'] ?? const {})['totalTaxV2'] ?? const {}),
         cursor: json['cursor'],
-        fulfillmentStatus: fulfillmentStatusFromString((json['node'] ?? const {})['fulfillmentStatus']),
-        financialStatus: financialStatusFromString((json['node'] ?? const {})['financialStatus']));
+        fulfillmentStatus: fulfillmentStatusFromString(
+            (json['node'] ?? const {})['fulfillmentStatus']),
+        financialStatus:
+            financialStatusFromString((json['node'] ?? const {})['financialStatus']));
   }
 
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);

@@ -10,6 +10,8 @@ _$_Order _$$_OrderFromJson(Map<String, dynamic> json) => _$_Order(
       id: json['id'] as String,
       email: json['email'] as String,
       currencyCode: json['currencyCode'] as String,
+      customAttributes: CustomAttributes.fromJson(
+          json['customAttributes'] as Map<String, dynamic>),
       customerUrl: json['customerUrl'] as String,
       lineItems:
           LineItemsOrder.fromJson(json['lineItems'] as Map<String, dynamic>),
@@ -41,6 +43,7 @@ Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
       'currencyCode': instance.currencyCode,
+      'customAttributes': instance.customAttributes,
       'customerUrl': instance.customerUrl,
       'lineItems': instance.lineItems,
       'name': instance.name,

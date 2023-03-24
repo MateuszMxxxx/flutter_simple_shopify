@@ -10,6 +10,10 @@ customer(customerAccessToken: $accessToken) {
           financialStatus
           currencyCode
           customerUrl
+          customAttributes() {
+            key
+            value
+          }
           lineItems(first: 250) {
             edges {
               node {

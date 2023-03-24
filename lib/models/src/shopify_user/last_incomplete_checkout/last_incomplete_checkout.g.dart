@@ -6,7 +6,8 @@ part of 'last_incomplete_checkout.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LastIncompleteCheckout _$$_LastIncompleteCheckoutFromJson(Map json) =>
+_$_LastIncompleteCheckout _$$_LastIncompleteCheckoutFromJson(
+        Map<String, dynamic> json) =>
     _$_LastIncompleteCheckout(
       completedAt: json['completedAt'] as String?,
       createdAt: json['createdAt'] as String?,
@@ -16,35 +17,24 @@ _$_LastIncompleteCheckout _$$_LastIncompleteCheckoutFromJson(Map json) =>
       webUrl: json['webUrl'] as String?,
       totalPriceV2: json['totalPriceV2'] == null
           ? null
-          : PriceV2.fromJson(
-              Map<String, dynamic>.from(json['totalPriceV2'] as Map)),
+          : PriceV2.fromJson(json['totalPriceV2'] as Map<String, dynamic>),
       lineItemsSubtotalPrice: json['lineItemsSubtotalPrice'] == null
           ? null
           : PriceV2.fromJson(
-              Map<String, dynamic>.from(json['lineItemsSubtotalPrice'] as Map)),
+              json['lineItemsSubtotalPrice'] as Map<String, dynamic>),
       lineItems: JsonHelper.lineItems(json['lineItems']),
     );
 
 Map<String, dynamic> _$$_LastIncompleteCheckoutToJson(
-    _$_LastIncompleteCheckout instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('completedAt', instance.completedAt);
-  writeNotNull('createdAt', instance.createdAt);
-  writeNotNull('email', instance.email);
-  writeNotNull('id', instance.id);
-  writeNotNull('currencyCode', instance.currencyCode);
-  writeNotNull('webUrl', instance.webUrl);
-  writeNotNull('totalPriceV2', instance.totalPriceV2?.toJson());
-  writeNotNull(
-      'lineItemsSubtotalPrice', instance.lineItemsSubtotalPrice?.toJson());
-  writeNotNull(
-      'lineItems', instance.lineItems?.map((e) => e.toJson()).toList());
-  return val;
-}
+        _$_LastIncompleteCheckout instance) =>
+    <String, dynamic>{
+      'completedAt': instance.completedAt,
+      'createdAt': instance.createdAt,
+      'email': instance.email,
+      'id': instance.id,
+      'currencyCode': instance.currencyCode,
+      'webUrl': instance.webUrl,
+      'totalPriceV2': instance.totalPriceV2,
+      'lineItemsSubtotalPrice': instance.lineItemsSubtotalPrice,
+      'lineItems': instance.lineItems,
+    };

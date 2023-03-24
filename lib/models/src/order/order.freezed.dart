@@ -26,6 +26,7 @@ class _$OrderTearOff {
       {required String id,
       required String email,
       required String currencyCode,
+      required CustomAttributes customAttributes,
       required String customerUrl,
       required LineItemsOrder lineItems,
       required String name,
@@ -46,6 +47,7 @@ class _$OrderTearOff {
       id: id,
       email: email,
       currencyCode: currencyCode,
+      customAttributes: customAttributes,
       customerUrl: customerUrl,
       lineItems: lineItems,
       name: name,
@@ -78,6 +80,7 @@ mixin _$Order {
   String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get currencyCode => throw _privateConstructorUsedError;
+  CustomAttributes get customAttributes => throw _privateConstructorUsedError;
   String get customerUrl => throw _privateConstructorUsedError;
   LineItemsOrder get lineItems => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -108,6 +111,7 @@ abstract class $OrderCopyWith<$Res> {
       {String id,
       String email,
       String currencyCode,
+      CustomAttributes customAttributes,
       String customerUrl,
       LineItemsOrder lineItems,
       String name,
@@ -125,6 +129,7 @@ abstract class $OrderCopyWith<$Res> {
       String? phone,
       String? cursor});
 
+  $CustomAttributesCopyWith<$Res> get customAttributes;
   $LineItemsOrderCopyWith<$Res> get lineItems;
   $ShippingAddressCopyWith<$Res> get shippingAddress;
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
@@ -147,6 +152,7 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
     Object? id = freezed,
     Object? email = freezed,
     Object? currencyCode = freezed,
+    Object? customAttributes = freezed,
     Object? customerUrl = freezed,
     Object? lineItems = freezed,
     Object? name = freezed,
@@ -177,6 +183,10 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
               as String,
+      customAttributes: customAttributes == freezed
+          ? _value.customAttributes
+          : customAttributes // ignore: cast_nullable_to_non_nullable
+              as CustomAttributes,
       customerUrl: customerUrl == freezed
           ? _value.customerUrl
           : customerUrl // ignore: cast_nullable_to_non_nullable
@@ -245,6 +255,13 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
   }
 
   @override
+  $CustomAttributesCopyWith<$Res> get customAttributes {
+    return $CustomAttributesCopyWith<$Res>(_value.customAttributes, (value) {
+      return _then(_value.copyWith(customAttributes: value));
+    });
+  }
+
+  @override
   $LineItemsOrderCopyWith<$Res> get lineItems {
     return $LineItemsOrderCopyWith<$Res>(_value.lineItems, (value) {
       return _then(_value.copyWith(lineItems: value));
@@ -307,6 +324,7 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
       {String id,
       String email,
       String currencyCode,
+      CustomAttributes customAttributes,
       String customerUrl,
       LineItemsOrder lineItems,
       String name,
@@ -324,6 +342,8 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
       String? phone,
       String? cursor});
 
+  @override
+  $CustomAttributesCopyWith<$Res> get customAttributes;
   @override
   $LineItemsOrderCopyWith<$Res> get lineItems;
   @override
@@ -354,6 +374,7 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
     Object? id = freezed,
     Object? email = freezed,
     Object? currencyCode = freezed,
+    Object? customAttributes = freezed,
     Object? customerUrl = freezed,
     Object? lineItems = freezed,
     Object? name = freezed,
@@ -384,6 +405,10 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
               as String,
+      customAttributes: customAttributes == freezed
+          ? _value.customAttributes
+          : customAttributes // ignore: cast_nullable_to_non_nullable
+              as CustomAttributes,
       customerUrl: customerUrl == freezed
           ? _value.customerUrl
           : customerUrl // ignore: cast_nullable_to_non_nullable
@@ -459,6 +484,7 @@ class _$_Order extends _Order {
       {required this.id,
       required this.email,
       required this.currencyCode,
+      required this.customAttributes,
       required this.customerUrl,
       required this.lineItems,
       required this.name,
@@ -486,6 +512,8 @@ class _$_Order extends _Order {
   final String email;
   @override
   final String currencyCode;
+  @override
+  final CustomAttributes customAttributes;
   @override
   final String customerUrl;
   @override
@@ -521,7 +549,7 @@ class _$_Order extends _Order {
 
   @override
   String toString() {
-    return 'Order(id: $id, email: $email, currencyCode: $currencyCode, customerUrl: $customerUrl, lineItems: $lineItems, name: $name, orderNumber: $orderNumber, processedAt: $processedAt, shippingAddress: $shippingAddress, statusUrl: $statusUrl, subtotalPriceV2: $subtotalPriceV2, totalPriceV2: $totalPriceV2, totalShippingPriceV2: $totalShippingPriceV2, totalTaxV2: $totalTaxV2, fulfillmentStatus: $fulfillmentStatus, financialStatus: $financialStatus, totalRefundedV2: $totalRefundedV2, phone: $phone, cursor: $cursor)';
+    return 'Order(id: $id, email: $email, currencyCode: $currencyCode, customAttributes: $customAttributes, customerUrl: $customerUrl, lineItems: $lineItems, name: $name, orderNumber: $orderNumber, processedAt: $processedAt, shippingAddress: $shippingAddress, statusUrl: $statusUrl, subtotalPriceV2: $subtotalPriceV2, totalPriceV2: $totalPriceV2, totalShippingPriceV2: $totalShippingPriceV2, totalTaxV2: $totalTaxV2, fulfillmentStatus: $fulfillmentStatus, financialStatus: $financialStatus, totalRefundedV2: $totalRefundedV2, phone: $phone, cursor: $cursor)';
   }
 
   @override
@@ -533,6 +561,8 @@ class _$_Order extends _Order {
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality()
                 .equals(other.currencyCode, currencyCode) &&
+            const DeepCollectionEquality()
+                .equals(other.customAttributes, customAttributes) &&
             const DeepCollectionEquality()
                 .equals(other.customerUrl, customerUrl) &&
             const DeepCollectionEquality().equals(other.lineItems, lineItems) &&
@@ -568,6 +598,7 @@ class _$_Order extends _Order {
         const DeepCollectionEquality().hash(id),
         const DeepCollectionEquality().hash(email),
         const DeepCollectionEquality().hash(currencyCode),
+        const DeepCollectionEquality().hash(customAttributes),
         const DeepCollectionEquality().hash(customerUrl),
         const DeepCollectionEquality().hash(lineItems),
         const DeepCollectionEquality().hash(name),
@@ -602,6 +633,7 @@ abstract class _Order extends Order {
       {required String id,
       required String email,
       required String currencyCode,
+      required CustomAttributes customAttributes,
       required String customerUrl,
       required LineItemsOrder lineItems,
       required String name,
@@ -628,6 +660,8 @@ abstract class _Order extends Order {
   String get email;
   @override
   String get currencyCode;
+  @override
+  CustomAttributes get customAttributes;
   @override
   String get customerUrl;
   @override

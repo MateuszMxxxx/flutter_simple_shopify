@@ -6,15 +6,16 @@ part of 'collections.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Collections _$$_CollectionsFromJson(Map json) => _$_Collections(
+_$_Collections _$$_CollectionsFromJson(Map<String, dynamic> json) =>
+    _$_Collections(
       collectionList: (json['collectionList'] as List<dynamic>)
-          .map((e) => Collection.fromJson(Map<String, dynamic>.from(e as Map)))
+          .map((e) => Collection.fromJson(e as Map<String, dynamic>))
           .toList(),
       hasNextPage: json['hasNextPage'] as bool,
     );
 
 Map<String, dynamic> _$$_CollectionsToJson(_$_Collections instance) =>
     <String, dynamic>{
-      'collectionList': instance.collectionList.map((e) => e.toJson()).toList(),
+      'collectionList': instance.collectionList,
       'hasNextPage': instance.hasNextPage,
     };
