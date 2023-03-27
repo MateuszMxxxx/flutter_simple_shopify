@@ -56,7 +56,7 @@ Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
       'totalShippingPriceV2': instance.totalShippingPriceV2,
       'totalTaxV2': instance.totalTaxV2,
       'fulfillmentStatus':
-          _$FulfillmentStatusEnumMap[instance.fulfillmentStatus],
+          _$FulfillmentStatusEnumMap[instance.fulfillmentStatus]!,
       'financialStatus': _$FinancialStatusEnumMap[instance.financialStatus],
       'totalRefundedV2': instance.totalRefundedV2,
       'phone': instance.phone,

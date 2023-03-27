@@ -72,7 +72,7 @@ mutation checkoutLineItemsRemove($lineItemIds: [ID!]!, $checkoutId: ID!) {
               title
               image {
                 altText
-                originalSrc
+                url
                 id
               }
               compareAtPriceV2 {

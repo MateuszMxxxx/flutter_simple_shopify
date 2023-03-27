@@ -81,7 +81,7 @@ mutation checkoutCreate($input: CheckoutCreateInput!) {
               title
               image {
                 altText
-                originalSrc
+                url
                 id
               }
               compareAtPriceV2 {

@@ -23,9 +23,9 @@ class _$ShopifyImageTearOff {
   const _$ShopifyImageTearOff();
 
   _ShopifyImage call(
-      {required String originalSrc, required String id, String? altText}) {
+      {required String url, required String id, String? altText}) {
     return _ShopifyImage(
-      originalSrc: originalSrc,
+      url: url,
       id: id,
       altText: altText,
     );
@@ -41,7 +41,7 @@ const $ShopifyImage = _$ShopifyImageTearOff();
 
 /// @nodoc
 mixin _$ShopifyImage {
-  String get originalSrc => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String? get altText => throw _privateConstructorUsedError;
 
@@ -56,7 +56,7 @@ abstract class $ShopifyImageCopyWith<$Res> {
   factory $ShopifyImageCopyWith(
           ShopifyImage value, $Res Function(ShopifyImage) then) =
       _$ShopifyImageCopyWithImpl<$Res>;
-  $Res call({String originalSrc, String id, String? altText});
+  $Res call({String url, String id, String? altText});
 }
 
 /// @nodoc
@@ -69,14 +69,14 @@ class _$ShopifyImageCopyWithImpl<$Res> implements $ShopifyImageCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? originalSrc = freezed,
+    Object? url = freezed,
     Object? id = freezed,
     Object? altText = freezed,
   }) {
     return _then(_value.copyWith(
-      originalSrc: originalSrc == freezed
-          ? _value.originalSrc
-          : originalSrc // ignore: cast_nullable_to_non_nullable
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       id: id == freezed
           ? _value.id
@@ -97,7 +97,7 @@ abstract class _$ShopifyImageCopyWith<$Res>
           _ShopifyImage value, $Res Function(_ShopifyImage) then) =
       __$ShopifyImageCopyWithImpl<$Res>;
   @override
-  $Res call({String originalSrc, String id, String? altText});
+  $Res call({String url, String id, String? altText});
 }
 
 /// @nodoc
@@ -112,14 +112,14 @@ class __$ShopifyImageCopyWithImpl<$Res> extends _$ShopifyImageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? originalSrc = freezed,
+    Object? url = freezed,
     Object? id = freezed,
     Object? altText = freezed,
   }) {
     return _then(_ShopifyImage(
-      originalSrc: originalSrc == freezed
-          ? _value.originalSrc
-          : originalSrc // ignore: cast_nullable_to_non_nullable
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       id: id == freezed
           ? _value.id
@@ -136,14 +136,14 @@ class __$ShopifyImageCopyWithImpl<$Res> extends _$ShopifyImageCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ShopifyImage extends _ShopifyImage {
-  _$_ShopifyImage({required this.originalSrc, required this.id, this.altText})
+  _$_ShopifyImage({required this.url, required this.id, this.altText})
       : super._();
 
   factory _$_ShopifyImage.fromJson(Map<String, dynamic> json) =>
       _$$_ShopifyImageFromJson(json);
 
   @override
-  final String originalSrc;
+  final String url;
   @override
   final String id;
   @override
@@ -151,7 +151,7 @@ class _$_ShopifyImage extends _ShopifyImage {
 
   @override
   String toString() {
-    return 'ShopifyImage(originalSrc: $originalSrc, id: $id, altText: $altText)';
+    return 'ShopifyImage(url: $url, id: $id, altText: $altText)';
   }
 
   @override
@@ -159,8 +159,7 @@ class _$_ShopifyImage extends _ShopifyImage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ShopifyImage &&
-            const DeepCollectionEquality()
-                .equals(other.originalSrc, originalSrc) &&
+            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.altText, altText));
   }
@@ -168,7 +167,7 @@ class _$_ShopifyImage extends _ShopifyImage {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(originalSrc),
+      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(altText));
 
@@ -185,7 +184,7 @@ class _$_ShopifyImage extends _ShopifyImage {
 
 abstract class _ShopifyImage extends ShopifyImage {
   factory _ShopifyImage(
-      {required String originalSrc,
+      {required String url,
       required String id,
       String? altText}) = _$_ShopifyImage;
   _ShopifyImage._() : super._();
@@ -194,7 +193,7 @@ abstract class _ShopifyImage extends ShopifyImage {
       _$_ShopifyImage.fromJson;
 
   @override
-  String get originalSrc;
+  String get url;
   @override
   String get id;
   @override

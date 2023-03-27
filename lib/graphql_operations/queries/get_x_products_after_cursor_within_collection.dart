@@ -10,7 +10,7 @@ query($id : ID!, $cursor : String, $limit : Int){
     image {
       altText
       id
-      originalSrc
+      url
     }
     products(first: $limit, after: $cursor) {
       edges {
@@ -44,7 +44,7 @@ query($id : ID!, $cursor : String, $limit : Int){
               node {
                 altText
                 id
-                originalSrc
+                url
               }
             }
           }
@@ -62,7 +62,7 @@ query($id : ID!, $cursor : String, $limit : Int){
                 image {
                   altText
                   id
-                  originalSrc
+                  url
                 }
                 priceV2 {
                   amount

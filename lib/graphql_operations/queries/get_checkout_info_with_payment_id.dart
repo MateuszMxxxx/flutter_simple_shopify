@@ -84,7 +84,7 @@ query($id: ID!){
               title
               image {
                 altText
-                originalSrc
+                url
                 id
               }
               compareAtPriceV2 {

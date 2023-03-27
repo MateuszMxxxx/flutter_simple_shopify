@@ -86,7 +86,7 @@ query($customerAccessToken : String!){
                 image {
                   altText
                   id
-                  originalSrc
+                  url
                 }
                 compareAtPriceV2 {
                   amount

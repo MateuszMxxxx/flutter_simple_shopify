@@ -85,7 +85,7 @@ mutation MyMutation($firstName: String, $lastName: String, $email: String!, $pas
                 image {
                   altText
                   id
-                  originalSrc
+                  url
                 }
                 compareAtPriceV2 {
                   amount

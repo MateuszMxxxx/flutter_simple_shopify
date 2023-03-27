@@ -8,7 +8,7 @@ class ShopifyImage with _$ShopifyImage {
   const ShopifyImage._();
 
   factory ShopifyImage({
-    required String originalSrc,
+    required String url,
     required String id,
     String? altText,
   }) = _ShopifyImage;

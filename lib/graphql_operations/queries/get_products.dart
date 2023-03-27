@@ -32,7 +32,7 @@ query($cursor : String, $metafieldsNamespace : String){
               image {
                 altText
                 id
-                originalSrc
+                url
               }
               priceV2 {
                 amount
@@ -87,7 +87,7 @@ query($cursor : String, $metafieldsNamespace : String){
             node {
               altText
               id
-              originalSrc
+              url
             }
           }
         }

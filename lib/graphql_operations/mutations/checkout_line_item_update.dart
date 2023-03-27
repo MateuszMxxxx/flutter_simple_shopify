@@ -72,7 +72,7 @@ mutation checkoutLineItemsUpdate($lineItems: [CheckoutLineItemUpdateInput!]!, $c
               title
               image {
                 altText
-                originalSrc
+                url
                 id
               }
               compareAtPriceV2 {

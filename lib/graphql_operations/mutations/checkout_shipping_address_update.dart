@@ -72,7 +72,7 @@ mutation checkoutShippingAddressUpdate($checkoutId : ID!, $address1 : String, $a
               title
               image {
                 altText
-                originalSrc
+                url
                 id
               }
               compareAtPriceV2 {
