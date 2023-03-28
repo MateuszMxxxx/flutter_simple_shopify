@@ -13,10 +13,15 @@ query getProductByHandle($handle : String!){
     variants(first: 250) {
       edges {
         node {
+          price {
+            amount
+            currencyCode
+          }
           priceV2 {
             amount
             currencyCode
           }
+          currentlyNotInStock
           quantityAvailable
         }
       }

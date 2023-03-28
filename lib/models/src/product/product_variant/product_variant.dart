@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/src/product/price/price.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:flutter_simple_shopify/models/src/product/selected_option/selected_option.dart';
 import 'package:flutter_simple_shopify/models/src/product/shopify_image/shopify_image.dart';
@@ -10,8 +11,10 @@ part 'product_variant.g.dart';
 @freezed
 class ProductVariant with _$ProductVariant {
   const ProductVariant._();
+
   factory ProductVariant({
-    required PriceV2 price,
+    required PriceV2 priceV2,
+    required Price price,
     required String title,
     required double weight,
     required String weightUnit,
@@ -19,11 +22,13 @@ class ProductVariant with _$ProductVariant {
     required String sku,
     required bool requiresShipping,
     required String id,
-    //required int quantityAvailable,
+    required bool currentlyNotInStock,
+    int? quantityAvailable,
     PriceV2? unitPrice,
     UnitPriceMeasurement? unitPriceMeasurement,
     List<SelectedOption>? selectedOptions,
-    PriceV2? compareAtPrice,
+    PriceV2? compareAtPriceV2,
+    Price? compareAtPrice,
     ShopifyImage? image,
   }) = _ProductVariant;
 
@@ -31,13 +36,17 @@ class ProductVariant with _$ProductVariant {
     Map<String, dynamic> nodeJson = json['node'] ?? const {};
 
     return ProductVariant(
-      price: PriceV2.fromJson(nodeJson['priceV2']),
+      priceV2: PriceV2.fromJson(nodeJson['priceV2']),
+      price: Price.fromJson(nodeJson['price']),
       title: nodeJson['title'],
       image: nodeJson['image'] != null
           ? ShopifyImage.fromJson(nodeJson['image'])
           : null,
-      compareAtPrice: nodeJson['compareAtPriceV2'] != null
+      compareAtPriceV2: nodeJson['compareAtPriceV2'] != null
           ? PriceV2.fromJson(nodeJson['compareAtPriceV2'])
+          : null,
+      compareAtPrice: nodeJson['compareAtPrice'] != null
+          ? Price.fromJson(nodeJson['compareAtPrice'])
           : null,
       weight: nodeJson['weight'],
       weightUnit: nodeJson['weightUnit'],
@@ -45,7 +54,8 @@ class ProductVariant with _$ProductVariant {
       sku: nodeJson['sku'] ?? "",
       requiresShipping: nodeJson['requiresShipping'],
       id: nodeJson['id'],
-      //quantityAvailable: nodeJson['quantityAvailable'],
+      currentlyNotInStock: nodeJson['currentlyNotInStock'],
+      quantityAvailable: nodeJson['quantityAvailable'],
       unitPrice: nodeJson['unitPrice'] != null
           ? PriceV2.fromJson(nodeJson['unitPrice'])
           : null,

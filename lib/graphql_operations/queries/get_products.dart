@@ -34,6 +34,14 @@ query($cursor : String, $metafieldsNamespace : String){
                 id
                 url
               }
+              price {
+                amount
+                currencyCode
+              }
+              compareAtPrice {
+                amount
+                currencyCode
+              }
               priceV2 {
                 amount
                 currencyCode
@@ -45,6 +53,8 @@ query($cursor : String, $metafieldsNamespace : String){
               weight
               weightUnit
               availableForSale
+              currentlyNotInStock
+              quantityAvailable
               sku
               requiresShipping
               selectedOptions {
@@ -80,6 +90,7 @@ query($cursor : String, $metafieldsNamespace : String){
         publishedAt
         tags
         title
+        totalInventory
         updatedAt
         vendor
         images(first: 250) {

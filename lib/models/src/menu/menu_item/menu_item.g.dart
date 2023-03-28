@@ -24,7 +24,7 @@ Map<String, dynamic> _$$_MenuItemToJson(_$_MenuItem instance) =>
       'title': instance.title,
       'url': instance.url,
       'tags': instance.tags,
-      'type': _$MenuItemTypeEnumMap[instance.type]!,
+      'type': _$MenuItemTypeEnumMap[instance.type],
       'items': instance.items,
       'resourceId': instance.resourceId,
     };

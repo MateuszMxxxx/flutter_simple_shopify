@@ -38,6 +38,10 @@ query($ids : [ID!]!){
       variants(first: 250) {
         edges {
           node {
+            price {
+              amount
+              currencyCode
+            }
             priceV2 {
               amount
               currencyCode
@@ -48,10 +52,15 @@ query($ids : [ID!]!){
               url
               id
             }
+            compareAtPrice {
+              amount
+              currencyCode
+            }
             compareAtPriceV2 {
               amount
               currencyCode
             }
+            currentlyNotInStock
             weightUnit
             weight
             availableForSale
@@ -70,6 +79,7 @@ query($ids : [ID!]!){
       productType
       publishedAt
       tags
+      totalInventory
       updatedAt
       vendor
     }

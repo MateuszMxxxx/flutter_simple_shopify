@@ -54,6 +54,7 @@ query($id : ID!, $cursor : String, $limit : Int){
           tags
           title
           updatedAt
+          totalInventory
           vendor
           variants(first: 25) {
             edges {
@@ -64,7 +65,15 @@ query($id : ID!, $cursor : String, $limit : Int){
                   id
                   url
                 }
+                price {
+                  amount
+                  currencyCode
+                }
                 priceV2 {
+                  amount
+                  currencyCode
+                }
+                compareAtPrice {
                   amount
                   currencyCode
                 }
@@ -81,6 +90,7 @@ query($id : ID!, $cursor : String, $limit : Int){
                   value
                 }
                 availableForSale
+                currentlyNotInStock
                 id
                 quantityAvailable
               }

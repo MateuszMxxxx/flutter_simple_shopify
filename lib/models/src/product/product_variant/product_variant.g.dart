@@ -8,7 +8,8 @@ part of 'product_variant.dart';
 
 _$_ProductVariant _$$_ProductVariantFromJson(Map<String, dynamic> json) =>
     _$_ProductVariant(
-      price: PriceV2.fromJson(json['price'] as Map<String, dynamic>),
+      priceV2: PriceV2.fromJson(json['priceV2'] as Map<String, dynamic>),
+      price: Price.fromJson(json['price'] as Map<String, dynamic>),
       title: json['title'] as String,
       weight: (json['weight'] as num).toDouble(),
       weightUnit: json['weightUnit'] as String,
@@ -16,6 +17,8 @@ _$_ProductVariant _$$_ProductVariantFromJson(Map<String, dynamic> json) =>
       sku: json['sku'] as String,
       requiresShipping: json['requiresShipping'] as bool,
       id: json['id'] as String,
+      currentlyNotInStock: json['currentlyNotInStock'] as bool,
+      quantityAvailable: json['quantityAvailable'] as int?,
       unitPrice: json['unitPrice'] == null
           ? null
           : PriceV2.fromJson(json['unitPrice'] as Map<String, dynamic>),
@@ -26,9 +29,12 @@ _$_ProductVariant _$$_ProductVariantFromJson(Map<String, dynamic> json) =>
       selectedOptions: (json['selectedOptions'] as List<dynamic>?)
           ?.map((e) => SelectedOption.fromJson(e as Map<String, dynamic>))
           .toList(),
+      compareAtPriceV2: json['compareAtPriceV2'] == null
+          ? null
+          : PriceV2.fromJson(json['compareAtPriceV2'] as Map<String, dynamic>),
       compareAtPrice: json['compareAtPrice'] == null
           ? null
-          : PriceV2.fromJson(json['compareAtPrice'] as Map<String, dynamic>),
+          : Price.fromJson(json['compareAtPrice'] as Map<String, dynamic>),
       image: json['image'] == null
           ? null
           : ShopifyImage.fromJson(json['image'] as Map<String, dynamic>),
@@ -36,6 +42,7 @@ _$_ProductVariant _$$_ProductVariantFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_ProductVariantToJson(_$_ProductVariant instance) =>
     <String, dynamic>{
+      'priceV2': instance.priceV2,
       'price': instance.price,
       'title': instance.title,
       'weight': instance.weight,
@@ -44,9 +51,12 @@ Map<String, dynamic> _$$_ProductVariantToJson(_$_ProductVariant instance) =>
       'sku': instance.sku,
       'requiresShipping': instance.requiresShipping,
       'id': instance.id,
+      'currentlyNotInStock': instance.currentlyNotInStock,
+      'quantityAvailable': instance.quantityAvailable,
       'unitPrice': instance.unitPrice,
       'unitPriceMeasurement': instance.unitPriceMeasurement,
       'selectedOptions': instance.selectedOptions,
+      'compareAtPriceV2': instance.compareAtPriceV2,
       'compareAtPrice': instance.compareAtPrice,
       'image': instance.image,
     };

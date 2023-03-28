@@ -20,6 +20,7 @@ query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String
         tags
         title
         updatedAt
+        totalInventory
         vendor
         images(first: 250) {
           edges {
@@ -39,7 +40,15 @@ query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String
                 id
                 url
               }
+              price {
+                amount
+                currencyCode
+              }
               priceV2 {
+                amount
+                currencyCode
+              }
+              compareAtPrice {
                 amount
                 currencyCode
               }
@@ -57,6 +66,7 @@ query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String
                 value
               }
               id
+              currentlyNotInStock
               quantityAvailable
             }
           }

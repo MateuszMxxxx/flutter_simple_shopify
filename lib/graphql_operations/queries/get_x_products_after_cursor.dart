@@ -22,7 +22,15 @@ query($cursor : String, $x : Int, $reverse: Boolean, $sortKey: ProductSortKeys){
                 id
                 url
               }
+              price {
+                amount
+                currencyCode
+              }
               priceV2 {
+                amount
+                currencyCode
+              }
+              compareAtPrice {
                 amount
                 currencyCode
               }
@@ -30,6 +38,8 @@ query($cursor : String, $x : Int, $reverse: Boolean, $sortKey: ProductSortKeys){
                 amount
                 currencyCode
               }
+              currentlyNotInStock
+              quantityAvailable
               weight
               weightUnit
               availableForSale
@@ -70,6 +80,7 @@ query($cursor : String, $x : Int, $reverse: Boolean, $sortKey: ProductSortKeys){
         tags
         title
         updatedAt
+        totalInventory
         vendor
         images(first: 250) {
           edges {

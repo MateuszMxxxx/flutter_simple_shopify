@@ -36,6 +36,7 @@ class _$ProductTearOff {
       required List<Option> option,
       required String vendor,
       required List<Metafield> metafields,
+      int? totalInventory,
       List<AssociatedCollections>? collectionList,
       String? cursor,
       String? onlineStoreUrl,
@@ -56,6 +57,7 @@ class _$ProductTearOff {
       option: option,
       vendor: vendor,
       metafields: metafields,
+      totalInventory: totalInventory,
       collectionList: collectionList,
       cursor: cursor,
       onlineStoreUrl: onlineStoreUrl,
@@ -81,20 +83,36 @@ mixin _$Product {
   String get createdAt => throw _privateConstructorUsedError;
   List<ProductVariant> get productVariants =>
       throw _privateConstructorUsedError;
+
   String get productType => throw _privateConstructorUsedError;
+
   String get publishedAt => throw _privateConstructorUsedError;
+
   List<String> get tags => throw _privateConstructorUsedError;
+
   String get updatedAt => throw _privateConstructorUsedError;
+
   List<ShopifyImage> get images => throw _privateConstructorUsedError;
+
   List<Option> get option => throw _privateConstructorUsedError;
+
   String get vendor => throw _privateConstructorUsedError;
+
   List<Metafield> get metafields => throw _privateConstructorUsedError;
+
+  int? get totalInventory => throw _privateConstructorUsedError;
+
   List<AssociatedCollections>? get collectionList =>
       throw _privateConstructorUsedError;
+
   String? get cursor => throw _privateConstructorUsedError;
+
   String? get onlineStoreUrl => throw _privateConstructorUsedError;
+
   String? get description => throw _privateConstructorUsedError;
+
   String? get descriptionHtml => throw _privateConstructorUsedError;
+
   String? get handle => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -120,6 +138,7 @@ abstract class $ProductCopyWith<$Res> {
       List<Option> option,
       String vendor,
       List<Metafield> metafields,
+      int? totalInventory,
       List<AssociatedCollections>? collectionList,
       String? cursor,
       String? onlineStoreUrl,
@@ -151,6 +170,7 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
     Object? option = freezed,
     Object? vendor = freezed,
     Object? metafields = freezed,
+    Object? totalInventory = freezed,
     Object? collectionList = freezed,
     Object? cursor = freezed,
     Object? onlineStoreUrl = freezed,
@@ -211,6 +231,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.metafields
           : metafields // ignore: cast_nullable_to_non_nullable
               as List<Metafield>,
+      totalInventory: totalInventory == freezed
+          ? _value.totalInventory
+          : totalInventory // ignore: cast_nullable_to_non_nullable
+              as int?,
       collectionList: collectionList == freezed
           ? _value.collectionList
           : collectionList // ignore: cast_nullable_to_non_nullable
@@ -258,6 +282,7 @@ abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       List<Option> option,
       String vendor,
       List<Metafield> metafields,
+      int? totalInventory,
       List<AssociatedCollections>? collectionList,
       String? cursor,
       String? onlineStoreUrl,
@@ -290,6 +315,7 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? option = freezed,
     Object? vendor = freezed,
     Object? metafields = freezed,
+    Object? totalInventory = freezed,
     Object? collectionList = freezed,
     Object? cursor = freezed,
     Object? onlineStoreUrl = freezed,
@@ -350,6 +376,10 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.metafields
           : metafields // ignore: cast_nullable_to_non_nullable
               as List<Metafield>,
+      totalInventory: totalInventory == freezed
+          ? _value.totalInventory
+          : totalInventory // ignore: cast_nullable_to_non_nullable
+              as int?,
       collectionList: collectionList == freezed
           ? _value.collectionList
           : collectionList // ignore: cast_nullable_to_non_nullable
@@ -395,6 +425,7 @@ class _$_Product extends _Product {
       required this.option,
       required this.vendor,
       required this.metafields,
+      this.totalInventory,
       this.collectionList,
       this.cursor,
       this.onlineStoreUrl,
@@ -433,6 +464,8 @@ class _$_Product extends _Product {
   @override
   final List<Metafield> metafields;
   @override
+  final int? totalInventory;
+  @override
   final List<AssociatedCollections>? collectionList;
   @override
   final String? cursor;
@@ -447,7 +480,7 @@ class _$_Product extends _Product {
 
   @override
   String toString() {
-    return 'Product(title: $title, id: $id, availableForSale: $availableForSale, createdAt: $createdAt, productVariants: $productVariants, productType: $productType, publishedAt: $publishedAt, tags: $tags, updatedAt: $updatedAt, images: $images, option: $option, vendor: $vendor, metafields: $metafields, collectionList: $collectionList, cursor: $cursor, onlineStoreUrl: $onlineStoreUrl, description: $description, descriptionHtml: $descriptionHtml, handle: $handle)';
+    return 'Product(title: $title, id: $id, availableForSale: $availableForSale, createdAt: $createdAt, productVariants: $productVariants, productType: $productType, publishedAt: $publishedAt, tags: $tags, updatedAt: $updatedAt, images: $images, option: $option, vendor: $vendor, metafields: $metafields, totalInventory: $totalInventory, collectionList: $collectionList, cursor: $cursor, onlineStoreUrl: $onlineStoreUrl, description: $description, descriptionHtml: $descriptionHtml, handle: $handle)';
   }
 
   @override
@@ -473,6 +506,8 @@ class _$_Product extends _Product {
             const DeepCollectionEquality().equals(other.vendor, vendor) &&
             const DeepCollectionEquality()
                 .equals(other.metafields, metafields) &&
+            const DeepCollectionEquality()
+                .equals(other.totalInventory, totalInventory) &&
             const DeepCollectionEquality()
                 .equals(other.collectionList, collectionList) &&
             const DeepCollectionEquality().equals(other.cursor, cursor) &&
@@ -501,6 +536,7 @@ class _$_Product extends _Product {
         const DeepCollectionEquality().hash(option),
         const DeepCollectionEquality().hash(vendor),
         const DeepCollectionEquality().hash(metafields),
+        const DeepCollectionEquality().hash(totalInventory),
         const DeepCollectionEquality().hash(collectionList),
         const DeepCollectionEquality().hash(cursor),
         const DeepCollectionEquality().hash(onlineStoreUrl),
@@ -535,6 +571,7 @@ abstract class _Product extends Product {
       required List<Option> option,
       required String vendor,
       required List<Metafield> metafields,
+      int? totalInventory,
       List<AssociatedCollections>? collectionList,
       String? cursor,
       String? onlineStoreUrl,
@@ -561,24 +598,37 @@ abstract class _Product extends Product {
   String get publishedAt;
   @override
   List<String> get tags;
+
   @override
   String get updatedAt;
+
   @override
   List<ShopifyImage> get images;
+
   @override
   List<Option> get option;
+
   @override
   String get vendor;
+
   @override
   List<Metafield> get metafields;
+
+  @override
+  int? get totalInventory;
+
   @override
   List<AssociatedCollections>? get collectionList;
+
   @override
   String? get cursor;
+
   @override
   String? get onlineStoreUrl;
+
   @override
   String? get description;
+
   @override
   String? get descriptionHtml;
   @override

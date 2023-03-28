@@ -28,6 +28,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       metafields: (json['metafields'] as List<dynamic>)
           .map((e) => Metafield.fromJson(e as Map<String, dynamic>))
           .toList(),
+      totalInventory: json['totalInventory'] as int?,
       collectionList: (json['collectionList'] as List<dynamic>?)
           ?.map(
               (e) => AssociatedCollections.fromJson(e as Map<String, dynamic>))
@@ -54,6 +55,7 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'option': instance.option,
       'vendor': instance.vendor,
       'metafields': instance.metafields,
+      'totalInventory': instance.totalInventory,
       'collectionList': instance.collectionList,
       'cursor': instance.cursor,
       'onlineStoreUrl': instance.onlineStoreUrl,
