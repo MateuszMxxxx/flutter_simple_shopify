@@ -349,7 +349,7 @@ class ShopifyCheckout with ShopifyError {
 
   Future<Checkout> createCheckout(List<LineItem> lineItems,
       {Address? mailingAddress, bool deleteThisPartOfCache = false,
-        required Map<String, dynamic> customAttributes}) async {
+        required Map<String, dynamic> customAttributes, String? notes}) async {
     final MutationOptions _options =
     MutationOptions(document: gql(createCheckoutMutation), variables: {
       'input': mailingAddress == null
@@ -401,7 +401,8 @@ class ShopifyCheckout with ShopifyError {
         'customAttributes': customAttributes.entries.map((e) => {
           'key': e.key,
           'value': e.value
-        }).toList()
+        }).toList(),
+        'note': notes
       }
     });
     final QueryResult result = await _graphQLClient!.mutate(_options);
