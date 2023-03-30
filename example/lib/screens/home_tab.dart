@@ -64,12 +64,12 @@ class _HomeTabState extends State<HomeTab> {
         alignment: Alignment.bottomCenter,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: product?.images?.first?.originalSrc != null
+        decoration: product?.images?.first?.url != null
             ? BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                      product.images.first.originalSrc,
+                      product.images.first.url,
                     )))
             : const BoxDecoration(),
         child: Container(

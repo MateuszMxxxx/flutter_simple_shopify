@@ -396,10 +396,10 @@ class ShopifyStore with ShopifyError {
   Future<List<Product>?> getXProductsAfterCursorWithinCollection(String id,
       int limit,
       {String? startCursor = null,
-        SortKeyCollection sortKey = SortKeyCollection.ID,
-        bool deleteThisPartOfCache = false,
-        bool reverse = false, FetchPolicy fetchPolicy = FetchPolicy
-          .networkOnly}) async {
+      SortKeyProductCollection sortKeyProducts = SortKeyProductCollection.ID,
+      bool deleteThisPartOfCache = false,
+      bool reverse = false,
+      FetchPolicy fetchPolicy = FetchPolicy.networkOnly}) async {
     String? cursor = startCursor;
     final WatchQueryOptions _options = WatchQueryOptions(
         fetchPolicy: fetchPolicy,
@@ -407,7 +407,9 @@ class ShopifyStore with ShopifyError {
         variables: {
           'id': id,
           'limit': limit,
-          'cursor': cursor
+          'cursor': cursor,
+          'sortKeyProducts': sortKeyProducts.parseToString(),
+          'reverse': reverse
         });
     final QueryResult result = await _graphQLClient!.query(_options);
     checkForError(result);

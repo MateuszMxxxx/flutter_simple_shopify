@@ -72,43 +72,26 @@ const $ProductVariant = _$ProductVariantTearOff();
 /// @nodoc
 mixin _$ProductVariant {
   PriceV2 get priceV2 => throw _privateConstructorUsedError;
-
   Price get price => throw _privateConstructorUsedError;
-
   String get title => throw _privateConstructorUsedError;
-
   double get weight => throw _privateConstructorUsedError;
-
   String get weightUnit => throw _privateConstructorUsedError;
-
   bool get availableForSale => throw _privateConstructorUsedError;
-
   String get sku => throw _privateConstructorUsedError;
-
   bool get requiresShipping => throw _privateConstructorUsedError;
-
   String get id => throw _privateConstructorUsedError;
-
   bool get currentlyNotInStock => throw _privateConstructorUsedError;
-
   int? get quantityAvailable => throw _privateConstructorUsedError;
-
   PriceV2? get unitPrice => throw _privateConstructorUsedError;
-
   UnitPriceMeasurement? get unitPriceMeasurement =>
       throw _privateConstructorUsedError;
-
   List<SelectedOption>? get selectedOptions =>
       throw _privateConstructorUsedError;
-
   PriceV2? get compareAtPriceV2 => throw _privateConstructorUsedError;
-
   Price? get compareAtPrice => throw _privateConstructorUsedError;
-
   ShopifyImage? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $ProductVariantCopyWith<ProductVariant> get copyWith =>
       throw _privateConstructorUsedError;
@@ -139,17 +122,11 @@ abstract class $ProductVariantCopyWith<$Res> {
       ShopifyImage? image});
 
   $PriceV2CopyWith<$Res> get priceV2;
-
   $PriceCopyWith<$Res> get price;
-
   $PriceV2CopyWith<$Res>? get unitPrice;
-
   $UnitPriceMeasurementCopyWith<$Res>? get unitPriceMeasurement;
-
   $PriceV2CopyWith<$Res>? get compareAtPriceV2;
-
   $PriceCopyWith<$Res>? get compareAtPrice;
-
   $ShopifyImageCopyWith<$Res>? get image;
 }
 
@@ -353,22 +330,16 @@ abstract class _$ProductVariantCopyWith<$Res>
 
   @override
   $PriceV2CopyWith<$Res> get priceV2;
-
   @override
   $PriceCopyWith<$Res> get price;
-
   @override
   $PriceV2CopyWith<$Res>? get unitPrice;
-
   @override
   $UnitPriceMeasurementCopyWith<$Res>? get unitPriceMeasurement;
-
   @override
   $PriceV2CopyWith<$Res>? get compareAtPriceV2;
-
   @override
   $PriceCopyWith<$Res>? get compareAtPrice;
-
   @override
   $ShopifyImageCopyWith<$Res>? get image;
 }
@@ -627,7 +598,6 @@ abstract class _ProductVariant extends ProductVariant {
       PriceV2? compareAtPriceV2,
       Price? compareAtPrice,
       ShopifyImage? image}) = _$_ProductVariant;
-
   _ProductVariant._() : super._();
 
   factory _ProductVariant.fromJson(Map<String, dynamic> json) =
@@ -635,55 +605,38 @@ abstract class _ProductVariant extends ProductVariant {
 
   @override
   PriceV2 get priceV2;
-
   @override
   Price get price;
-
   @override
   String get title;
-
   @override
   double get weight;
-
   @override
   String get weightUnit;
-
   @override
   bool get availableForSale;
-
   @override
   String get sku;
-
   @override
   bool get requiresShipping;
-
   @override
   String get id;
-
   @override
   bool get currentlyNotInStock;
-
   @override
   int? get quantityAvailable;
-
   @override
   PriceV2? get unitPrice;
-
   @override
   UnitPriceMeasurement? get unitPriceMeasurement;
-
   @override
   List<SelectedOption>? get selectedOptions;
-
   @override
   PriceV2? get compareAtPriceV2;
-
   @override
   Price? get compareAtPrice;
-
   @override
   ShopifyImage? get image;
-
   @override
   @JsonKey(ignore: true)
   _$ProductVariantCopyWith<_ProductVariant> get copyWith =>

@@ -83,36 +83,21 @@ mixin _$Product {
   String get createdAt => throw _privateConstructorUsedError;
   List<ProductVariant> get productVariants =>
       throw _privateConstructorUsedError;
-
   String get productType => throw _privateConstructorUsedError;
-
   String get publishedAt => throw _privateConstructorUsedError;
-
   List<String> get tags => throw _privateConstructorUsedError;
-
   String get updatedAt => throw _privateConstructorUsedError;
-
   List<ShopifyImage> get images => throw _privateConstructorUsedError;
-
   List<Option> get option => throw _privateConstructorUsedError;
-
   String get vendor => throw _privateConstructorUsedError;
-
   List<Metafield> get metafields => throw _privateConstructorUsedError;
-
   int? get totalInventory => throw _privateConstructorUsedError;
-
   List<AssociatedCollections>? get collectionList =>
       throw _privateConstructorUsedError;
-
   String? get cursor => throw _privateConstructorUsedError;
-
   String? get onlineStoreUrl => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
-
   String? get descriptionHtml => throw _privateConstructorUsedError;
-
   String? get handle => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -598,37 +583,26 @@ abstract class _Product extends Product {
   String get publishedAt;
   @override
   List<String> get tags;
-
   @override
   String get updatedAt;
-
   @override
   List<ShopifyImage> get images;
-
   @override
   List<Option> get option;
-
   @override
   String get vendor;
-
   @override
   List<Metafield> get metafields;
-
   @override
   int? get totalInventory;
-
   @override
   List<AssociatedCollections>? get collectionList;
-
   @override
   String? get cursor;
-
   @override
   String? get onlineStoreUrl;
-
   @override
   String? get description;
-
   @override
   String? get descriptionHtml;
   @override

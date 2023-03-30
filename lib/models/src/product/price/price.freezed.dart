@@ -43,11 +43,9 @@ const $Price = _$PriceTearOff();
 mixin _$Price {
   @JsonKey(fromJson: JsonHelper.amountFromJson)
   double get amount => throw _privateConstructorUsedError;
-
   String get currencyCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $PriceCopyWith<Price> get copyWith => throw _privateConstructorUsedError;
 }
@@ -56,7 +54,6 @@ mixin _$Price {
 abstract class $PriceCopyWith<$Res> {
   factory $PriceCopyWith(Price value, $Res Function(Price) then) =
       _$PriceCopyWithImpl<$Res>;
-
   $Res call(
       {@JsonKey(fromJson: JsonHelper.amountFromJson) double amount,
       String currencyCode});
@@ -67,7 +64,6 @@ class _$PriceCopyWithImpl<$Res> implements $PriceCopyWith<$Res> {
   _$PriceCopyWithImpl(this._value, this._then);
 
   final Price _value;
-
   // ignore: unused_field
   final $Res Function(Price) _then;
 
@@ -93,7 +89,6 @@ class _$PriceCopyWithImpl<$Res> implements $PriceCopyWith<$Res> {
 abstract class _$PriceCopyWith<$Res> implements $PriceCopyWith<$Res> {
   factory _$PriceCopyWith(_Price value, $Res Function(_Price) then) =
       __$PriceCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {@JsonKey(fromJson: JsonHelper.amountFromJson) double amount,
@@ -180,7 +175,6 @@ abstract class _Price extends Price {
   factory _Price(
       {@JsonKey(fromJson: JsonHelper.amountFromJson) required double amount,
       required String currencyCode}) = _$_Price;
-
   _Price._() : super._();
 
   factory _Price.fromJson(Map<String, dynamic> json) = _$_Price.fromJson;
@@ -188,10 +182,8 @@ abstract class _Price extends Price {
   @override
   @JsonKey(fromJson: JsonHelper.amountFromJson)
   double get amount;
-
   @override
   String get currencyCode;
-
   @override
   @JsonKey(ignore: true)
   _$PriceCopyWith<_Price> get copyWith => throw _privateConstructorUsedError;
