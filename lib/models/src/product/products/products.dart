@@ -23,7 +23,8 @@ class Products with _$Products {
     if (json == null)
       return <Product>[];
     return (json['edges'] as List?)
-            ?.map((e) => Product.fromGraphJson(e ?? const {}))
+            ?.where((element) => element["node"] != null)
+            .map((e) => Product.fromGraphJson(e ?? const {}))
             .toList() ??
         const <Product>[];
   }
