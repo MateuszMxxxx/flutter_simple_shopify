@@ -432,13 +432,14 @@ class ShopifyStore with ShopifyError {
   Future<List<Product>> getAllProductsOnQuery(String? cursor, String query,
       {SortKeyProduct? sortKey,
       bool deleteThisPartOfCache = false,
-      bool reverse = false}) async {
+      bool reverse = false,
+      FetchPolicy fetchPolicy = FetchPolicy.networkOnly}) async {
     List<Product> productList = [];
     Products products;
     WatchQueryOptions _options;
     do {
       _options = WatchQueryOptions(
-          fetchPolicy: FetchPolicy.networkOnly,
+          fetchPolicy: fetchPolicy,
           document: gql(getAllProductsOnQueryQuery),
           variables: cursor == null
               ? {
