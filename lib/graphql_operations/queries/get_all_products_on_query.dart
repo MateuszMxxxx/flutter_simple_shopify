@@ -39,7 +39,15 @@ query( $cursor: String, $sortKey : ProductSortKeys, $query: String, $reverse: Bo
                 id
                 url
               }
+              price {
+                amount
+                currencyCode
+              }
               priceV2 {
+                amount
+                currencyCode
+              }
+              compareAtPrice {
                 amount
                 currencyCode
               }
@@ -50,6 +58,8 @@ query( $cursor: String, $sortKey : ProductSortKeys, $query: String, $reverse: Bo
               weight
               weightUnit
               availableForSale
+              currentlyNotInStock
+              quantityAvailable
               sku
               requiresShipping
               selectedOptions {

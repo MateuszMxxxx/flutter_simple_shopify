@@ -429,29 +429,35 @@ class ShopifyStore with ShopifyError {
   /// Returns a List of [Product].
   ///
   /// Gets all [Product] from a [query] search sorted by [sortKey].
-  Future<List<Product>> getAllProductsOnQuery(String cursor, String query,
+  Future<List<Product>> getAllProductsOnQuery(String? cursor, String query,
       {SortKeyProduct? sortKey,
-        bool deleteThisPartOfCache = false,
-        bool reverse = false}) async {
-    String? cursor;
+      bool deleteThisPartOfCache = false,
+      bool reverse = false}) async {
     List<Product> productList = [];
     Products products;
     WatchQueryOptions _options;
     do {
       _options = WatchQueryOptions(
+          fetchPolicy: FetchPolicy.networkOnly,
           document: gql(getAllProductsOnQueryQuery),
-          variables: {
-            'cursor': cursor,
-            'sortKey': sortKey?.parseToString(),
-            'query': query,
-            'reverse': reverse
-          });
+          variables: cursor == null
+              ? {
+                  'sortKey': sortKey?.parseToString(),
+                  'query': query,
+                  'reverse': reverse
+                }
+              : {
+                  'cursor': cursor,
+                  'sortKey': sortKey?.parseToString(),
+                  'query': query,
+                  'reverse': reverse
+                });
       final QueryResult result = await _graphQLClient!.query(_options);
       checkForError(result);
       productList.addAll(
           (Products.fromGraphJson((result.data!)['products'])).productList);
       products =
-      (Products.fromGraphJson((result.data ?? const {})['products']));
+          (Products.fromGraphJson((result.data ?? const {})['products']));
       cursor = productList.isNotEmpty ? productList.last.cursor : '';
     } while (products.hasNextPage == true);
     if (deleteThisPartOfCache) {
