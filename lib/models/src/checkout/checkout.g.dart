@@ -26,6 +26,10 @@ _$_Checkout _$$_CheckoutFromJson(Map<String, dynamic> json) => _$_Checkout(
       appliedGiftCards: (json['appliedGiftCards'] as List<dynamic>)
           .map((e) => AppliedGiftCards.fromJson(e as Map<String, dynamic>))
           .toList(),
+      customAttributes: (json['customAttributes'] as List<dynamic>?)
+              ?.map((e) => Attribute.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <Attribute>[],
       lineItems: JsonHelper.lineItems(json['lineItems']),
       order: json['order'] == null
           ? null
@@ -61,6 +65,7 @@ Map<String, dynamic> _$$_CheckoutToJson(_$_Checkout instance) =>
       'subtotalPriceV2': instance.subtotalPriceV2,
       'requiresShipping': instance.requiresShipping,
       'appliedGiftCards': instance.appliedGiftCards,
+      'customAttributes': instance.customAttributes,
       'lineItems': instance.lineItems,
       'order': instance.order,
       'orderStatusUrl': instance.orderStatusUrl,

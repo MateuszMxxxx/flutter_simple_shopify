@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../json_helper.dart';
 import 'applied_gift_cards/applied_gift_cards.dart';
+import 'attribute/attribute.dart';
 import 'available_shipping_rates/available_shipping_rates.dart';
 import 'line_item/line_item.dart';
 import 'mailing_address/mailing_address.dart';
@@ -29,6 +30,7 @@ class Checkout with _$Checkout {
     required PriceV2 subtotalPriceV2,
     required bool requiresShipping,
     required List<AppliedGiftCards> appliedGiftCards,
+    @Default(<Attribute>[]) List<Attribute> customAttributes,
     @JsonKey(fromJson: JsonHelper.lineItems) required List<LineItem> lineItems,
     CheckoutOrder? order,
     String? orderStatusUrl,

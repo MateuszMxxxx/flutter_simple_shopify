@@ -16,6 +16,10 @@ query($id: ID!){
         }
         id
       }
+      customAttributes {
+        key
+        value
+      }
       requiresShipping
       shippingLine {
         handle
