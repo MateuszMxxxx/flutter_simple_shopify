@@ -42,7 +42,8 @@ class _$OrderTearOff {
       FinancialStatus? financialStatus,
       PriceV2? totalRefundedV2,
       String? phone,
-      String? cursor}) {
+      String? cursor,
+      String? cancelReason}) {
     return _Order(
       id: id,
       email: email,
@@ -64,6 +65,7 @@ class _$OrderTearOff {
       totalRefundedV2: totalRefundedV2,
       phone: phone,
       cursor: cursor,
+      cancelReason: cancelReason,
     );
   }
 
@@ -97,6 +99,7 @@ mixin _$Order {
   PriceV2? get totalRefundedV2 => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
+  String? get cancelReason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -127,7 +130,8 @@ abstract class $OrderCopyWith<$Res> {
       FinancialStatus? financialStatus,
       PriceV2? totalRefundedV2,
       String? phone,
-      String? cursor});
+      String? cursor,
+      String? cancelReason});
 
   $CustomAttributesCopyWith<$Res> get customAttributes;
   $LineItemsOrderCopyWith<$Res> get lineItems;
@@ -169,6 +173,7 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
     Object? totalRefundedV2 = freezed,
     Object? phone = freezed,
     Object? cursor = freezed,
+    Object? cancelReason = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -250,6 +255,10 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
       cursor: cursor == freezed
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cancelReason: cancelReason == freezed
+          ? _value.cancelReason
+          : cancelReason // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -340,7 +349,8 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
       FinancialStatus? financialStatus,
       PriceV2? totalRefundedV2,
       String? phone,
-      String? cursor});
+      String? cursor,
+      String? cancelReason});
 
   @override
   $CustomAttributesCopyWith<$Res> get customAttributes;
@@ -391,6 +401,7 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
     Object? totalRefundedV2 = freezed,
     Object? phone = freezed,
     Object? cursor = freezed,
+    Object? cancelReason = freezed,
   }) {
     return _then(_Order(
       id: id == freezed
@@ -473,6 +484,10 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      cancelReason: cancelReason == freezed
+          ? _value.cancelReason
+          : cancelReason // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -500,7 +515,8 @@ class _$_Order extends _Order {
       this.financialStatus,
       this.totalRefundedV2,
       this.phone,
-      this.cursor})
+      this.cursor,
+      this.cancelReason})
       : super._();
 
   factory _$_Order.fromJson(Map<String, dynamic> json) =>
@@ -546,10 +562,12 @@ class _$_Order extends _Order {
   final String? phone;
   @override
   final String? cursor;
+  @override
+  final String? cancelReason;
 
   @override
   String toString() {
-    return 'Order(id: $id, email: $email, currencyCode: $currencyCode, customAttributes: $customAttributes, customerUrl: $customerUrl, lineItems: $lineItems, name: $name, orderNumber: $orderNumber, processedAt: $processedAt, shippingAddress: $shippingAddress, statusUrl: $statusUrl, subtotalPriceV2: $subtotalPriceV2, totalPriceV2: $totalPriceV2, totalShippingPriceV2: $totalShippingPriceV2, totalTaxV2: $totalTaxV2, fulfillmentStatus: $fulfillmentStatus, financialStatus: $financialStatus, totalRefundedV2: $totalRefundedV2, phone: $phone, cursor: $cursor)';
+    return 'Order(id: $id, email: $email, currencyCode: $currencyCode, customAttributes: $customAttributes, customerUrl: $customerUrl, lineItems: $lineItems, name: $name, orderNumber: $orderNumber, processedAt: $processedAt, shippingAddress: $shippingAddress, statusUrl: $statusUrl, subtotalPriceV2: $subtotalPriceV2, totalPriceV2: $totalPriceV2, totalShippingPriceV2: $totalShippingPriceV2, totalTaxV2: $totalTaxV2, fulfillmentStatus: $fulfillmentStatus, financialStatus: $financialStatus, totalRefundedV2: $totalRefundedV2, phone: $phone, cursor: $cursor, cancelReason: $cancelReason)';
   }
 
   @override
@@ -589,7 +607,9 @@ class _$_Order extends _Order {
             const DeepCollectionEquality()
                 .equals(other.totalRefundedV2, totalRefundedV2) &&
             const DeepCollectionEquality().equals(other.phone, phone) &&
-            const DeepCollectionEquality().equals(other.cursor, cursor));
+            const DeepCollectionEquality().equals(other.cursor, cursor) &&
+            const DeepCollectionEquality()
+                .equals(other.cancelReason, cancelReason));
   }
 
   @override
@@ -614,7 +634,8 @@ class _$_Order extends _Order {
         const DeepCollectionEquality().hash(financialStatus),
         const DeepCollectionEquality().hash(totalRefundedV2),
         const DeepCollectionEquality().hash(phone),
-        const DeepCollectionEquality().hash(cursor)
+        const DeepCollectionEquality().hash(cursor),
+        const DeepCollectionEquality().hash(cancelReason)
       ]);
 
   @JsonKey(ignore: true)
@@ -649,7 +670,8 @@ abstract class _Order extends Order {
       FinancialStatus? financialStatus,
       PriceV2? totalRefundedV2,
       String? phone,
-      String? cursor}) = _$_Order;
+      String? cursor,
+      String? cancelReason}) = _$_Order;
   _Order._() : super._();
 
   factory _Order.fromJson(Map<String, dynamic> json) = _$_Order.fromJson;
@@ -694,6 +716,8 @@ abstract class _Order extends Order {
   String? get phone;
   @override
   String? get cursor;
+  @override
+  String? get cancelReason;
   @override
   @JsonKey(ignore: true)
   _$OrderCopyWith<_Order> get copyWith => throw _privateConstructorUsedError;

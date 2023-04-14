@@ -36,6 +36,7 @@ class Order with _$Order {
     PriceV2? totalRefundedV2,
     String? phone,
     String? cursor,
+    String? cancelReason,
   }) = _Order;
 
   static Order fromGraphJson(Map<String, dynamic> json) {
@@ -69,7 +70,8 @@ class Order with _$Order {
         fulfillmentStatus: fulfillmentStatusFromString(
             (json['node'] ?? const {})['fulfillmentStatus']),
         financialStatus:
-            financialStatusFromString((json['node'] ?? const {})['financialStatus']));
+            financialStatusFromString((json['node'] ?? const {})['financialStatus']),
+        cancelReason: (json['node'] ?? const {})['cancelReason']);
   }
 
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);

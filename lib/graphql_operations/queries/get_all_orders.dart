@@ -10,6 +10,7 @@ customer(customerAccessToken: $accessToken) {
           financialStatus
           currencyCode
           customerUrl
+          cancelReason
           customAttributes() {
             key
             value

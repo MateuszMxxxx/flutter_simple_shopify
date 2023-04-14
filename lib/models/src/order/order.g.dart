@@ -37,6 +37,7 @@ _$_Order _$$_OrderFromJson(Map<String, dynamic> json) => _$_Order(
           : PriceV2.fromJson(json['totalRefundedV2'] as Map<String, dynamic>),
       phone: json['phone'] as String?,
       cursor: json['cursor'] as String?,
+      cancelReason: json['cancelReason'] as String?,
     );
 
 Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
@@ -61,6 +62,7 @@ Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
       'totalRefundedV2': instance.totalRefundedV2,
       'phone': instance.phone,
       'cursor': instance.cursor,
+      'cancelReason': instance.cancelReason,
     };
 
 const _$FulfillmentStatusEnumMap = {
