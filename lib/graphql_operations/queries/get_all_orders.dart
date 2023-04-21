@@ -106,6 +106,23 @@ customer(customerAccessToken: $accessToken) {
             amount
             currencyCode
           }
+          discountApplications(first: 10) {
+              edges {
+                  node {
+                      allocationMethod
+                      targetSelection
+                      targetType
+                      value {
+                          ... on MoneyV2 {
+                              amount
+                          }
+                          ... on PricingPercentageValue {
+                              percentage
+                          }
+                      }
+                  }
+              }
+          }
         }
         cursor
       }

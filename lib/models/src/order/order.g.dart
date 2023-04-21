@@ -30,6 +30,8 @@ _$_Order _$$_OrderFromJson(Map<String, dynamic> json) => _$_Order(
       totalTaxV2: PriceV2.fromJson(json['totalTaxV2'] as Map<String, dynamic>),
       fulfillmentStatus:
           $enumDecode(_$FulfillmentStatusEnumMap, json['fulfillmentStatus']),
+      discountApplications: DiscountApplications.fromJson(
+          json['discountApplications'] as Map<String, dynamic>),
       financialStatus: $enumDecodeNullable(
           _$FinancialStatusEnumMap, json['financialStatus']),
       totalRefundedV2: json['totalRefundedV2'] == null
@@ -57,7 +59,8 @@ Map<String, dynamic> _$$_OrderToJson(_$_Order instance) => <String, dynamic>{
       'totalShippingPriceV2': instance.totalShippingPriceV2,
       'totalTaxV2': instance.totalTaxV2,
       'fulfillmentStatus':
-          _$FulfillmentStatusEnumMap[instance.fulfillmentStatus],
+          _$FulfillmentStatusEnumMap[instance.fulfillmentStatus]!,
+      'discountApplications': instance.discountApplications,
       'financialStatus': _$FinancialStatusEnumMap[instance.financialStatus],
       'totalRefundedV2': instance.totalRefundedV2,
       'phone': instance.phone,

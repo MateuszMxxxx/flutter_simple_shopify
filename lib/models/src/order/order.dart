@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/src/order/discount_allocations/discount_applications.dart';
 import 'package:flutter_simple_shopify/models/src/order/financial_status/financial_status.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -32,6 +33,7 @@ class Order with _$Order {
     required PriceV2 totalShippingPriceV2,
     required PriceV2 totalTaxV2,
     required FulfillmentStatus fulfillmentStatus,
+    required DiscountApplications discountApplications,
     FinancialStatus? financialStatus,
     PriceV2? totalRefundedV2,
     String? phone,
@@ -71,7 +73,8 @@ class Order with _$Order {
             (json['node'] ?? const {})['fulfillmentStatus']),
         financialStatus:
             financialStatusFromString((json['node'] ?? const {})['financialStatus']),
-        cancelReason: (json['node'] ?? const {})['cancelReason']);
+        cancelReason: (json['node'] ?? const {})['cancelReason'],
+        discountApplications: DiscountApplications.fromGraphJson((json['node'] ?? const {})['discountApplications']));
   }
 
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
