@@ -6,10 +6,10 @@ part of 'product_variant.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProductVariant _$$_ProductVariantFromJson(Map<String, dynamic> json) =>
-    _$_ProductVariant(
-      priceV2: PriceV2.fromJson(json['priceV2'] as Map<String, dynamic>),
-      price: Price.fromJson(json['price'] as Map<String, dynamic>),
+_$_ProductVariant _$$_ProductVariantFromJson(Map json) => _$_ProductVariant(
+      priceV2:
+          PriceV2.fromJson(Map<String, dynamic>.from(json['priceV2'] as Map)),
+      price: Price.fromJson(Map<String, dynamic>.from(json['price'] as Map)),
       title: json['title'] as String,
       weight: (json['weight'] as num).toDouble(),
       weightUnit: json['weightUnit'] as String,
@@ -21,42 +21,57 @@ _$_ProductVariant _$$_ProductVariantFromJson(Map<String, dynamic> json) =>
       quantityAvailable: json['quantityAvailable'] as int?,
       unitPrice: json['unitPrice'] == null
           ? null
-          : PriceV2.fromJson(json['unitPrice'] as Map<String, dynamic>),
+          : PriceV2.fromJson(
+              Map<String, dynamic>.from(json['unitPrice'] as Map)),
       unitPriceMeasurement: json['unitPriceMeasurement'] == null
           ? null
           : UnitPriceMeasurement.fromJson(
-              json['unitPriceMeasurement'] as Map<String, dynamic>),
+              Map<String, dynamic>.from(json['unitPriceMeasurement'] as Map)),
       selectedOptions: (json['selectedOptions'] as List<dynamic>?)
-          ?.map((e) => SelectedOption.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              SelectedOption.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
       compareAtPriceV2: json['compareAtPriceV2'] == null
           ? null
-          : PriceV2.fromJson(json['compareAtPriceV2'] as Map<String, dynamic>),
+          : PriceV2.fromJson(
+              Map<String, dynamic>.from(json['compareAtPriceV2'] as Map)),
       compareAtPrice: json['compareAtPrice'] == null
           ? null
-          : Price.fromJson(json['compareAtPrice'] as Map<String, dynamic>),
+          : Price.fromJson(
+              Map<String, dynamic>.from(json['compareAtPrice'] as Map)),
       image: json['image'] == null
           ? null
-          : ShopifyImage.fromJson(json['image'] as Map<String, dynamic>),
+          : ShopifyImage.fromJson(
+              Map<String, dynamic>.from(json['image'] as Map)),
     );
 
-Map<String, dynamic> _$$_ProductVariantToJson(_$_ProductVariant instance) =>
-    <String, dynamic>{
-      'priceV2': instance.priceV2,
-      'price': instance.price,
-      'title': instance.title,
-      'weight': instance.weight,
-      'weightUnit': instance.weightUnit,
-      'availableForSale': instance.availableForSale,
-      'sku': instance.sku,
-      'requiresShipping': instance.requiresShipping,
-      'id': instance.id,
-      'currentlyNotInStock': instance.currentlyNotInStock,
-      'quantityAvailable': instance.quantityAvailable,
-      'unitPrice': instance.unitPrice,
-      'unitPriceMeasurement': instance.unitPriceMeasurement,
-      'selectedOptions': instance.selectedOptions,
-      'compareAtPriceV2': instance.compareAtPriceV2,
-      'compareAtPrice': instance.compareAtPrice,
-      'image': instance.image,
-    };
+Map<String, dynamic> _$$_ProductVariantToJson(_$_ProductVariant instance) {
+  final val = <String, dynamic>{
+    'priceV2': instance.priceV2.toJson(),
+    'price': instance.price.toJson(),
+    'title': instance.title,
+    'weight': instance.weight,
+    'weightUnit': instance.weightUnit,
+    'availableForSale': instance.availableForSale,
+    'sku': instance.sku,
+    'requiresShipping': instance.requiresShipping,
+    'id': instance.id,
+    'currentlyNotInStock': instance.currentlyNotInStock,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('quantityAvailable', instance.quantityAvailable);
+  writeNotNull('unitPrice', instance.unitPrice?.toJson());
+  writeNotNull('unitPriceMeasurement', instance.unitPriceMeasurement?.toJson());
+  writeNotNull('selectedOptions',
+      instance.selectedOptions?.map((e) => e.toJson()).toList());
+  writeNotNull('compareAtPriceV2', instance.compareAtPriceV2?.toJson());
+  writeNotNull('compareAtPrice', instance.compareAtPrice?.toJson());
+  writeNotNull('image', instance.image?.toJson());
+  return val;
+}

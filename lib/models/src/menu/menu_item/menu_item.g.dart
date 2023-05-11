@@ -6,14 +6,14 @@ part of 'menu_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MenuItem _$$_MenuItemFromJson(Map<String, dynamic> json) => _$_MenuItem(
+_$_MenuItem _$$_MenuItemFromJson(Map json) => _$_MenuItem(
       id: json['id'] as String,
       title: json['title'] as String,
       url: json['url'] as String,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       type: $enumDecode(_$MenuItemTypeEnumMap, json['type']),
       items: (json['items'] as List<dynamic>)
-          .map((e) => MenuItem.fromJson(e as Map<String, dynamic>))
+          .map((e) => MenuItem.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
       resourceId: json['resourceId'] as String,
     );
@@ -25,7 +25,7 @@ Map<String, dynamic> _$$_MenuItemToJson(_$_MenuItem instance) =>
       'url': instance.url,
       'tags': instance.tags,
       'type': _$MenuItemTypeEnumMap[instance.type],
-      'items': instance.items,
+      'items': instance.items.map((e) => e.toJson()).toList(),
       'resourceId': instance.resourceId,
     };
 

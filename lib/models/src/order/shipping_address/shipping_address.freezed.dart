@@ -23,13 +23,13 @@ class _$ShippingAddressTearOff {
   const _$ShippingAddressTearOff();
 
   _ShippingAddress call(
-      {required String name,
-      required String firstName,
-      required String id,
-      required String lastName,
+      {required String id,
       required String address1,
       required String city,
       required String country,
+      String? name,
+      String? lastName,
+      String? firstName,
       String? address2,
       String? company,
       String? countryCodeV2,
@@ -40,13 +40,13 @@ class _$ShippingAddressTearOff {
       String? provinceCode,
       required String zip}) {
     return _ShippingAddress(
-      name: name,
-      firstName: firstName,
       id: id,
-      lastName: lastName,
       address1: address1,
       city: city,
       country: country,
+      name: name,
+      lastName: lastName,
+      firstName: firstName,
       address2: address2,
       company: company,
       countryCodeV2: countryCodeV2,
@@ -69,13 +69,13 @@ const $ShippingAddress = _$ShippingAddressTearOff();
 
 /// @nodoc
 mixin _$ShippingAddress {
-  String get name => throw _privateConstructorUsedError;
-  String get firstName => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
-  String get lastName => throw _privateConstructorUsedError;
   String get address1 => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
   String? get address2 => throw _privateConstructorUsedError;
   String? get company => throw _privateConstructorUsedError;
   String? get countryCodeV2 => throw _privateConstructorUsedError;
@@ -98,13 +98,13 @@ abstract class $ShippingAddressCopyWith<$Res> {
           ShippingAddress value, $Res Function(ShippingAddress) then) =
       _$ShippingAddressCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      String firstName,
-      String id,
-      String lastName,
+      {String id,
       String address1,
       String city,
       String country,
+      String? name,
+      String? lastName,
+      String? firstName,
       String? address2,
       String? company,
       String? countryCodeV2,
@@ -127,13 +127,13 @@ class _$ShippingAddressCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? firstName = freezed,
     Object? id = freezed,
-    Object? lastName = freezed,
     Object? address1 = freezed,
     Object? city = freezed,
     Object? country = freezed,
+    Object? name = freezed,
+    Object? lastName = freezed,
+    Object? firstName = freezed,
     Object? address2 = freezed,
     Object? company = freezed,
     Object? countryCodeV2 = freezed,
@@ -145,21 +145,9 @@ class _$ShippingAddressCopyWithImpl<$Res>
     Object? zip = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: lastName == freezed
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
       address1: address1 == freezed
           ? _value.address1
@@ -173,6 +161,18 @@ class _$ShippingAddressCopyWithImpl<$Res>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
       address2: address2 == freezed
           ? _value.address2
           : address2 // ignore: cast_nullable_to_non_nullable
@@ -221,13 +221,13 @@ abstract class _$ShippingAddressCopyWith<$Res>
       __$ShippingAddressCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      String firstName,
-      String id,
-      String lastName,
+      {String id,
       String address1,
       String city,
       String country,
+      String? name,
+      String? lastName,
+      String? firstName,
       String? address2,
       String? company,
       String? countryCodeV2,
@@ -252,13 +252,13 @@ class __$ShippingAddressCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? firstName = freezed,
     Object? id = freezed,
-    Object? lastName = freezed,
     Object? address1 = freezed,
     Object? city = freezed,
     Object? country = freezed,
+    Object? name = freezed,
+    Object? lastName = freezed,
+    Object? firstName = freezed,
     Object? address2 = freezed,
     Object? company = freezed,
     Object? countryCodeV2 = freezed,
@@ -270,21 +270,9 @@ class __$ShippingAddressCopyWithImpl<$Res>
     Object? zip = freezed,
   }) {
     return _then(_ShippingAddress(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: lastName == freezed
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
       address1: address1 == freezed
           ? _value.address1
@@ -298,6 +286,18 @@ class __$ShippingAddressCopyWithImpl<$Res>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
       address2: address2 == freezed
           ? _value.address2
           : address2 // ignore: cast_nullable_to_non_nullable
@@ -342,13 +342,13 @@ class __$ShippingAddressCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ShippingAddress implements _ShippingAddress {
   _$_ShippingAddress(
-      {required this.name,
-      required this.firstName,
-      required this.id,
-      required this.lastName,
+      {required this.id,
       required this.address1,
       required this.city,
       required this.country,
+      this.name,
+      this.lastName,
+      this.firstName,
       this.address2,
       this.company,
       this.countryCodeV2,
@@ -363,19 +363,19 @@ class _$_ShippingAddress implements _ShippingAddress {
       _$$_ShippingAddressFromJson(json);
 
   @override
-  final String name;
-  @override
-  final String firstName;
-  @override
   final String id;
-  @override
-  final String lastName;
   @override
   final String address1;
   @override
   final String city;
   @override
   final String country;
+  @override
+  final String? name;
+  @override
+  final String? lastName;
+  @override
+  final String? firstName;
   @override
   final String? address2;
   @override
@@ -397,7 +397,7 @@ class _$_ShippingAddress implements _ShippingAddress {
 
   @override
   String toString() {
-    return 'ShippingAddress(name: $name, firstName: $firstName, id: $id, lastName: $lastName, address1: $address1, city: $city, country: $country, address2: $address2, company: $company, countryCodeV2: $countryCodeV2, latitude: $latitude, longitude: $longitude, phone: $phone, province: $province, provinceCode: $provinceCode, zip: $zip)';
+    return 'ShippingAddress(id: $id, address1: $address1, city: $city, country: $country, name: $name, lastName: $lastName, firstName: $firstName, address2: $address2, company: $company, countryCodeV2: $countryCodeV2, latitude: $latitude, longitude: $longitude, phone: $phone, province: $province, provinceCode: $provinceCode, zip: $zip)';
   }
 
   @override
@@ -405,13 +405,13 @@ class _$_ShippingAddress implements _ShippingAddress {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ShippingAddress &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality().equals(other.address1, address1) &&
             const DeepCollectionEquality().equals(other.city, city) &&
             const DeepCollectionEquality().equals(other.country, country) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.lastName, lastName) &&
+            const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.address2, address2) &&
             const DeepCollectionEquality().equals(other.company, company) &&
             const DeepCollectionEquality()
@@ -428,13 +428,13 @@ class _$_ShippingAddress implements _ShippingAddress {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(address1),
       const DeepCollectionEquality().hash(city),
       const DeepCollectionEquality().hash(country),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(lastName),
+      const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(address2),
       const DeepCollectionEquality().hash(company),
       const DeepCollectionEquality().hash(countryCodeV2),
@@ -458,13 +458,13 @@ class _$_ShippingAddress implements _ShippingAddress {
 
 abstract class _ShippingAddress implements ShippingAddress {
   factory _ShippingAddress(
-      {required String name,
-      required String firstName,
-      required String id,
-      required String lastName,
+      {required String id,
       required String address1,
       required String city,
       required String country,
+      String? name,
+      String? lastName,
+      String? firstName,
       String? address2,
       String? company,
       String? countryCodeV2,
@@ -479,19 +479,19 @@ abstract class _ShippingAddress implements ShippingAddress {
       _$_ShippingAddress.fromJson;
 
   @override
-  String get name;
-  @override
-  String get firstName;
-  @override
   String get id;
-  @override
-  String get lastName;
   @override
   String get address1;
   @override
   String get city;
   @override
   String get country;
+  @override
+  String? get name;
+  @override
+  String? get lastName;
+  @override
+  String? get firstName;
   @override
   String? get address2;
   @override

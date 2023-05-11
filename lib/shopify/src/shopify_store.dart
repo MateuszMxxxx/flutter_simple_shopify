@@ -119,10 +119,10 @@ class ShopifyStore with ShopifyError {
   ///
   /// Returns the Products associated to the given id's in [idList]
   Future<List<Product>?> getProductsByIds(List<String> idList,
-      {bool deleteThisPartOfCache = false}) async {
+      {bool deleteThisPartOfCache = false, FetchPolicy fetchPolicy = FetchPolicy.networkOnly}) async {
     List<Product>? productList = [];
     final QueryOptions _options = WatchQueryOptions(
-        fetchPolicy: FetchPolicy.networkOnly,
+        fetchPolicy: fetchPolicy,
         document: gql(getProductsByIdsQuery), variables: {'ids': idList});
     final QueryResult result = await _graphQLClient!.query(_options);
     checkForError(result);

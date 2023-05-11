@@ -6,7 +6,7 @@ part of 'price.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Price _$$_PriceFromJson(Map<String, dynamic> json) => _$_Price(
+_$_Price _$$_PriceFromJson(Map json) => _$_Price(
       amount: JsonHelper.amountFromJson(json['amount']),
       currencyCode: json['currencyCode'] as String,
     );

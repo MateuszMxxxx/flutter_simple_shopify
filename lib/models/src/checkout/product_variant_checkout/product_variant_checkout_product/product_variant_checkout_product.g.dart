@@ -7,7 +7,7 @@ part of 'product_variant_checkout_product.dart';
 // **************************************************************************
 
 _$_ProductVariantCheckoutProduct _$$_ProductVariantCheckoutProductFromJson(
-        Map<String, dynamic> json) =>
+        Map json) =>
     _$_ProductVariantCheckoutProduct(
       id: json['id'] as String,
     );
