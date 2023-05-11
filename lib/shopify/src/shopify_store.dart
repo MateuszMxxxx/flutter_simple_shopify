@@ -127,6 +127,8 @@ class ShopifyStore with ShopifyError {
     final QueryResult result = await _graphQLClient!.query(_options);
     checkForError(result);
     var response = result.data!;
+    if(response['nodes'] == null || response['nodes'].isEmpty)
+      return null;
     var newResponse = {
       'edges': List.generate(response['nodes'].length,
               (index) => {'node': response['nodes'][index]})
