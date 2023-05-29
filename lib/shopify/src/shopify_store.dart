@@ -531,4 +531,27 @@ class ShopifyStore with ShopifyError {
         .map((e) => Metafield.fromGraphJson(e as Map<String, dynamic>))
         .toList();
   }
+
+  Future<Collection?> getCollectionById(String collectionId,
+      {bool deleteThisPartOfCache = false}) async {
+    try {
+      final WatchQueryOptions _options = WatchQueryOptions(
+          fetchPolicy: FetchPolicy.networkOnly,
+          document: gql(getCollectionByIdQuery),
+          variables: {'id': collectionId});
+      final QueryResult result = await _graphQLClient!.query(_options);
+      checkForError(result);
+      if (deleteThisPartOfCache) {
+        _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+      }
+      return Collection(
+          title: result.data!["node"]["title"],
+          id: result.data!["node"]["id"],
+          products: Products(productList: [], hasNextPage: false),
+          handle: result.data!["node"]["handle"]);
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
 }
