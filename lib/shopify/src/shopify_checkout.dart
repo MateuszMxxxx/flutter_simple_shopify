@@ -486,12 +486,12 @@ class ShopifyCheckout with ShopifyError {
             const {}));
   }
 
-  Future<Checkout> addVariantItemsToCheckout(
+  Future<void> addVariantItemsToCheckout(
       {required String checkoutId,
         required List<Map<String, dynamic>> variants,
         bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
-        document: gql(addLineItemsToCheckoutMutation),
+        document: gql(addLineItemsToCheckoutWithoutResponseDataMutation),
         variables: {
           'checkoutId': checkoutId,
           'lineItems': variants.map<Map<String, dynamic>>((e) {
@@ -507,13 +507,6 @@ class ShopifyCheckout with ShopifyError {
       key: 'addLineItemsToCheckout',
       errorKey: 'checkoutUserErrors',
     );
-    if (deleteThisPartOfCache) {
-      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
-    }
-
-    return Checkout.fromJson(
-        ((result.data!['checkoutLineItemsAdd'] ?? const {})['checkout'] ??
-            const {}));
   }
 
   Future<void> updateOnlyLineItemsInCheckout(

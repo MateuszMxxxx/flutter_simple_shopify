@@ -113,3 +113,15 @@ mutation checkoutLineItemsAdd($lineItems: [CheckoutLineItemInput!]!, $checkoutId
   }
 }
 ''';
+
+String addLineItemsToCheckoutWithoutResponseDataMutation = r'''
+mutation checkoutLineItemsAdd($lineItems: [CheckoutLineItemInput!]!, $checkoutId: ID!) {
+  checkoutLineItemsAdd(lineItems: $lineItems, checkoutId: $checkoutId) {
+      checkoutUserErrors {
+        code
+        field
+        message
+    }
+  }
+}
+''';
