@@ -41,7 +41,7 @@ _$_Order _$$_OrderFromJson(Map json) => _$_Order(
               Map<String, dynamic>.from(json['totalRefundedV2'] as Map)),
       phone: json['phone'] as String?,
       cursor: json['cursor'] as String?,
-      cancelReason: json['cancelReason'] as String?,
+      canceledAt: json['canceledAt'] as String?,
     );
 
 Map<String, dynamic> _$$_OrderToJson(_$_Order instance) {
@@ -76,7 +76,7 @@ Map<String, dynamic> _$$_OrderToJson(_$_Order instance) {
   writeNotNull('totalRefundedV2', instance.totalRefundedV2?.toJson());
   writeNotNull('phone', instance.phone);
   writeNotNull('cursor', instance.cursor);
-  writeNotNull('cancelReason', instance.cancelReason);
+  writeNotNull('canceledAt', instance.canceledAt);
   return val;
 }
 
