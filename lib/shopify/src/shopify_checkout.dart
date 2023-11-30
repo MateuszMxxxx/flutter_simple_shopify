@@ -14,6 +14,7 @@ import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_i
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id_without_shipping_rates.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_without_shipping_rates.dart';
+import 'package:flutter_simple_shopify/graphql_operations/queries/get_orders_custom_attributes.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:flutter_simple_shopify/models/src/checkout/line_item/line_item.dart';
 import 'package:flutter_simple_shopify/models/src/order/order.dart';
@@ -134,6 +135,44 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
     return ordersList;
+  }
+
+  Future<dynamic> getOrdersCustomAttributes(String customerAccessToken,
+      {SortKeyOrder sortKey = SortKeyOrder.PROCESSED_AT,
+        bool reverse = true,
+        bool deleteThisPartOfCache = false}) async {
+    final QueryOptions _options =
+    WatchQueryOptions(
+        fetchPolicy:FetchPolicy.noCache,
+        document: gql(getOrdersCustomAttributesQuery), variables: {
+      'accessToken': customerAccessToken,
+      'sortKey': sortKey.parseToString(),
+      'reverse': reverse
+    });
+    final QueryResult result = await ShopifyConfig.graphQLClient!.query(_options);
+    checkForError(result, key: 'getOrdersCustomAttributes',
+      errorKey: 'userErrors');
+    Map<String, dynamic> ordersMap = {};
+    List<dynamic> orders = result.data?['customer']['orders']['edges'];
+
+    for (dynamic orderNode in orders) {
+      Map<String, dynamic> orderData = orderNode['node'];
+      String orderId = orderData['id'];
+      String processedAt = orderData['processedAt'];
+      List<dynamic> customAttributes = orderData['customAttributes'];
+
+      Map<String, dynamic> orderInfo = {
+        'processedAt': processedAt,
+        'customAttributes': customAttributes,
+      };
+
+      ordersMap[orderId] = orderInfo;
+    }
+
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+    return ordersMap;
   }
 
   /// Replaces the [LineItems] in the [Checkout] associated to the [checkoutId].
