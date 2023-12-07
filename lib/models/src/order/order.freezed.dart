@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'order.dart';
 
@@ -12,77 +12,16 @@ part of 'order.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Order _$OrderFromJson(Map<String, dynamic> json) {
   return _Order.fromJson(json);
 }
 
 /// @nodoc
-class _$OrderTearOff {
-  const _$OrderTearOff();
-
-  _Order call(
-      {required String id,
-      required String email,
-      required String currencyCode,
-      required CustomAttributes customAttributes,
-      required String customerUrl,
-      required LineItemsOrder lineItems,
-      required String name,
-      required int orderNumber,
-      required String processedAt,
-      required ShippingAddress shippingAddress,
-      required String statusUrl,
-      required PriceV2 subtotalPriceV2,
-      required PriceV2 totalPriceV2,
-      required PriceV2 totalShippingPriceV2,
-      required PriceV2 totalTaxV2,
-      required FulfillmentStatus fulfillmentStatus,
-      required DiscountApplications discountApplications,
-      FinancialStatus? financialStatus,
-      PriceV2? totalRefundedV2,
-      String? phone,
-      String? cursor,
-      String? canceledAt}) {
-    return _Order(
-      id: id,
-      email: email,
-      currencyCode: currencyCode,
-      customAttributes: customAttributes,
-      customerUrl: customerUrl,
-      lineItems: lineItems,
-      name: name,
-      orderNumber: orderNumber,
-      processedAt: processedAt,
-      shippingAddress: shippingAddress,
-      statusUrl: statusUrl,
-      subtotalPriceV2: subtotalPriceV2,
-      totalPriceV2: totalPriceV2,
-      totalShippingPriceV2: totalShippingPriceV2,
-      totalTaxV2: totalTaxV2,
-      fulfillmentStatus: fulfillmentStatus,
-      discountApplications: discountApplications,
-      financialStatus: financialStatus,
-      totalRefundedV2: totalRefundedV2,
-      phone: phone,
-      cursor: cursor,
-      canceledAt: canceledAt,
-    );
-  }
-
-  Order fromJson(Map<String, Object?> json) {
-    return Order.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Order = _$OrderTearOff();
-
-/// @nodoc
 mixin _$Order {
   String get id => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
   String get currencyCode => throw _privateConstructorUsedError;
   CustomAttributes get customAttributes => throw _privateConstructorUsedError;
   String get customerUrl => throw _privateConstructorUsedError;
@@ -113,10 +52,11 @@ mixin _$Order {
 /// @nodoc
 abstract class $OrderCopyWith<$Res> {
   factory $OrderCopyWith(Order value, $Res Function(Order) then) =
-      _$OrderCopyWithImpl<$Res>;
+      _$OrderCopyWithImpl<$Res, Order>;
+  @useResult
   $Res call(
       {String id,
-      String email,
+      String? email,
       String currencyCode,
       CustomAttributes customAttributes,
       String customerUrl,
@@ -150,32 +90,35 @@ abstract class $OrderCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
+class _$OrderCopyWithImpl<$Res, $Val extends Order>
+    implements $OrderCopyWith<$Res> {
   _$OrderCopyWithImpl(this._value, this._then);
 
-  final Order _value;
   // ignore: unused_field
-  final $Res Function(Order) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? email = freezed,
-    Object? currencyCode = freezed,
-    Object? customAttributes = freezed,
-    Object? customerUrl = freezed,
-    Object? lineItems = freezed,
-    Object? name = freezed,
-    Object? orderNumber = freezed,
-    Object? processedAt = freezed,
-    Object? shippingAddress = freezed,
-    Object? statusUrl = freezed,
-    Object? subtotalPriceV2 = freezed,
-    Object? totalPriceV2 = freezed,
-    Object? totalShippingPriceV2 = freezed,
-    Object? totalTaxV2 = freezed,
-    Object? fulfillmentStatus = freezed,
-    Object? discountApplications = freezed,
+    Object? currencyCode = null,
+    Object? customAttributes = null,
+    Object? customerUrl = null,
+    Object? lineItems = null,
+    Object? name = null,
+    Object? orderNumber = null,
+    Object? processedAt = null,
+    Object? shippingAddress = null,
+    Object? statusUrl = null,
+    Object? subtotalPriceV2 = null,
+    Object? totalPriceV2 = null,
+    Object? totalShippingPriceV2 = null,
+    Object? totalTaxV2 = null,
+    Object? fulfillmentStatus = null,
+    Object? discountApplications = null,
     Object? financialStatus = freezed,
     Object? totalRefundedV2 = freezed,
     Object? phone = freezed,
@@ -183,174 +126,185 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
     Object? canceledAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      currencyCode: currencyCode == freezed
+              as String?,
+      currencyCode: null == currencyCode
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
               as String,
-      customAttributes: customAttributes == freezed
+      customAttributes: null == customAttributes
           ? _value.customAttributes
           : customAttributes // ignore: cast_nullable_to_non_nullable
               as CustomAttributes,
-      customerUrl: customerUrl == freezed
+      customerUrl: null == customerUrl
           ? _value.customerUrl
           : customerUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      lineItems: lineItems == freezed
+      lineItems: null == lineItems
           ? _value.lineItems
           : lineItems // ignore: cast_nullable_to_non_nullable
               as LineItemsOrder,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      orderNumber: orderNumber == freezed
+      orderNumber: null == orderNumber
           ? _value.orderNumber
           : orderNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      processedAt: processedAt == freezed
+      processedAt: null == processedAt
           ? _value.processedAt
           : processedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      shippingAddress: shippingAddress == freezed
+      shippingAddress: null == shippingAddress
           ? _value.shippingAddress
           : shippingAddress // ignore: cast_nullable_to_non_nullable
               as ShippingAddress,
-      statusUrl: statusUrl == freezed
+      statusUrl: null == statusUrl
           ? _value.statusUrl
           : statusUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      subtotalPriceV2: subtotalPriceV2 == freezed
+      subtotalPriceV2: null == subtotalPriceV2
           ? _value.subtotalPriceV2
           : subtotalPriceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      totalPriceV2: totalPriceV2 == freezed
+      totalPriceV2: null == totalPriceV2
           ? _value.totalPriceV2
           : totalPriceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      totalShippingPriceV2: totalShippingPriceV2 == freezed
+      totalShippingPriceV2: null == totalShippingPriceV2
           ? _value.totalShippingPriceV2
           : totalShippingPriceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      totalTaxV2: totalTaxV2 == freezed
+      totalTaxV2: null == totalTaxV2
           ? _value.totalTaxV2
           : totalTaxV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      fulfillmentStatus: fulfillmentStatus == freezed
+      fulfillmentStatus: null == fulfillmentStatus
           ? _value.fulfillmentStatus
           : fulfillmentStatus // ignore: cast_nullable_to_non_nullable
               as FulfillmentStatus,
-      discountApplications: discountApplications == freezed
+      discountApplications: null == discountApplications
           ? _value.discountApplications
           : discountApplications // ignore: cast_nullable_to_non_nullable
               as DiscountApplications,
-      financialStatus: financialStatus == freezed
+      financialStatus: freezed == financialStatus
           ? _value.financialStatus
           : financialStatus // ignore: cast_nullable_to_non_nullable
               as FinancialStatus?,
-      totalRefundedV2: totalRefundedV2 == freezed
+      totalRefundedV2: freezed == totalRefundedV2
           ? _value.totalRefundedV2
           : totalRefundedV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2?,
-      phone: phone == freezed
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      cursor: cursor == freezed
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      canceledAt: canceledAt == freezed
+      canceledAt: freezed == canceledAt
           ? _value.canceledAt
           : canceledAt // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CustomAttributesCopyWith<$Res> get customAttributes {
     return $CustomAttributesCopyWith<$Res>(_value.customAttributes, (value) {
-      return _then(_value.copyWith(customAttributes: value));
+      return _then(_value.copyWith(customAttributes: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LineItemsOrderCopyWith<$Res> get lineItems {
     return $LineItemsOrderCopyWith<$Res>(_value.lineItems, (value) {
-      return _then(_value.copyWith(lineItems: value));
+      return _then(_value.copyWith(lineItems: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ShippingAddressCopyWith<$Res> get shippingAddress {
     return $ShippingAddressCopyWith<$Res>(_value.shippingAddress, (value) {
-      return _then(_value.copyWith(shippingAddress: value));
+      return _then(_value.copyWith(shippingAddress: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res> get subtotalPriceV2 {
     return $PriceV2CopyWith<$Res>(_value.subtotalPriceV2, (value) {
-      return _then(_value.copyWith(subtotalPriceV2: value));
+      return _then(_value.copyWith(subtotalPriceV2: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res> get totalPriceV2 {
     return $PriceV2CopyWith<$Res>(_value.totalPriceV2, (value) {
-      return _then(_value.copyWith(totalPriceV2: value));
+      return _then(_value.copyWith(totalPriceV2: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res> get totalShippingPriceV2 {
     return $PriceV2CopyWith<$Res>(_value.totalShippingPriceV2, (value) {
-      return _then(_value.copyWith(totalShippingPriceV2: value));
+      return _then(_value.copyWith(totalShippingPriceV2: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res> get totalTaxV2 {
     return $PriceV2CopyWith<$Res>(_value.totalTaxV2, (value) {
-      return _then(_value.copyWith(totalTaxV2: value));
+      return _then(_value.copyWith(totalTaxV2: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DiscountApplicationsCopyWith<$Res> get discountApplications {
     return $DiscountApplicationsCopyWith<$Res>(_value.discountApplications,
         (value) {
-      return _then(_value.copyWith(discountApplications: value));
+      return _then(_value.copyWith(discountApplications: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res>? get totalRefundedV2 {
     if (_value.totalRefundedV2 == null) {
       return null;
     }
 
     return $PriceV2CopyWith<$Res>(_value.totalRefundedV2!, (value) {
-      return _then(_value.copyWith(totalRefundedV2: value));
+      return _then(_value.copyWith(totalRefundedV2: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
-  factory _$OrderCopyWith(_Order value, $Res Function(_Order) then) =
-      __$OrderCopyWithImpl<$Res>;
+abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
+  factory _$$OrderImplCopyWith(
+          _$OrderImpl value, $Res Function(_$OrderImpl) then) =
+      __$$OrderImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
-      String email,
+      String? email,
       String currencyCode,
       CustomAttributes customAttributes,
       String customerUrl,
@@ -393,125 +347,125 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
-    implements _$OrderCopyWith<$Res> {
-  __$OrderCopyWithImpl(_Order _value, $Res Function(_Order) _then)
-      : super(_value, (v) => _then(v as _Order));
+class __$$OrderImplCopyWithImpl<$Res>
+    extends _$OrderCopyWithImpl<$Res, _$OrderImpl>
+    implements _$$OrderImplCopyWith<$Res> {
+  __$$OrderImplCopyWithImpl(
+      _$OrderImpl _value, $Res Function(_$OrderImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _Order get _value => super._value as _Order;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? email = freezed,
-    Object? currencyCode = freezed,
-    Object? customAttributes = freezed,
-    Object? customerUrl = freezed,
-    Object? lineItems = freezed,
-    Object? name = freezed,
-    Object? orderNumber = freezed,
-    Object? processedAt = freezed,
-    Object? shippingAddress = freezed,
-    Object? statusUrl = freezed,
-    Object? subtotalPriceV2 = freezed,
-    Object? totalPriceV2 = freezed,
-    Object? totalShippingPriceV2 = freezed,
-    Object? totalTaxV2 = freezed,
-    Object? fulfillmentStatus = freezed,
-    Object? discountApplications = freezed,
+    Object? currencyCode = null,
+    Object? customAttributes = null,
+    Object? customerUrl = null,
+    Object? lineItems = null,
+    Object? name = null,
+    Object? orderNumber = null,
+    Object? processedAt = null,
+    Object? shippingAddress = null,
+    Object? statusUrl = null,
+    Object? subtotalPriceV2 = null,
+    Object? totalPriceV2 = null,
+    Object? totalShippingPriceV2 = null,
+    Object? totalTaxV2 = null,
+    Object? fulfillmentStatus = null,
+    Object? discountApplications = null,
     Object? financialStatus = freezed,
     Object? totalRefundedV2 = freezed,
     Object? phone = freezed,
     Object? cursor = freezed,
     Object? canceledAt = freezed,
   }) {
-    return _then(_Order(
-      id: id == freezed
+    return _then(_$OrderImpl(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      currencyCode: currencyCode == freezed
+              as String?,
+      currencyCode: null == currencyCode
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
               as String,
-      customAttributes: customAttributes == freezed
+      customAttributes: null == customAttributes
           ? _value.customAttributes
           : customAttributes // ignore: cast_nullable_to_non_nullable
               as CustomAttributes,
-      customerUrl: customerUrl == freezed
+      customerUrl: null == customerUrl
           ? _value.customerUrl
           : customerUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      lineItems: lineItems == freezed
+      lineItems: null == lineItems
           ? _value.lineItems
           : lineItems // ignore: cast_nullable_to_non_nullable
               as LineItemsOrder,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      orderNumber: orderNumber == freezed
+      orderNumber: null == orderNumber
           ? _value.orderNumber
           : orderNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      processedAt: processedAt == freezed
+      processedAt: null == processedAt
           ? _value.processedAt
           : processedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      shippingAddress: shippingAddress == freezed
+      shippingAddress: null == shippingAddress
           ? _value.shippingAddress
           : shippingAddress // ignore: cast_nullable_to_non_nullable
               as ShippingAddress,
-      statusUrl: statusUrl == freezed
+      statusUrl: null == statusUrl
           ? _value.statusUrl
           : statusUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      subtotalPriceV2: subtotalPriceV2 == freezed
+      subtotalPriceV2: null == subtotalPriceV2
           ? _value.subtotalPriceV2
           : subtotalPriceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      totalPriceV2: totalPriceV2 == freezed
+      totalPriceV2: null == totalPriceV2
           ? _value.totalPriceV2
           : totalPriceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      totalShippingPriceV2: totalShippingPriceV2 == freezed
+      totalShippingPriceV2: null == totalShippingPriceV2
           ? _value.totalShippingPriceV2
           : totalShippingPriceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      totalTaxV2: totalTaxV2 == freezed
+      totalTaxV2: null == totalTaxV2
           ? _value.totalTaxV2
           : totalTaxV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      fulfillmentStatus: fulfillmentStatus == freezed
+      fulfillmentStatus: null == fulfillmentStatus
           ? _value.fulfillmentStatus
           : fulfillmentStatus // ignore: cast_nullable_to_non_nullable
               as FulfillmentStatus,
-      discountApplications: discountApplications == freezed
+      discountApplications: null == discountApplications
           ? _value.discountApplications
           : discountApplications // ignore: cast_nullable_to_non_nullable
               as DiscountApplications,
-      financialStatus: financialStatus == freezed
+      financialStatus: freezed == financialStatus
           ? _value.financialStatus
           : financialStatus // ignore: cast_nullable_to_non_nullable
               as FinancialStatus?,
-      totalRefundedV2: totalRefundedV2 == freezed
+      totalRefundedV2: freezed == totalRefundedV2
           ? _value.totalRefundedV2
           : totalRefundedV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2?,
-      phone: phone == freezed
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      cursor: cursor == freezed
+      cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      canceledAt: canceledAt == freezed
+      canceledAt: freezed == canceledAt
           ? _value.canceledAt
           : canceledAt // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -521,8 +475,8 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Order extends _Order {
-  _$_Order(
+class _$OrderImpl extends _Order {
+  _$OrderImpl(
       {required this.id,
       required this.email,
       required this.currencyCode,
@@ -547,13 +501,13 @@ class _$_Order extends _Order {
       this.canceledAt})
       : super._();
 
-  factory _$_Order.fromJson(Map<String, dynamic> json) =>
-      _$$_OrderFromJson(json);
+  factory _$OrderImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrderImplFromJson(json);
 
   @override
   final String id;
   @override
-  final String email;
+  final String? email;
   @override
   final String currencyCode;
   @override
@@ -604,116 +558,122 @@ class _$_Order extends _Order {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Order &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality()
-                .equals(other.currencyCode, currencyCode) &&
-            const DeepCollectionEquality()
-                .equals(other.customAttributes, customAttributes) &&
-            const DeepCollectionEquality()
-                .equals(other.customerUrl, customerUrl) &&
-            const DeepCollectionEquality().equals(other.lineItems, lineItems) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.orderNumber, orderNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.processedAt, processedAt) &&
-            const DeepCollectionEquality()
-                .equals(other.shippingAddress, shippingAddress) &&
-            const DeepCollectionEquality().equals(other.statusUrl, statusUrl) &&
-            const DeepCollectionEquality()
-                .equals(other.subtotalPriceV2, subtotalPriceV2) &&
-            const DeepCollectionEquality()
-                .equals(other.totalPriceV2, totalPriceV2) &&
-            const DeepCollectionEquality()
-                .equals(other.totalShippingPriceV2, totalShippingPriceV2) &&
-            const DeepCollectionEquality()
-                .equals(other.totalTaxV2, totalTaxV2) &&
-            const DeepCollectionEquality()
-                .equals(other.fulfillmentStatus, fulfillmentStatus) &&
-            const DeepCollectionEquality()
-                .equals(other.discountApplications, discountApplications) &&
-            const DeepCollectionEquality()
-                .equals(other.financialStatus, financialStatus) &&
-            const DeepCollectionEquality()
-                .equals(other.totalRefundedV2, totalRefundedV2) &&
-            const DeepCollectionEquality().equals(other.phone, phone) &&
-            const DeepCollectionEquality().equals(other.cursor, cursor) &&
-            const DeepCollectionEquality()
-                .equals(other.canceledAt, canceledAt));
+            other is _$OrderImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode) &&
+            (identical(other.customAttributes, customAttributes) ||
+                other.customAttributes == customAttributes) &&
+            (identical(other.customerUrl, customerUrl) ||
+                other.customerUrl == customerUrl) &&
+            (identical(other.lineItems, lineItems) ||
+                other.lineItems == lineItems) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.orderNumber, orderNumber) ||
+                other.orderNumber == orderNumber) &&
+            (identical(other.processedAt, processedAt) ||
+                other.processedAt == processedAt) &&
+            (identical(other.shippingAddress, shippingAddress) ||
+                other.shippingAddress == shippingAddress) &&
+            (identical(other.statusUrl, statusUrl) ||
+                other.statusUrl == statusUrl) &&
+            (identical(other.subtotalPriceV2, subtotalPriceV2) ||
+                other.subtotalPriceV2 == subtotalPriceV2) &&
+            (identical(other.totalPriceV2, totalPriceV2) ||
+                other.totalPriceV2 == totalPriceV2) &&
+            (identical(other.totalShippingPriceV2, totalShippingPriceV2) ||
+                other.totalShippingPriceV2 == totalShippingPriceV2) &&
+            (identical(other.totalTaxV2, totalTaxV2) ||
+                other.totalTaxV2 == totalTaxV2) &&
+            (identical(other.fulfillmentStatus, fulfillmentStatus) ||
+                other.fulfillmentStatus == fulfillmentStatus) &&
+            (identical(other.discountApplications, discountApplications) ||
+                other.discountApplications == discountApplications) &&
+            (identical(other.financialStatus, financialStatus) ||
+                other.financialStatus == financialStatus) &&
+            (identical(other.totalRefundedV2, totalRefundedV2) ||
+                other.totalRefundedV2 == totalRefundedV2) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.canceledAt, canceledAt) ||
+                other.canceledAt == canceledAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(id),
-        const DeepCollectionEquality().hash(email),
-        const DeepCollectionEquality().hash(currencyCode),
-        const DeepCollectionEquality().hash(customAttributes),
-        const DeepCollectionEquality().hash(customerUrl),
-        const DeepCollectionEquality().hash(lineItems),
-        const DeepCollectionEquality().hash(name),
-        const DeepCollectionEquality().hash(orderNumber),
-        const DeepCollectionEquality().hash(processedAt),
-        const DeepCollectionEquality().hash(shippingAddress),
-        const DeepCollectionEquality().hash(statusUrl),
-        const DeepCollectionEquality().hash(subtotalPriceV2),
-        const DeepCollectionEquality().hash(totalPriceV2),
-        const DeepCollectionEquality().hash(totalShippingPriceV2),
-        const DeepCollectionEquality().hash(totalTaxV2),
-        const DeepCollectionEquality().hash(fulfillmentStatus),
-        const DeepCollectionEquality().hash(discountApplications),
-        const DeepCollectionEquality().hash(financialStatus),
-        const DeepCollectionEquality().hash(totalRefundedV2),
-        const DeepCollectionEquality().hash(phone),
-        const DeepCollectionEquality().hash(cursor),
-        const DeepCollectionEquality().hash(canceledAt)
+        id,
+        email,
+        currencyCode,
+        customAttributes,
+        customerUrl,
+        lineItems,
+        name,
+        orderNumber,
+        processedAt,
+        shippingAddress,
+        statusUrl,
+        subtotalPriceV2,
+        totalPriceV2,
+        totalShippingPriceV2,
+        totalTaxV2,
+        fulfillmentStatus,
+        discountApplications,
+        financialStatus,
+        totalRefundedV2,
+        phone,
+        cursor,
+        canceledAt
       ]);
 
   @JsonKey(ignore: true)
   @override
-  _$OrderCopyWith<_Order> get copyWith =>
-      __$OrderCopyWithImpl<_Order>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$OrderImplCopyWith<_$OrderImpl> get copyWith =>
+      __$$OrderImplCopyWithImpl<_$OrderImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OrderToJson(this);
+    return _$$OrderImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Order extends Order {
   factory _Order(
-      {required String id,
-      required String email,
-      required String currencyCode,
-      required CustomAttributes customAttributes,
-      required String customerUrl,
-      required LineItemsOrder lineItems,
-      required String name,
-      required int orderNumber,
-      required String processedAt,
-      required ShippingAddress shippingAddress,
-      required String statusUrl,
-      required PriceV2 subtotalPriceV2,
-      required PriceV2 totalPriceV2,
-      required PriceV2 totalShippingPriceV2,
-      required PriceV2 totalTaxV2,
-      required FulfillmentStatus fulfillmentStatus,
-      required DiscountApplications discountApplications,
-      FinancialStatus? financialStatus,
-      PriceV2? totalRefundedV2,
-      String? phone,
-      String? cursor,
-      String? canceledAt}) = _$_Order;
+      {required final String id,
+      required final String? email,
+      required final String currencyCode,
+      required final CustomAttributes customAttributes,
+      required final String customerUrl,
+      required final LineItemsOrder lineItems,
+      required final String name,
+      required final int orderNumber,
+      required final String processedAt,
+      required final ShippingAddress shippingAddress,
+      required final String statusUrl,
+      required final PriceV2 subtotalPriceV2,
+      required final PriceV2 totalPriceV2,
+      required final PriceV2 totalShippingPriceV2,
+      required final PriceV2 totalTaxV2,
+      required final FulfillmentStatus fulfillmentStatus,
+      required final DiscountApplications discountApplications,
+      final FinancialStatus? financialStatus,
+      final PriceV2? totalRefundedV2,
+      final String? phone,
+      final String? cursor,
+      final String? canceledAt}) = _$OrderImpl;
   _Order._() : super._();
 
-  factory _Order.fromJson(Map<String, dynamic> json) = _$_Order.fromJson;
+  factory _Order.fromJson(Map<String, dynamic> json) = _$OrderImpl.fromJson;
 
   @override
   String get id;
   @override
-  String get email;
+  String? get email;
   @override
   String get currencyCode;
   @override
@@ -756,5 +716,6 @@ abstract class _Order extends Order {
   String? get canceledAt;
   @override
   @JsonKey(ignore: true)
-  _$OrderCopyWith<_Order> get copyWith => throw _privateConstructorUsedError;
+  _$$OrderImplCopyWith<_$OrderImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

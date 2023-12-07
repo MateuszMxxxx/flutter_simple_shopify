@@ -6,11 +6,11 @@ part of 'collection.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Collection _$$_CollectionFromJson(Map json) => _$_Collection(
+_$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) =>
+    _$CollectionImpl(
       title: json['title'] as String,
       id: json['id'] as String,
-      products:
-          Products.fromJson(Map<String, dynamic>.from(json['products'] as Map)),
+      products: Products.fromJson(json['products'] as Map<String, dynamic>),
       cursor: json['cursor'] as String?,
       description: json['description'] as String?,
       descriptionHtml: json['descriptionHtml'] as String?,
@@ -18,28 +18,18 @@ _$_Collection _$$_CollectionFromJson(Map json) => _$_Collection(
       updatedAt: json['updatedAt'] as String?,
       image: json['image'] == null
           ? null
-          : ShopifyImage.fromJson(
-              Map<String, dynamic>.from(json['image'] as Map)),
+          : ShopifyImage.fromJson(json['image'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_CollectionToJson(_$_Collection instance) {
-  final val = <String, dynamic>{
-    'title': instance.title,
-    'id': instance.id,
-    'products': instance.products.toJson(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  writeNotNull('description', instance.description);
-  writeNotNull('descriptionHtml', instance.descriptionHtml);
-  writeNotNull('handle', instance.handle);
-  writeNotNull('updatedAt', instance.updatedAt);
-  writeNotNull('image', instance.image?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'id': instance.id,
+      'products': instance.products,
+      'cursor': instance.cursor,
+      'description': instance.description,
+      'descriptionHtml': instance.descriptionHtml,
+      'handle': instance.handle,
+      'updatedAt': instance.updatedAt,
+      'image': instance.image,
+    };

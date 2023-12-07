@@ -18,7 +18,7 @@ class Order with _$Order {
 
   factory Order({
     required String id,
-    required String email,
+    required String? email,
     required String currencyCode,
     required CustomAttributes customAttributes,
     required String customerUrl,
