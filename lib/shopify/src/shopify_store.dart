@@ -12,6 +12,7 @@ import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_collecti
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_products_after_cursor.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_products_after_cursor_within_collection.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_products_on_query_after_cursor.dart';
+import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_products_with_query.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_products_with_search_query.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:flutter_simple_shopify/models/src/collection/collections/collections.dart';
@@ -572,6 +573,36 @@ class ShopifyStore with ShopifyError {
 
     if (result.data != null && result.data!['search'] != null) {
       return Products.fromGraphJson((result.data ?? const {})['search'])
+          .productList;
+    } else {
+      return null;
+    }
+  }
+
+  Future<List<Product>?> getXProductsAfterCursorWithTag(
+      int limit, String? startCursor, String tag,
+      {bool deleteThisPartOfCache = false,
+      bool reverse = false,
+      FetchPolicy fetchPolicy = FetchPolicy.networkOnly,
+      SortKeyProduct sortKeyProduct = SortKeyProduct.BEST_SELLING}) async {
+    String? cursor = startCursor;
+    final WatchQueryOptions _options = WatchQueryOptions(
+        fetchPolicy: fetchPolicy,
+        document: gql(getXProductsWithQuery),
+        variables: {
+          'x': limit,
+          'cursor': cursor,
+          'reverse': reverse,
+          'sortKey': sortKeyProduct.parseToString(),
+          'query': "tag:$tag"
+        });
+    final QueryResult result = await _graphQLClient!.query(_options);
+    checkForError(result);
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+    if (result.data != null && result.data!['products'] != null) {
+      return Products.fromGraphJson((result.data ?? const {})['products'])
           .productList;
     } else {
       return null;
