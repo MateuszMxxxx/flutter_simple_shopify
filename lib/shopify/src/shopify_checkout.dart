@@ -15,6 +15,7 @@ import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_i
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id_without_shipping_rates.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_without_shipping_rates.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_orders_custom_attributes.dart';
+import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_orders.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:flutter_simple_shopify/models/src/checkout/line_item/line_item.dart';
 import 'package:flutter_simple_shopify/models/src/order/order.dart';
@@ -118,6 +119,41 @@ class ShopifyCheckout with ShopifyError {
     });
     final QueryResult result =
         await ShopifyConfig.graphQLClient!.query(_options);
+    checkForError(result);
+    List<Order>? ordersList;
+    Map<String, dynamic>? data = result.data;
+
+    if(data!= null){
+      Map<String, dynamic>? orders = data["customer"]["orders"];
+      if(orders != null && orders.containsKey("edges")){
+        List<dynamic> edges = orders["edges"] as List<dynamic>;
+        ordersList = edges.map((dynamic order) => Order.fromGraphJson(order)).toList();
+        return ordersList;
+      }
+    }
+
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+    return ordersList;
+  }
+
+  Future<List<Order>?> getXOrders(String customerAccessToken,
+      int first,
+      {SortKeyOrder sortKey = SortKeyOrder.PROCESSED_AT,
+        bool reverse = true,
+        bool deleteThisPartOfCache = false}) async {
+    final QueryOptions _options =
+    WatchQueryOptions(
+        fetchPolicy:FetchPolicy.networkOnly,
+        document: gql(getXOrdersQuery), variables: {
+      'accessToken': customerAccessToken,
+      'sortKey': sortKey.parseToString(),
+      'reverse': reverse,
+      'first': first
+    });
+    final QueryResult result =
+    await ShopifyConfig.graphQLClient!.query(_options);
     checkForError(result);
     List<Order>? ordersList;
     Map<String, dynamic>? data = result.data;
