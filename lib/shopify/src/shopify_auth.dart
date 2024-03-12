@@ -47,6 +47,7 @@ class ShopifyAuth with ShopifyError {
     String? lastName,
     required String email,
     required String password,
+    required String phone,
     bool deleteThisPartOfCache = false,
   }) async {
     final MutationOptions _options = MutationOptions(
@@ -57,6 +58,7 @@ class ShopifyAuth with ShopifyError {
         'lastName': lastName,
         'email': email,
         'password': password,
+        'phone': phone
       },
     );
     final QueryResult result = await _graphQLClient!.mutate(_options);
