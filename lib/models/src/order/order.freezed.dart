@@ -43,6 +43,7 @@ mixin _$Order {
   String? get phone => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
   String? get canceledAt => throw _privateConstructorUsedError;
+  ShippingAddress? get billingAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -76,7 +77,8 @@ abstract class $OrderCopyWith<$Res> {
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor,
-      String? canceledAt});
+      String? canceledAt,
+      ShippingAddress? billingAddress});
 
   $CustomAttributesCopyWith<$Res> get customAttributes;
   $LineItemsOrderCopyWith<$Res> get lineItems;
@@ -87,6 +89,7 @@ abstract class $OrderCopyWith<$Res> {
   $PriceV2CopyWith<$Res> get totalTaxV2;
   $DiscountApplicationsCopyWith<$Res> get discountApplications;
   $PriceV2CopyWith<$Res>? get totalRefundedV2;
+  $ShippingAddressCopyWith<$Res>? get billingAddress;
 }
 
 /// @nodoc
@@ -124,6 +127,7 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
     Object? phone = freezed,
     Object? cursor = freezed,
     Object? canceledAt = freezed,
+    Object? billingAddress = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -214,6 +218,10 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.canceledAt
           : canceledAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      billingAddress: freezed == billingAddress
+          ? _value.billingAddress
+          : billingAddress // ignore: cast_nullable_to_non_nullable
+              as ShippingAddress?,
     ) as $Val);
   }
 
@@ -293,6 +301,18 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
       return _then(_value.copyWith(totalRefundedV2: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ShippingAddressCopyWith<$Res>? get billingAddress {
+    if (_value.billingAddress == null) {
+      return null;
+    }
+
+    return $ShippingAddressCopyWith<$Res>(_value.billingAddress!, (value) {
+      return _then(_value.copyWith(billingAddress: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -324,7 +344,8 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor,
-      String? canceledAt});
+      String? canceledAt,
+      ShippingAddress? billingAddress});
 
   @override
   $CustomAttributesCopyWith<$Res> get customAttributes;
@@ -344,6 +365,8 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
   $DiscountApplicationsCopyWith<$Res> get discountApplications;
   @override
   $PriceV2CopyWith<$Res>? get totalRefundedV2;
+  @override
+  $ShippingAddressCopyWith<$Res>? get billingAddress;
 }
 
 /// @nodoc
@@ -379,6 +402,7 @@ class __$$OrderImplCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? cursor = freezed,
     Object? canceledAt = freezed,
+    Object? billingAddress = freezed,
   }) {
     return _then(_$OrderImpl(
       id: null == id
@@ -469,6 +493,10 @@ class __$$OrderImplCopyWithImpl<$Res>
           ? _value.canceledAt
           : canceledAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      billingAddress: freezed == billingAddress
+          ? _value.billingAddress
+          : billingAddress // ignore: cast_nullable_to_non_nullable
+              as ShippingAddress?,
     ));
   }
 }
@@ -498,7 +526,8 @@ class _$OrderImpl extends _Order {
       this.totalRefundedV2,
       this.phone,
       this.cursor,
-      this.canceledAt})
+      this.canceledAt,
+      this.billingAddress})
       : super._();
 
   factory _$OrderImpl.fromJson(Map<String, dynamic> json) =>
@@ -548,10 +577,12 @@ class _$OrderImpl extends _Order {
   final String? cursor;
   @override
   final String? canceledAt;
+  @override
+  final ShippingAddress? billingAddress;
 
   @override
   String toString() {
-    return 'Order(id: $id, email: $email, currencyCode: $currencyCode, customAttributes: $customAttributes, customerUrl: $customerUrl, lineItems: $lineItems, name: $name, orderNumber: $orderNumber, processedAt: $processedAt, shippingAddress: $shippingAddress, statusUrl: $statusUrl, subtotalPriceV2: $subtotalPriceV2, totalPriceV2: $totalPriceV2, totalShippingPriceV2: $totalShippingPriceV2, totalTaxV2: $totalTaxV2, fulfillmentStatus: $fulfillmentStatus, discountApplications: $discountApplications, financialStatus: $financialStatus, totalRefundedV2: $totalRefundedV2, phone: $phone, cursor: $cursor, canceledAt: $canceledAt)';
+    return 'Order(id: $id, email: $email, currencyCode: $currencyCode, customAttributes: $customAttributes, customerUrl: $customerUrl, lineItems: $lineItems, name: $name, orderNumber: $orderNumber, processedAt: $processedAt, shippingAddress: $shippingAddress, statusUrl: $statusUrl, subtotalPriceV2: $subtotalPriceV2, totalPriceV2: $totalPriceV2, totalShippingPriceV2: $totalShippingPriceV2, totalTaxV2: $totalTaxV2, fulfillmentStatus: $fulfillmentStatus, discountApplications: $discountApplications, financialStatus: $financialStatus, totalRefundedV2: $totalRefundedV2, phone: $phone, cursor: $cursor, canceledAt: $canceledAt, billingAddress: $billingAddress)';
   }
 
   @override
@@ -597,7 +628,9 @@ class _$OrderImpl extends _Order {
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             (identical(other.canceledAt, canceledAt) ||
-                other.canceledAt == canceledAt));
+                other.canceledAt == canceledAt) &&
+            (identical(other.billingAddress, billingAddress) ||
+                other.billingAddress == billingAddress));
   }
 
   @JsonKey(ignore: true)
@@ -625,7 +658,8 @@ class _$OrderImpl extends _Order {
         totalRefundedV2,
         phone,
         cursor,
-        canceledAt
+        canceledAt,
+        billingAddress
       ]);
 
   @JsonKey(ignore: true)
@@ -665,7 +699,8 @@ abstract class _Order extends Order {
       final PriceV2? totalRefundedV2,
       final String? phone,
       final String? cursor,
-      final String? canceledAt}) = _$OrderImpl;
+      final String? canceledAt,
+      final ShippingAddress? billingAddress}) = _$OrderImpl;
   _Order._() : super._();
 
   factory _Order.fromJson(Map<String, dynamic> json) = _$OrderImpl.fromJson;
@@ -714,6 +749,8 @@ abstract class _Order extends Order {
   String? get cursor;
   @override
   String? get canceledAt;
+  @override
+  ShippingAddress? get billingAddress;
   @override
   @JsonKey(ignore: true)
   _$$OrderImplCopyWith<_$OrderImpl> get copyWith =>

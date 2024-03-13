@@ -40,6 +40,10 @@ _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
       phone: json['phone'] as String?,
       cursor: json['cursor'] as String?,
       canceledAt: json['canceledAt'] as String?,
+      billingAddress: json['billingAddress'] == null
+          ? null
+          : ShippingAddress.fromJson(
+              json['billingAddress'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) =>
@@ -67,6 +71,7 @@ Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) =>
       'phone': instance.phone,
       'cursor': instance.cursor,
       'canceledAt': instance.canceledAt,
+      'billingAddress': instance.billingAddress,
     };
 
 const _$FulfillmentStatusEnumMap = {
