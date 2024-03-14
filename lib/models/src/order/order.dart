@@ -76,8 +76,9 @@ class Order with _$Order {
       canceledAt: (json['node'] ?? const {})['canceledAt'],
       discountApplications: DiscountApplications.fromGraphJson(
           (json['node'] ?? const {})['discountApplications']),
-      billingAddress: ShippingAddress.fromJson(
-          (json['node'] ?? const {})['billingAddress'] ?? const {}),
+      billingAddress: json['node'] != null && json['node']['billingAddress'] != null
+          ? ShippingAddress.fromJson(json['node']['billingAddress'])
+          : null,
     );
   }
 
