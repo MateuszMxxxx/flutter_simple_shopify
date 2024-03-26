@@ -47,7 +47,6 @@ class Collection with _$Collection {
     }
 
     _products = _products.copyWith.call(productList: _realProducts);
-
     return Collection(
       title: nodeJson['title'],
       description: nodeJson['description'],

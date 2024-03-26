@@ -206,19 +206,20 @@ class ShopifyStore with ShopifyError {
 
   /// Returns a List of [Collection]
   Future<List<Collection>?> getCollectionsByIds(List<String> idList,
-      {bool deleteThisPartOfCache = false}) async {
+      {bool deleteThisPartOfCache = false, FetchPolicy fetchPolicy = FetchPolicy.networkOnly}) async {
     try {
       final WatchQueryOptions _options = WatchQueryOptions(
+          fetchPolicy: fetchPolicy,
           document: gql(getCollectionsByIdsQuery), variables: {'ids': idList});
       final QueryResult result = await _graphQLClient!.query(_options);
       checkForError(result);
       if (deleteThisPartOfCache) {
         _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
       }
-
       var newResponse = List.generate(result.data!['nodes']?.length ?? 0,
           (index) => {"node": (result.data!['nodes'] ?? const {})[index]});
       var tempCollection = {"edges": newResponse};
+      print(Collections.fromGraphJson(tempCollection).collectionList);
       return Collections.fromGraphJson(tempCollection).collectionList;
     } catch (e) {
       print(e);
