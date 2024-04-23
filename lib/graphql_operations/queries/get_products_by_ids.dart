@@ -1,12 +1,12 @@
 const String getProductsByIdsQuery = r'''
-query($ids : [ID!]!){
+query ($ids: [ID!]!) {
   nodes(ids: $ids) {
     ... on Product {
-    options(first: 50) {
-            id
-            name
-            values
-            } 
+      options(first: 50) {
+        id
+        name
+        values
+      }
       id
       handle
       collections(first: 250) {
@@ -27,14 +27,14 @@ query($ids : [ID!]!){
       description
       descriptionHtml
       images(first: 250) {
-          edges {
-            node {
-              altText
-              id
-              url
-            }
+        edges {
+          node {
+            altText
+            id
+            url
           }
         }
+      }
       variants(first: 250) {
         edges {
           node {
@@ -66,10 +66,10 @@ query($ids : [ID!]!){
             availableForSale
             sku
             requiresShipping
-             selectedOptions {
+            selectedOptions {
               name
               value
-             }
+            }
             id
             quantityAvailable
           }
@@ -82,6 +82,22 @@ query($ids : [ID!]!){
       totalInventory
       updatedAt
       vendor
+      productTitle: metafield(namespace: "custom", key: "product_title") {
+        value
+        type
+      }
+      itemSize: metafield(namespace: "custom", key: "item_size") {
+        value
+        type
+      }
+      packSize: metafield(namespace: "custom", key: "pack_size") {
+        value
+        type
+      }
+      unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
+        value
+        type
+      }
     }
   }
 }

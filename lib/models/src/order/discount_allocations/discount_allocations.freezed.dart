@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'discount_allocations.dart';
 
@@ -12,29 +12,11 @@ part of 'discount_allocations.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 DiscountAllocations _$DiscountAllocationsFromJson(Map<String, dynamic> json) {
   return _DiscountAllocations.fromJson(json);
 }
-
-/// @nodoc
-class _$DiscountAllocationsTearOff {
-  const _$DiscountAllocationsTearOff();
-
-  _DiscountAllocations call({required PriceV2? allocatedAmount}) {
-    return _DiscountAllocations(
-      allocatedAmount: allocatedAmount,
-    );
-  }
-
-  DiscountAllocations fromJson(Map<String, Object?> json) {
-    return DiscountAllocations.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $DiscountAllocations = _$DiscountAllocationsTearOff();
 
 /// @nodoc
 mixin _$DiscountAllocations {
@@ -50,52 +32,57 @@ mixin _$DiscountAllocations {
 abstract class $DiscountAllocationsCopyWith<$Res> {
   factory $DiscountAllocationsCopyWith(
           DiscountAllocations value, $Res Function(DiscountAllocations) then) =
-      _$DiscountAllocationsCopyWithImpl<$Res>;
+      _$DiscountAllocationsCopyWithImpl<$Res, DiscountAllocations>;
+  @useResult
   $Res call({PriceV2? allocatedAmount});
 
   $PriceV2CopyWith<$Res>? get allocatedAmount;
 }
 
 /// @nodoc
-class _$DiscountAllocationsCopyWithImpl<$Res>
+class _$DiscountAllocationsCopyWithImpl<$Res, $Val extends DiscountAllocations>
     implements $DiscountAllocationsCopyWith<$Res> {
   _$DiscountAllocationsCopyWithImpl(this._value, this._then);
 
-  final DiscountAllocations _value;
   // ignore: unused_field
-  final $Res Function(DiscountAllocations) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? allocatedAmount = freezed,
   }) {
     return _then(_value.copyWith(
-      allocatedAmount: allocatedAmount == freezed
+      allocatedAmount: freezed == allocatedAmount
           ? _value.allocatedAmount
           : allocatedAmount // ignore: cast_nullable_to_non_nullable
               as PriceV2?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res>? get allocatedAmount {
     if (_value.allocatedAmount == null) {
       return null;
     }
 
     return $PriceV2CopyWith<$Res>(_value.allocatedAmount!, (value) {
-      return _then(_value.copyWith(allocatedAmount: value));
+      return _then(_value.copyWith(allocatedAmount: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$DiscountAllocationsCopyWith<$Res>
+abstract class _$$DiscountAllocationsImplCopyWith<$Res>
     implements $DiscountAllocationsCopyWith<$Res> {
-  factory _$DiscountAllocationsCopyWith(_DiscountAllocations value,
-          $Res Function(_DiscountAllocations) then) =
-      __$DiscountAllocationsCopyWithImpl<$Res>;
+  factory _$$DiscountAllocationsImplCopyWith(_$DiscountAllocationsImpl value,
+          $Res Function(_$DiscountAllocationsImpl) then) =
+      __$$DiscountAllocationsImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({PriceV2? allocatedAmount});
 
   @override
@@ -103,22 +90,20 @@ abstract class _$DiscountAllocationsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$DiscountAllocationsCopyWithImpl<$Res>
-    extends _$DiscountAllocationsCopyWithImpl<$Res>
-    implements _$DiscountAllocationsCopyWith<$Res> {
-  __$DiscountAllocationsCopyWithImpl(
-      _DiscountAllocations _value, $Res Function(_DiscountAllocations) _then)
-      : super(_value, (v) => _then(v as _DiscountAllocations));
+class __$$DiscountAllocationsImplCopyWithImpl<$Res>
+    extends _$DiscountAllocationsCopyWithImpl<$Res, _$DiscountAllocationsImpl>
+    implements _$$DiscountAllocationsImplCopyWith<$Res> {
+  __$$DiscountAllocationsImplCopyWithImpl(_$DiscountAllocationsImpl _value,
+      $Res Function(_$DiscountAllocationsImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _DiscountAllocations get _value => super._value as _DiscountAllocations;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? allocatedAmount = freezed,
   }) {
-    return _then(_DiscountAllocations(
-      allocatedAmount: allocatedAmount == freezed
+    return _then(_$DiscountAllocationsImpl(
+      allocatedAmount: freezed == allocatedAmount
           ? _value.allocatedAmount
           : allocatedAmount // ignore: cast_nullable_to_non_nullable
               as PriceV2?,
@@ -128,11 +113,11 @@ class __$DiscountAllocationsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DiscountAllocations extends _DiscountAllocations {
-  _$_DiscountAllocations({required this.allocatedAmount}) : super._();
+class _$DiscountAllocationsImpl extends _DiscountAllocations {
+  _$DiscountAllocationsImpl({required this.allocatedAmount}) : super._();
 
-  factory _$_DiscountAllocations.fromJson(Map<String, dynamic> json) =>
-      _$$_DiscountAllocationsFromJson(json);
+  factory _$DiscountAllocationsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DiscountAllocationsImplFromJson(json);
 
   @override
   final PriceV2? allocatedAmount;
@@ -146,39 +131,42 @@ class _$_DiscountAllocations extends _DiscountAllocations {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DiscountAllocations &&
-            const DeepCollectionEquality()
-                .equals(other.allocatedAmount, allocatedAmount));
+            other is _$DiscountAllocationsImpl &&
+            (identical(other.allocatedAmount, allocatedAmount) ||
+                other.allocatedAmount == allocatedAmount));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(allocatedAmount));
 
   @JsonKey(ignore: true)
   @override
-  _$DiscountAllocationsCopyWith<_DiscountAllocations> get copyWith =>
-      __$DiscountAllocationsCopyWithImpl<_DiscountAllocations>(
+  int get hashCode => Object.hash(runtimeType, allocatedAmount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DiscountAllocationsImplCopyWith<_$DiscountAllocationsImpl> get copyWith =>
+      __$$DiscountAllocationsImplCopyWithImpl<_$DiscountAllocationsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DiscountAllocationsToJson(this);
+    return _$$DiscountAllocationsImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _DiscountAllocations extends DiscountAllocations {
-  factory _DiscountAllocations({required PriceV2? allocatedAmount}) =
-      _$_DiscountAllocations;
+  factory _DiscountAllocations({required final PriceV2? allocatedAmount}) =
+      _$DiscountAllocationsImpl;
   _DiscountAllocations._() : super._();
 
   factory _DiscountAllocations.fromJson(Map<String, dynamic> json) =
-      _$_DiscountAllocations.fromJson;
+      _$DiscountAllocationsImpl.fromJson;
 
   @override
   PriceV2? get allocatedAmount;
   @override
   @JsonKey(ignore: true)
-  _$DiscountAllocationsCopyWith<_DiscountAllocations> get copyWith =>
+  _$$DiscountAllocationsImplCopyWith<_$DiscountAllocationsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

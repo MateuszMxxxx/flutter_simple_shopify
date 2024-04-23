@@ -58,6 +58,22 @@ customer(customerAccessToken: $accessToken) {
                   id
                   product{
                     id
+                                          itemSize: metafield(namespace: "custom", key: "item_size") {
+        value
+        type
+      }
+      packSize: metafield(namespace: "custom", key: "pack_size") {
+        value
+        type
+      }
+      unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
+        value
+        type
+      }
+                      productTitle: metafield(namespace: "custom", key: "product_title") {
+        value
+        type
+      }
                   }
                 }
               }

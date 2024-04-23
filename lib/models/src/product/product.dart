@@ -33,6 +33,10 @@ class Product with _$Product {
     String? description,
     String? descriptionHtml,
     String? handle,
+    String? metafieldTitle,
+    double? metafieldItemSize,
+    int? metafieldPackSize,
+    String? metafieldUnitOfMeasure
   }) = _Product;
 
   static Product fromGraphJson(Map<String, dynamic> json) {
@@ -57,7 +61,12 @@ class Product with _$Product {
         option: _getOptionList((json['node'] ?? const {})),
         vendor: (json['node'] ?? const {})['vendor'],
         metafields: _getMetafieldList(
-            (json['node'] ?? const {})['metafields'] ?? const {}));
+            (json['node'] ?? const {})['metafields'] ?? const {}),
+        metafieldItemSize: json['node']['itemSize'] != null ? double.tryParse(json['node']['itemSize']["value"]) : null,
+        metafieldPackSize: json['node']['packSize'] != null ? int.tryParse(json['node']['packSize']["value"]) : null,
+        metafieldTitle: json['node']['productTitle'] != null ? json['node']['productTitle']["value"] : null,
+        metafieldUnitOfMeasure: json['node']['unitOfMeasure'] != null ? json['node']['unitOfMeasure']["value"] : null
+    );
   }
 
   factory Product.fromJson(Map<String, dynamic> json) =>

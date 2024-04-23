@@ -1,5 +1,11 @@
 const String getXProductsAfterCursorWithinCollectionQuery = r'''
-query($id : ID!, $cursor : String, $limit : Int, $sortKeyProducts : ProductCollectionSortKeys, $reverse: Boolean){
+query (
+  $id: ID!
+  $cursor: String
+  $limit: Int
+  $sortKeyProducts: ProductCollectionSortKeys
+  $reverse: Boolean
+) {
   collection(id: $id) {
     id
     description
@@ -12,7 +18,12 @@ query($id : ID!, $cursor : String, $limit : Int, $sortKeyProducts : ProductColle
       id
       url
     }
-    products(first: $limit, after: $cursor, sortKey: $sortKeyProducts, reverse: $reverse) {
+    products(
+      first: $limit
+      after: $cursor
+      sortKey: $sortKeyProducts
+      reverse: $reverse
+    ) {
       edges {
         cursor
         node {
@@ -56,6 +67,25 @@ query($id : ID!, $cursor : String, $limit : Int, $sortKeyProducts : ProductColle
           updatedAt
           totalInventory
           vendor
+          productTitle: metafield(namespace: "custom", key: "product_title") {
+            value
+            type
+          }
+          itemSize: metafield(namespace: "custom", key: "item_size") {
+            value
+            type
+          }
+          packSize: metafield(namespace: "custom", key: "pack_size") {
+            value
+            type
+          }
+          unitOfMeasure: metafield(
+            namespace: "custom"
+            key: "unit_of_measure"
+          ) {
+            value
+            type
+          }
           variants(first: 25) {
             edges {
               node {

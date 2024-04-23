@@ -219,7 +219,6 @@ class ShopifyStore with ShopifyError {
       var newResponse = List.generate(result.data!['nodes']?.length ?? 0,
           (index) => {"node": (result.data!['nodes'] ?? const {})[index]});
       var tempCollection = {"edges": newResponse};
-      print(Collections.fromGraphJson(tempCollection).collectionList);
       return Collections.fromGraphJson(tempCollection).collectionList;
     } catch (e) {
       print(e);

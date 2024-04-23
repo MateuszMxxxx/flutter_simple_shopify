@@ -4,11 +4,12 @@ import 'package:flutter_simple_shopify/models/src/product/shopify_image/shopify_
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'product_variant_checkout.freezed.dart';
+
 part 'product_variant_checkout.g.dart';
 
 @freezed
 class ProductVariantCheckout with _$ProductVariantCheckout {
-  const ProductVariantCheckout._();
+  ProductVariantCheckout._();
 
   factory ProductVariantCheckout({
     required PriceV2 priceV2,
@@ -23,6 +24,23 @@ class ProductVariantCheckout with _$ProductVariantCheckout {
     double? weight,
     String? weightUnit,
   }) = _ProductVariantCheckout;
+
+  static ProductVariantCheckout fromGraphql(Map<String, dynamic> json) {
+    return ProductVariantCheckout(
+        priceV2: PriceV2.fromJson(json["priceV2"]),
+        title: json["title"],
+        availableForSale: json["availableForSale"],
+        requiresShipping: json["requiresShipping"],
+        id: json["id"],
+        product: ProductVariantCheckoutProduct.fromGraphql(json["product"]),
+        compareAtPrice: json["compareAtPrice"] != null
+            ? PriceV2.fromJson(json["compareAtPrice"])
+            : null,
+        image: json["image"] != null ? ShopifyImage.fromJson(json["image"]) : null,
+        sku: json["sku"],
+        weight: json["weight"],
+        weightUnit: json["weightUnit"]);
+  }
 
   factory ProductVariantCheckout.fromJson(Map<String, dynamic> json) =>
       _$ProductVariantCheckoutFromJson(json);

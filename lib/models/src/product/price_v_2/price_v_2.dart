@@ -10,7 +10,7 @@ class PriceV2 with _$PriceV2 {
   PriceV2._();
 
   factory PriceV2({
-    @JsonKey(fromJson: JsonHelper.amountFromJson) required double amount,
+    @JsonKey(fromJson: JsonHelper.amountFromJson) double? amount,
     required String currencyCode,
   }) = _PriceV2;
 

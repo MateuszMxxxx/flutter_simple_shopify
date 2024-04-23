@@ -6,10 +6,10 @@ part of 'product_variant_checkout.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProductVariantCheckout _$$_ProductVariantCheckoutFromJson(Map json) =>
-    _$_ProductVariantCheckout(
-      priceV2:
-          PriceV2.fromJson(Map<String, dynamic>.from(json['priceV2'] as Map)),
+_$ProductVariantCheckoutImpl _$$ProductVariantCheckoutImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ProductVariantCheckoutImpl(
+      priceV2: PriceV2.fromJson(json['priceV2'] as Map<String, dynamic>),
       title: json['title'] as String,
       availableForSale: json['availableForSale'] as bool,
       requiresShipping: json['requiresShipping'] as bool,
@@ -17,41 +17,30 @@ _$_ProductVariantCheckout _$$_ProductVariantCheckoutFromJson(Map json) =>
       product: json['product'] == null
           ? null
           : ProductVariantCheckoutProduct.fromJson(
-              Map<String, dynamic>.from(json['product'] as Map)),
+              json['product'] as Map<String, dynamic>),
       sku: json['sku'] as String?,
       image: json['image'] == null
           ? null
-          : ShopifyImage.fromJson(
-              Map<String, dynamic>.from(json['image'] as Map)),
+          : ShopifyImage.fromJson(json['image'] as Map<String, dynamic>),
       compareAtPrice: json['compareAtPrice'] == null
           ? null
-          : PriceV2.fromJson(
-              Map<String, dynamic>.from(json['compareAtPrice'] as Map)),
+          : PriceV2.fromJson(json['compareAtPrice'] as Map<String, dynamic>),
       weight: (json['weight'] as num?)?.toDouble(),
       weightUnit: json['weightUnit'] as String?,
     );
 
-Map<String, dynamic> _$$_ProductVariantCheckoutToJson(
-    _$_ProductVariantCheckout instance) {
-  final val = <String, dynamic>{
-    'priceV2': instance.priceV2.toJson(),
-    'title': instance.title,
-    'availableForSale': instance.availableForSale,
-    'requiresShipping': instance.requiresShipping,
-    'id': instance.id,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('product', instance.product?.toJson());
-  writeNotNull('sku', instance.sku);
-  writeNotNull('image', instance.image?.toJson());
-  writeNotNull('compareAtPrice', instance.compareAtPrice?.toJson());
-  writeNotNull('weight', instance.weight);
-  writeNotNull('weightUnit', instance.weightUnit);
-  return val;
-}
+Map<String, dynamic> _$$ProductVariantCheckoutImplToJson(
+        _$ProductVariantCheckoutImpl instance) =>
+    <String, dynamic>{
+      'priceV2': instance.priceV2,
+      'title': instance.title,
+      'availableForSale': instance.availableForSale,
+      'requiresShipping': instance.requiresShipping,
+      'id': instance.id,
+      'product': instance.product,
+      'sku': instance.sku,
+      'image': instance.image,
+      'compareAtPrice': instance.compareAtPrice,
+      'weight': instance.weight,
+      'weightUnit': instance.weightUnit,
+    };

@@ -34,7 +34,7 @@ class LineItemOrder with _$LineItemOrder {
         quantity: (json['node'] ?? const {})['quantity'],
         title: (json['node'] ?? const {})['title'],
         variant: (json['node'] ?? const {})['variant'] != null
-            ? ProductVariantCheckout.fromJson(
+            ? ProductVariantCheckout.fromGraphql(
             (json['node'] ?? const {})['variant'])
             : null);
   }

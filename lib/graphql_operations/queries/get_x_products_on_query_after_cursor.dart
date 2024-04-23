@@ -22,6 +22,18 @@ query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String
         updatedAt
         totalInventory
         vendor
+              itemSize: metafield(namespace: "custom", key: "item_size") {
+        value
+        type
+      }
+      packSize: metafield(namespace: "custom", key: "pack_size") {
+        value
+        type
+      }
+      unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
+        value
+        type
+      }
         images(first: 250) {
           edges {
             node {

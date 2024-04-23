@@ -6,16 +6,16 @@ part of 'shipping_rates.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ShippingRates _$$_ShippingRatesFromJson(Map json) => _$_ShippingRates(
+_$ShippingRatesImpl _$$ShippingRatesImplFromJson(Map<String, dynamic> json) =>
+    _$ShippingRatesImpl(
       handle: json['handle'] as String,
       title: json['title'] as String,
-      priceV2:
-          PriceV2.fromJson(Map<String, dynamic>.from(json['priceV2'] as Map)),
+      priceV2: PriceV2.fromJson(json['priceV2'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ShippingRatesToJson(_$_ShippingRates instance) =>
+Map<String, dynamic> _$$ShippingRatesImplToJson(_$ShippingRatesImpl instance) =>
     <String, dynamic>{
       'handle': instance.handle,
       'title': instance.title,
-      'priceV2': instance.priceV2.toJson(),
+      'priceV2': instance.priceV2,
     };

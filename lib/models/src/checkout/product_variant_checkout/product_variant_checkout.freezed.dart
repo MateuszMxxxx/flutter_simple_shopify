@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'product_variant_checkout.dart';
 
@@ -12,51 +12,12 @@ part of 'product_variant_checkout.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ProductVariantCheckout _$ProductVariantCheckoutFromJson(
     Map<String, dynamic> json) {
   return _ProductVariantCheckout.fromJson(json);
 }
-
-/// @nodoc
-class _$ProductVariantCheckoutTearOff {
-  const _$ProductVariantCheckoutTearOff();
-
-  _ProductVariantCheckout call(
-      {required PriceV2 priceV2,
-      required String title,
-      required bool availableForSale,
-      required bool requiresShipping,
-      required String id,
-      required ProductVariantCheckoutProduct? product,
-      String? sku,
-      ShopifyImage? image,
-      PriceV2? compareAtPrice,
-      double? weight,
-      String? weightUnit}) {
-    return _ProductVariantCheckout(
-      priceV2: priceV2,
-      title: title,
-      availableForSale: availableForSale,
-      requiresShipping: requiresShipping,
-      id: id,
-      product: product,
-      sku: sku,
-      image: image,
-      compareAtPrice: compareAtPrice,
-      weight: weight,
-      weightUnit: weightUnit,
-    );
-  }
-
-  ProductVariantCheckout fromJson(Map<String, Object?> json) {
-    return ProductVariantCheckout.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ProductVariantCheckout = _$ProductVariantCheckoutTearOff();
 
 /// @nodoc
 mixin _$ProductVariantCheckout {
@@ -83,7 +44,8 @@ mixin _$ProductVariantCheckout {
 abstract class $ProductVariantCheckoutCopyWith<$Res> {
   factory $ProductVariantCheckoutCopyWith(ProductVariantCheckout value,
           $Res Function(ProductVariantCheckout) then) =
-      _$ProductVariantCheckoutCopyWithImpl<$Res>;
+      _$ProductVariantCheckoutCopyWithImpl<$Res, ProductVariantCheckout>;
+  @useResult
   $Res call(
       {PriceV2 priceV2,
       String title,
@@ -104,21 +66,24 @@ abstract class $ProductVariantCheckoutCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProductVariantCheckoutCopyWithImpl<$Res>
+class _$ProductVariantCheckoutCopyWithImpl<$Res,
+        $Val extends ProductVariantCheckout>
     implements $ProductVariantCheckoutCopyWith<$Res> {
   _$ProductVariantCheckoutCopyWithImpl(this._value, this._then);
 
-  final ProductVariantCheckout _value;
   // ignore: unused_field
-  final $Res Function(ProductVariantCheckout) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? priceV2 = freezed,
-    Object? title = freezed,
-    Object? availableForSale = freezed,
-    Object? requiresShipping = freezed,
-    Object? id = freezed,
+    Object? priceV2 = null,
+    Object? title = null,
+    Object? availableForSale = null,
+    Object? requiresShipping = null,
+    Object? id = null,
     Object? product = freezed,
     Object? sku = freezed,
     Object? image = freezed,
@@ -127,61 +92,63 @@ class _$ProductVariantCheckoutCopyWithImpl<$Res>
     Object? weightUnit = freezed,
   }) {
     return _then(_value.copyWith(
-      priceV2: priceV2 == freezed
+      priceV2: null == priceV2
           ? _value.priceV2
           : priceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      availableForSale: availableForSale == freezed
+      availableForSale: null == availableForSale
           ? _value.availableForSale
           : availableForSale // ignore: cast_nullable_to_non_nullable
               as bool,
-      requiresShipping: requiresShipping == freezed
+      requiresShipping: null == requiresShipping
           ? _value.requiresShipping
           : requiresShipping // ignore: cast_nullable_to_non_nullable
               as bool,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      product: product == freezed
+      product: freezed == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as ProductVariantCheckoutProduct?,
-      sku: sku == freezed
+      sku: freezed == sku
           ? _value.sku
           : sku // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ShopifyImage?,
-      compareAtPrice: compareAtPrice == freezed
+      compareAtPrice: freezed == compareAtPrice
           ? _value.compareAtPrice
           : compareAtPrice // ignore: cast_nullable_to_non_nullable
               as PriceV2?,
-      weight: weight == freezed
+      weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double?,
-      weightUnit: weightUnit == freezed
+      weightUnit: freezed == weightUnit
           ? _value.weightUnit
           : weightUnit // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res> get priceV2 {
     return $PriceV2CopyWith<$Res>(_value.priceV2, (value) {
-      return _then(_value.copyWith(priceV2: value));
+      return _then(_value.copyWith(priceV2: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ProductVariantCheckoutProductCopyWith<$Res>? get product {
     if (_value.product == null) {
       return null;
@@ -189,40 +156,44 @@ class _$ProductVariantCheckoutCopyWithImpl<$Res>
 
     return $ProductVariantCheckoutProductCopyWith<$Res>(_value.product!,
         (value) {
-      return _then(_value.copyWith(product: value));
+      return _then(_value.copyWith(product: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ShopifyImageCopyWith<$Res>? get image {
     if (_value.image == null) {
       return null;
     }
 
     return $ShopifyImageCopyWith<$Res>(_value.image!, (value) {
-      return _then(_value.copyWith(image: value));
+      return _then(_value.copyWith(image: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res>? get compareAtPrice {
     if (_value.compareAtPrice == null) {
       return null;
     }
 
     return $PriceV2CopyWith<$Res>(_value.compareAtPrice!, (value) {
-      return _then(_value.copyWith(compareAtPrice: value));
+      return _then(_value.copyWith(compareAtPrice: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$ProductVariantCheckoutCopyWith<$Res>
+abstract class _$$ProductVariantCheckoutImplCopyWith<$Res>
     implements $ProductVariantCheckoutCopyWith<$Res> {
-  factory _$ProductVariantCheckoutCopyWith(_ProductVariantCheckout value,
-          $Res Function(_ProductVariantCheckout) then) =
-      __$ProductVariantCheckoutCopyWithImpl<$Res>;
+  factory _$$ProductVariantCheckoutImplCopyWith(
+          _$ProductVariantCheckoutImpl value,
+          $Res Function(_$ProductVariantCheckoutImpl) then) =
+      __$$ProductVariantCheckoutImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {PriceV2 priceV2,
       String title,
@@ -247,23 +218,23 @@ abstract class _$ProductVariantCheckoutCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ProductVariantCheckoutCopyWithImpl<$Res>
-    extends _$ProductVariantCheckoutCopyWithImpl<$Res>
-    implements _$ProductVariantCheckoutCopyWith<$Res> {
-  __$ProductVariantCheckoutCopyWithImpl(_ProductVariantCheckout _value,
-      $Res Function(_ProductVariantCheckout) _then)
-      : super(_value, (v) => _then(v as _ProductVariantCheckout));
+class __$$ProductVariantCheckoutImplCopyWithImpl<$Res>
+    extends _$ProductVariantCheckoutCopyWithImpl<$Res,
+        _$ProductVariantCheckoutImpl>
+    implements _$$ProductVariantCheckoutImplCopyWith<$Res> {
+  __$$ProductVariantCheckoutImplCopyWithImpl(
+      _$ProductVariantCheckoutImpl _value,
+      $Res Function(_$ProductVariantCheckoutImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ProductVariantCheckout get _value => super._value as _ProductVariantCheckout;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? priceV2 = freezed,
-    Object? title = freezed,
-    Object? availableForSale = freezed,
-    Object? requiresShipping = freezed,
-    Object? id = freezed,
+    Object? priceV2 = null,
+    Object? title = null,
+    Object? availableForSale = null,
+    Object? requiresShipping = null,
+    Object? id = null,
     Object? product = freezed,
     Object? sku = freezed,
     Object? image = freezed,
@@ -271,48 +242,48 @@ class __$ProductVariantCheckoutCopyWithImpl<$Res>
     Object? weight = freezed,
     Object? weightUnit = freezed,
   }) {
-    return _then(_ProductVariantCheckout(
-      priceV2: priceV2 == freezed
+    return _then(_$ProductVariantCheckoutImpl(
+      priceV2: null == priceV2
           ? _value.priceV2
           : priceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      availableForSale: availableForSale == freezed
+      availableForSale: null == availableForSale
           ? _value.availableForSale
           : availableForSale // ignore: cast_nullable_to_non_nullable
               as bool,
-      requiresShipping: requiresShipping == freezed
+      requiresShipping: null == requiresShipping
           ? _value.requiresShipping
           : requiresShipping // ignore: cast_nullable_to_non_nullable
               as bool,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      product: product == freezed
+      product: freezed == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as ProductVariantCheckoutProduct?,
-      sku: sku == freezed
+      sku: freezed == sku
           ? _value.sku
           : sku // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ShopifyImage?,
-      compareAtPrice: compareAtPrice == freezed
+      compareAtPrice: freezed == compareAtPrice
           ? _value.compareAtPrice
           : compareAtPrice // ignore: cast_nullable_to_non_nullable
               as PriceV2?,
-      weight: weight == freezed
+      weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double?,
-      weightUnit: weightUnit == freezed
+      weightUnit: freezed == weightUnit
           ? _value.weightUnit
           : weightUnit // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -322,8 +293,8 @@ class __$ProductVariantCheckoutCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProductVariantCheckout extends _ProductVariantCheckout {
-  _$_ProductVariantCheckout(
+class _$ProductVariantCheckoutImpl extends _ProductVariantCheckout {
+  _$ProductVariantCheckoutImpl(
       {required this.priceV2,
       required this.title,
       required this.availableForSale,
@@ -337,8 +308,8 @@ class _$_ProductVariantCheckout extends _ProductVariantCheckout {
       this.weightUnit})
       : super._();
 
-  factory _$_ProductVariantCheckout.fromJson(Map<String, dynamic> json) =>
-      _$$_ProductVariantCheckoutFromJson(json);
+  factory _$ProductVariantCheckoutImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProductVariantCheckoutImplFromJson(json);
 
   @override
   final PriceV2 priceV2;
@@ -372,68 +343,72 @@ class _$_ProductVariantCheckout extends _ProductVariantCheckout {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProductVariantCheckout &&
-            const DeepCollectionEquality().equals(other.priceV2, priceV2) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality()
-                .equals(other.availableForSale, availableForSale) &&
-            const DeepCollectionEquality()
-                .equals(other.requiresShipping, requiresShipping) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.product, product) &&
-            const DeepCollectionEquality().equals(other.sku, sku) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality()
-                .equals(other.compareAtPrice, compareAtPrice) &&
-            const DeepCollectionEquality().equals(other.weight, weight) &&
-            const DeepCollectionEquality()
-                .equals(other.weightUnit, weightUnit));
+            other is _$ProductVariantCheckoutImpl &&
+            (identical(other.priceV2, priceV2) || other.priceV2 == priceV2) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.availableForSale, availableForSale) ||
+                other.availableForSale == availableForSale) &&
+            (identical(other.requiresShipping, requiresShipping) ||
+                other.requiresShipping == requiresShipping) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.product, product) || other.product == product) &&
+            (identical(other.sku, sku) || other.sku == sku) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.compareAtPrice, compareAtPrice) ||
+                other.compareAtPrice == compareAtPrice) &&
+            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.weightUnit, weightUnit) ||
+                other.weightUnit == weightUnit));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(priceV2),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(availableForSale),
-      const DeepCollectionEquality().hash(requiresShipping),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(product),
-      const DeepCollectionEquality().hash(sku),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(compareAtPrice),
-      const DeepCollectionEquality().hash(weight),
-      const DeepCollectionEquality().hash(weightUnit));
 
   @JsonKey(ignore: true)
   @override
-  _$ProductVariantCheckoutCopyWith<_ProductVariantCheckout> get copyWith =>
-      __$ProductVariantCheckoutCopyWithImpl<_ProductVariantCheckout>(
-          this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      priceV2,
+      title,
+      availableForSale,
+      requiresShipping,
+      id,
+      product,
+      sku,
+      image,
+      compareAtPrice,
+      weight,
+      weightUnit);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProductVariantCheckoutImplCopyWith<_$ProductVariantCheckoutImpl>
+      get copyWith => __$$ProductVariantCheckoutImplCopyWithImpl<
+          _$ProductVariantCheckoutImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProductVariantCheckoutToJson(this);
+    return _$$ProductVariantCheckoutImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ProductVariantCheckout extends ProductVariantCheckout {
   factory _ProductVariantCheckout(
-      {required PriceV2 priceV2,
-      required String title,
-      required bool availableForSale,
-      required bool requiresShipping,
-      required String id,
-      required ProductVariantCheckoutProduct? product,
-      String? sku,
-      ShopifyImage? image,
-      PriceV2? compareAtPrice,
-      double? weight,
-      String? weightUnit}) = _$_ProductVariantCheckout;
+      {required final PriceV2 priceV2,
+      required final String title,
+      required final bool availableForSale,
+      required final bool requiresShipping,
+      required final String id,
+      required final ProductVariantCheckoutProduct? product,
+      final String? sku,
+      final ShopifyImage? image,
+      final PriceV2? compareAtPrice,
+      final double? weight,
+      final String? weightUnit}) = _$ProductVariantCheckoutImpl;
   _ProductVariantCheckout._() : super._();
 
   factory _ProductVariantCheckout.fromJson(Map<String, dynamic> json) =
-      _$_ProductVariantCheckout.fromJson;
+      _$ProductVariantCheckoutImpl.fromJson;
 
   @override
   PriceV2 get priceV2;
@@ -459,6 +434,6 @@ abstract class _ProductVariantCheckout extends ProductVariantCheckout {
   String? get weightUnit;
   @override
   @JsonKey(ignore: true)
-  _$ProductVariantCheckoutCopyWith<_ProductVariantCheckout> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ProductVariantCheckoutImplCopyWith<_$ProductVariantCheckoutImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
