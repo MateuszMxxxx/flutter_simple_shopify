@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'custom_attributes.dart';
 
@@ -12,29 +12,11 @@ part of 'custom_attributes.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CustomAttributes _$CustomAttributesFromJson(Map<String, dynamic> json) {
   return _CustomAttributes.fromJson(json);
 }
-
-/// @nodoc
-class _$CustomAttributesTearOff {
-  const _$CustomAttributesTearOff();
-
-  _CustomAttributes call({required List<CustomAttribute> attributes}) {
-    return _CustomAttributes(
-      attributes: attributes,
-    );
-  }
-
-  CustomAttributes fromJson(Map<String, Object?> json) {
-    return CustomAttributes.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $CustomAttributes = _$CustomAttributesTearOff();
 
 /// @nodoc
 mixin _$CustomAttributes {
@@ -50,60 +32,62 @@ mixin _$CustomAttributes {
 abstract class $CustomAttributesCopyWith<$Res> {
   factory $CustomAttributesCopyWith(
           CustomAttributes value, $Res Function(CustomAttributes) then) =
-      _$CustomAttributesCopyWithImpl<$Res>;
+      _$CustomAttributesCopyWithImpl<$Res, CustomAttributes>;
+  @useResult
   $Res call({List<CustomAttribute> attributes});
 }
 
 /// @nodoc
-class _$CustomAttributesCopyWithImpl<$Res>
+class _$CustomAttributesCopyWithImpl<$Res, $Val extends CustomAttributes>
     implements $CustomAttributesCopyWith<$Res> {
   _$CustomAttributesCopyWithImpl(this._value, this._then);
 
-  final CustomAttributes _value;
   // ignore: unused_field
-  final $Res Function(CustomAttributes) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? attributes = freezed,
+    Object? attributes = null,
   }) {
     return _then(_value.copyWith(
-      attributes: attributes == freezed
+      attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
               as List<CustomAttribute>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$CustomAttributesCopyWith<$Res>
+abstract class _$$CustomAttributesImplCopyWith<$Res>
     implements $CustomAttributesCopyWith<$Res> {
-  factory _$CustomAttributesCopyWith(
-          _CustomAttributes value, $Res Function(_CustomAttributes) then) =
-      __$CustomAttributesCopyWithImpl<$Res>;
+  factory _$$CustomAttributesImplCopyWith(_$CustomAttributesImpl value,
+          $Res Function(_$CustomAttributesImpl) then) =
+      __$$CustomAttributesImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CustomAttribute> attributes});
 }
 
 /// @nodoc
-class __$CustomAttributesCopyWithImpl<$Res>
-    extends _$CustomAttributesCopyWithImpl<$Res>
-    implements _$CustomAttributesCopyWith<$Res> {
-  __$CustomAttributesCopyWithImpl(
-      _CustomAttributes _value, $Res Function(_CustomAttributes) _then)
-      : super(_value, (v) => _then(v as _CustomAttributes));
+class __$$CustomAttributesImplCopyWithImpl<$Res>
+    extends _$CustomAttributesCopyWithImpl<$Res, _$CustomAttributesImpl>
+    implements _$$CustomAttributesImplCopyWith<$Res> {
+  __$$CustomAttributesImplCopyWithImpl(_$CustomAttributesImpl _value,
+      $Res Function(_$CustomAttributesImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _CustomAttributes get _value => super._value as _CustomAttributes;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? attributes = freezed,
+    Object? attributes = null,
   }) {
-    return _then(_CustomAttributes(
-      attributes: attributes == freezed
-          ? _value.attributes
+    return _then(_$CustomAttributesImpl(
+      attributes: null == attributes
+          ? _value._attributes
           : attributes // ignore: cast_nullable_to_non_nullable
               as List<CustomAttribute>,
     ));
@@ -112,14 +96,20 @@ class __$CustomAttributesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CustomAttributes implements _CustomAttributes {
-  _$_CustomAttributes({required this.attributes});
+class _$CustomAttributesImpl implements _CustomAttributes {
+  _$CustomAttributesImpl({required final List<CustomAttribute> attributes})
+      : _attributes = attributes;
 
-  factory _$_CustomAttributes.fromJson(Map<String, dynamic> json) =>
-      _$$_CustomAttributesFromJson(json);
+  factory _$CustomAttributesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CustomAttributesImplFromJson(json);
 
+  final List<CustomAttribute> _attributes;
   @override
-  final List<CustomAttribute> attributes;
+  List<CustomAttribute> get attributes {
+    if (_attributes is EqualUnmodifiableListView) return _attributes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attributes);
+  }
 
   @override
   String toString() {
@@ -130,37 +120,42 @@ class _$_CustomAttributes implements _CustomAttributes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CustomAttributes &&
+            other is _$CustomAttributesImpl &&
             const DeepCollectionEquality()
-                .equals(other.attributes, attributes));
+                .equals(other._attributes, _attributes));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(attributes));
 
   @JsonKey(ignore: true)
   @override
-  _$CustomAttributesCopyWith<_CustomAttributes> get copyWith =>
-      __$CustomAttributesCopyWithImpl<_CustomAttributes>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_attributes));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CustomAttributesImplCopyWith<_$CustomAttributesImpl> get copyWith =>
+      __$$CustomAttributesImplCopyWithImpl<_$CustomAttributesImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CustomAttributesToJson(this);
+    return _$$CustomAttributesImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _CustomAttributes implements CustomAttributes {
-  factory _CustomAttributes({required List<CustomAttribute> attributes}) =
-      _$_CustomAttributes;
+  factory _CustomAttributes({required final List<CustomAttribute> attributes}) =
+      _$CustomAttributesImpl;
 
   factory _CustomAttributes.fromJson(Map<String, dynamic> json) =
-      _$_CustomAttributes.fromJson;
+      _$CustomAttributesImpl.fromJson;
 
   @override
   List<CustomAttribute> get attributes;
   @override
   @JsonKey(ignore: true)
-  _$CustomAttributesCopyWith<_CustomAttributes> get copyWith =>
+  _$$CustomAttributesImplCopyWith<_$CustomAttributesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

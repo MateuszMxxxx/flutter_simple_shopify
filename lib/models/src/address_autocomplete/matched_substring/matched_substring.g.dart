@@ -6,22 +6,16 @@ part of 'matched_substring.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MatchedSubstring _$$_MatchedSubstringFromJson(Map json) =>
-    _$_MatchedSubstring(
-      length: json['length'] as int?,
-      offset: json['offset'] as int?,
+_$MatchedSubstringImpl _$$MatchedSubstringImplFromJson(
+        Map<String, dynamic> json) =>
+    _$MatchedSubstringImpl(
+      length: (json['length'] as num?)?.toInt(),
+      offset: (json['offset'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$_MatchedSubstringToJson(_$_MatchedSubstring instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('length', instance.length);
-  writeNotNull('offset', instance.offset);
-  return val;
-}
+Map<String, dynamic> _$$MatchedSubstringImplToJson(
+        _$MatchedSubstringImpl instance) =>
+    <String, dynamic>{
+      'length': instance.length,
+      'offset': instance.offset,
+    };

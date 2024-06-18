@@ -9,7 +9,7 @@ part of 'checkout_order.dart';
 _$CheckoutOrderImpl _$$CheckoutOrderImplFromJson(Map<String, dynamic> json) =>
     _$CheckoutOrderImpl(
       id: json['id'] as String,
-      orderNumber: json['orderNumber'] as int,
+      orderNumber: (json['orderNumber'] as num).toInt(),
       totalPriceV2:
           PriceV2.fromJson(json['totalPriceV2'] as Map<String, dynamic>),
       totalShippingPriceV2: PriceV2.fromJson(

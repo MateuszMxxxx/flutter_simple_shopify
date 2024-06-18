@@ -29,7 +29,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       metafields: (json['metafields'] as List<dynamic>)
           .map((e) => Metafield.fromJson(e as Map<String, dynamic>))
           .toList(),
-      totalInventory: json['totalInventory'] as int?,
+      totalInventory: (json['totalInventory'] as num?)?.toInt(),
       collectionList: (json['collectionList'] as List<dynamic>?)
           ?.map(
               (e) => AssociatedCollections.fromJson(e as Map<String, dynamic>))
@@ -41,7 +41,9 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       handle: json['handle'] as String?,
       metafieldTitle: json['metafieldTitle'] as String?,
       metafieldItemSize: (json['metafieldItemSize'] as num?)?.toDouble(),
-      metafieldPackSize: json['metafieldPackSize'] as int?,
+      metafieldPackSize: (json['metafieldPackSize'] as num?)?.toInt(),
+      metafieldLocationId: (json['metafieldLocationId'] as num?)?.toInt(),
+      metafieldCompanyId: (json['metafieldCompanyId'] as num?)?.toInt(),
       metafieldUnitOfMeasure: json['metafieldUnitOfMeasure'] as String?,
     );
 
@@ -70,5 +72,7 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'metafieldTitle': instance.metafieldTitle,
       'metafieldItemSize': instance.metafieldItemSize,
       'metafieldPackSize': instance.metafieldPackSize,
+      'metafieldLocationId': instance.metafieldLocationId,
+      'metafieldCompanyId': instance.metafieldCompanyId,
       'metafieldUnitOfMeasure': instance.metafieldUnitOfMeasure,
     };

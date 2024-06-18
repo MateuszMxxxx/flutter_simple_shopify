@@ -1,6 +1,6 @@
 const String getAllOrdersQuery = r'''
-query getOrders($sortKey : OrderSortKeys, $accessToken : String!, $reverse: Boolean){
-customer(customerAccessToken: $accessToken) {
+query getOrders($sortKey: OrderSortKeys, $accessToken: String!, $reverse: Boolean) {
+  customer(customerAccessToken: $accessToken) {
     orders(first: 250, sortKey: $sortKey, reverse: $reverse) {
       edges {
         node {
@@ -11,7 +11,7 @@ customer(customerAccessToken: $accessToken) {
           currencyCode
           customerUrl
           canceledAt
-          customAttributes() {
+          customAttributes {
             key
             value
           }
@@ -56,24 +56,32 @@ customer(customerAccessToken: $accessToken) {
                   sku
                   requiresShipping
                   id
-                  product{
+                  product {
                     id
-                                          itemSize: metafield(namespace: "custom", key: "item_size") {
-        value
-        type
-      }
-      packSize: metafield(namespace: "custom", key: "pack_size") {
-        value
-        type
-      }
-      unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
-        value
-        type
-      }
-                      productTitle: metafield(namespace: "custom", key: "product_title") {
-        value
-        type
-      }
+                    itemSize: metafield(namespace: "custom", key: "item_size") {
+                      value
+                      type
+                    }
+                    packSize: metafield(namespace: "custom", key: "pack_size") {
+                      value
+                      type
+                    }
+                    unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
+                      value
+                      type
+                    }
+                    productTitle: metafield(namespace: "custom", key: "product_title") {
+                      value
+                      type
+                    }
+                    locationId: metafield(namespace: "custom", key: "Location_ID") {
+                      value
+                      type
+                    }
+                    companyId: metafield(namespace: "custom", key: "Company_ID") {
+                      value
+                      type
+                    }                                        
                   }
                 }
               }
@@ -141,21 +149,21 @@ customer(customerAccessToken: $accessToken) {
             currencyCode
           }
           discountApplications(first: 10) {
-              edges {
-                  node {
-                      allocationMethod
-                      targetSelection
-                      targetType
-                      value {
-                          ... on MoneyV2 {
-                              amount
-                          }
-                          ... on PricingPercentageValue {
-                              percentage
-                          }
-                      }
+            edges {
+              node {
+                allocationMethod
+                targetSelection
+                targetType
+                value {
+                  ... on MoneyV2 {
+                    amount
                   }
+                  ... on PricingPercentageValue {
+                    percentage
+                  }
+                }
               }
+            }
           }
         }
         cursor

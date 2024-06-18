@@ -36,6 +36,8 @@ class Product with _$Product {
     String? metafieldTitle,
     double? metafieldItemSize,
     int? metafieldPackSize,
+    int? metafieldLocationId,
+    int? metafieldCompanyId,
     String? metafieldUnitOfMeasure
   }) = _Product;
 
@@ -64,6 +66,8 @@ class Product with _$Product {
             (json['node'] ?? const {})['metafields'] ?? const {}),
         metafieldItemSize: json['node']['itemSize'] != null ? double.tryParse(json['node']['itemSize']["value"]) : null,
         metafieldPackSize: json['node']['packSize'] != null ? int.tryParse(json['node']['packSize']["value"]) : null,
+        metafieldCompanyId: json['node']['companyId'] != null ? int.tryParse(json['node']['companyId']["value"]) : null,
+        metafieldLocationId: json['node']['locationId'] != null ? int.tryParse(json['node']['locationId']["value"]) : null,
         metafieldTitle: json['node']['productTitle'] != null ? json['node']['productTitle']["value"] : null,
         metafieldUnitOfMeasure: json['node']['unitOfMeasure'] != null ? json['node']['unitOfMeasure']["value"] : null
     );

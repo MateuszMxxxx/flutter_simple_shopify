@@ -6,8 +6,9 @@ part of 'discount_application.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DiscountApplication _$$_DiscountApplicationFromJson(Map json) =>
-    _$_DiscountApplication(
+_$DiscountApplicationImpl _$$DiscountApplicationImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DiscountApplicationImpl(
       allocationMethod: $enumDecode(
           _$DiscountApplicationAllocationMethodEnumMap,
           json['allocationMethod']),
@@ -15,19 +16,19 @@ _$_DiscountApplication _$$_DiscountApplicationFromJson(Map json) =>
           _$DiscountApplicationTargetSelectionEnumMap, json['targetSelection']),
       targetType: $enumDecode(
           _$DiscountApplicationTargetTypeEnumMap, json['targetType']),
-      value: PricingValue.fromJson(
-          Map<String, dynamic>.from(json['value'] as Map)),
+      value: PricingValue.fromJson(json['value'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_DiscountApplicationToJson(
-        _$_DiscountApplication instance) =>
+Map<String, dynamic> _$$DiscountApplicationImplToJson(
+        _$DiscountApplicationImpl instance) =>
     <String, dynamic>{
       'allocationMethod': _$DiscountApplicationAllocationMethodEnumMap[
-          instance.allocationMethod],
-      'targetSelection':
-          _$DiscountApplicationTargetSelectionEnumMap[instance.targetSelection],
-      'targetType': _$DiscountApplicationTargetTypeEnumMap[instance.targetType],
-      'value': instance.value.toJson(),
+          instance.allocationMethod]!,
+      'targetSelection': _$DiscountApplicationTargetSelectionEnumMap[
+          instance.targetSelection]!,
+      'targetType':
+          _$DiscountApplicationTargetTypeEnumMap[instance.targetType]!,
+      'value': instance.value,
     };
 
 const _$DiscountApplicationAllocationMethodEnumMap = {

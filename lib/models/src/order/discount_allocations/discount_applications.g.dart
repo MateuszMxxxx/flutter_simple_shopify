@@ -6,18 +6,17 @@ part of 'discount_applications.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DiscountApplications _$$_DiscountApplicationsFromJson(Map json) =>
-    _$_DiscountApplications(
+_$DiscountApplicationsImpl _$$DiscountApplicationsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DiscountApplicationsImpl(
       discountApplicationList: (json['discountApplicationList']
               as List<dynamic>)
-          .map((e) =>
-              DiscountApplication.fromJson(Map<String, dynamic>.from(e as Map)))
+          .map((e) => DiscountApplication.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_DiscountApplicationsToJson(
-        _$_DiscountApplications instance) =>
+Map<String, dynamic> _$$DiscountApplicationsImplToJson(
+        _$DiscountApplicationsImpl instance) =>
     <String, dynamic>{
-      'discountApplicationList':
-          instance.discountApplicationList.map((e) => e.toJson()).toList(),
+      'discountApplicationList': instance.discountApplicationList,
     };

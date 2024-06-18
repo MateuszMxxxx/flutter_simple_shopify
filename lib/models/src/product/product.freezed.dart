@@ -45,6 +45,8 @@ mixin _$Product {
   String? get metafieldTitle => throw _privateConstructorUsedError;
   double? get metafieldItemSize => throw _privateConstructorUsedError;
   int? get metafieldPackSize => throw _privateConstructorUsedError;
+  int? get metafieldLocationId => throw _privateConstructorUsedError;
+  int? get metafieldCompanyId => throw _privateConstructorUsedError;
   String? get metafieldUnitOfMeasure => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -81,6 +83,8 @@ abstract class $ProductCopyWith<$Res> {
       String? metafieldTitle,
       double? metafieldItemSize,
       int? metafieldPackSize,
+      int? metafieldLocationId,
+      int? metafieldCompanyId,
       String? metafieldUnitOfMeasure});
 }
 
@@ -120,6 +124,8 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? metafieldTitle = freezed,
     Object? metafieldItemSize = freezed,
     Object? metafieldPackSize = freezed,
+    Object? metafieldLocationId = freezed,
+    Object? metafieldCompanyId = freezed,
     Object? metafieldUnitOfMeasure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -215,6 +221,14 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.metafieldPackSize
           : metafieldPackSize // ignore: cast_nullable_to_non_nullable
               as int?,
+      metafieldLocationId: freezed == metafieldLocationId
+          ? _value.metafieldLocationId
+          : metafieldLocationId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      metafieldCompanyId: freezed == metafieldCompanyId
+          ? _value.metafieldCompanyId
+          : metafieldCompanyId // ignore: cast_nullable_to_non_nullable
+              as int?,
       metafieldUnitOfMeasure: freezed == metafieldUnitOfMeasure
           ? _value.metafieldUnitOfMeasure
           : metafieldUnitOfMeasure // ignore: cast_nullable_to_non_nullable
@@ -254,6 +268,8 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? metafieldTitle,
       double? metafieldItemSize,
       int? metafieldPackSize,
+      int? metafieldLocationId,
+      int? metafieldCompanyId,
       String? metafieldUnitOfMeasure});
 }
 
@@ -291,6 +307,8 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? metafieldTitle = freezed,
     Object? metafieldItemSize = freezed,
     Object? metafieldPackSize = freezed,
+    Object? metafieldLocationId = freezed,
+    Object? metafieldCompanyId = freezed,
     Object? metafieldUnitOfMeasure = freezed,
   }) {
     return _then(_$ProductImpl(
@@ -386,6 +404,14 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.metafieldPackSize
           : metafieldPackSize // ignore: cast_nullable_to_non_nullable
               as int?,
+      metafieldLocationId: freezed == metafieldLocationId
+          ? _value.metafieldLocationId
+          : metafieldLocationId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      metafieldCompanyId: freezed == metafieldCompanyId
+          ? _value.metafieldCompanyId
+          : metafieldCompanyId // ignore: cast_nullable_to_non_nullable
+              as int?,
       metafieldUnitOfMeasure: freezed == metafieldUnitOfMeasure
           ? _value.metafieldUnitOfMeasure
           : metafieldUnitOfMeasure // ignore: cast_nullable_to_non_nullable
@@ -421,6 +447,8 @@ class _$ProductImpl extends _Product {
       this.metafieldTitle,
       this.metafieldItemSize,
       this.metafieldPackSize,
+      this.metafieldLocationId,
+      this.metafieldCompanyId,
       this.metafieldUnitOfMeasure})
       : _productVariants = productVariants,
         _tags = tags,
@@ -518,11 +546,15 @@ class _$ProductImpl extends _Product {
   @override
   final int? metafieldPackSize;
   @override
+  final int? metafieldLocationId;
+  @override
+  final int? metafieldCompanyId;
+  @override
   final String? metafieldUnitOfMeasure;
 
   @override
   String toString() {
-    return 'Product(title: $title, id: $id, availableForSale: $availableForSale, createdAt: $createdAt, productVariants: $productVariants, productType: $productType, publishedAt: $publishedAt, tags: $tags, updatedAt: $updatedAt, images: $images, option: $option, vendor: $vendor, metafields: $metafields, totalInventory: $totalInventory, collectionList: $collectionList, cursor: $cursor, onlineStoreUrl: $onlineStoreUrl, description: $description, descriptionHtml: $descriptionHtml, handle: $handle, metafieldTitle: $metafieldTitle, metafieldItemSize: $metafieldItemSize, metafieldPackSize: $metafieldPackSize, metafieldUnitOfMeasure: $metafieldUnitOfMeasure)';
+    return 'Product(title: $title, id: $id, availableForSale: $availableForSale, createdAt: $createdAt, productVariants: $productVariants, productType: $productType, publishedAt: $publishedAt, tags: $tags, updatedAt: $updatedAt, images: $images, option: $option, vendor: $vendor, metafields: $metafields, totalInventory: $totalInventory, collectionList: $collectionList, cursor: $cursor, onlineStoreUrl: $onlineStoreUrl, description: $description, descriptionHtml: $descriptionHtml, handle: $handle, metafieldTitle: $metafieldTitle, metafieldItemSize: $metafieldItemSize, metafieldPackSize: $metafieldPackSize, metafieldLocationId: $metafieldLocationId, metafieldCompanyId: $metafieldCompanyId, metafieldUnitOfMeasure: $metafieldUnitOfMeasure)';
   }
 
   @override
@@ -568,6 +600,10 @@ class _$ProductImpl extends _Product {
                 other.metafieldItemSize == metafieldItemSize) &&
             (identical(other.metafieldPackSize, metafieldPackSize) ||
                 other.metafieldPackSize == metafieldPackSize) &&
+            (identical(other.metafieldLocationId, metafieldLocationId) ||
+                other.metafieldLocationId == metafieldLocationId) &&
+            (identical(other.metafieldCompanyId, metafieldCompanyId) ||
+                other.metafieldCompanyId == metafieldCompanyId) &&
             (identical(other.metafieldUnitOfMeasure, metafieldUnitOfMeasure) ||
                 other.metafieldUnitOfMeasure == metafieldUnitOfMeasure));
   }
@@ -599,6 +635,8 @@ class _$ProductImpl extends _Product {
         metafieldTitle,
         metafieldItemSize,
         metafieldPackSize,
+        metafieldLocationId,
+        metafieldCompanyId,
         metafieldUnitOfMeasure
       ]);
 
@@ -641,6 +679,8 @@ abstract class _Product extends Product {
       final String? metafieldTitle,
       final double? metafieldItemSize,
       final int? metafieldPackSize,
+      final int? metafieldLocationId,
+      final int? metafieldCompanyId,
       final String? metafieldUnitOfMeasure}) = _$ProductImpl;
   _Product._() : super._();
 
@@ -692,6 +732,10 @@ abstract class _Product extends Product {
   double? get metafieldItemSize;
   @override
   int? get metafieldPackSize;
+  @override
+  int? get metafieldLocationId;
+  @override
+  int? get metafieldCompanyId;
   @override
   String? get metafieldUnitOfMeasure;
   @override

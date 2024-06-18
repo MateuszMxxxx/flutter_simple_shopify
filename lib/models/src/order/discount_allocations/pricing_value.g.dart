@@ -6,21 +6,14 @@ part of 'pricing_value.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PricingValue _$$_PricingValueFromJson(Map json) => _$_PricingValue(
+_$PricingValueImpl _$$PricingValueImplFromJson(Map<String, dynamic> json) =>
+    _$PricingValueImpl(
       amount: json['amount'] as String?,
       percentage: (json['percentage'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$_PricingValueToJson(_$_PricingValue instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('amount', instance.amount);
-  writeNotNull('percentage', instance.percentage);
-  return val;
-}
+Map<String, dynamic> _$$PricingValueImplToJson(_$PricingValueImpl instance) =>
+    <String, dynamic>{
+      'amount': instance.amount,
+      'percentage': instance.percentage,
+    };

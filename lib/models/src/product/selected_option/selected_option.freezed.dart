@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'selected_option.dart';
 
@@ -12,30 +12,11 @@ part of 'selected_option.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SelectedOption _$SelectedOptionFromJson(Map<String, dynamic> json) {
   return _SelectedOption.fromJson(json);
 }
-
-/// @nodoc
-class _$SelectedOptionTearOff {
-  const _$SelectedOptionTearOff();
-
-  _SelectedOption call({required String name, required String value}) {
-    return _SelectedOption(
-      name: name,
-      value: value,
-    );
-  }
-
-  SelectedOption fromJson(Map<String, Object?> json) {
-    return SelectedOption.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SelectedOption = _$SelectedOptionTearOff();
 
 /// @nodoc
 mixin _$SelectedOption {
@@ -52,69 +33,71 @@ mixin _$SelectedOption {
 abstract class $SelectedOptionCopyWith<$Res> {
   factory $SelectedOptionCopyWith(
           SelectedOption value, $Res Function(SelectedOption) then) =
-      _$SelectedOptionCopyWithImpl<$Res>;
+      _$SelectedOptionCopyWithImpl<$Res, SelectedOption>;
+  @useResult
   $Res call({String name, String value});
 }
 
 /// @nodoc
-class _$SelectedOptionCopyWithImpl<$Res>
+class _$SelectedOptionCopyWithImpl<$Res, $Val extends SelectedOption>
     implements $SelectedOptionCopyWith<$Res> {
   _$SelectedOptionCopyWithImpl(this._value, this._then);
 
-  final SelectedOption _value;
   // ignore: unused_field
-  final $Res Function(SelectedOption) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? value = freezed,
+    Object? name = null,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$SelectedOptionCopyWith<$Res>
+abstract class _$$SelectedOptionImplCopyWith<$Res>
     implements $SelectedOptionCopyWith<$Res> {
-  factory _$SelectedOptionCopyWith(
-          _SelectedOption value, $Res Function(_SelectedOption) then) =
-      __$SelectedOptionCopyWithImpl<$Res>;
+  factory _$$SelectedOptionImplCopyWith(_$SelectedOptionImpl value,
+          $Res Function(_$SelectedOptionImpl) then) =
+      __$$SelectedOptionImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String name, String value});
 }
 
 /// @nodoc
-class __$SelectedOptionCopyWithImpl<$Res>
-    extends _$SelectedOptionCopyWithImpl<$Res>
-    implements _$SelectedOptionCopyWith<$Res> {
-  __$SelectedOptionCopyWithImpl(
-      _SelectedOption _value, $Res Function(_SelectedOption) _then)
-      : super(_value, (v) => _then(v as _SelectedOption));
+class __$$SelectedOptionImplCopyWithImpl<$Res>
+    extends _$SelectedOptionCopyWithImpl<$Res, _$SelectedOptionImpl>
+    implements _$$SelectedOptionImplCopyWith<$Res> {
+  __$$SelectedOptionImplCopyWithImpl(
+      _$SelectedOptionImpl _value, $Res Function(_$SelectedOptionImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _SelectedOption get _value => super._value as _SelectedOption;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? value = freezed,
+    Object? name = null,
+    Object? value = null,
   }) {
-    return _then(_SelectedOption(
-      name: name == freezed
+    return _then(_$SelectedOptionImpl(
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -124,11 +107,11 @@ class __$SelectedOptionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SelectedOption extends _SelectedOption {
-  _$_SelectedOption({required this.name, required this.value}) : super._();
+class _$SelectedOptionImpl extends _SelectedOption {
+  _$SelectedOptionImpl({required this.name, required this.value}) : super._();
 
-  factory _$_SelectedOption.fromJson(Map<String, dynamic> json) =>
-      _$$_SelectedOptionFromJson(json);
+  factory _$SelectedOptionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SelectedOptionImplFromJson(json);
 
   @override
   final String name;
@@ -144,35 +127,38 @@ class _$_SelectedOption extends _SelectedOption {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SelectedOption &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            other is _$SelectedOptionImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.value, value) || other.value == value));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
-  _$SelectedOptionCopyWith<_SelectedOption> get copyWith =>
-      __$SelectedOptionCopyWithImpl<_SelectedOption>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, name, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectedOptionImplCopyWith<_$SelectedOptionImpl> get copyWith =>
+      __$$SelectedOptionImplCopyWithImpl<_$SelectedOptionImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SelectedOptionToJson(this);
+    return _$$SelectedOptionImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _SelectedOption extends SelectedOption {
-  factory _SelectedOption({required String name, required String value}) =
-      _$_SelectedOption;
+  factory _SelectedOption(
+      {required final String name,
+      required final String value}) = _$SelectedOptionImpl;
   _SelectedOption._() : super._();
 
   factory _SelectedOption.fromJson(Map<String, dynamic> json) =
-      _$_SelectedOption.fromJson;
+      _$SelectedOptionImpl.fromJson;
 
   @override
   String get name;
@@ -180,6 +166,6 @@ abstract class _SelectedOption extends SelectedOption {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$SelectedOptionCopyWith<_SelectedOption> get copyWith =>
+  _$$SelectedOptionImplCopyWith<_$SelectedOptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,15 +6,16 @@ part of 'custom_attributes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CustomAttributes _$$_CustomAttributesFromJson(Map json) =>
-    _$_CustomAttributes(
+_$CustomAttributesImpl _$$CustomAttributesImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CustomAttributesImpl(
       attributes: (json['attributes'] as List<dynamic>)
-          .map((e) =>
-              CustomAttribute.fromJson(Map<String, dynamic>.from(e as Map)))
+          .map((e) => CustomAttribute.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_CustomAttributesToJson(_$_CustomAttributes instance) =>
+Map<String, dynamic> _$$CustomAttributesImplToJson(
+        _$CustomAttributesImpl instance) =>
     <String, dynamic>{
-      'attributes': instance.attributes.map((e) => e.toJson()).toList(),
+      'attributes': instance.attributes,
     };

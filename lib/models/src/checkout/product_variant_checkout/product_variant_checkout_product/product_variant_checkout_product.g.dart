@@ -12,7 +12,7 @@ _$ProductVariantCheckoutProductImpl
           id: json['id'] as String,
           metafieldTitle: json['metafieldTitle'] as String?,
           metafieldItemSize: (json['metafieldItemSize'] as num?)?.toDouble(),
-          metafieldPackSize: json['metafieldPackSize'] as int?,
+          metafieldPackSize: (json['metafieldPackSize'] as num?)?.toInt(),
           metafieldUnitOfMeasure: json['metafieldUnitOfMeasure'] as String?,
         );
 

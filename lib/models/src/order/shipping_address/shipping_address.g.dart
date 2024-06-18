@@ -6,7 +6,9 @@ part of 'shipping_address.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ShippingAddress _$$_ShippingAddressFromJson(Map json) => _$_ShippingAddress(
+_$ShippingAddressImpl _$$ShippingAddressImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ShippingAddressImpl(
       id: json['id'] as String,
       address1: json['address1'] as String,
       city: json['city'] as String,
@@ -25,31 +27,23 @@ _$_ShippingAddress _$$_ShippingAddressFromJson(Map json) => _$_ShippingAddress(
       zip: json['zip'] as String,
     );
 
-Map<String, dynamic> _$$_ShippingAddressToJson(_$_ShippingAddress instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'address1': instance.address1,
-    'city': instance.city,
-    'country': instance.country,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('lastName', instance.lastName);
-  writeNotNull('firstName', instance.firstName);
-  writeNotNull('address2', instance.address2);
-  writeNotNull('company', instance.company);
-  writeNotNull('countryCodeV2', instance.countryCodeV2);
-  writeNotNull('latitude', instance.latitude);
-  writeNotNull('longitude', instance.longitude);
-  writeNotNull('phone', instance.phone);
-  writeNotNull('province', instance.province);
-  writeNotNull('provinceCode', instance.provinceCode);
-  val['zip'] = instance.zip;
-  return val;
-}
+Map<String, dynamic> _$$ShippingAddressImplToJson(
+        _$ShippingAddressImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'address1': instance.address1,
+      'city': instance.city,
+      'country': instance.country,
+      'name': instance.name,
+      'lastName': instance.lastName,
+      'firstName': instance.firstName,
+      'address2': instance.address2,
+      'company': instance.company,
+      'countryCodeV2': instance.countryCodeV2,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
+      'phone': instance.phone,
+      'province': instance.province,
+      'provinceCode': instance.provinceCode,
+      'zip': instance.zip,
+    };

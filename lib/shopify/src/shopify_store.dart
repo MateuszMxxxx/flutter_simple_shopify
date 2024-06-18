@@ -7,6 +7,7 @@ import 'package:flutter_simple_shopify/graphql_operations/queries/get_collection
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_metafileds_from_product.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_product_recommendations.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_products_by_ids.dart';
+import 'package:flutter_simple_shopify/graphql_operations/queries/get_products_by_variants_ids.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_shop.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_collections_and_n_products_sorted.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_products_after_cursor.dart';
@@ -134,6 +135,41 @@ class ShopifyStore with ShopifyError {
       'edges': List.generate(response['nodes'].length,
           (index) => {'node': response['nodes'][index]})
     };
+    productList = Products.fromGraphJson(newResponse).productList;
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+    return productList;
+  }
+
+  /// Returns a List of [Product].
+  ///
+  /// Returns the Products associated to the given id's in [idList]
+  Future<List<Product>?> getProductsByVariantsIds(
+      List<String> idList, {
+        bool deleteThisPartOfCache = false,
+        FetchPolicy fetchPolicy = FetchPolicy.networkOnly,
+      }) async {
+    List<Product>? productList = [];
+    final QueryOptions _options = WatchQueryOptions(
+      fetchPolicy: fetchPolicy,
+      document: gql(getProductsByVariantsIdsQuery),
+      variables: {'ids': idList},
+    );
+    final QueryResult result = await _graphQLClient!.query(_options);
+    checkForError(result);
+    var response = result.data!;
+    if (response['nodes'] == null || response['nodes'].isEmpty) return null;
+
+    var newResponse = {
+      'edges': List.generate(
+        response['nodes'].length,
+            (index) => {
+          'node': response['nodes'][index]['product']
+        },
+      ),
+    };
+
     productList = Products.fromGraphJson(newResponse).productList;
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});

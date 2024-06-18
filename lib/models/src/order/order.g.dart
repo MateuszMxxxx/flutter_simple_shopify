@@ -16,7 +16,7 @@ _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
       lineItems:
           LineItemsOrder.fromJson(json['lineItems'] as Map<String, dynamic>),
       name: json['name'] as String,
-      orderNumber: json['orderNumber'] as int,
+      orderNumber: (json['orderNumber'] as num).toInt(),
       processedAt: json['processedAt'] as String,
       shippingAddress: ShippingAddress.fromJson(
           json['shippingAddress'] as Map<String, dynamic>),

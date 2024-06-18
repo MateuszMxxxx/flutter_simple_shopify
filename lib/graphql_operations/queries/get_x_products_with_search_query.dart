@@ -27,6 +27,14 @@ query($cursor: String, $limit : Int, $query: String!){
         value
         type
       }
+                          locationId: metafield(namespace: "custom", key: "Location_ID") {
+                      value
+                      type
+                    }
+                    companyId: metafield(namespace: "custom", key: "Company_ID") {
+                      value
+                      type
+                    }
       packSize: metafield(namespace: "custom", key: "pack_size") {
         value
         type

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'menu_item.dart';
 
@@ -12,42 +12,11 @@ part of 'menu_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 MenuItem _$MenuItemFromJson(Map<String, dynamic> json) {
   return _MenuItem.fromJson(json);
 }
-
-/// @nodoc
-class _$MenuItemTearOff {
-  const _$MenuItemTearOff();
-
-  _MenuItem call(
-      {required String id,
-      required String title,
-      required String url,
-      required List<String> tags,
-      required MenuItemType type,
-      required List<MenuItem> items,
-      required String resourceId}) {
-    return _MenuItem(
-      id: id,
-      title: title,
-      url: url,
-      tags: tags,
-      type: type,
-      items: items,
-      resourceId: resourceId,
-    );
-  }
-
-  MenuItem fromJson(Map<String, Object?> json) {
-    return MenuItem.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $MenuItem = _$MenuItemTearOff();
 
 /// @nodoc
 mixin _$MenuItem {
@@ -68,7 +37,8 @@ mixin _$MenuItem {
 /// @nodoc
 abstract class $MenuItemCopyWith<$Res> {
   factory $MenuItemCopyWith(MenuItem value, $Res Function(MenuItem) then) =
-      _$MenuItemCopyWithImpl<$Res>;
+      _$MenuItemCopyWithImpl<$Res, MenuItem>;
+  @useResult
   $Res call(
       {String id,
       String title,
@@ -80,61 +50,67 @@ abstract class $MenuItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MenuItemCopyWithImpl<$Res> implements $MenuItemCopyWith<$Res> {
+class _$MenuItemCopyWithImpl<$Res, $Val extends MenuItem>
+    implements $MenuItemCopyWith<$Res> {
   _$MenuItemCopyWithImpl(this._value, this._then);
 
-  final MenuItem _value;
   // ignore: unused_field
-  final $Res Function(MenuItem) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? url = freezed,
-    Object? tags = freezed,
-    Object? type = freezed,
-    Object? items = freezed,
-    Object? resourceId = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? url = null,
+    Object? tags = null,
+    Object? type = null,
+    Object? items = null,
+    Object? resourceId = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      tags: tags == freezed
+      tags: null == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as MenuItemType,
-      items: items == freezed
+      items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<MenuItem>,
-      resourceId: resourceId == freezed
+      resourceId: null == resourceId
           ? _value.resourceId
           : resourceId // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$MenuItemCopyWith<$Res> implements $MenuItemCopyWith<$Res> {
-  factory _$MenuItemCopyWith(_MenuItem value, $Res Function(_MenuItem) then) =
-      __$MenuItemCopyWithImpl<$Res>;
+abstract class _$$MenuItemImplCopyWith<$Res>
+    implements $MenuItemCopyWith<$Res> {
+  factory _$$MenuItemImplCopyWith(
+          _$MenuItemImpl value, $Res Function(_$MenuItemImpl) then) =
+      __$$MenuItemImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       String title,
@@ -146,50 +122,50 @@ abstract class _$MenuItemCopyWith<$Res> implements $MenuItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$MenuItemCopyWithImpl<$Res> extends _$MenuItemCopyWithImpl<$Res>
-    implements _$MenuItemCopyWith<$Res> {
-  __$MenuItemCopyWithImpl(_MenuItem _value, $Res Function(_MenuItem) _then)
-      : super(_value, (v) => _then(v as _MenuItem));
+class __$$MenuItemImplCopyWithImpl<$Res>
+    extends _$MenuItemCopyWithImpl<$Res, _$MenuItemImpl>
+    implements _$$MenuItemImplCopyWith<$Res> {
+  __$$MenuItemImplCopyWithImpl(
+      _$MenuItemImpl _value, $Res Function(_$MenuItemImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _MenuItem get _value => super._value as _MenuItem;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? url = freezed,
-    Object? tags = freezed,
-    Object? type = freezed,
-    Object? items = freezed,
-    Object? resourceId = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? url = null,
+    Object? tags = null,
+    Object? type = null,
+    Object? items = null,
+    Object? resourceId = null,
   }) {
-    return _then(_MenuItem(
-      id: id == freezed
+    return _then(_$MenuItemImpl(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      tags: tags == freezed
-          ? _value.tags
+      tags: null == tags
+          ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as MenuItemType,
-      items: items == freezed
-          ? _value.items
+      items: null == items
+          ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<MenuItem>,
-      resourceId: resourceId == freezed
+      resourceId: null == resourceId
           ? _value.resourceId
           : resourceId // ignore: cast_nullable_to_non_nullable
               as String,
@@ -199,19 +175,21 @@ class __$MenuItemCopyWithImpl<$Res> extends _$MenuItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MenuItem extends _MenuItem {
-  _$_MenuItem(
+class _$MenuItemImpl extends _MenuItem {
+  _$MenuItemImpl(
       {required this.id,
       required this.title,
       required this.url,
-      required this.tags,
+      required final List<String> tags,
       required this.type,
-      required this.items,
+      required final List<MenuItem> items,
       required this.resourceId})
-      : super._();
+      : _tags = tags,
+        _items = items,
+        super._();
 
-  factory _$_MenuItem.fromJson(Map<String, dynamic> json) =>
-      _$$_MenuItemFromJson(json);
+  factory _$MenuItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MenuItemImplFromJson(json);
 
   @override
   final String id;
@@ -219,12 +197,24 @@ class _$_MenuItem extends _MenuItem {
   final String title;
   @override
   final String url;
+  final List<String> _tags;
   @override
-  final List<String> tags;
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
   @override
   final MenuItemType type;
+  final List<MenuItem> _items;
   @override
-  final List<MenuItem> items;
+  List<MenuItem> get items {
+    if (_items is EqualUnmodifiableListView) return _items;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_items);
+  }
+
   @override
   final String resourceId;
 
@@ -237,51 +227,56 @@ class _$_MenuItem extends _MenuItem {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _MenuItem &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.url, url) &&
-            const DeepCollectionEquality().equals(other.tags, tags) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.items, items) &&
-            const DeepCollectionEquality()
-                .equals(other.resourceId, resourceId));
+            other is _$MenuItemImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.url, url) || other.url == url) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            (identical(other.resourceId, resourceId) ||
+                other.resourceId == resourceId));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(url),
-      const DeepCollectionEquality().hash(tags),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(items),
-      const DeepCollectionEquality().hash(resourceId));
 
   @JsonKey(ignore: true)
   @override
-  _$MenuItemCopyWith<_MenuItem> get copyWith =>
-      __$MenuItemCopyWithImpl<_MenuItem>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      url,
+      const DeepCollectionEquality().hash(_tags),
+      type,
+      const DeepCollectionEquality().hash(_items),
+      resourceId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MenuItemImplCopyWith<_$MenuItemImpl> get copyWith =>
+      __$$MenuItemImplCopyWithImpl<_$MenuItemImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MenuItemToJson(this);
+    return _$$MenuItemImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _MenuItem extends MenuItem {
   factory _MenuItem(
-      {required String id,
-      required String title,
-      required String url,
-      required List<String> tags,
-      required MenuItemType type,
-      required List<MenuItem> items,
-      required String resourceId}) = _$_MenuItem;
+      {required final String id,
+      required final String title,
+      required final String url,
+      required final List<String> tags,
+      required final MenuItemType type,
+      required final List<MenuItem> items,
+      required final String resourceId}) = _$MenuItemImpl;
   _MenuItem._() : super._();
 
-  factory _MenuItem.fromJson(Map<String, dynamic> json) = _$_MenuItem.fromJson;
+  factory _MenuItem.fromJson(Map<String, dynamic> json) =
+      _$MenuItemImpl.fromJson;
 
   @override
   String get id;
@@ -299,6 +294,6 @@ abstract class _MenuItem extends MenuItem {
   String get resourceId;
   @override
   @JsonKey(ignore: true)
-  _$MenuItemCopyWith<_MenuItem> get copyWith =>
+  _$$MenuItemImplCopyWith<_$MenuItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

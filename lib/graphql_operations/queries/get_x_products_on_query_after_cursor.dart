@@ -34,6 +34,14 @@ query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String
         value
         type
       }
+                          locationId: metafield(namespace: "custom", key: "Location_ID") {
+                      value
+                      type
+                    }
+                    companyId: metafield(namespace: "custom", key: "Company_ID") {
+                      value
+                      type
+                    }
         images(first: 250) {
           edges {
             node {

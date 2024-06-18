@@ -6,12 +6,13 @@ part of 'pages.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Pages _$$_PagesFromJson(Map json) => _$_Pages(
+_$PagesImpl _$$PagesImplFromJson(Map<String, dynamic> json) => _$PagesImpl(
       pageList: (json['pageList'] as List<dynamic>)
-          .map((e) => Page.fromJson(Map<String, dynamic>.from(e as Map)))
+          .map((e) => Page.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_PagesToJson(_$_Pages instance) => <String, dynamic>{
-      'pageList': instance.pageList.map((e) => e.toJson()).toList(),
+Map<String, dynamic> _$$PagesImplToJson(_$PagesImpl instance) =>
+    <String, dynamic>{
+      'pageList': instance.pageList,
     };

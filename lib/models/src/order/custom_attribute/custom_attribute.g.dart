@@ -6,22 +6,16 @@ part of 'custom_attribute.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CustomAttribute _$$_CustomAttributeFromJson(Map json) => _$_CustomAttribute(
+_$CustomAttributeImpl _$$CustomAttributeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CustomAttributeImpl(
       key: json['key'] as String,
       value: json['value'] as String?,
     );
 
-Map<String, dynamic> _$$_CustomAttributeToJson(_$_CustomAttribute instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('value', instance.value);
-  return val;
-}
+Map<String, dynamic> _$$CustomAttributeImplToJson(
+        _$CustomAttributeImpl instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'value': instance.value,
+    };

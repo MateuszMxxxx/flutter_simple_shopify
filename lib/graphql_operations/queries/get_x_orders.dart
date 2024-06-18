@@ -74,6 +74,14 @@ customer(customerAccessToken: $accessToken) {
         value
         type
       }
+                          locationId: metafield(namespace: "custom", key: "Location_ID") {
+                      value
+                      type
+                    }
+                    companyId: metafield(namespace: "custom", key: "Company_ID") {
+                      value
+                      type
+                    }
                   }
                 }
               }
