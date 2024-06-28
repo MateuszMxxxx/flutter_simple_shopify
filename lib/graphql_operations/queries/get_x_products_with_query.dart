@@ -90,11 +90,11 @@ query($cursor : String, $x : Int, $reverse: Boolean, $query: String){
         value
         type
       }
-                          locationId: metafield(namespace: "custom", key: "Location_ID") {
+                          locationId: metafield(namespace: "custom", key: "location_id") {
                       value
                       type
                     }
-                    companyId: metafield(namespace: "custom", key: "Company_ID") {
+                    companyId: metafield(namespace: "custom", key: "company_id") {
                       value
                       type
                     }
