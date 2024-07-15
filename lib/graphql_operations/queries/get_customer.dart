@@ -2,7 +2,7 @@ const String getCustomerQuery = r'''
 query($customerAccessToken : String!){
   customer(customerAccessToken: $customerAccessToken) {
     acceptsMarketing
-    addresses(first: 10) {
+    addresses(first: 250) {
       edges {
         node {
           address1
