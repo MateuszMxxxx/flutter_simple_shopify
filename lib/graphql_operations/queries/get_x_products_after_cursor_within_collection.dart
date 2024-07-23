@@ -33,7 +33,7 @@ query (
             values
           }
           availableForSale
-          collections(first: 1) {
+          collections(first: 250) {
             edges {
               node {
                 description
