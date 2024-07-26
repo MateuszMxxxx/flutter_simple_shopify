@@ -160,12 +160,15 @@ class ShopifyStore with ShopifyError {
     checkForError(result);
     var response = result.data!;
     if (response['nodes'] == null || response['nodes'].isEmpty) return null;
-
     var newResponse = {
       'edges': List.generate(
         response['nodes'].length,
-            (index) => {
-          'node': response['nodes'][index]['product']
+            (index) {
+          var node = response['nodes'][index];
+          var product = node != null && node.containsKey('product') ? node['product'] : null;
+          return {
+            'node': product,
+          };
         },
       ),
     };
