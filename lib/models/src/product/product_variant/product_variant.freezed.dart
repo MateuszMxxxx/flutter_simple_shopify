@@ -39,6 +39,7 @@ mixin _$ProductVariant {
   PriceV2? get compareAtPriceV2 => throw _privateConstructorUsedError;
   Price? get compareAtPrice => throw _privateConstructorUsedError;
   ShopifyImage? get image => throw _privateConstructorUsedError;
+  String? get barcode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,7 +70,8 @@ abstract class $ProductVariantCopyWith<$Res> {
       List<SelectedOption>? selectedOptions,
       PriceV2? compareAtPriceV2,
       Price? compareAtPrice,
-      ShopifyImage? image});
+      ShopifyImage? image,
+      String? barcode});
 
   $PriceV2CopyWith<$Res> get priceV2;
   $PriceCopyWith<$Res> get price;
@@ -110,6 +112,7 @@ class _$ProductVariantCopyWithImpl<$Res, $Val extends ProductVariant>
     Object? compareAtPriceV2 = freezed,
     Object? compareAtPrice = freezed,
     Object? image = freezed,
+    Object? barcode = freezed,
   }) {
     return _then(_value.copyWith(
       priceV2: null == priceV2
@@ -180,6 +183,10 @@ class _$ProductVariantCopyWithImpl<$Res, $Val extends ProductVariant>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ShopifyImage?,
+      barcode: freezed == barcode
+          ? _value.barcode
+          : barcode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -286,7 +293,8 @@ abstract class _$$ProductVariantImplCopyWith<$Res>
       List<SelectedOption>? selectedOptions,
       PriceV2? compareAtPriceV2,
       Price? compareAtPrice,
-      ShopifyImage? image});
+      ShopifyImage? image,
+      String? barcode});
 
   @override
   $PriceV2CopyWith<$Res> get priceV2;
@@ -332,6 +340,7 @@ class __$$ProductVariantImplCopyWithImpl<$Res>
     Object? compareAtPriceV2 = freezed,
     Object? compareAtPrice = freezed,
     Object? image = freezed,
+    Object? barcode = freezed,
   }) {
     return _then(_$ProductVariantImpl(
       priceV2: null == priceV2
@@ -402,6 +411,10 @@ class __$$ProductVariantImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ShopifyImage?,
+      barcode: freezed == barcode
+          ? _value.barcode
+          : barcode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -426,7 +439,8 @@ class _$ProductVariantImpl extends _ProductVariant {
       final List<SelectedOption>? selectedOptions,
       this.compareAtPriceV2,
       this.compareAtPrice,
-      this.image})
+      this.image,
+      this.barcode})
       : _selectedOptions = selectedOptions,
         super._();
 
@@ -475,10 +489,12 @@ class _$ProductVariantImpl extends _ProductVariant {
   final Price? compareAtPrice;
   @override
   final ShopifyImage? image;
+  @override
+  final String? barcode;
 
   @override
   String toString() {
-    return 'ProductVariant(priceV2: $priceV2, price: $price, title: $title, weight: $weight, weightUnit: $weightUnit, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, currentlyNotInStock: $currentlyNotInStock, quantityAvailable: $quantityAvailable, unitPrice: $unitPrice, unitPriceMeasurement: $unitPriceMeasurement, selectedOptions: $selectedOptions, compareAtPriceV2: $compareAtPriceV2, compareAtPrice: $compareAtPrice, image: $image)';
+    return 'ProductVariant(priceV2: $priceV2, price: $price, title: $title, weight: $weight, weightUnit: $weightUnit, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, currentlyNotInStock: $currentlyNotInStock, quantityAvailable: $quantityAvailable, unitPrice: $unitPrice, unitPriceMeasurement: $unitPriceMeasurement, selectedOptions: $selectedOptions, compareAtPriceV2: $compareAtPriceV2, compareAtPrice: $compareAtPrice, image: $image, barcode: $barcode)';
   }
 
   @override
@@ -512,7 +528,8 @@ class _$ProductVariantImpl extends _ProductVariant {
                 other.compareAtPriceV2 == compareAtPriceV2) &&
             (identical(other.compareAtPrice, compareAtPrice) ||
                 other.compareAtPrice == compareAtPrice) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.barcode, barcode) || other.barcode == barcode));
   }
 
   @JsonKey(ignore: true)
@@ -535,7 +552,8 @@ class _$ProductVariantImpl extends _ProductVariant {
       const DeepCollectionEquality().hash(_selectedOptions),
       compareAtPriceV2,
       compareAtPrice,
-      image);
+      image,
+      barcode);
 
   @JsonKey(ignore: true)
   @override
@@ -570,7 +588,8 @@ abstract class _ProductVariant extends ProductVariant {
       final List<SelectedOption>? selectedOptions,
       final PriceV2? compareAtPriceV2,
       final Price? compareAtPrice,
-      final ShopifyImage? image}) = _$ProductVariantImpl;
+      final ShopifyImage? image,
+      final String? barcode}) = _$ProductVariantImpl;
   _ProductVariant._() : super._();
 
   factory _ProductVariant.fromJson(Map<String, dynamic> json) =
@@ -610,6 +629,8 @@ abstract class _ProductVariant extends ProductVariant {
   Price? get compareAtPrice;
   @override
   ShopifyImage? get image;
+  @override
+  String? get barcode;
   @override
   @JsonKey(ignore: true)
   _$$ProductVariantImplCopyWith<_$ProductVariantImpl> get copyWith =>

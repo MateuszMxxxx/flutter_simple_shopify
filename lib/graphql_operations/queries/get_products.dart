@@ -56,6 +56,7 @@ query($cursor : String, $metafieldsNamespace : String){
               currentlyNotInStock
               quantityAvailable
               sku
+              barcode
               requiresShipping
               selectedOptions {
                 name

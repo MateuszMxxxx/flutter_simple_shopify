@@ -122,6 +122,7 @@ query (
                 weight
                 weightUnit
                 sku
+                barcode
                 requiresShipping
                 selectedOptions {
                   name

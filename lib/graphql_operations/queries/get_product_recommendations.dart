@@ -50,6 +50,7 @@ query getProductRecommentationsQuery($id: ID!){
           weightUnit
           availableForSale
           sku
+          barcode
           requiresShipping
           quantityAvailable
           selectedOptions {

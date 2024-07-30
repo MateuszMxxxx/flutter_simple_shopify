@@ -61,6 +61,7 @@ query( $cursor: String, $sortKey : ProductSortKeys, $query: String, $reverse: Bo
               currentlyNotInStock
               quantityAvailable
               sku
+              barcode
               requiresShipping
               selectedOptions {
                 name

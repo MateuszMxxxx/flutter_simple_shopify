@@ -41,6 +41,7 @@ query($cursor: String, $sortKey: CollectionSortKeys, $sortKeyProduct: ProductCol
                     weight
                     weightUnit
                     sku
+                    barcode
                     requiresShipping
                     selectedOptions {
                       name

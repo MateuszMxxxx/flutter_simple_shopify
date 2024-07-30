@@ -38,6 +38,7 @@ _$ProductVariantImpl _$$ProductVariantImplFromJson(Map<String, dynamic> json) =>
       image: json['image'] == null
           ? null
           : ShopifyImage.fromJson(json['image'] as Map<String, dynamic>),
+      barcode: json['barcode'] as String?,
     );
 
 Map<String, dynamic> _$$ProductVariantImplToJson(
@@ -60,4 +61,5 @@ Map<String, dynamic> _$$ProductVariantImplToJson(
       'compareAtPriceV2': instance.compareAtPriceV2,
       'compareAtPrice': instance.compareAtPrice,
       'image': instance.image,
+      'barcode': instance.barcode,
     };

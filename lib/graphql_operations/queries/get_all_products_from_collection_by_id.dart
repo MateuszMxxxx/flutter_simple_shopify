@@ -76,6 +76,7 @@ query($id : ID!, $cursor : String, $sortKey: ProductCollectionSortKeys){
                   weight
                   weightUnit
                   sku
+                  barcode
                   requiresShipping
                   selectedOptions {
                     name

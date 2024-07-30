@@ -30,6 +30,7 @@ class ProductVariant with _$ProductVariant {
     PriceV2? compareAtPriceV2,
     Price? compareAtPrice,
     ShopifyImage? image,
+    String? barcode,
   }) = _ProductVariant;
 
   static ProductVariant fromGraphJson(Map<String, dynamic> json) {
@@ -63,6 +64,7 @@ class ProductVariant with _$ProductVariant {
           ? UnitPriceMeasurement.fromJson(nodeJson['unitPriceMeasurement'])
           : null,
       selectedOptions: _getOptionList((nodeJson)),
+      barcode: nodeJson['barcode'],
     );
   }
 

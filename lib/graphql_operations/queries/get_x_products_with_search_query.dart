@@ -81,6 +81,7 @@ query($cursor: String, $limit : Int, $query: String!){
                       weightUnit
                       availableForSale
                       sku
+                      barcode
                       requiresShipping
                       selectedOptions {
                           name

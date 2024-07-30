@@ -34,6 +34,7 @@ query($n : Int, $sortKey : ProductSortKeys, $reverse: Boolean){
               weightUnit
               availableForSale
               sku
+              barcode
               requiresShipping
               quantityAvailable
               selectedOptions {

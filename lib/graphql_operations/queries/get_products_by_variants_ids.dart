@@ -66,6 +66,7 @@ query ($ids: [ID!]!) {
               weight
               availableForSale
               sku
+              barcode
               requiresShipping
               selectedOptions {
                 name
