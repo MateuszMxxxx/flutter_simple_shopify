@@ -647,4 +647,34 @@ class ShopifyStore with ShopifyError {
       return null;
     }
   }
+
+  Future<List<Product>?> getXProductsAfterCursorWithSearch(
+      int limit, String? startCursor, String query,
+      {bool deleteThisPartOfCache = false,
+        bool reverse = false,
+        FetchPolicy fetchPolicy = FetchPolicy.networkOnly,
+        SortKeyProduct sortKeyProduct = SortKeyProduct.BEST_SELLING}) async {
+    String? cursor = startCursor;
+    final WatchQueryOptions _options = WatchQueryOptions(
+        fetchPolicy: fetchPolicy,
+        document: gql(getXProductsWithQuery),
+        variables: {
+          'x': limit,
+          'cursor': cursor,
+          'reverse': reverse,
+          'sortKey': sortKeyProduct.parseToString(),
+          'query': query
+        });
+    final QueryResult result = await _graphQLClient!.query(_options);
+    checkForError(result);
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+    if (result.data != null && result.data!['products'] != null) {
+      return Products.fromGraphJson((result.data ?? const {})['products'])
+          .productList;
+    } else {
+      return null;
+    }
+  }
 }
