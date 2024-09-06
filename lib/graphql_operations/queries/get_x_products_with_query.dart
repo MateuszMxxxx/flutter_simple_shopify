@@ -1,6 +1,6 @@
 const String getXProductsWithQuery = r'''
-	query ($cursor: String, $x: Int, $reverse: Boolean, $query: String, $sortKey: String) {
-		products(first: $x, after: $cursor, reverse: $reverse, query: $query, sortKey: $sortKey) {
+	query ($cursor: String, $x: Int, $reverse: Boolean, $query: String) {
+		products(first: $x, after: $cursor, reverse: $reverse, query: $query, sortKey: BEST_SELLING) {
 			pageInfo {
 				hasNextPage
 			}

@@ -662,7 +662,6 @@ class ShopifyStore with ShopifyError {
           'x': limit,
           'cursor': cursor,
           'reverse': reverse,
-          'sortKey': sortKeyProduct.parseToString(),
           'query': query
         });
     final QueryResult result = await _graphQLClient!.query(_options);
