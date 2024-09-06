@@ -1,104 +1,116 @@
 const String getXProductsWithSearchQuery = r'''
-query($cursor: String, $limit : Int, $query: String!){
-  search(query: $query, first: $limit, after: $cursor, types: PRODUCT, prefix: LAST, unavailableProducts: LAST, sortKey: RELEVANCE) {
-  edges {
-      node {
-        ... on Product {
-          id
-          title
-          handle
-          availableForSale
-          createdAt
-          description
-          descriptionHtml
-          onlineStoreUrl
-          productType
-          publishedAt
-          tags
-          title
-          updatedAt
-          totalInventory
-          vendor
-                productTitle: metafield(namespace: "custom", key: "product_title") {
-        value
-        type
-      }
-      itemSize: metafield(namespace: "custom", key: "item_size") {
-        value
-        type
-      }
-                          locationId: metafield(namespace: "custom", key: "location_id") {
-                      value
-                      type
-                    }
-                    companyId: metafield(namespace: "custom", key: "company_id") {
-                      value
-                      type
-                    }
-      packSize: metafield(namespace: "custom", key: "pack_size") {
-        value
-        type
-      }
-      unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
-        value
-        type
-      }
-          images(first: 250) {
-              edges{
-                  node{
-                      altText
-                      id
-                      url
-                  }
-              }
-          }
-          variants(first: 250) {
-              edges {
-                  node {
-                      title
-                      image {
-                          altText
-                          id
-                          url
-                      }
-                      price {
-                          amount
-                          currencyCode
-                      }
-                      priceV2 {
-                          amount
-                          currencyCode
-                      }
-                      compareAtPrice {
-                          amount
-                          currencyCode
-                      }
-                      compareAtPriceV2 {
-                          amount
-                          currencyCode
-                      }
-                      weight
-                      weightUnit
-                      availableForSale
-                      sku
-                      barcode
-                      requiresShipping
-                      selectedOptions {
-                          name
-                          value
-                      }
-                      id
-                      currentlyNotInStock
-                      quantityAvailable
-                  }
-              }
-          }
-        }
-      }
-      cursor
-    }
-    pageInfo {
-        hasNextPage
-    }
-}
-}''';
+	query ($cursor: String, $limit: Int, $query: String!) {
+		search(
+			query: $query
+			first: $limit
+			after: $cursor
+			types: PRODUCT
+			prefix: LAST
+			unavailableProducts: LAST
+			sortKey: RELEVANCE
+		) {
+			edges {
+				node {
+					... on Product {
+						id
+						title
+						handle
+						availableForSale
+						createdAt
+						description
+						descriptionHtml
+						onlineStoreUrl
+						productType
+						publishedAt
+						tags
+						title
+						updatedAt
+						totalInventory
+						vendor
+						productTitle: metafield(namespace: "custom", key: "product_title") {
+							value
+							type
+						}
+						itemSize: metafield(namespace: "custom", key: "item_size") {
+							value
+							type
+						}
+						locationId: metafield(namespace: "custom", key: "location_id") {
+							value
+							type
+						}
+						companyId: metafield(namespace: "custom", key: "company_id") {
+							value
+							type
+						}
+						packSize: metafield(namespace: "custom", key: "pack_size") {
+							value
+							type
+						}
+						unitOfMeasure: metafield(
+							namespace: "custom"
+							key: "unit_of_measure"
+						) {
+							value
+							type
+						}
+						images(first: 250) {
+							edges {
+								node {
+									altText
+									id
+									url
+								}
+							}
+						}
+						variants(first: 250) {
+							edges {
+								node {
+									title
+									image {
+										altText
+										id
+										url
+									}
+									price {
+										amount
+										currencyCode
+									}
+									priceV2 {
+										amount
+										currencyCode
+									}
+									compareAtPrice {
+										amount
+										currencyCode
+									}
+									compareAtPriceV2 {
+										amount
+										currencyCode
+									}
+									weight
+									weightUnit
+									availableForSale
+									sku
+									barcode
+									requiresShipping
+									selectedOptions {
+										name
+										value
+									}
+									id
+									currentlyNotInStock
+									quantityAvailable
+								}
+							}
+						}
+					}
+				}
+				cursor
+			}
+			pageInfo {
+				hasNextPage
+			}
+		}
+	}
+''';
