@@ -26,7 +26,7 @@ class Order with _$Order {
       required String name,
       required int orderNumber,
       required String processedAt,
-      required ShippingAddress shippingAddress,
+      ShippingAddress? shippingAddress,
       required String statusUrl,
       required PriceV2 subtotalPriceV2,
       required PriceV2 totalPriceV2,
@@ -42,6 +42,8 @@ class Order with _$Order {
       ShippingAddress? billingAddress}) = _Order;
 
   static Order fromGraphJson(Map<String, dynamic> json) {
+    dynamic shippingAddressData = (json['node'] ?? const {})['shippingAddress'];
+
     return Order(
       id: (json['node'] ?? const {})['id'],
       email: (json['node'] ?? const {})['email'],
@@ -55,8 +57,7 @@ class Order with _$Order {
       orderNumber: (json['node'] ?? const {})['orderNumber'],
       phone: (json['node'] ?? const {})['phone'],
       processedAt: (json['node'] ?? const {})['processedAt'],
-      shippingAddress: ShippingAddress.fromJson(
-          (json['node'] ?? const {})['shippingAddress'] ?? const {}),
+      shippingAddress: shippingAddressData != null ? ShippingAddress.fromJson(shippingAddressData) : null,
       statusUrl: (json['node'] ?? const {})['statusUrl'],
       subtotalPriceV2: PriceV2.fromJson(
           (json['node'] ?? const {})['subtotalPriceV2'] ?? const {}),

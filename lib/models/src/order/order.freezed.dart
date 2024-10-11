@@ -29,7 +29,7 @@ mixin _$Order {
   String get name => throw _privateConstructorUsedError;
   int get orderNumber => throw _privateConstructorUsedError;
   String get processedAt => throw _privateConstructorUsedError;
-  ShippingAddress get shippingAddress => throw _privateConstructorUsedError;
+  ShippingAddress? get shippingAddress => throw _privateConstructorUsedError;
   String get statusUrl => throw _privateConstructorUsedError;
   PriceV2 get subtotalPriceV2 => throw _privateConstructorUsedError;
   PriceV2 get totalPriceV2 => throw _privateConstructorUsedError;
@@ -65,7 +65,7 @@ abstract class $OrderCopyWith<$Res> {
       String name,
       int orderNumber,
       String processedAt,
-      ShippingAddress shippingAddress,
+      ShippingAddress? shippingAddress,
       String statusUrl,
       PriceV2 subtotalPriceV2,
       PriceV2 totalPriceV2,
@@ -82,7 +82,7 @@ abstract class $OrderCopyWith<$Res> {
 
   $CustomAttributesCopyWith<$Res> get customAttributes;
   $LineItemsOrderCopyWith<$Res> get lineItems;
-  $ShippingAddressCopyWith<$Res> get shippingAddress;
+  $ShippingAddressCopyWith<$Res>? get shippingAddress;
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   $PriceV2CopyWith<$Res> get totalPriceV2;
   $PriceV2CopyWith<$Res> get totalShippingPriceV2;
@@ -114,7 +114,7 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
     Object? name = null,
     Object? orderNumber = null,
     Object? processedAt = null,
-    Object? shippingAddress = null,
+    Object? shippingAddress = freezed,
     Object? statusUrl = null,
     Object? subtotalPriceV2 = null,
     Object? totalPriceV2 = null,
@@ -166,10 +166,10 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.processedAt
           : processedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      shippingAddress: null == shippingAddress
+      shippingAddress: freezed == shippingAddress
           ? _value.shippingAddress
           : shippingAddress // ignore: cast_nullable_to_non_nullable
-              as ShippingAddress,
+              as ShippingAddress?,
       statusUrl: null == statusUrl
           ? _value.statusUrl
           : statusUrl // ignore: cast_nullable_to_non_nullable
@@ -243,8 +243,12 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
 
   @override
   @pragma('vm:prefer-inline')
-  $ShippingAddressCopyWith<$Res> get shippingAddress {
-    return $ShippingAddressCopyWith<$Res>(_value.shippingAddress, (value) {
+  $ShippingAddressCopyWith<$Res>? get shippingAddress {
+    if (_value.shippingAddress == null) {
+      return null;
+    }
+
+    return $ShippingAddressCopyWith<$Res>(_value.shippingAddress!, (value) {
       return _then(_value.copyWith(shippingAddress: value) as $Val);
     });
   }
@@ -332,7 +336,7 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
       String name,
       int orderNumber,
       String processedAt,
-      ShippingAddress shippingAddress,
+      ShippingAddress? shippingAddress,
       String statusUrl,
       PriceV2 subtotalPriceV2,
       PriceV2 totalPriceV2,
@@ -352,7 +356,7 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
   @override
   $LineItemsOrderCopyWith<$Res> get lineItems;
   @override
-  $ShippingAddressCopyWith<$Res> get shippingAddress;
+  $ShippingAddressCopyWith<$Res>? get shippingAddress;
   @override
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   @override
@@ -389,7 +393,7 @@ class __$$OrderImplCopyWithImpl<$Res>
     Object? name = null,
     Object? orderNumber = null,
     Object? processedAt = null,
-    Object? shippingAddress = null,
+    Object? shippingAddress = freezed,
     Object? statusUrl = null,
     Object? subtotalPriceV2 = null,
     Object? totalPriceV2 = null,
@@ -441,10 +445,10 @@ class __$$OrderImplCopyWithImpl<$Res>
           ? _value.processedAt
           : processedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      shippingAddress: null == shippingAddress
+      shippingAddress: freezed == shippingAddress
           ? _value.shippingAddress
           : shippingAddress // ignore: cast_nullable_to_non_nullable
-              as ShippingAddress,
+              as ShippingAddress?,
       statusUrl: null == statusUrl
           ? _value.statusUrl
           : statusUrl // ignore: cast_nullable_to_non_nullable
@@ -514,7 +518,7 @@ class _$OrderImpl extends _Order {
       required this.name,
       required this.orderNumber,
       required this.processedAt,
-      required this.shippingAddress,
+      this.shippingAddress,
       required this.statusUrl,
       required this.subtotalPriceV2,
       required this.totalPriceV2,
@@ -552,7 +556,7 @@ class _$OrderImpl extends _Order {
   @override
   final String processedAt;
   @override
-  final ShippingAddress shippingAddress;
+  final ShippingAddress? shippingAddress;
   @override
   final String statusUrl;
   @override
@@ -687,7 +691,7 @@ abstract class _Order extends Order {
       required final String name,
       required final int orderNumber,
       required final String processedAt,
-      required final ShippingAddress shippingAddress,
+      final ShippingAddress? shippingAddress,
       required final String statusUrl,
       required final PriceV2 subtotalPriceV2,
       required final PriceV2 totalPriceV2,
@@ -724,7 +728,7 @@ abstract class _Order extends Order {
   @override
   String get processedAt;
   @override
-  ShippingAddress get shippingAddress;
+  ShippingAddress? get shippingAddress;
   @override
   String get statusUrl;
   @override

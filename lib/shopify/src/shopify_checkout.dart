@@ -39,6 +39,7 @@ import '../../shopify_config.dart';
 /// ShopifyCheckout provides various method in order to work with checkouts.
 class ShopifyCheckout with ShopifyError {
   ShopifyCheckout._();
+
   static final ShopifyCheckout instance = ShopifyCheckout._();
 
   GraphQLClient? get _graphQLClient => ShopifyConfig.graphQLClient;
@@ -48,9 +49,8 @@ class ShopifyCheckout with ShopifyError {
   /// Returns the Checkout object of the checkout with the [checkoutId].
   Future<Checkout> getCheckoutInfoQuery(String checkoutId,
       {bool deleteThisPartOfCache = false}) async {
-
     final WatchQueryOptions _options = WatchQueryOptions(
-        fetchPolicy:FetchPolicy.networkOnly,
+        fetchPolicy: FetchPolicy.networkOnly,
         document: gql(getCheckoutInfoWithoutShipping),
         variables: {
           'id': checkoutId,
@@ -65,8 +65,7 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Updates the attributes of a [Checkout]
-  Future<void> updateAttributes(
-    String checkoutId, {
+  Future<void> updateAttributes(String checkoutId, {
     bool? allowPartialAddresses,
     Map<String, String>? customAttributes,
     String? note,
@@ -107,27 +106,34 @@ class ShopifyCheckout with ShopifyError {
   /// Returns a List of Orders from the Customer with the [customerAccessToken].
   Future<List<Order>?> getAllOrders(String customerAccessToken,
       {SortKeyOrder sortKey = SortKeyOrder.PROCESSED_AT,
-      bool reverse = true,
-      bool deleteThisPartOfCache = false}) async {
+        bool reverse = true,
+        bool deleteThisPartOfCache = false}) async {
     final QueryOptions _options =
-        WatchQueryOptions(
-            fetchPolicy:FetchPolicy.networkOnly,
-            document: gql(getAllOrdersQuery), variables: {
+    WatchQueryOptions(
+        fetchPolicy: FetchPolicy.networkOnly,
+        document: gql(getAllOrdersQuery), variables: {
       'accessToken': customerAccessToken,
       'sortKey': sortKey.parseToString(),
       'reverse': reverse
     });
     final QueryResult result =
-        await ShopifyConfig.graphQLClient!.query(_options);
+    await ShopifyConfig.graphQLClient!.query(_options);
     checkForError(result);
     List<Order>? ordersList;
     Map<String, dynamic>? data = result.data;
 
-    if(data!= null){
+    if (data != null) {
       Map<String, dynamic>? orders = data["customer"]["orders"];
-      if(orders != null && orders.containsKey("edges")){
+      if (orders != null && orders.containsKey("edges")) {
         List<dynamic> edges = orders["edges"] as List<dynamic>;
-        ordersList = edges.map((dynamic order) => Order.fromGraphJson(order)).toList();
+        ordersList = edges.map((dynamic order) {
+          var id = (order['node'] ?? const {})['id'];
+          if (id.contains("5744215654651")) {
+            print(order);
+            // print((order['node'] ?? const {})['shippingAddress'] ?? const {});
+          }
+          return Order.fromGraphJson(order);
+        }).toList();
         return ordersList;
       }
     }
@@ -145,7 +151,7 @@ class ShopifyCheckout with ShopifyError {
         bool deleteThisPartOfCache = false}) async {
     final QueryOptions _options =
     WatchQueryOptions(
-        fetchPolicy:FetchPolicy.networkOnly,
+        fetchPolicy: FetchPolicy.networkOnly,
         document: gql(getXOrdersQuery), variables: {
       'accessToken': customerAccessToken,
       'sortKey': sortKey.parseToString(),
@@ -158,11 +164,12 @@ class ShopifyCheckout with ShopifyError {
     List<Order>? ordersList;
     Map<String, dynamic>? data = result.data;
 
-    if(data!= null){
+    if (data != null) {
       Map<String, dynamic>? orders = data["customer"]["orders"];
-      if(orders != null && orders.containsKey("edges")){
+      if (orders != null && orders.containsKey("edges")) {
         List<dynamic> edges = orders["edges"] as List<dynamic>;
-        ordersList = edges.map((dynamic order) => Order.fromGraphJson(order)).toList();
+        ordersList =
+            edges.map((dynamic order) => Order.fromGraphJson(order)).toList();
         return ordersList;
       }
     }
@@ -179,15 +186,16 @@ class ShopifyCheckout with ShopifyError {
         bool deleteThisPartOfCache = false}) async {
     final QueryOptions _options =
     WatchQueryOptions(
-        fetchPolicy:FetchPolicy.noCache,
+        fetchPolicy: FetchPolicy.noCache,
         document: gql(getOrdersCustomAttributesQuery), variables: {
       'accessToken': customerAccessToken,
       'sortKey': sortKey.parseToString(),
       'reverse': reverse
     });
-    final QueryResult result = await ShopifyConfig.graphQLClient!.query(_options);
+    final QueryResult result = await ShopifyConfig.graphQLClient!.query(
+        _options);
     checkForError(result, key: 'getOrdersCustomAttributes',
-      errorKey: 'userErrors');
+        errorKey: 'userErrors');
     Map<String, dynamic> ordersMap = {};
     List<dynamic> orders = result.data?['customer']['orders']['edges'];
 
@@ -214,8 +222,7 @@ class ShopifyCheckout with ShopifyError {
   /// Replaces the [LineItems] in the [Checkout] associated to the [checkoutId].
   ///
   /// [checkoutLineItems] is a List of Variant Ids
-  Future<void> checkoutLineItemsReplace(
-      String checkoutId,
+  Future<void> checkoutLineItemsReplace(String checkoutId,
       List<String> variantIdList, {
         bool deleteThisPartOfCache = false,
       }) async {
@@ -239,11 +246,10 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Updates the shipping address on given [checkoutId]
-  Future<Checkout> shippingAddressUpdate(
-    String checkoutId,
-    Address address, {
-    bool deleteThisPartOfCache = false,
-  }) async {
+  Future<Checkout> shippingAddressUpdate(String checkoutId,
+      Address address, {
+        bool deleteThisPartOfCache = false,
+      }) async {
     Map<String, dynamic> variables = address.toJson();
     variables['checkoutId'] = checkoutId;
     final MutationOptions _options = MutationOptions(
@@ -262,7 +268,7 @@ class ShopifyCheckout with ShopifyError {
 
     return Checkout.fromJson(
         ((result.data!['checkoutShippingAddressUpdateV2'] ??
-                const {})['checkout'] ??
+            const {})['checkout'] ??
             const {}));
   }
 
@@ -312,7 +318,7 @@ class ShopifyCheckout with ShopifyError {
     }
 
     return (result.data!['checkoutCompleteWithTokenizedPaymentV2'] ??
-            const {})['payment']['id'] ??
+        const {})['payment']['id'] ??
         null;
   }
 
@@ -325,7 +331,10 @@ class ShopifyCheckout with ShopifyError {
     variantIdList.forEach((e) {
       if (lineItemList.indexWhere((test) => e == test['variantId']) == -1)
         lineItemList.add({
-          "quantity": variantIdList.where((id) => e == id).toList().length,
+          "quantity": variantIdList
+              .where((id) => e == id)
+              .toList()
+              .length,
           "variantId": e
         });
     });
@@ -333,8 +342,8 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Associates the [Customer] that [customerAccessToken] belongs to, to the [Checkout] that [checkoutId] belongs to.
-  Future<void> checkoutCustomerAssociate(
-      String checkoutId, String customerAccessToken,
+  Future<void> checkoutCustomerAssociate(String checkoutId,
+      String customerAccessToken,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(associateCustomer),
@@ -405,8 +414,8 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Appends the [giftCardCodes] to the [Checkout] that [checkoutId] belongs to.
-  Future<void> checkoutGiftCardAppend(
-      String checkoutId, List<String> giftCardCodes,
+  Future<void> checkoutGiftCardAppend(String checkoutId,
+      List<String> giftCardCodes,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(checkoutGiftCardsAppendMutation),
@@ -435,14 +444,16 @@ class ShopifyCheckout with ShopifyError {
               'variantId': lineItem.variantId,
               'quantity': lineItem.quantity,
               'customAttributes': lineItem.customAttributes
-                  .map((e) => {
+                  .map((e) =>
+              {
                 'key': e.key,
                 'value': e.value,
               })
                   .toList(),
             }
         ],
-        'customAttributes': customAttributes.entries.map((e) => {
+        'customAttributes': customAttributes.entries.map((e) =>
+        {
           'key': e.key,
           'value': e.value
         }).toList()
@@ -454,7 +465,8 @@ class ShopifyCheckout with ShopifyError {
               'variantId': lineItem.variantId,
               'quantity': lineItem.quantity,
               'customAttributes': lineItem.customAttributes
-                  .map((e) => {
+                  .map((e) =>
+              {
                 'key': e.key,
                 'value': e.value
               })
@@ -473,7 +485,8 @@ class ShopifyCheckout with ShopifyError {
           'province': mailingAddress.province,
           'zip': mailingAddress.zip
         },
-        'customAttributes': customAttributes.entries.map((e) => {
+        'customAttributes': customAttributes.entries.map((e) =>
+        {
           'key': e.key,
           'value': e.value
         }).toList(),
@@ -494,10 +507,9 @@ class ShopifyCheckout with ShopifyError {
         ((result.data!['checkoutCreate'] ?? const {})['checkout'] ?? const {}));
   }
 
-  Future<Checkout> addLineItemsToCheckout(
-      {required String checkoutId,
-      required List<LineItem> lineItems,
-      bool deleteThisPartOfCache = false}) async {
+  Future<Checkout> addLineItemsToCheckout({required String checkoutId,
+    required List<LineItem> lineItems,
+    bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(addLineItemsToCheckoutMutation),
         variables: {
@@ -508,10 +520,11 @@ class ShopifyCheckout with ShopifyError {
                 'variantId': lineItem.id,
                 'quantity': lineItem.quantity,
                 'customAttributes': lineItem.customAttributes
-                    .map((e) => {
-                          'key': e.key,
-                          'value': e.value,
-                        })
+                    .map((e) =>
+                {
+                  'key': e.key,
+                  'value': e.value,
+                })
                     .toList(),
               }
           ],
@@ -531,10 +544,9 @@ class ShopifyCheckout with ShopifyError {
             const {}));
   }
 
-  Future<Checkout> addLineItemToCheckout(
-      {required String checkoutId,
-        required String variantId,
-        bool deleteThisPartOfCache = false}) async {
+  Future<Checkout> addLineItemToCheckout({required String checkoutId,
+    required String variantId,
+    bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(addLineItemsToCheckoutMutation),
         variables: {
@@ -561,10 +573,9 @@ class ShopifyCheckout with ShopifyError {
             const {}));
   }
 
-  Future<void> addVariantItemsToCheckout(
-      {required String checkoutId,
-        required List<Map<String, dynamic>> variants,
-        bool deleteThisPartOfCache = false}) async {
+  Future<void> addVariantItemsToCheckout({required String checkoutId,
+    required List<Map<String, dynamic>> variants,
+    bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(addLineItemsToCheckoutWithoutResponseDataMutation),
         variables: {
@@ -584,10 +595,9 @@ class ShopifyCheckout with ShopifyError {
     );
   }
 
-  Future<void> updateOnlyLineItemsInCheckout(
-      {required String checkoutId,
-        required List<LineItem> lineItems,
-        bool deleteThisPartOfCache = false}) async {
+  Future<void> updateOnlyLineItemsInCheckout({required String checkoutId,
+    required List<LineItem> lineItems,
+    bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(updateLineItemsInCheckoutMutation),
         variables: {
@@ -598,7 +608,8 @@ class ShopifyCheckout with ShopifyError {
                 'variantId': lineItem.variant!.id,
                 'quantity': lineItem.quantity,
                 'customAttributes': lineItem.customAttributes
-                    .map((e) => {
+                    .map((e) =>
+                {
                   'key': e.key,
                   'value': e.value,
                 })
@@ -619,10 +630,9 @@ class ShopifyCheckout with ShopifyError {
     return;
   }
 
-  Future<Checkout> updateLineItemsInCheckout(
-      {required String checkoutId,
-      required List<LineItem> lineItems,
-      bool deleteThisPartOfCache = false}) async {
+  Future<Checkout> updateLineItemsInCheckout({required String checkoutId,
+    required List<LineItem> lineItems,
+    bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(updateLineItemsInCheckoutMutation),
         variables: {
@@ -633,10 +643,11 @@ class ShopifyCheckout with ShopifyError {
                 'variantId': lineItem.variant!.id,
                 'quantity': lineItem.quantity,
                 'customAttributes': lineItem.customAttributes
-                    .map((e) => {
-                          'key': e.key,
-                          'value': e.value,
-                        })
+                    .map((e) =>
+                {
+                  'key': e.key,
+                  'value': e.value,
+                })
                     .toList(),
               }
           ],
@@ -656,10 +667,9 @@ class ShopifyCheckout with ShopifyError {
             const {}));
   }
 
-  Future<Checkout> removeLineItemsFromCheckout(
-      {required String checkoutId,
-      required List<LineItem> lineItems,
-      bool deleteThisPartOfCache = false}) async {
+  Future<Checkout> removeLineItemsFromCheckout({required String checkoutId,
+    required List<LineItem> lineItems,
+    bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(removeLineItemsFromCheckoutMutation),
         variables: {
@@ -683,8 +693,8 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Removes the Gift card that [appliedGiftCardId] belongs to, from the [Checkout] that [checkoutId] belongs to.
-  Future<void> checkoutGiftCardRemove(
-      String appliedGiftCardId, String checkoutId,
+  Future<void> checkoutGiftCardRemove(String appliedGiftCardId,
+      String checkoutId,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(checkoutGiftCardRemoveMutation),
@@ -704,8 +714,8 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Removes the Gift card that [appliedGiftCardId] belongs to, from the [Checkout] that [checkoutId] belongs to.
-  Future<Checkout> checkoutShippingLineUpdate(
-      String checkoutId, String shippingRateHandle,
+  Future<Checkout> checkoutShippingLineUpdate(String checkoutId,
+      String shippingRateHandle,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(checkoutShippingLineUpdateMutation),
@@ -749,14 +759,14 @@ class ShopifyCheckout with ShopifyError {
 
   Future<String?> checkoutCompleteWithTokenizedPaymentV3(String checkoutId,
       {required Checkout checkout,
-      required String token,
-      required PaymentTokenType paymentTokenType,
-      required String idempotencyKey,
-      required String amount,
-      required String currencyCode,
-      bool deleteThisPartOfCache = false}) async {
+        required String token,
+        required PaymentTokenType paymentTokenType,
+        required String idempotencyKey,
+        required String amount,
+        required String currencyCode,
+        bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options =
-        MutationOptions(document: gql(completeCheckoutWithTokenV3), variables: {
+    MutationOptions(document: gql(completeCheckoutWithTokenV3), variables: {
       'checkoutId': checkoutId,
       'payment': {
         'paymentAmount': {'amount': amount, 'currencyCode': currencyCode},
@@ -778,7 +788,7 @@ class ShopifyCheckout with ShopifyError {
     }
 
     return result.data?['checkoutCompleteWithTokenizedPaymentV3']['payment']
-            ['id'] ??
+    ['id'] ??
         null;
   }
 }

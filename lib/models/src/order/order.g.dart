@@ -18,8 +18,10 @@ _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
       name: json['name'] as String,
       orderNumber: (json['orderNumber'] as num).toInt(),
       processedAt: json['processedAt'] as String,
-      shippingAddress: ShippingAddress.fromJson(
-          json['shippingAddress'] as Map<String, dynamic>),
+      shippingAddress: json['shippingAddress'] == null
+          ? null
+          : ShippingAddress.fromJson(
+              json['shippingAddress'] as Map<String, dynamic>),
       statusUrl: json['statusUrl'] as String,
       subtotalPriceV2:
           PriceV2.fromJson(json['subtotalPriceV2'] as Map<String, dynamic>),
