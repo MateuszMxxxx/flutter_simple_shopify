@@ -7,9 +7,9 @@ part 'shipping_address.g.dart';
 class ShippingAddress with _$ShippingAddress {
   factory ShippingAddress({
     required String id,
-    required String address1,
-    required String city,
-    required String country,
+    String? address1,
+    String? city,
+    String? country,
     String? name,
     String? lastName,
     String? firstName,
@@ -21,7 +21,7 @@ class ShippingAddress with _$ShippingAddress {
     String? phone,
     String? province,
     String? provinceCode,
-    required String zip,
+    String? zip,
   }) = _ShippingAddress;
 
   factory ShippingAddress.fromJson(Map<String, dynamic> json) =>

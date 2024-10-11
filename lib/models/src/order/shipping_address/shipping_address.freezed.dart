@@ -21,9 +21,9 @@ ShippingAddress _$ShippingAddressFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ShippingAddress {
   String get id => throw _privateConstructorUsedError;
-  String get address1 => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
+  String? get address1 => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ mixin _$ShippingAddress {
   String? get phone => throw _privateConstructorUsedError;
   String? get province => throw _privateConstructorUsedError;
   String? get provinceCode => throw _privateConstructorUsedError;
-  String get zip => throw _privateConstructorUsedError;
+  String? get zip => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,9 +51,9 @@ abstract class $ShippingAddressCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String address1,
-      String city,
-      String country,
+      String? address1,
+      String? city,
+      String? country,
       String? name,
       String? lastName,
       String? firstName,
@@ -65,7 +65,7 @@ abstract class $ShippingAddressCopyWith<$Res> {
       String? phone,
       String? province,
       String? provinceCode,
-      String zip});
+      String? zip});
 }
 
 /// @nodoc
@@ -82,9 +82,9 @@ class _$ShippingAddressCopyWithImpl<$Res, $Val extends ShippingAddress>
   @override
   $Res call({
     Object? id = null,
-    Object? address1 = null,
-    Object? city = null,
-    Object? country = null,
+    Object? address1 = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
     Object? name = freezed,
     Object? lastName = freezed,
     Object? firstName = freezed,
@@ -96,25 +96,25 @@ class _$ShippingAddressCopyWithImpl<$Res, $Val extends ShippingAddress>
     Object? phone = freezed,
     Object? province = freezed,
     Object? provinceCode = freezed,
-    Object? zip = null,
+    Object? zip = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      address1: null == address1
+      address1: freezed == address1
           ? _value.address1
           : address1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -159,10 +159,10 @@ class _$ShippingAddressCopyWithImpl<$Res, $Val extends ShippingAddress>
           ? _value.provinceCode
           : provinceCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      zip: null == zip
+      zip: freezed == zip
           ? _value.zip
           : zip // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -177,9 +177,9 @@ abstract class _$$ShippingAddressImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String address1,
-      String city,
-      String country,
+      String? address1,
+      String? city,
+      String? country,
       String? name,
       String? lastName,
       String? firstName,
@@ -191,7 +191,7 @@ abstract class _$$ShippingAddressImplCopyWith<$Res>
       String? phone,
       String? province,
       String? provinceCode,
-      String zip});
+      String? zip});
 }
 
 /// @nodoc
@@ -206,9 +206,9 @@ class __$$ShippingAddressImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? address1 = null,
-    Object? city = null,
-    Object? country = null,
+    Object? address1 = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
     Object? name = freezed,
     Object? lastName = freezed,
     Object? firstName = freezed,
@@ -220,25 +220,25 @@ class __$$ShippingAddressImplCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? province = freezed,
     Object? provinceCode = freezed,
-    Object? zip = null,
+    Object? zip = freezed,
   }) {
     return _then(_$ShippingAddressImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      address1: null == address1
+      address1: freezed == address1
           ? _value.address1
           : address1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -283,10 +283,10 @@ class __$$ShippingAddressImplCopyWithImpl<$Res>
           ? _value.provinceCode
           : provinceCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      zip: null == zip
+      zip: freezed == zip
           ? _value.zip
           : zip // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -296,9 +296,9 @@ class __$$ShippingAddressImplCopyWithImpl<$Res>
 class _$ShippingAddressImpl implements _ShippingAddress {
   _$ShippingAddressImpl(
       {required this.id,
-      required this.address1,
-      required this.city,
-      required this.country,
+      this.address1,
+      this.city,
+      this.country,
       this.name,
       this.lastName,
       this.firstName,
@@ -310,7 +310,7 @@ class _$ShippingAddressImpl implements _ShippingAddress {
       this.phone,
       this.province,
       this.provinceCode,
-      required this.zip});
+      this.zip});
 
   factory _$ShippingAddressImpl.fromJson(Map<String, dynamic> json) =>
       _$$ShippingAddressImplFromJson(json);
@@ -318,11 +318,11 @@ class _$ShippingAddressImpl implements _ShippingAddress {
   @override
   final String id;
   @override
-  final String address1;
+  final String? address1;
   @override
-  final String city;
+  final String? city;
   @override
-  final String country;
+  final String? country;
   @override
   final String? name;
   @override
@@ -346,7 +346,7 @@ class _$ShippingAddressImpl implements _ShippingAddress {
   @override
   final String? provinceCode;
   @override
-  final String zip;
+  final String? zip;
 
   @override
   String toString() {
@@ -424,9 +424,9 @@ class _$ShippingAddressImpl implements _ShippingAddress {
 abstract class _ShippingAddress implements ShippingAddress {
   factory _ShippingAddress(
       {required final String id,
-      required final String address1,
-      required final String city,
-      required final String country,
+      final String? address1,
+      final String? city,
+      final String? country,
       final String? name,
       final String? lastName,
       final String? firstName,
@@ -438,7 +438,7 @@ abstract class _ShippingAddress implements ShippingAddress {
       final String? phone,
       final String? province,
       final String? provinceCode,
-      required final String zip}) = _$ShippingAddressImpl;
+      final String? zip}) = _$ShippingAddressImpl;
 
   factory _ShippingAddress.fromJson(Map<String, dynamic> json) =
       _$ShippingAddressImpl.fromJson;
@@ -446,11 +446,11 @@ abstract class _ShippingAddress implements ShippingAddress {
   @override
   String get id;
   @override
-  String get address1;
+  String? get address1;
   @override
-  String get city;
+  String? get city;
   @override
-  String get country;
+  String? get country;
   @override
   String? get name;
   @override
@@ -474,7 +474,7 @@ abstract class _ShippingAddress implements ShippingAddress {
   @override
   String? get provinceCode;
   @override
-  String get zip;
+  String? get zip;
   @override
   @JsonKey(ignore: true)
   _$$ShippingAddressImplCopyWith<_$ShippingAddressImpl> get copyWith =>

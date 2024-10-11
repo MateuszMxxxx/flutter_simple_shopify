@@ -10,9 +10,9 @@ _$ShippingAddressImpl _$$ShippingAddressImplFromJson(
         Map<String, dynamic> json) =>
     _$ShippingAddressImpl(
       id: json['id'] as String,
-      address1: json['address1'] as String,
-      city: json['city'] as String,
-      country: json['country'] as String,
+      address1: json['address1'] as String?,
+      city: json['city'] as String?,
+      country: json['country'] as String?,
       name: json['name'] as String?,
       lastName: json['lastName'] as String?,
       firstName: json['firstName'] as String?,
@@ -24,7 +24,7 @@ _$ShippingAddressImpl _$$ShippingAddressImplFromJson(
       phone: json['phone'] as String?,
       province: json['province'] as String?,
       provinceCode: json['provinceCode'] as String?,
-      zip: json['zip'] as String,
+      zip: json['zip'] as String?,
     );
 
 Map<String, dynamic> _$$ShippingAddressImplToJson(
