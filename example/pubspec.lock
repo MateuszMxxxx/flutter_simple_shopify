@@ -282,9 +282,11 @@ packages:
   graphql_flutter:
     dependency: transitive
     description:
-      path: "/Users/filipzalewski/IdeaProjects/graphql-flutter2/packages/graphql_flutter"
-      relative: false
-    source: path
+      path: "packages/graphql_flutter"
+      ref: "836888740a6ad1e9fd3a509007249b0c520e3918"
+      resolved-ref: "836888740a6ad1e9fd3a509007249b0c520e3918"
+      url: "https://github.com/filip-zalewski-netbulls/graphql-flutter.git"
+    source: git
     version: "5.2.0-beta.6"
   hive:
     dependency: transitive

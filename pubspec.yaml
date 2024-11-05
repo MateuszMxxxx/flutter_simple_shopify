@@ -9,7 +9,10 @@ environment:
 
 dependencies:
   graphql_flutter:
-      path: /Users/filipzalewski/IdeaProjects/graphql-flutter2/packages/graphql_flutter
+    git:
+      url: https://github.com/filip-zalewski-netbulls/graphql-flutter.git
+      path: packages/graphql_flutter
+      ref: 836888740a6ad1e9fd3a509007249b0c520e3918
   hive: ^2.1.0
   json_serializable: 6.8.0
   intl: 0.19.0
