@@ -20,7 +20,6 @@ class ShopifyUser with _$ShopifyUser {
     String? lastName,
     String? phone,
     List<String>? tags,
-    LastIncompleteCheckout? lastIncompleteCheckout,
   }) = _ShopifyUser;
 
   static ShopifyUser fromGraphJson(Map<String, dynamic> json) {
@@ -35,8 +34,6 @@ class ShopifyUser with _$ShopifyUser {
       lastName: json['lastName'],
       phone: json['phone'],
       tags: _getTagList((json)),
-      lastIncompleteCheckout: LastIncompleteCheckout.fromJson(
-          json['lastIncompleteCheckout'] ?? const {}),
     );
   }
 

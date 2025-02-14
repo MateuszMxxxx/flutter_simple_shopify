@@ -49,59 +49,6 @@ mutation MyMutation($firstName: String, $lastName: String, $email: String!, $pas
     email
     firstName
     id
-    lastIncompleteCheckout {
-        completedAt
-        createdAt
-        currencyCode
-        email
-        id
-        webUrl
-        totalPriceV2 {
-          amount
-          currencyCode
-        }
-        lineItemsSubtotalPrice {
-          amount
-          currencyCode
-        }
-        lineItems(first: 250) {
-          edges {
-            node {
-              id
-              quantity
-              title
-              discountAllocations {
-               allocatedAmount {
-                 amount
-                currencyCode
-               }
-              }
-              variant {
-                priceV2 {
-                  amount
-                  currencyCode
-                }
-                title
-                image {
-                  altText
-                  id
-                  url
-                }
-                compareAtPriceV2 {
-                  amount
-                  currencyCode
-                }
-                weight
-                weightUnit
-                availableForSale
-                sku
-                requiresShipping
-                id
-              }
-            }
-          }
-        }
-      }
   }
   customerUserErrors {
       code

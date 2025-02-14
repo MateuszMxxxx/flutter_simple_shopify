@@ -22,10 +22,6 @@ _$ShopifyUserImpl _$$ShopifyUserImplFromJson(Map<String, dynamic> json) =>
       lastName: json['lastName'] as String?,
       phone: json['phone'] as String?,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      lastIncompleteCheckout: json['lastIncompleteCheckout'] == null
-          ? null
-          : LastIncompleteCheckout.fromJson(
-              json['lastIncompleteCheckout'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ShopifyUserImplToJson(_$ShopifyUserImpl instance) =>
@@ -40,5 +36,4 @@ Map<String, dynamic> _$$ShopifyUserImplToJson(_$ShopifyUserImpl instance) =>
       'lastName': instance.lastName,
       'phone': instance.phone,
       'tags': instance.tags,
-      'lastIncompleteCheckout': instance.lastIncompleteCheckout,
     };
