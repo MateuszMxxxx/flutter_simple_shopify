@@ -72,7 +72,7 @@ class Product with _$Product {
         metafieldLocationId: json['node']['locationId'] != null ? int.tryParse(json['node']['locationId']["value"]) : null,
         metafieldTitle: json['node']['productTitle'] != null ? json['node']['productTitle']["value"] : null,
         metafieldUnitOfMeasure: json['node']['unitOfMeasure'] != null ? json['node']['unitOfMeasure']["value"] : null,
-        rewardPoints: json['node']['rewardPoints'] != null ? json['node']['rewardPoints']["value"] : null,
+        rewardPoints: json['node']['rewardPoints'] != null ? int.tryParse(json['node']['rewardPoints']["value"]) : null,
         rewardId: json['node']['rewardId'] != null ? json['node']['rewardId']["value"] : null
     );
   }
