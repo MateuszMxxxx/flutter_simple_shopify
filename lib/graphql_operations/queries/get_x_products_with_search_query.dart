@@ -31,6 +31,14 @@ const String getXProductsWithSearchQuery = r'''
 							value
 							type
 						}
+            rewardPoints: metafield(namespace: "attributes", key: "reward_points") {
+              value
+              type
+            }
+            rewardId: metafield(namespace: "attributes", key: "reward_id") {
+              value
+              type
+            }
 						itemSize: metafield(namespace: "custom", key: "item_size") {
 							value
 							type

@@ -75,6 +75,14 @@ query (
             value
             type
           }
+          rewardPoints: metafield(namespace: "attributes", key: "reward_points") {
+            value
+            type
+          }
+          rewardId: metafield(namespace: "attributes", key: "reward_id") {
+            value
+            type
+          }
           packSize: metafield(namespace: "custom", key: "pack_size") {
             value
             type

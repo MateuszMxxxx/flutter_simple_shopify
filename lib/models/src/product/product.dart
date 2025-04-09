@@ -38,7 +38,9 @@ class Product with _$Product {
     int? metafieldPackSize,
     int? metafieldLocationId,
     int? metafieldCompanyId,
-    String? metafieldUnitOfMeasure
+    String? metafieldUnitOfMeasure,
+    int? rewardPoints,
+    String? rewardId
   }) = _Product;
 
   static Product fromGraphJson(Map<String, dynamic> json) {
@@ -70,6 +72,8 @@ class Product with _$Product {
         metafieldLocationId: json['node']['locationId'] != null ? int.tryParse(json['node']['locationId']["value"]) : null,
         metafieldTitle: json['node']['productTitle'] != null ? json['node']['productTitle']["value"] : null,
         metafieldUnitOfMeasure: json['node']['unitOfMeasure'] != null ? json['node']['unitOfMeasure']["value"] : null
+        rewardPoints: json['node']['rewardPoints'] != null ? json['node']['rewardPoints']["value"] : null
+        rewardId: json['node']['rewardId'] != null ? json['node']['rewardId']["value"] : null
     );
   }
 

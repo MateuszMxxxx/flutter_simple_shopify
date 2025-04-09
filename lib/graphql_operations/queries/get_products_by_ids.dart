@@ -95,6 +95,14 @@ query ($ids: [ID!]!) {
         value
         type
       }
+      rewardPoints: metafield(namespace: "attributes", key: "reward_points") {
+        value
+        type
+      }
+      rewardId: metafield(namespace: "attributes", key: "reward_id") {
+        value
+        type
+      }
       unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
         value
         type

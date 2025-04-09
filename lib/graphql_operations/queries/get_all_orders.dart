@@ -74,6 +74,14 @@ query getOrders($sortKey: OrderSortKeys, $accessToken: String!, $reverse: Boolea
                       value
                       type
                     }
+                    rewardPoints: metafield(namespace: "attributes", key: "reward_points") {
+                      value
+                      type
+                    }
+                    rewardId: metafield(namespace: "attributes", key: "reward_id") {
+                      value
+                      type
+                    }
                     locationId: metafield(namespace: "custom", key: "location_id") {
                       value
                       type

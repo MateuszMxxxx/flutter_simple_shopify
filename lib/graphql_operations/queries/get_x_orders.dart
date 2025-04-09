@@ -70,6 +70,14 @@ customer(customerAccessToken: $accessToken) {
         value
         type
       }
+      rewardPoints: metafield(namespace: "attributes", key: "reward_points") {
+        value
+        type
+      }
+      rewardId: metafield(namespace: "attributes", key: "reward_id") {
+        value
+        type
+      }
                       productTitle: metafield(namespace: "custom", key: "product_title") {
         value
         type
