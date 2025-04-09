@@ -6,43 +6,52 @@ part of 'shop.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ShopImpl _$$ShopImplFromJson(Map<String, dynamic> json) => _$ShopImpl(
+_$ShopImpl _$$ShopImplFromJson(Map json) => _$ShopImpl(
       description: json['description'] as String?,
       moneyFormat: json['moneyFormat'] as String?,
       name: json['name'] as String?,
       paymentSettings: json['paymentSettings'] == null
           ? null
           : PaymentSettings.fromJson(
-              json['paymentSettings'] as Map<String, dynamic>),
+              Map<String, dynamic>.from(json['paymentSettings'] as Map)),
       primaryDomain: json['primaryDomain'] == null
           ? null
           : PrimaryDomain.fromJson(
-              json['primaryDomain'] as Map<String, dynamic>),
+              Map<String, dynamic>.from(json['primaryDomain'] as Map)),
       privacyPolicy: json['privacyPolicy'] == null
           ? null
           : PrivacyPolicy.fromJson(
-              json['privacyPolicy'] as Map<String, dynamic>),
+              Map<String, dynamic>.from(json['privacyPolicy'] as Map)),
       refundPolicy: json['refundPolicy'] == null
           ? null
-          : RefundPolicy.fromJson(json['refundPolicy'] as Map<String, dynamic>),
+          : RefundPolicy.fromJson(
+              Map<String, dynamic>.from(json['refundPolicy'] as Map)),
       shipsToCountries: (json['shipsToCountries'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
       termsOfService: json['termsOfService'] == null
           ? null
           : TermsOfService.fromJson(
-              json['termsOfService'] as Map<String, dynamic>),
+              Map<String, dynamic>.from(json['termsOfService'] as Map)),
     );
 
-Map<String, dynamic> _$$ShopImplToJson(_$ShopImpl instance) =>
-    <String, dynamic>{
-      'description': instance.description,
-      'moneyFormat': instance.moneyFormat,
-      'name': instance.name,
-      'paymentSettings': instance.paymentSettings,
-      'primaryDomain': instance.primaryDomain,
-      'privacyPolicy': instance.privacyPolicy,
-      'refundPolicy': instance.refundPolicy,
-      'shipsToCountries': instance.shipsToCountries,
-      'termsOfService': instance.termsOfService,
-    };
+Map<String, dynamic> _$$ShopImplToJson(_$ShopImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  writeNotNull('moneyFormat', instance.moneyFormat);
+  writeNotNull('name', instance.name);
+  writeNotNull('paymentSettings', instance.paymentSettings?.toJson());
+  writeNotNull('primaryDomain', instance.primaryDomain?.toJson());
+  writeNotNull('privacyPolicy', instance.privacyPolicy?.toJson());
+  writeNotNull('refundPolicy', instance.refundPolicy?.toJson());
+  writeNotNull('shipsToCountries', instance.shipsToCountries);
+  writeNotNull('termsOfService', instance.termsOfService?.toJson());
+  return val;
+}

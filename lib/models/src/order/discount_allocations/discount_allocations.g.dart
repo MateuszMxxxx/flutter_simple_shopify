@@ -6,16 +6,24 @@ part of 'discount_allocations.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DiscountAllocationsImpl _$$DiscountAllocationsImplFromJson(
-        Map<String, dynamic> json) =>
+_$DiscountAllocationsImpl _$$DiscountAllocationsImplFromJson(Map json) =>
     _$DiscountAllocationsImpl(
       allocatedAmount: json['allocatedAmount'] == null
           ? null
-          : PriceV2.fromJson(json['allocatedAmount'] as Map<String, dynamic>),
+          : PriceV2.fromJson(
+              Map<String, dynamic>.from(json['allocatedAmount'] as Map)),
     );
 
 Map<String, dynamic> _$$DiscountAllocationsImplToJson(
-        _$DiscountAllocationsImpl instance) =>
-    <String, dynamic>{
-      'allocatedAmount': instance.allocatedAmount,
-    };
+    _$DiscountAllocationsImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('allocatedAmount', instance.allocatedAmount?.toJson());
+  return val;
+}

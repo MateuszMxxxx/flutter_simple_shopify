@@ -6,13 +6,13 @@ part of 'blogs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BlogsImpl _$$BlogsImplFromJson(Map<String, dynamic> json) => _$BlogsImpl(
+_$BlogsImpl _$$BlogsImplFromJson(Map json) => _$BlogsImpl(
       blogList: (json['blogList'] as List<dynamic>)
-          .map((e) => Blog.fromJson(e as Map<String, dynamic>))
+          .map((e) => Blog.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
     );
 
 Map<String, dynamic> _$$BlogsImplToJson(_$BlogsImpl instance) =>
     <String, dynamic>{
-      'blogList': instance.blogList,
+      'blogList': instance.blogList.map((e) => e.toJson()).toList(),
     };

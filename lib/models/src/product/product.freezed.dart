@@ -48,6 +48,8 @@ mixin _$Product {
   int? get metafieldLocationId => throw _privateConstructorUsedError;
   int? get metafieldCompanyId => throw _privateConstructorUsedError;
   String? get metafieldUnitOfMeasure => throw _privateConstructorUsedError;
+  int? get rewardPoints => throw _privateConstructorUsedError;
+  String? get rewardId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -85,7 +87,9 @@ abstract class $ProductCopyWith<$Res> {
       int? metafieldPackSize,
       int? metafieldLocationId,
       int? metafieldCompanyId,
-      String? metafieldUnitOfMeasure});
+      String? metafieldUnitOfMeasure,
+      int? rewardPoints,
+      String? rewardId});
 }
 
 /// @nodoc
@@ -127,6 +131,8 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? metafieldLocationId = freezed,
     Object? metafieldCompanyId = freezed,
     Object? metafieldUnitOfMeasure = freezed,
+    Object? rewardPoints = freezed,
+    Object? rewardId = freezed,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -233,6 +239,14 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.metafieldUnitOfMeasure
           : metafieldUnitOfMeasure // ignore: cast_nullable_to_non_nullable
               as String?,
+      rewardPoints: freezed == rewardPoints
+          ? _value.rewardPoints
+          : rewardPoints // ignore: cast_nullable_to_non_nullable
+              as int?,
+      rewardId: freezed == rewardId
+          ? _value.rewardId
+          : rewardId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -270,7 +284,9 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       int? metafieldPackSize,
       int? metafieldLocationId,
       int? metafieldCompanyId,
-      String? metafieldUnitOfMeasure});
+      String? metafieldUnitOfMeasure,
+      int? rewardPoints,
+      String? rewardId});
 }
 
 /// @nodoc
@@ -310,6 +326,8 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? metafieldLocationId = freezed,
     Object? metafieldCompanyId = freezed,
     Object? metafieldUnitOfMeasure = freezed,
+    Object? rewardPoints = freezed,
+    Object? rewardId = freezed,
   }) {
     return _then(_$ProductImpl(
       title: null == title
@@ -416,6 +434,14 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.metafieldUnitOfMeasure
           : metafieldUnitOfMeasure // ignore: cast_nullable_to_non_nullable
               as String?,
+      rewardPoints: freezed == rewardPoints
+          ? _value.rewardPoints
+          : rewardPoints // ignore: cast_nullable_to_non_nullable
+              as int?,
+      rewardId: freezed == rewardId
+          ? _value.rewardId
+          : rewardId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -449,7 +475,9 @@ class _$ProductImpl extends _Product {
       this.metafieldPackSize,
       this.metafieldLocationId,
       this.metafieldCompanyId,
-      this.metafieldUnitOfMeasure})
+      this.metafieldUnitOfMeasure,
+      this.rewardPoints,
+      this.rewardId})
       : _productVariants = productVariants,
         _tags = tags,
         _images = images,
@@ -551,10 +579,14 @@ class _$ProductImpl extends _Product {
   final int? metafieldCompanyId;
   @override
   final String? metafieldUnitOfMeasure;
+  @override
+  final int? rewardPoints;
+  @override
+  final String? rewardId;
 
   @override
   String toString() {
-    return 'Product(title: $title, id: $id, availableForSale: $availableForSale, createdAt: $createdAt, productVariants: $productVariants, productType: $productType, publishedAt: $publishedAt, tags: $tags, updatedAt: $updatedAt, images: $images, option: $option, vendor: $vendor, metafields: $metafields, totalInventory: $totalInventory, collectionList: $collectionList, cursor: $cursor, onlineStoreUrl: $onlineStoreUrl, description: $description, descriptionHtml: $descriptionHtml, handle: $handle, metafieldTitle: $metafieldTitle, metafieldItemSize: $metafieldItemSize, metafieldPackSize: $metafieldPackSize, metafieldLocationId: $metafieldLocationId, metafieldCompanyId: $metafieldCompanyId, metafieldUnitOfMeasure: $metafieldUnitOfMeasure)';
+    return 'Product(title: $title, id: $id, availableForSale: $availableForSale, createdAt: $createdAt, productVariants: $productVariants, productType: $productType, publishedAt: $publishedAt, tags: $tags, updatedAt: $updatedAt, images: $images, option: $option, vendor: $vendor, metafields: $metafields, totalInventory: $totalInventory, collectionList: $collectionList, cursor: $cursor, onlineStoreUrl: $onlineStoreUrl, description: $description, descriptionHtml: $descriptionHtml, handle: $handle, metafieldTitle: $metafieldTitle, metafieldItemSize: $metafieldItemSize, metafieldPackSize: $metafieldPackSize, metafieldLocationId: $metafieldLocationId, metafieldCompanyId: $metafieldCompanyId, metafieldUnitOfMeasure: $metafieldUnitOfMeasure, rewardPoints: $rewardPoints, rewardId: $rewardId)';
   }
 
   @override
@@ -605,7 +637,11 @@ class _$ProductImpl extends _Product {
             (identical(other.metafieldCompanyId, metafieldCompanyId) ||
                 other.metafieldCompanyId == metafieldCompanyId) &&
             (identical(other.metafieldUnitOfMeasure, metafieldUnitOfMeasure) ||
-                other.metafieldUnitOfMeasure == metafieldUnitOfMeasure));
+                other.metafieldUnitOfMeasure == metafieldUnitOfMeasure) &&
+            (identical(other.rewardPoints, rewardPoints) ||
+                other.rewardPoints == rewardPoints) &&
+            (identical(other.rewardId, rewardId) ||
+                other.rewardId == rewardId));
   }
 
   @JsonKey(ignore: true)
@@ -637,7 +673,9 @@ class _$ProductImpl extends _Product {
         metafieldPackSize,
         metafieldLocationId,
         metafieldCompanyId,
-        metafieldUnitOfMeasure
+        metafieldUnitOfMeasure,
+        rewardPoints,
+        rewardId
       ]);
 
   @JsonKey(ignore: true)
@@ -681,7 +719,9 @@ abstract class _Product extends Product {
       final int? metafieldPackSize,
       final int? metafieldLocationId,
       final int? metafieldCompanyId,
-      final String? metafieldUnitOfMeasure}) = _$ProductImpl;
+      final String? metafieldUnitOfMeasure,
+      final int? rewardPoints,
+      final String? rewardId}) = _$ProductImpl;
   _Product._() : super._();
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
@@ -738,6 +778,10 @@ abstract class _Product extends Product {
   int? get metafieldCompanyId;
   @override
   String? get metafieldUnitOfMeasure;
+  @override
+  int? get rewardPoints;
+  @override
+  String? get rewardId;
   @override
   @JsonKey(ignore: true)
   _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>

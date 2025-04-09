@@ -6,8 +6,7 @@ part of 'payment_settings.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PaymentSettingsImpl _$$PaymentSettingsImplFromJson(
-        Map<String, dynamic> json) =>
+_$PaymentSettingsImpl _$$PaymentSettingsImplFromJson(Map json) =>
     _$PaymentSettingsImpl(
       acceptedCardBrands: (json['acceptedCardBrands'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -27,13 +26,22 @@ _$PaymentSettingsImpl _$$PaymentSettingsImplFromJson(
     );
 
 Map<String, dynamic> _$$PaymentSettingsImplToJson(
-        _$PaymentSettingsImpl instance) =>
-    <String, dynamic>{
-      'acceptedCardBrands': instance.acceptedCardBrands,
-      'cardVaultUrl': instance.cardVaultUrl,
-      'countryCode': instance.countryCode,
-      'currencyCode': instance.currencyCode,
-      'enabledPresentmentCurrencies': instance.enabledPresentmentCurrencies,
-      'shopifyPaymentAccountId': instance.shopifyPaymentAccountId,
-      'supportedDigitalWallets': instance.supportedDigitalWallets,
-    };
+    _$PaymentSettingsImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('acceptedCardBrands', instance.acceptedCardBrands);
+  writeNotNull('cardVaultUrl', instance.cardVaultUrl);
+  writeNotNull('countryCode', instance.countryCode);
+  writeNotNull('currencyCode', instance.currencyCode);
+  writeNotNull(
+      'enabledPresentmentCurrencies', instance.enabledPresentmentCurrencies);
+  writeNotNull('shopifyPaymentAccountId', instance.shopifyPaymentAccountId);
+  writeNotNull('supportedDigitalWallets', instance.supportedDigitalWallets);
+  return val;
+}

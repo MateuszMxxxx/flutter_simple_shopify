@@ -6,8 +6,7 @@ part of 'associated_collections.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AssociatedCollectionsImpl _$$AssociatedCollectionsImplFromJson(
-        Map<String, dynamic> json) =>
+_$AssociatedCollectionsImpl _$$AssociatedCollectionsImplFromJson(Map json) =>
     _$AssociatedCollectionsImpl(
       id: json['id'] as String,
       title: json['title'] as String,
@@ -18,12 +17,21 @@ _$AssociatedCollectionsImpl _$$AssociatedCollectionsImplFromJson(
     );
 
 Map<String, dynamic> _$$AssociatedCollectionsImplToJson(
-        _$AssociatedCollectionsImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'title': instance.title,
-      'description': instance.description,
-      'updatedAt': instance.updatedAt,
-      'descriptionHtml': instance.descriptionHtml,
-      'handle': instance.handle,
-    };
+    _$AssociatedCollectionsImpl instance) {
+  final val = <String, dynamic>{
+    'id': instance.id,
+    'title': instance.title,
+    'description': instance.description,
+    'updatedAt': instance.updatedAt,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('descriptionHtml', instance.descriptionHtml);
+  writeNotNull('handle', instance.handle);
+  return val;
+}

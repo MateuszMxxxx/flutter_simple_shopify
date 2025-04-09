@@ -6,8 +6,7 @@ part of 'unit_price_measurement.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnitPriceMeasurementImpl _$$UnitPriceMeasurementImplFromJson(
-        Map<String, dynamic> json) =>
+_$UnitPriceMeasurementImpl _$$UnitPriceMeasurementImplFromJson(Map json) =>
     _$UnitPriceMeasurementImpl(
       measuredType: json['measuredType'] as String,
       quantityUnit: json['quantityUnit'] as String,
