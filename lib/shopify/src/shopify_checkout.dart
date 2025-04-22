@@ -148,7 +148,8 @@ class ShopifyCheckout with ShopifyError {
       int first,
       {SortKeyOrder sortKey = SortKeyOrder.PROCESSED_AT,
         bool reverse = true,
-        bool deleteThisPartOfCache = false}) async {
+        bool deleteThisPartOfCache = false,
+        String? startCursor = null}) async {
     final QueryOptions _options =
     WatchQueryOptions(
         fetchPolicy: FetchPolicy.networkOnly,
@@ -156,7 +157,8 @@ class ShopifyCheckout with ShopifyError {
       'accessToken': customerAccessToken,
       'sortKey': sortKey.parseToString(),
       'reverse': reverse,
-      'first': first
+      'first': first,
+      'cursor': startCursor
     });
     final QueryResult result =
     await ShopifyConfig.graphQLClient!.query(_options);
