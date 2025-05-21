@@ -37,6 +37,7 @@ class ShopifyConfig {
     _storefrontApiVersion = storefrontApiVersion;
     _cacheStore = cacheStore;
     _graphQLClient = GraphQLClient(
+      queryRequestTimeout: const Duration(seconds: 20),
       link: HttpLink(
         'https://$_storeUrl/api/$_storefrontApiVersion/graphql.json',
         defaultHeaders: {
