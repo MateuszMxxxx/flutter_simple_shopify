@@ -14,6 +14,7 @@ import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_i
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id_without_shipping_rates.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_without_shipping_rates.dart';
+import 'package:flutter_simple_shopify/graphql_operations/queries/get_order_by_id.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_orders_custom_attributes.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_x_orders.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
@@ -180,6 +181,39 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
     return ordersList;
+  }
+
+  Future<Order?> getOrderById(String customerAccessToken, int orderId,
+      {bool deleteThisPartOfCache = false}) async {
+    final QueryOptions _options = WatchQueryOptions(
+        fetchPolicy: FetchPolicy.networkOnly,
+        document: gql(getOrderByIdQuery),
+        variables: {
+          'accessToken': customerAccessToken,
+          'orderId': "id:$orderId",
+        });
+
+    final QueryResult result = await ShopifyConfig.graphQLClient!.query(_options);
+    checkForError(result);
+
+    Order? order;
+    Map<String, dynamic>? data = result.data;
+
+    if (data != null) {
+      Map<String, dynamic>? orders = data["customer"]["orders"];
+      if (orders != null && orders.containsKey("edges")) {
+        List<dynamic> edges = orders["edges"] as List<dynamic>;
+        if (edges.isNotEmpty) {
+          order = Order.fromGraphJson(edges.first);
+        }
+      }
+    }
+
+    if (deleteThisPartOfCache) {
+      ShopifyConfig.graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+
+    return order;
   }
 
   Future<dynamic> getOrdersCustomAttributes(String customerAccessToken,
