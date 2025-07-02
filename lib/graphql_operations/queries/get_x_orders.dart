@@ -103,7 +103,7 @@ customer(customerAccessToken: $accessToken) {
           value
           type
         }    
-        categoryClass: (namespace: "custom", key: "class") {
+        categoryClass: metafield(namespace: "custom", key: "class") {
           value
           type
         }
