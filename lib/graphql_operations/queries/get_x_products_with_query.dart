@@ -70,7 +70,7 @@ const String getXProductsWithQuery = r'''
           value
           type
         }    
-        categoryClass(namespace: "custom", key: "class") {
+        categoryClass: (namespace: "custom", key: "class") {
           value
           type
         }
