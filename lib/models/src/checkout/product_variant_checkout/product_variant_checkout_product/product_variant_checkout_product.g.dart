@@ -7,7 +7,7 @@ part of 'product_variant_checkout_product.dart';
 // **************************************************************************
 
 _$ProductVariantCheckoutProductImpl
-    _$$ProductVariantCheckoutProductImplFromJson(Map json) =>
+    _$$ProductVariantCheckoutProductImplFromJson(Map<String, dynamic> json) =>
         _$ProductVariantCheckoutProductImpl(
           id: json['id'] as String,
           metafieldTitle: json['metafieldTitle'] as String?,
@@ -17,20 +17,11 @@ _$ProductVariantCheckoutProductImpl
         );
 
 Map<String, dynamic> _$$ProductVariantCheckoutProductImplToJson(
-    _$ProductVariantCheckoutProductImpl instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('metafieldTitle', instance.metafieldTitle);
-  writeNotNull('metafieldItemSize', instance.metafieldItemSize);
-  writeNotNull('metafieldPackSize', instance.metafieldPackSize);
-  writeNotNull('metafieldUnitOfMeasure', instance.metafieldUnitOfMeasure);
-  return val;
-}
+        _$ProductVariantCheckoutProductImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'metafieldTitle': instance.metafieldTitle,
+      'metafieldItemSize': instance.metafieldItemSize,
+      'metafieldPackSize': instance.metafieldPackSize,
+      'metafieldUnitOfMeasure': instance.metafieldUnitOfMeasure,
+    };

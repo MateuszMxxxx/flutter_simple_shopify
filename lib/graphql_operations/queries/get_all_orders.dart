@@ -89,6 +89,22 @@ query getOrders($sortKey: OrderSortKeys, $accessToken: String!, $reverse: Boolea
                     companyId: metafield(namespace: "custom", key: "company_id") {
                       value
                       type
+                    }
+                    department: metafield(namespace: "attributes", key: "department") {
+                      value
+                      type
+                    }   
+                    category: metafield(namespace: "attributes", key: "category") {
+                      value
+                      type
+                    }   
+                    subCategory: metafield(namespace: "attributes", key: "sub_category") {
+                      value
+                      type
+                    }    
+                    categoryClass(namespace: "attributes", key: "class") {
+                      value
+                      type
                     }                                        
                   }
                 }

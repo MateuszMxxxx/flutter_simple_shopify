@@ -90,6 +90,23 @@ customer(customerAccessToken: $accessToken) {
                       value
                       type
                     }
+                    
+        department: metafield(namespace: "attributes", key: "department") {
+          value
+          type
+        }   
+        category: metafield(namespace: "attributes", key: "category") {
+          value
+          type
+        }   
+        subCategory: metafield(namespace: "attributes", key: "sub_category") {
+          value
+          type
+        }    
+        categoryClass(namespace: "attributes", key: "class") {
+          value
+          type
+        }
                   }
                 }
               }

@@ -6,87 +6,75 @@ part of 'order.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OrderImpl _$$OrderImplFromJson(Map json) => _$OrderImpl(
+_$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
       id: json['id'] as String,
       email: json['email'] as String?,
       currencyCode: json['currencyCode'] as String,
       customAttributes: CustomAttributes.fromJson(
-          Map<String, dynamic>.from(json['customAttributes'] as Map)),
+          json['customAttributes'] as Map<String, dynamic>),
       customerUrl: json['customerUrl'] as String,
-      lineItems: LineItemsOrder.fromJson(
-          Map<String, dynamic>.from(json['lineItems'] as Map)),
+      lineItems:
+          LineItemsOrder.fromJson(json['lineItems'] as Map<String, dynamic>),
       name: json['name'] as String,
       orderNumber: (json['orderNumber'] as num).toInt(),
       processedAt: json['processedAt'] as String,
       shippingAddress: json['shippingAddress'] == null
           ? null
           : ShippingAddress.fromJson(
-              Map<String, dynamic>.from(json['shippingAddress'] as Map)),
+              json['shippingAddress'] as Map<String, dynamic>),
       statusUrl: json['statusUrl'] as String,
-      subtotalPriceV2: PriceV2.fromJson(
-          Map<String, dynamic>.from(json['subtotalPriceV2'] as Map)),
-      totalPriceV2: PriceV2.fromJson(
-          Map<String, dynamic>.from(json['totalPriceV2'] as Map)),
+      subtotalPriceV2:
+          PriceV2.fromJson(json['subtotalPriceV2'] as Map<String, dynamic>),
+      totalPriceV2:
+          PriceV2.fromJson(json['totalPriceV2'] as Map<String, dynamic>),
       totalShippingPriceV2: PriceV2.fromJson(
-          Map<String, dynamic>.from(json['totalShippingPriceV2'] as Map)),
-      totalTaxV2: PriceV2.fromJson(
-          Map<String, dynamic>.from(json['totalTaxV2'] as Map)),
+          json['totalShippingPriceV2'] as Map<String, dynamic>),
+      totalTaxV2: PriceV2.fromJson(json['totalTaxV2'] as Map<String, dynamic>),
       fulfillmentStatus:
           $enumDecode(_$FulfillmentStatusEnumMap, json['fulfillmentStatus']),
       discountApplications: DiscountApplications.fromJson(
-          Map<String, dynamic>.from(json['discountApplications'] as Map)),
+          json['discountApplications'] as Map<String, dynamic>),
       financialStatus: $enumDecodeNullable(
           _$FinancialStatusEnumMap, json['financialStatus']),
       totalRefundedV2: json['totalRefundedV2'] == null
           ? null
-          : PriceV2.fromJson(
-              Map<String, dynamic>.from(json['totalRefundedV2'] as Map)),
+          : PriceV2.fromJson(json['totalRefundedV2'] as Map<String, dynamic>),
       phone: json['phone'] as String?,
       cursor: json['cursor'] as String?,
       canceledAt: json['canceledAt'] as String?,
       billingAddress: json['billingAddress'] == null
           ? null
           : ShippingAddress.fromJson(
-              Map<String, dynamic>.from(json['billingAddress'] as Map)),
+              json['billingAddress'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('email', instance.email);
-  val['currencyCode'] = instance.currencyCode;
-  val['customAttributes'] = instance.customAttributes.toJson();
-  val['customerUrl'] = instance.customerUrl;
-  val['lineItems'] = instance.lineItems.toJson();
-  val['name'] = instance.name;
-  val['orderNumber'] = instance.orderNumber;
-  val['processedAt'] = instance.processedAt;
-  writeNotNull('shippingAddress', instance.shippingAddress?.toJson());
-  val['statusUrl'] = instance.statusUrl;
-  val['subtotalPriceV2'] = instance.subtotalPriceV2.toJson();
-  val['totalPriceV2'] = instance.totalPriceV2.toJson();
-  val['totalShippingPriceV2'] = instance.totalShippingPriceV2.toJson();
-  val['totalTaxV2'] = instance.totalTaxV2.toJson();
-  val['fulfillmentStatus'] =
-      _$FulfillmentStatusEnumMap[instance.fulfillmentStatus]!;
-  val['discountApplications'] = instance.discountApplications.toJson();
-  writeNotNull(
-      'financialStatus', _$FinancialStatusEnumMap[instance.financialStatus]);
-  writeNotNull('totalRefundedV2', instance.totalRefundedV2?.toJson());
-  writeNotNull('phone', instance.phone);
-  writeNotNull('cursor', instance.cursor);
-  writeNotNull('canceledAt', instance.canceledAt);
-  writeNotNull('billingAddress', instance.billingAddress?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'email': instance.email,
+      'currencyCode': instance.currencyCode,
+      'customAttributes': instance.customAttributes,
+      'customerUrl': instance.customerUrl,
+      'lineItems': instance.lineItems,
+      'name': instance.name,
+      'orderNumber': instance.orderNumber,
+      'processedAt': instance.processedAt,
+      'shippingAddress': instance.shippingAddress,
+      'statusUrl': instance.statusUrl,
+      'subtotalPriceV2': instance.subtotalPriceV2,
+      'totalPriceV2': instance.totalPriceV2,
+      'totalShippingPriceV2': instance.totalShippingPriceV2,
+      'totalTaxV2': instance.totalTaxV2,
+      'fulfillmentStatus':
+          _$FulfillmentStatusEnumMap[instance.fulfillmentStatus]!,
+      'discountApplications': instance.discountApplications,
+      'financialStatus': _$FinancialStatusEnumMap[instance.financialStatus],
+      'totalRefundedV2': instance.totalRefundedV2,
+      'phone': instance.phone,
+      'cursor': instance.cursor,
+      'canceledAt': instance.canceledAt,
+      'billingAddress': instance.billingAddress,
+    };
 
 const _$FulfillmentStatusEnumMap = {
   FulfillmentStatus.FULFILLED: 'FULFILLED',

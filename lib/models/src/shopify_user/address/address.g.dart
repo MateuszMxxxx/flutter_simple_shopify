@@ -6,7 +6,8 @@ part of 'address.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AddressImpl _$$AddressImplFromJson(Map json) => _$AddressImpl(
+_$AddressImpl _$$AddressImplFromJson(Map<String, dynamic> json) =>
+    _$AddressImpl(
       id: json['id'] as String?,
       address1: json['address1'] as String?,
       address2: json['address2'] as String?,
@@ -26,31 +27,23 @@ _$AddressImpl _$$AddressImplFromJson(Map json) => _$AddressImpl(
       zip: json['zip'] as String?,
     );
 
-Map<String, dynamic> _$$AddressImplToJson(_$AddressImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('address1', instance.address1);
-  writeNotNull('address2', instance.address2);
-  writeNotNull('city', instance.city);
-  writeNotNull('company', instance.company);
-  writeNotNull('country', instance.country);
-  writeNotNull('countryCode', instance.countryCode);
-  writeNotNull('firstName', instance.firstName);
-  writeNotNull('lastName', instance.lastName);
-  writeNotNull('formattedArea', instance.formattedArea);
-  writeNotNull('latitude', instance.latitude);
-  writeNotNull('longitude', instance.longitude);
-  writeNotNull('name', instance.name);
-  writeNotNull('phone', instance.phone);
-  writeNotNull('province', instance.province);
-  writeNotNull('provinceCode', instance.provinceCode);
-  writeNotNull('zip', instance.zip);
-  return val;
-}
+Map<String, dynamic> _$$AddressImplToJson(_$AddressImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'address1': instance.address1,
+      'address2': instance.address2,
+      'city': instance.city,
+      'company': instance.company,
+      'country': instance.country,
+      'countryCode': instance.countryCode,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
+      'formattedArea': instance.formattedArea,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
+      'name': instance.name,
+      'phone': instance.phone,
+      'province': instance.province,
+      'provinceCode': instance.provinceCode,
+      'zip': instance.zip,
+    };

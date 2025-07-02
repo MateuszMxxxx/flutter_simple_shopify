@@ -6,48 +6,45 @@ part of 'checkout.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CheckoutImpl _$$CheckoutImplFromJson(Map json) => _$CheckoutImpl(
+_$CheckoutImpl _$$CheckoutImplFromJson(Map<String, dynamic> json) =>
+    _$CheckoutImpl(
       id: json['id'] as String,
       ready: json['ready'] as bool,
       availableShippingRates: json['availableShippingRates'] == null
           ? null
           : AvailableShippingRates.fromJson(
-              Map<String, dynamic>.from(json['availableShippingRates'] as Map)),
+              json['availableShippingRates'] as Map<String, dynamic>),
       createdAt: json['createdAt'] as String,
       currencyCode: json['currencyCode'] as String,
-      totalTaxV2: PriceV2.fromJson(
-          Map<String, dynamic>.from(json['totalTaxV2'] as Map)),
-      totalPriceV2: PriceV2.fromJson(
-          Map<String, dynamic>.from(json['totalPriceV2'] as Map)),
+      totalTaxV2: PriceV2.fromJson(json['totalTaxV2'] as Map<String, dynamic>),
+      totalPriceV2:
+          PriceV2.fromJson(json['totalPriceV2'] as Map<String, dynamic>),
       taxesIncluded: json['taxesIncluded'] as bool,
       taxExempt: json['taxExempt'] as bool,
-      subtotalPriceV2: PriceV2.fromJson(
-          Map<String, dynamic>.from(json['subtotalPriceV2'] as Map)),
+      subtotalPriceV2:
+          PriceV2.fromJson(json['subtotalPriceV2'] as Map<String, dynamic>),
       requiresShipping: json['requiresShipping'] as bool,
       appliedGiftCards: (json['appliedGiftCards'] as List<dynamic>)
-          .map((e) =>
-              AppliedGiftCards.fromJson(Map<String, dynamic>.from(e as Map)))
+          .map((e) => AppliedGiftCards.fromJson(e as Map<String, dynamic>))
           .toList(),
       customAttributes: (json['customAttributes'] as List<dynamic>?)
-              ?.map((e) =>
-                  Attribute.fromJson(Map<String, dynamic>.from(e as Map)))
+              ?.map((e) => Attribute.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <Attribute>[],
       lineItems: JsonHelper.lineItems(json['lineItems']),
       order: json['order'] == null
           ? null
-          : CheckoutOrder.fromJson(
-              Map<String, dynamic>.from(json['order'] as Map)),
+          : CheckoutOrder.fromJson(json['order'] as Map<String, dynamic>),
       orderStatusUrl: json['orderStatusUrl'] as String?,
       shopifyPaymentsAccountId: json['shopifyPaymentsAccountId'] as String?,
       shippingAddress: json['shippingAddress'] == null
           ? null
           : MailingAddress.fromJson(
-              Map<String, dynamic>.from(json['shippingAddress'] as Map)),
+              json['shippingAddress'] as Map<String, dynamic>),
       shippingLine: json['shippingLine'] == null
           ? null
           : ShippingRates.fromJson(
-              Map<String, dynamic>.from(json['shippingLine'] as Map)),
+              json['shippingLine'] as Map<String, dynamic>),
       email: json['email'] as String?,
       completedAt: json['completedAt'] as String?,
       note: json['note'] as String?,
@@ -55,42 +52,30 @@ _$CheckoutImpl _$$CheckoutImplFromJson(Map json) => _$CheckoutImpl(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$CheckoutImplToJson(_$CheckoutImpl instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'ready': instance.ready,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'availableShippingRates', instance.availableShippingRates?.toJson());
-  val['createdAt'] = instance.createdAt;
-  val['currencyCode'] = instance.currencyCode;
-  val['totalTaxV2'] = instance.totalTaxV2.toJson();
-  val['totalPriceV2'] = instance.totalPriceV2.toJson();
-  val['taxesIncluded'] = instance.taxesIncluded;
-  val['taxExempt'] = instance.taxExempt;
-  val['subtotalPriceV2'] = instance.subtotalPriceV2.toJson();
-  val['requiresShipping'] = instance.requiresShipping;
-  val['appliedGiftCards'] =
-      instance.appliedGiftCards.map((e) => e.toJson()).toList();
-  val['customAttributes'] =
-      instance.customAttributes.map((e) => e.toJson()).toList();
-  val['lineItems'] = instance.lineItems.map((e) => e.toJson()).toList();
-  writeNotNull('order', instance.order?.toJson());
-  writeNotNull('orderStatusUrl', instance.orderStatusUrl);
-  writeNotNull('shopifyPaymentsAccountId', instance.shopifyPaymentsAccountId);
-  writeNotNull('shippingAddress', instance.shippingAddress?.toJson());
-  writeNotNull('shippingLine', instance.shippingLine?.toJson());
-  writeNotNull('email', instance.email);
-  writeNotNull('completedAt', instance.completedAt);
-  writeNotNull('note', instance.note);
-  writeNotNull('webUrl', instance.webUrl);
-  writeNotNull('updatedAt', instance.updatedAt);
-  return val;
-}
+Map<String, dynamic> _$$CheckoutImplToJson(_$CheckoutImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'ready': instance.ready,
+      'availableShippingRates': instance.availableShippingRates,
+      'createdAt': instance.createdAt,
+      'currencyCode': instance.currencyCode,
+      'totalTaxV2': instance.totalTaxV2,
+      'totalPriceV2': instance.totalPriceV2,
+      'taxesIncluded': instance.taxesIncluded,
+      'taxExempt': instance.taxExempt,
+      'subtotalPriceV2': instance.subtotalPriceV2,
+      'requiresShipping': instance.requiresShipping,
+      'appliedGiftCards': instance.appliedGiftCards,
+      'customAttributes': instance.customAttributes,
+      'lineItems': instance.lineItems,
+      'order': instance.order,
+      'orderStatusUrl': instance.orderStatusUrl,
+      'shopifyPaymentsAccountId': instance.shopifyPaymentsAccountId,
+      'shippingAddress': instance.shippingAddress,
+      'shippingLine': instance.shippingLine,
+      'email': instance.email,
+      'completedAt': instance.completedAt,
+      'note': instance.note,
+      'webUrl': instance.webUrl,
+      'updatedAt': instance.updatedAt,
+    };

@@ -6,7 +6,8 @@ part of 'discount_application.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DiscountApplicationImpl _$$DiscountApplicationImplFromJson(Map json) =>
+_$DiscountApplicationImpl _$$DiscountApplicationImplFromJson(
+        Map<String, dynamic> json) =>
     _$DiscountApplicationImpl(
       allocationMethod: $enumDecode(
           _$DiscountApplicationAllocationMethodEnumMap,
@@ -15,8 +16,7 @@ _$DiscountApplicationImpl _$$DiscountApplicationImplFromJson(Map json) =>
           _$DiscountApplicationTargetSelectionEnumMap, json['targetSelection']),
       targetType: $enumDecode(
           _$DiscountApplicationTargetTypeEnumMap, json['targetType']),
-      value: PricingValue.fromJson(
-          Map<String, dynamic>.from(json['value'] as Map)),
+      value: PricingValue.fromJson(json['value'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$DiscountApplicationImplToJson(
@@ -28,7 +28,7 @@ Map<String, dynamic> _$$DiscountApplicationImplToJson(
           instance.targetSelection]!,
       'targetType':
           _$DiscountApplicationTargetTypeEnumMap[instance.targetType]!,
-      'value': instance.value.toJson(),
+      'value': instance.value,
     };
 
 const _$DiscountApplicationAllocationMethodEnumMap = {
