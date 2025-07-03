@@ -7,11 +7,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'associated_collections/associated_collections.dart';
 
 part 'product.freezed.dart';
+
 part 'product.g.dart';
 
 @freezed
 class Product with _$Product {
   const Product._();
+
   factory Product({
     required String title,
     required String id,
@@ -40,40 +42,72 @@ class Product with _$Product {
     int? metafieldCompanyId,
     String? metafieldUnitOfMeasure,
     int? rewardPoints,
-    String? rewardId
+    String? rewardId,
+    String? department,
+    String? category,
+    String? subCategory,
+    String? categoryClass,
   }) = _Product;
 
   static Product fromGraphJson(Map<String, dynamic> json) {
     return Product(
-        collectionList: _getCollectionList(json),
-        id: (json['node'] ?? const {})['id'],
-        title: (json['node'] ?? const {})['title'],
-        availableForSale: (json['node'] ?? const {})['availableForSale'],
-        createdAt: (json['node'] ?? const {})['createdAt'],
-        description: (json['node'] ?? const {})['description'],
-        productVariants: _getProductVariants(json),
-        totalInventory: (json['node'] ?? const {})['totalInventory'],
-        descriptionHtml: (json['node'] ?? const {})['descriptionHtml'],
-        handle: (json['node'] ?? const {})['handle'],
-        onlineStoreUrl: (json['node'] ?? const {})['onlineStoreUrl'],
-        productType: (json['node'] ?? const {})['productType'],
-        publishedAt: (json['node'] ?? const {})['publishedAt'],
-        tags: _getTags(json),
-        updatedAt: (json['node'] ?? const {})['updatedAt'],
-        images: _getImageList((json['node'] ?? const {})['images'] ?? const {}),
-        cursor: json['cursor'],
-        option: _getOptionList((json['node'] ?? const {})),
-        vendor: (json['node'] ?? const {})['vendor'],
-        metafields: _getMetafieldList(
-            (json['node'] ?? const {})['metafields'] ?? const {}),
-        metafieldItemSize: json['node']['itemSize'] != null ? double.tryParse(json['node']['itemSize']["value"]) : null,
-        metafieldPackSize: json['node']['packSize'] != null ? int.tryParse(json['node']['packSize']["value"]) : null,
-        metafieldCompanyId: json['node']['companyId'] != null ? int.tryParse(json['node']['companyId']["value"]) : null,
-        metafieldLocationId: json['node']['locationId'] != null ? int.tryParse(json['node']['locationId']["value"]) : null,
-        metafieldTitle: json['node']['productTitle'] != null ? json['node']['productTitle']["value"] : null,
-        metafieldUnitOfMeasure: json['node']['unitOfMeasure'] != null ? json['node']['unitOfMeasure']["value"] : null,
-        rewardPoints: json['node']['rewardPoints'] != null ? int.tryParse(json['node']['rewardPoints']["value"]) : null,
-        rewardId: json['node']['rewardId'] != null ? json['node']['rewardId']["value"] : null
+      collectionList: _getCollectionList(json),
+      id: (json['node'] ?? const {})['id'],
+      title: (json['node'] ?? const {})['title'],
+      availableForSale: (json['node'] ?? const {})['availableForSale'],
+      createdAt: (json['node'] ?? const {})['createdAt'],
+      description: (json['node'] ?? const {})['description'],
+      productVariants: _getProductVariants(json),
+      totalInventory: (json['node'] ?? const {})['totalInventory'],
+      descriptionHtml: (json['node'] ?? const {})['descriptionHtml'],
+      handle: (json['node'] ?? const {})['handle'],
+      onlineStoreUrl: (json['node'] ?? const {})['onlineStoreUrl'],
+      productType: (json['node'] ?? const {})['productType'],
+      publishedAt: (json['node'] ?? const {})['publishedAt'],
+      tags: _getTags(json),
+      updatedAt: (json['node'] ?? const {})['updatedAt'],
+      images: _getImageList((json['node'] ?? const {})['images'] ?? const {}),
+      cursor: json['cursor'],
+      option: _getOptionList((json['node'] ?? const {})),
+      vendor: (json['node'] ?? const {})['vendor'],
+      metafields: _getMetafieldList(
+          (json['node'] ?? const {})['metafields'] ?? const {}),
+      metafieldItemSize: json['node']['itemSize'] != null
+          ? double.tryParse(json['node']['itemSize']["value"])
+          : null,
+      metafieldPackSize: json['node']['packSize'] != null
+          ? int.tryParse(json['node']['packSize']["value"])
+          : null,
+      metafieldCompanyId: json['node']['companyId'] != null
+          ? int.tryParse(json['node']['companyId']["value"])
+          : null,
+      metafieldLocationId: json['node']['locationId'] != null
+          ? int.tryParse(json['node']['locationId']["value"])
+          : null,
+      metafieldTitle: json['node']['productTitle'] != null
+          ? json['node']['productTitle']["value"]
+          : null,
+      metafieldUnitOfMeasure: json['node']['unitOfMeasure'] != null
+          ? json['node']['unitOfMeasure']["value"]
+          : null,
+      rewardPoints: json['node']['rewardPoints'] != null
+          ? int.tryParse(json['node']['rewardPoints']["value"])
+          : null,
+      rewardId: json['node']['rewardId'] != null
+          ? json['node']['rewardId']["value"]
+          : null,
+      department: json['node']['department'] != null
+          ? json['node']['department']["value"]
+          : null,
+      category: json['node']['category'] != null
+          ? json['node']['category']["value"]
+          : null,
+      subCategory: json['node']['subCategory'] != null
+          ? json['node']['subCategory']["value"]
+          : null,
+      categoryClass: json['node']['categoryClass'] != null
+          ? json['node']['categoryClass']["value"]
+          : null,
     );
   }
 

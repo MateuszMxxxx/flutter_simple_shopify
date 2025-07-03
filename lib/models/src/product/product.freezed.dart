@@ -50,6 +50,10 @@ mixin _$Product {
   String? get metafieldUnitOfMeasure => throw _privateConstructorUsedError;
   int? get rewardPoints => throw _privateConstructorUsedError;
   String? get rewardId => throw _privateConstructorUsedError;
+  String? get department => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
+  String? get subCategory => throw _privateConstructorUsedError;
+  String? get categoryClass => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -89,7 +93,11 @@ abstract class $ProductCopyWith<$Res> {
       int? metafieldCompanyId,
       String? metafieldUnitOfMeasure,
       int? rewardPoints,
-      String? rewardId});
+      String? rewardId,
+      String? department,
+      String? category,
+      String? subCategory,
+      String? categoryClass});
 }
 
 /// @nodoc
@@ -133,6 +141,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? metafieldUnitOfMeasure = freezed,
     Object? rewardPoints = freezed,
     Object? rewardId = freezed,
+    Object? department = freezed,
+    Object? category = freezed,
+    Object? subCategory = freezed,
+    Object? categoryClass = freezed,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -247,6 +259,22 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.rewardId
           : rewardId // ignore: cast_nullable_to_non_nullable
               as String?,
+      department: freezed == department
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value.subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as String?,
+      categoryClass: freezed == categoryClass
+          ? _value.categoryClass
+          : categoryClass // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -286,7 +314,11 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       int? metafieldCompanyId,
       String? metafieldUnitOfMeasure,
       int? rewardPoints,
-      String? rewardId});
+      String? rewardId,
+      String? department,
+      String? category,
+      String? subCategory,
+      String? categoryClass});
 }
 
 /// @nodoc
@@ -328,6 +360,10 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? metafieldUnitOfMeasure = freezed,
     Object? rewardPoints = freezed,
     Object? rewardId = freezed,
+    Object? department = freezed,
+    Object? category = freezed,
+    Object? subCategory = freezed,
+    Object? categoryClass = freezed,
   }) {
     return _then(_$ProductImpl(
       title: null == title
@@ -442,6 +478,22 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.rewardId
           : rewardId // ignore: cast_nullable_to_non_nullable
               as String?,
+      department: freezed == department
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value.subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as String?,
+      categoryClass: freezed == categoryClass
+          ? _value.categoryClass
+          : categoryClass // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -477,7 +529,11 @@ class _$ProductImpl extends _Product {
       this.metafieldCompanyId,
       this.metafieldUnitOfMeasure,
       this.rewardPoints,
-      this.rewardId})
+      this.rewardId,
+      this.department,
+      this.category,
+      this.subCategory,
+      this.categoryClass})
       : _productVariants = productVariants,
         _tags = tags,
         _images = images,
@@ -583,10 +639,18 @@ class _$ProductImpl extends _Product {
   final int? rewardPoints;
   @override
   final String? rewardId;
+  @override
+  final String? department;
+  @override
+  final String? category;
+  @override
+  final String? subCategory;
+  @override
+  final String? categoryClass;
 
   @override
   String toString() {
-    return 'Product(title: $title, id: $id, availableForSale: $availableForSale, createdAt: $createdAt, productVariants: $productVariants, productType: $productType, publishedAt: $publishedAt, tags: $tags, updatedAt: $updatedAt, images: $images, option: $option, vendor: $vendor, metafields: $metafields, totalInventory: $totalInventory, collectionList: $collectionList, cursor: $cursor, onlineStoreUrl: $onlineStoreUrl, description: $description, descriptionHtml: $descriptionHtml, handle: $handle, metafieldTitle: $metafieldTitle, metafieldItemSize: $metafieldItemSize, metafieldPackSize: $metafieldPackSize, metafieldLocationId: $metafieldLocationId, metafieldCompanyId: $metafieldCompanyId, metafieldUnitOfMeasure: $metafieldUnitOfMeasure, rewardPoints: $rewardPoints, rewardId: $rewardId)';
+    return 'Product(title: $title, id: $id, availableForSale: $availableForSale, createdAt: $createdAt, productVariants: $productVariants, productType: $productType, publishedAt: $publishedAt, tags: $tags, updatedAt: $updatedAt, images: $images, option: $option, vendor: $vendor, metafields: $metafields, totalInventory: $totalInventory, collectionList: $collectionList, cursor: $cursor, onlineStoreUrl: $onlineStoreUrl, description: $description, descriptionHtml: $descriptionHtml, handle: $handle, metafieldTitle: $metafieldTitle, metafieldItemSize: $metafieldItemSize, metafieldPackSize: $metafieldPackSize, metafieldLocationId: $metafieldLocationId, metafieldCompanyId: $metafieldCompanyId, metafieldUnitOfMeasure: $metafieldUnitOfMeasure, rewardPoints: $rewardPoints, rewardId: $rewardId, department: $department, category: $category, subCategory: $subCategory, categoryClass: $categoryClass)';
   }
 
   @override
@@ -641,7 +705,15 @@ class _$ProductImpl extends _Product {
             (identical(other.rewardPoints, rewardPoints) ||
                 other.rewardPoints == rewardPoints) &&
             (identical(other.rewardId, rewardId) ||
-                other.rewardId == rewardId));
+                other.rewardId == rewardId) &&
+            (identical(other.department, department) ||
+                other.department == department) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.subCategory, subCategory) ||
+                other.subCategory == subCategory) &&
+            (identical(other.categoryClass, categoryClass) ||
+                other.categoryClass == categoryClass));
   }
 
   @JsonKey(ignore: true)
@@ -675,7 +747,11 @@ class _$ProductImpl extends _Product {
         metafieldCompanyId,
         metafieldUnitOfMeasure,
         rewardPoints,
-        rewardId
+        rewardId,
+        department,
+        category,
+        subCategory,
+        categoryClass
       ]);
 
   @JsonKey(ignore: true)
@@ -721,7 +797,11 @@ abstract class _Product extends Product {
       final int? metafieldCompanyId,
       final String? metafieldUnitOfMeasure,
       final int? rewardPoints,
-      final String? rewardId}) = _$ProductImpl;
+      final String? rewardId,
+      final String? department,
+      final String? category,
+      final String? subCategory,
+      final String? categoryClass}) = _$ProductImpl;
   _Product._() : super._();
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
@@ -782,6 +862,14 @@ abstract class _Product extends Product {
   int? get rewardPoints;
   @override
   String? get rewardId;
+  @override
+  String? get department;
+  @override
+  String? get category;
+  @override
+  String? get subCategory;
+  @override
+  String? get categoryClass;
   @override
   @JsonKey(ignore: true)
   _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
