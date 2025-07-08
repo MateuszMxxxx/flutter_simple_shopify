@@ -46,6 +46,26 @@ const String getXProductsWithQuery = r'''
             value
             type
           }
+                               department: metafield(namespace: "custom", key: "department") {
+                      value
+                      type
+                    }   
+                    category: metafield(namespace: "custom", key: "category") {
+                      value
+                      type
+                    }   
+                    subCategory: metafield(namespace: "custom", key: "sub_category") {
+                      value
+                      type
+                    }    
+                    categoryClass: metafield(namespace: "custom", key: "class") {
+                      value
+                      type
+                    }
+                    departmentId: metafield(namespace: "custom", key: "department_id") {
+                      value
+                      type
+                    }  
 					packSize: metafield(namespace: "custom", key: "pack_size") {
 						value
 						type

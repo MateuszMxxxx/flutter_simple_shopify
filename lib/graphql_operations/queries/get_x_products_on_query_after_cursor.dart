@@ -42,6 +42,26 @@ query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String
                       value
                       type
                     }
+                                         department: metafield(namespace: "custom", key: "department") {
+                      value
+                      type
+                    }   
+                    category: metafield(namespace: "custom", key: "category") {
+                      value
+                      type
+                    }   
+                    subCategory: metafield(namespace: "custom", key: "sub_category") {
+                      value
+                      type
+                    }    
+                    categoryClass: metafield(namespace: "custom", key: "class") {
+                      value
+                      type
+                    }
+                    departmentId: metafield(namespace: "custom", key: "department_id") {
+                      value
+                      type
+                    }  
         images(first: 250) {
           edges {
             node {

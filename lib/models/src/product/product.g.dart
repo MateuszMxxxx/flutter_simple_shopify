@@ -51,6 +51,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       category: json['category'] as String?,
       subCategory: json['subCategory'] as String?,
       categoryClass: json['categoryClass'] as String?,
+      departmentId: json['departmentId'] as String?,
     );
 
 Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
@@ -87,4 +88,5 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'category': instance.category,
       'subCategory': instance.subCategory,
       'categoryClass': instance.categoryClass,
+      'departmentId': instance.departmentId,
     };

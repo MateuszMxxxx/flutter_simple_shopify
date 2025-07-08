@@ -115,7 +115,7 @@ query ($ids: [ID!]!) {
                       value
                       type
                     }    
-                          department: metafield(namespace: "custom", key: "department") {
+                     department: metafield(namespace: "custom", key: "department") {
                       value
                       type
                     }   
@@ -130,7 +130,11 @@ query ($ids: [ID!]!) {
                     categoryClass: metafield(namespace: "custom", key: "class") {
                       value
                       type
-                    }  
+                    }
+                    departmentId: metafield(namespace: "custom", key: "department_id") {
+                      value
+                      type
+                    }   
     }
   }
 }

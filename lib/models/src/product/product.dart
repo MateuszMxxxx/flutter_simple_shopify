@@ -47,6 +47,7 @@ class Product with _$Product {
     String? category,
     String? subCategory,
     String? categoryClass,
+    String? departmentId,
   }) = _Product;
 
   static Product fromGraphJson(Map<String, dynamic> json) {
@@ -107,6 +108,9 @@ class Product with _$Product {
           : null,
       categoryClass: json['node']['categoryClass'] != null
           ? json['node']['categoryClass']["value"]
+          : null,
+      departmentId: json['node']['departmentId'] != null
+          ? json['node']['departmentId']["value"]
           : null,
     );
   }
