@@ -319,7 +319,7 @@ class ShopifyStore with ShopifyError {
         _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
       }
       if (result.data!['collection'] == null) return null;
-      return Collection.fromGraphJson(result.data!['collection']);
+      return Collection.fromGraphJson(result.data!);
     } catch (e) {
       print(e);
     }
@@ -344,7 +344,7 @@ class ShopifyStore with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
-    return Product.fromGraphJson(response['productByHandle']);
+    return Product.fromGraphJson({'node': response['productByHandle']} as Map<String, dynamic>);
   }
 
   /// Returns a collection by handle.
