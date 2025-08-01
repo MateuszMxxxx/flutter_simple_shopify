@@ -23,6 +23,18 @@ _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
           : ShippingAddress.fromJson(
               json['shippingAddress'] as Map<String, dynamic>),
       statusUrl: json['statusUrl'] as String,
+      currentSubtotalPrice: PriceV2.fromJson(
+          json['currentSubtotalPrice'] as Map<String, dynamic>),
+      currentTotalDuties: json['currentTotalDuties'] == null
+          ? null
+          : PriceV2.fromJson(
+              json['currentTotalDuties'] as Map<String, dynamic>),
+      currentTotalPrice:
+          PriceV2.fromJson(json['currentTotalPrice'] as Map<String, dynamic>),
+      currentTotalShippingPrice: PriceV2.fromJson(
+          json['currentTotalShippingPrice'] as Map<String, dynamic>),
+      currentTotalTax:
+          PriceV2.fromJson(json['currentTotalTax'] as Map<String, dynamic>),
       subtotalPriceV2:
           PriceV2.fromJson(json['subtotalPriceV2'] as Map<String, dynamic>),
       totalPriceV2:
@@ -30,15 +42,15 @@ _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
       totalShippingPriceV2: PriceV2.fromJson(
           json['totalShippingPriceV2'] as Map<String, dynamic>),
       totalTaxV2: PriceV2.fromJson(json['totalTaxV2'] as Map<String, dynamic>),
+      totalRefundedV2: json['totalRefundedV2'] == null
+          ? null
+          : PriceV2.fromJson(json['totalRefundedV2'] as Map<String, dynamic>),
       fulfillmentStatus:
           $enumDecode(_$FulfillmentStatusEnumMap, json['fulfillmentStatus']),
       discountApplications: DiscountApplications.fromJson(
           json['discountApplications'] as Map<String, dynamic>),
       financialStatus: $enumDecodeNullable(
           _$FinancialStatusEnumMap, json['financialStatus']),
-      totalRefundedV2: json['totalRefundedV2'] == null
-          ? null
-          : PriceV2.fromJson(json['totalRefundedV2'] as Map<String, dynamic>),
       phone: json['phone'] as String?,
       cursor: json['cursor'] as String?,
       canceledAt: json['canceledAt'] as String?,
@@ -61,15 +73,20 @@ Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) =>
       'processedAt': instance.processedAt,
       'shippingAddress': instance.shippingAddress,
       'statusUrl': instance.statusUrl,
+      'currentSubtotalPrice': instance.currentSubtotalPrice,
+      'currentTotalDuties': instance.currentTotalDuties,
+      'currentTotalPrice': instance.currentTotalPrice,
+      'currentTotalShippingPrice': instance.currentTotalShippingPrice,
+      'currentTotalTax': instance.currentTotalTax,
       'subtotalPriceV2': instance.subtotalPriceV2,
       'totalPriceV2': instance.totalPriceV2,
       'totalShippingPriceV2': instance.totalShippingPriceV2,
       'totalTaxV2': instance.totalTaxV2,
+      'totalRefundedV2': instance.totalRefundedV2,
       'fulfillmentStatus':
           _$FulfillmentStatusEnumMap[instance.fulfillmentStatus]!,
       'discountApplications': instance.discountApplications,
       'financialStatus': _$FinancialStatusEnumMap[instance.financialStatus],
-      'totalRefundedV2': instance.totalRefundedV2,
       'phone': instance.phone,
       'cursor': instance.cursor,
       'canceledAt': instance.canceledAt,

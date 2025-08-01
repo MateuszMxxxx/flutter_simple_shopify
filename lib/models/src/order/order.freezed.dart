@@ -31,15 +31,20 @@ mixin _$Order {
   String get processedAt => throw _privateConstructorUsedError;
   ShippingAddress? get shippingAddress => throw _privateConstructorUsedError;
   String get statusUrl => throw _privateConstructorUsedError;
+  PriceV2 get currentSubtotalPrice => throw _privateConstructorUsedError;
+  PriceV2? get currentTotalDuties => throw _privateConstructorUsedError;
+  PriceV2 get currentTotalPrice => throw _privateConstructorUsedError;
+  PriceV2 get currentTotalShippingPrice => throw _privateConstructorUsedError;
+  PriceV2 get currentTotalTax => throw _privateConstructorUsedError;
   PriceV2 get subtotalPriceV2 => throw _privateConstructorUsedError;
   PriceV2 get totalPriceV2 => throw _privateConstructorUsedError;
   PriceV2 get totalShippingPriceV2 => throw _privateConstructorUsedError;
   PriceV2 get totalTaxV2 => throw _privateConstructorUsedError;
+  PriceV2? get totalRefundedV2 => throw _privateConstructorUsedError;
   FulfillmentStatus get fulfillmentStatus => throw _privateConstructorUsedError;
   DiscountApplications get discountApplications =>
       throw _privateConstructorUsedError;
   FinancialStatus? get financialStatus => throw _privateConstructorUsedError;
-  PriceV2? get totalRefundedV2 => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
   String? get canceledAt => throw _privateConstructorUsedError;
@@ -67,14 +72,19 @@ abstract class $OrderCopyWith<$Res> {
       String processedAt,
       ShippingAddress? shippingAddress,
       String statusUrl,
+      PriceV2 currentSubtotalPrice,
+      PriceV2? currentTotalDuties,
+      PriceV2 currentTotalPrice,
+      PriceV2 currentTotalShippingPrice,
+      PriceV2 currentTotalTax,
       PriceV2 subtotalPriceV2,
       PriceV2 totalPriceV2,
       PriceV2 totalShippingPriceV2,
       PriceV2 totalTaxV2,
+      PriceV2? totalRefundedV2,
       FulfillmentStatus fulfillmentStatus,
       DiscountApplications discountApplications,
       FinancialStatus? financialStatus,
-      PriceV2? totalRefundedV2,
       String? phone,
       String? cursor,
       String? canceledAt,
@@ -83,12 +93,17 @@ abstract class $OrderCopyWith<$Res> {
   $CustomAttributesCopyWith<$Res> get customAttributes;
   $LineItemsOrderCopyWith<$Res> get lineItems;
   $ShippingAddressCopyWith<$Res>? get shippingAddress;
+  $PriceV2CopyWith<$Res> get currentSubtotalPrice;
+  $PriceV2CopyWith<$Res>? get currentTotalDuties;
+  $PriceV2CopyWith<$Res> get currentTotalPrice;
+  $PriceV2CopyWith<$Res> get currentTotalShippingPrice;
+  $PriceV2CopyWith<$Res> get currentTotalTax;
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   $PriceV2CopyWith<$Res> get totalPriceV2;
   $PriceV2CopyWith<$Res> get totalShippingPriceV2;
   $PriceV2CopyWith<$Res> get totalTaxV2;
-  $DiscountApplicationsCopyWith<$Res> get discountApplications;
   $PriceV2CopyWith<$Res>? get totalRefundedV2;
+  $DiscountApplicationsCopyWith<$Res> get discountApplications;
   $ShippingAddressCopyWith<$Res>? get billingAddress;
 }
 
@@ -116,14 +131,19 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
     Object? processedAt = null,
     Object? shippingAddress = freezed,
     Object? statusUrl = null,
+    Object? currentSubtotalPrice = null,
+    Object? currentTotalDuties = freezed,
+    Object? currentTotalPrice = null,
+    Object? currentTotalShippingPrice = null,
+    Object? currentTotalTax = null,
     Object? subtotalPriceV2 = null,
     Object? totalPriceV2 = null,
     Object? totalShippingPriceV2 = null,
     Object? totalTaxV2 = null,
+    Object? totalRefundedV2 = freezed,
     Object? fulfillmentStatus = null,
     Object? discountApplications = null,
     Object? financialStatus = freezed,
-    Object? totalRefundedV2 = freezed,
     Object? phone = freezed,
     Object? cursor = freezed,
     Object? canceledAt = freezed,
@@ -174,6 +194,26 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.statusUrl
           : statusUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      currentSubtotalPrice: null == currentSubtotalPrice
+          ? _value.currentSubtotalPrice
+          : currentSubtotalPrice // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
+      currentTotalDuties: freezed == currentTotalDuties
+          ? _value.currentTotalDuties
+          : currentTotalDuties // ignore: cast_nullable_to_non_nullable
+              as PriceV2?,
+      currentTotalPrice: null == currentTotalPrice
+          ? _value.currentTotalPrice
+          : currentTotalPrice // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
+      currentTotalShippingPrice: null == currentTotalShippingPrice
+          ? _value.currentTotalShippingPrice
+          : currentTotalShippingPrice // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
+      currentTotalTax: null == currentTotalTax
+          ? _value.currentTotalTax
+          : currentTotalTax // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
       subtotalPriceV2: null == subtotalPriceV2
           ? _value.subtotalPriceV2
           : subtotalPriceV2 // ignore: cast_nullable_to_non_nullable
@@ -190,6 +230,10 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.totalTaxV2
           : totalTaxV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
+      totalRefundedV2: freezed == totalRefundedV2
+          ? _value.totalRefundedV2
+          : totalRefundedV2 // ignore: cast_nullable_to_non_nullable
+              as PriceV2?,
       fulfillmentStatus: null == fulfillmentStatus
           ? _value.fulfillmentStatus
           : fulfillmentStatus // ignore: cast_nullable_to_non_nullable
@@ -202,10 +246,6 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.financialStatus
           : financialStatus // ignore: cast_nullable_to_non_nullable
               as FinancialStatus?,
-      totalRefundedV2: freezed == totalRefundedV2
-          ? _value.totalRefundedV2
-          : totalRefundedV2 // ignore: cast_nullable_to_non_nullable
-              as PriceV2?,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -255,6 +295,50 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
 
   @override
   @pragma('vm:prefer-inline')
+  $PriceV2CopyWith<$Res> get currentSubtotalPrice {
+    return $PriceV2CopyWith<$Res>(_value.currentSubtotalPrice, (value) {
+      return _then(_value.copyWith(currentSubtotalPrice: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceV2CopyWith<$Res>? get currentTotalDuties {
+    if (_value.currentTotalDuties == null) {
+      return null;
+    }
+
+    return $PriceV2CopyWith<$Res>(_value.currentTotalDuties!, (value) {
+      return _then(_value.copyWith(currentTotalDuties: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceV2CopyWith<$Res> get currentTotalPrice {
+    return $PriceV2CopyWith<$Res>(_value.currentTotalPrice, (value) {
+      return _then(_value.copyWith(currentTotalPrice: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceV2CopyWith<$Res> get currentTotalShippingPrice {
+    return $PriceV2CopyWith<$Res>(_value.currentTotalShippingPrice, (value) {
+      return _then(_value.copyWith(currentTotalShippingPrice: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceV2CopyWith<$Res> get currentTotalTax {
+    return $PriceV2CopyWith<$Res>(_value.currentTotalTax, (value) {
+      return _then(_value.copyWith(currentTotalTax: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res> get subtotalPriceV2 {
     return $PriceV2CopyWith<$Res>(_value.subtotalPriceV2, (value) {
       return _then(_value.copyWith(subtotalPriceV2: value) as $Val);
@@ -287,15 +371,6 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
 
   @override
   @pragma('vm:prefer-inline')
-  $DiscountApplicationsCopyWith<$Res> get discountApplications {
-    return $DiscountApplicationsCopyWith<$Res>(_value.discountApplications,
-        (value) {
-      return _then(_value.copyWith(discountApplications: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $PriceV2CopyWith<$Res>? get totalRefundedV2 {
     if (_value.totalRefundedV2 == null) {
       return null;
@@ -303,6 +378,15 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
 
     return $PriceV2CopyWith<$Res>(_value.totalRefundedV2!, (value) {
       return _then(_value.copyWith(totalRefundedV2: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DiscountApplicationsCopyWith<$Res> get discountApplications {
+    return $DiscountApplicationsCopyWith<$Res>(_value.discountApplications,
+        (value) {
+      return _then(_value.copyWith(discountApplications: value) as $Val);
     });
   }
 
@@ -338,14 +422,19 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
       String processedAt,
       ShippingAddress? shippingAddress,
       String statusUrl,
+      PriceV2 currentSubtotalPrice,
+      PriceV2? currentTotalDuties,
+      PriceV2 currentTotalPrice,
+      PriceV2 currentTotalShippingPrice,
+      PriceV2 currentTotalTax,
       PriceV2 subtotalPriceV2,
       PriceV2 totalPriceV2,
       PriceV2 totalShippingPriceV2,
       PriceV2 totalTaxV2,
+      PriceV2? totalRefundedV2,
       FulfillmentStatus fulfillmentStatus,
       DiscountApplications discountApplications,
       FinancialStatus? financialStatus,
-      PriceV2? totalRefundedV2,
       String? phone,
       String? cursor,
       String? canceledAt,
@@ -358,6 +447,16 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
   @override
   $ShippingAddressCopyWith<$Res>? get shippingAddress;
   @override
+  $PriceV2CopyWith<$Res> get currentSubtotalPrice;
+  @override
+  $PriceV2CopyWith<$Res>? get currentTotalDuties;
+  @override
+  $PriceV2CopyWith<$Res> get currentTotalPrice;
+  @override
+  $PriceV2CopyWith<$Res> get currentTotalShippingPrice;
+  @override
+  $PriceV2CopyWith<$Res> get currentTotalTax;
+  @override
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   @override
   $PriceV2CopyWith<$Res> get totalPriceV2;
@@ -366,9 +465,9 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
   @override
   $PriceV2CopyWith<$Res> get totalTaxV2;
   @override
-  $DiscountApplicationsCopyWith<$Res> get discountApplications;
-  @override
   $PriceV2CopyWith<$Res>? get totalRefundedV2;
+  @override
+  $DiscountApplicationsCopyWith<$Res> get discountApplications;
   @override
   $ShippingAddressCopyWith<$Res>? get billingAddress;
 }
@@ -395,14 +494,19 @@ class __$$OrderImplCopyWithImpl<$Res>
     Object? processedAt = null,
     Object? shippingAddress = freezed,
     Object? statusUrl = null,
+    Object? currentSubtotalPrice = null,
+    Object? currentTotalDuties = freezed,
+    Object? currentTotalPrice = null,
+    Object? currentTotalShippingPrice = null,
+    Object? currentTotalTax = null,
     Object? subtotalPriceV2 = null,
     Object? totalPriceV2 = null,
     Object? totalShippingPriceV2 = null,
     Object? totalTaxV2 = null,
+    Object? totalRefundedV2 = freezed,
     Object? fulfillmentStatus = null,
     Object? discountApplications = null,
     Object? financialStatus = freezed,
-    Object? totalRefundedV2 = freezed,
     Object? phone = freezed,
     Object? cursor = freezed,
     Object? canceledAt = freezed,
@@ -453,6 +557,26 @@ class __$$OrderImplCopyWithImpl<$Res>
           ? _value.statusUrl
           : statusUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      currentSubtotalPrice: null == currentSubtotalPrice
+          ? _value.currentSubtotalPrice
+          : currentSubtotalPrice // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
+      currentTotalDuties: freezed == currentTotalDuties
+          ? _value.currentTotalDuties
+          : currentTotalDuties // ignore: cast_nullable_to_non_nullable
+              as PriceV2?,
+      currentTotalPrice: null == currentTotalPrice
+          ? _value.currentTotalPrice
+          : currentTotalPrice // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
+      currentTotalShippingPrice: null == currentTotalShippingPrice
+          ? _value.currentTotalShippingPrice
+          : currentTotalShippingPrice // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
+      currentTotalTax: null == currentTotalTax
+          ? _value.currentTotalTax
+          : currentTotalTax // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
       subtotalPriceV2: null == subtotalPriceV2
           ? _value.subtotalPriceV2
           : subtotalPriceV2 // ignore: cast_nullable_to_non_nullable
@@ -469,6 +593,10 @@ class __$$OrderImplCopyWithImpl<$Res>
           ? _value.totalTaxV2
           : totalTaxV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
+      totalRefundedV2: freezed == totalRefundedV2
+          ? _value.totalRefundedV2
+          : totalRefundedV2 // ignore: cast_nullable_to_non_nullable
+              as PriceV2?,
       fulfillmentStatus: null == fulfillmentStatus
           ? _value.fulfillmentStatus
           : fulfillmentStatus // ignore: cast_nullable_to_non_nullable
@@ -481,10 +609,6 @@ class __$$OrderImplCopyWithImpl<$Res>
           ? _value.financialStatus
           : financialStatus // ignore: cast_nullable_to_non_nullable
               as FinancialStatus?,
-      totalRefundedV2: freezed == totalRefundedV2
-          ? _value.totalRefundedV2
-          : totalRefundedV2 // ignore: cast_nullable_to_non_nullable
-              as PriceV2?,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -510,7 +634,7 @@ class __$$OrderImplCopyWithImpl<$Res>
 class _$OrderImpl extends _Order {
   _$OrderImpl(
       {required this.id,
-      required this.email,
+      this.email,
       required this.currencyCode,
       required this.customAttributes,
       required this.customerUrl,
@@ -520,14 +644,19 @@ class _$OrderImpl extends _Order {
       required this.processedAt,
       this.shippingAddress,
       required this.statusUrl,
+      required this.currentSubtotalPrice,
+      this.currentTotalDuties,
+      required this.currentTotalPrice,
+      required this.currentTotalShippingPrice,
+      required this.currentTotalTax,
       required this.subtotalPriceV2,
       required this.totalPriceV2,
       required this.totalShippingPriceV2,
       required this.totalTaxV2,
+      this.totalRefundedV2,
       required this.fulfillmentStatus,
       required this.discountApplications,
       this.financialStatus,
-      this.totalRefundedV2,
       this.phone,
       this.cursor,
       this.canceledAt,
@@ -560,6 +689,16 @@ class _$OrderImpl extends _Order {
   @override
   final String statusUrl;
   @override
+  final PriceV2 currentSubtotalPrice;
+  @override
+  final PriceV2? currentTotalDuties;
+  @override
+  final PriceV2 currentTotalPrice;
+  @override
+  final PriceV2 currentTotalShippingPrice;
+  @override
+  final PriceV2 currentTotalTax;
+  @override
   final PriceV2 subtotalPriceV2;
   @override
   final PriceV2 totalPriceV2;
@@ -568,13 +707,13 @@ class _$OrderImpl extends _Order {
   @override
   final PriceV2 totalTaxV2;
   @override
+  final PriceV2? totalRefundedV2;
+  @override
   final FulfillmentStatus fulfillmentStatus;
   @override
   final DiscountApplications discountApplications;
   @override
   final FinancialStatus? financialStatus;
-  @override
-  final PriceV2? totalRefundedV2;
   @override
   final String? phone;
   @override
@@ -586,7 +725,7 @@ class _$OrderImpl extends _Order {
 
   @override
   String toString() {
-    return 'Order(id: $id, email: $email, currencyCode: $currencyCode, customAttributes: $customAttributes, customerUrl: $customerUrl, lineItems: $lineItems, name: $name, orderNumber: $orderNumber, processedAt: $processedAt, shippingAddress: $shippingAddress, statusUrl: $statusUrl, subtotalPriceV2: $subtotalPriceV2, totalPriceV2: $totalPriceV2, totalShippingPriceV2: $totalShippingPriceV2, totalTaxV2: $totalTaxV2, fulfillmentStatus: $fulfillmentStatus, discountApplications: $discountApplications, financialStatus: $financialStatus, totalRefundedV2: $totalRefundedV2, phone: $phone, cursor: $cursor, canceledAt: $canceledAt, billingAddress: $billingAddress)';
+    return 'Order(id: $id, email: $email, currencyCode: $currencyCode, customAttributes: $customAttributes, customerUrl: $customerUrl, lineItems: $lineItems, name: $name, orderNumber: $orderNumber, processedAt: $processedAt, shippingAddress: $shippingAddress, statusUrl: $statusUrl, currentSubtotalPrice: $currentSubtotalPrice, currentTotalDuties: $currentTotalDuties, currentTotalPrice: $currentTotalPrice, currentTotalShippingPrice: $currentTotalShippingPrice, currentTotalTax: $currentTotalTax, subtotalPriceV2: $subtotalPriceV2, totalPriceV2: $totalPriceV2, totalShippingPriceV2: $totalShippingPriceV2, totalTaxV2: $totalTaxV2, totalRefundedV2: $totalRefundedV2, fulfillmentStatus: $fulfillmentStatus, discountApplications: $discountApplications, financialStatus: $financialStatus, phone: $phone, cursor: $cursor, canceledAt: $canceledAt, billingAddress: $billingAddress)';
   }
 
   @override
@@ -613,6 +752,17 @@ class _$OrderImpl extends _Order {
                 other.shippingAddress == shippingAddress) &&
             (identical(other.statusUrl, statusUrl) ||
                 other.statusUrl == statusUrl) &&
+            (identical(other.currentSubtotalPrice, currentSubtotalPrice) ||
+                other.currentSubtotalPrice == currentSubtotalPrice) &&
+            (identical(other.currentTotalDuties, currentTotalDuties) ||
+                other.currentTotalDuties == currentTotalDuties) &&
+            (identical(other.currentTotalPrice, currentTotalPrice) ||
+                other.currentTotalPrice == currentTotalPrice) &&
+            (identical(other.currentTotalShippingPrice,
+                    currentTotalShippingPrice) ||
+                other.currentTotalShippingPrice == currentTotalShippingPrice) &&
+            (identical(other.currentTotalTax, currentTotalTax) ||
+                other.currentTotalTax == currentTotalTax) &&
             (identical(other.subtotalPriceV2, subtotalPriceV2) ||
                 other.subtotalPriceV2 == subtotalPriceV2) &&
             (identical(other.totalPriceV2, totalPriceV2) ||
@@ -621,14 +771,14 @@ class _$OrderImpl extends _Order {
                 other.totalShippingPriceV2 == totalShippingPriceV2) &&
             (identical(other.totalTaxV2, totalTaxV2) ||
                 other.totalTaxV2 == totalTaxV2) &&
+            (identical(other.totalRefundedV2, totalRefundedV2) ||
+                other.totalRefundedV2 == totalRefundedV2) &&
             (identical(other.fulfillmentStatus, fulfillmentStatus) ||
                 other.fulfillmentStatus == fulfillmentStatus) &&
             (identical(other.discountApplications, discountApplications) ||
                 other.discountApplications == discountApplications) &&
             (identical(other.financialStatus, financialStatus) ||
                 other.financialStatus == financialStatus) &&
-            (identical(other.totalRefundedV2, totalRefundedV2) ||
-                other.totalRefundedV2 == totalRefundedV2) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             (identical(other.canceledAt, canceledAt) ||
@@ -652,14 +802,19 @@ class _$OrderImpl extends _Order {
         processedAt,
         shippingAddress,
         statusUrl,
+        currentSubtotalPrice,
+        currentTotalDuties,
+        currentTotalPrice,
+        currentTotalShippingPrice,
+        currentTotalTax,
         subtotalPriceV2,
         totalPriceV2,
         totalShippingPriceV2,
         totalTaxV2,
+        totalRefundedV2,
         fulfillmentStatus,
         discountApplications,
         financialStatus,
-        totalRefundedV2,
         phone,
         cursor,
         canceledAt,
@@ -683,7 +838,7 @@ class _$OrderImpl extends _Order {
 abstract class _Order extends Order {
   factory _Order(
       {required final String id,
-      required final String? email,
+      final String? email,
       required final String currencyCode,
       required final CustomAttributes customAttributes,
       required final String customerUrl,
@@ -693,14 +848,19 @@ abstract class _Order extends Order {
       required final String processedAt,
       final ShippingAddress? shippingAddress,
       required final String statusUrl,
+      required final PriceV2 currentSubtotalPrice,
+      final PriceV2? currentTotalDuties,
+      required final PriceV2 currentTotalPrice,
+      required final PriceV2 currentTotalShippingPrice,
+      required final PriceV2 currentTotalTax,
       required final PriceV2 subtotalPriceV2,
       required final PriceV2 totalPriceV2,
       required final PriceV2 totalShippingPriceV2,
       required final PriceV2 totalTaxV2,
+      final PriceV2? totalRefundedV2,
       required final FulfillmentStatus fulfillmentStatus,
       required final DiscountApplications discountApplications,
       final FinancialStatus? financialStatus,
-      final PriceV2? totalRefundedV2,
       final String? phone,
       final String? cursor,
       final String? canceledAt,
@@ -732,6 +892,16 @@ abstract class _Order extends Order {
   @override
   String get statusUrl;
   @override
+  PriceV2 get currentSubtotalPrice;
+  @override
+  PriceV2? get currentTotalDuties;
+  @override
+  PriceV2 get currentTotalPrice;
+  @override
+  PriceV2 get currentTotalShippingPrice;
+  @override
+  PriceV2 get currentTotalTax;
+  @override
   PriceV2 get subtotalPriceV2;
   @override
   PriceV2 get totalPriceV2;
@@ -740,13 +910,13 @@ abstract class _Order extends Order {
   @override
   PriceV2 get totalTaxV2;
   @override
+  PriceV2? get totalRefundedV2;
+  @override
   FulfillmentStatus get fulfillmentStatus;
   @override
   DiscountApplications get discountApplications;
   @override
   FinancialStatus? get financialStatus;
-  @override
-  PriceV2? get totalRefundedV2;
   @override
   String? get phone;
   @override
