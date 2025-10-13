@@ -6,7 +6,7 @@ part 'orders.freezed.dart';
 part 'orders.g.dart';
 
 @freezed
-class Orders with _$Orders {
+abstract class Orders with _$Orders {
   factory Orders({required List<Order> orderList, required bool hasNextPage}) =
       _Orders;
       

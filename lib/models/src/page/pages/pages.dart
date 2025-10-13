@@ -6,7 +6,7 @@ part 'pages.freezed.dart';
 part 'pages.g.dart';
 
 @freezed
-class Pages with _$Pages {
+abstract class Pages with _$Pages {
   factory Pages({required List<Page> pageList}) = _Pages;
   factory Pages.fromJson(Map<String, dynamic> json) => _$PagesFromJson(json);
 

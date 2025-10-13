@@ -7,7 +7,7 @@ part 'line_item.freezed.dart';
 part 'line_item.g.dart';
 
 @freezed
-class LineItem with _$LineItem {
+abstract class LineItem with _$LineItem {
   const LineItem._();
   factory LineItem({
     required String title,

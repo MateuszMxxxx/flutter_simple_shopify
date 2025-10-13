@@ -7,7 +7,7 @@ part 'line_item_order.freezed.dart';
 part 'line_item_order.g.dart';
 
 @freezed
-class LineItemOrder with _$LineItemOrder {
+abstract class LineItemOrder with _$LineItemOrder {
   const LineItemOrder._();
 
   factory LineItemOrder({

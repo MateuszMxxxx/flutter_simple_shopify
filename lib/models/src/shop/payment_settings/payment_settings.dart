@@ -4,7 +4,7 @@ part 'payment_settings.freezed.dart';
 part 'payment_settings.g.dart';
 
 @freezed
-class PaymentSettings with _$PaymentSettings {
+abstract class PaymentSettings with _$PaymentSettings {
   factory PaymentSettings({
     List<String>? acceptedCardBrands,
     String? cardVaultUrl,

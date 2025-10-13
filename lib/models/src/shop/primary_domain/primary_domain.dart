@@ -4,7 +4,7 @@ part 'primary_domain.freezed.dart';
 part 'primary_domain.g.dart';
 
 @freezed
-class PrimaryDomain with _$PrimaryDomain {
+abstract class PrimaryDomain with _$PrimaryDomain {
   factory PrimaryDomain({String? host, bool? sslEnabled, String? url}) =
       _PrimaryDomain;
 

@@ -4,7 +4,7 @@ part 'mailing_address.freezed.dart';
 part 'mailing_address.g.dart';
 
 @freezed
-class MailingAddress with _$MailingAddress {
+abstract class MailingAddress with _$MailingAddress {
   factory MailingAddress({
     required String id,
     required String address1,

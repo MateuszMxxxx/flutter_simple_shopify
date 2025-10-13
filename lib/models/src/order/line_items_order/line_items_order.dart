@@ -5,7 +5,7 @@ part 'line_items_order.freezed.dart';
 part 'line_items_order.g.dart';
 
 @freezed
-class LineItemsOrder with _$LineItemsOrder {
+abstract class LineItemsOrder with _$LineItemsOrder {
   factory LineItemsOrder({required List<LineItemOrder> lineItemOrderList}) =
       _LineItemsOrder;
 

@@ -1,6 +1,6 @@
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:graphql/client.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 
 import '../../graphql_operations/mutations/access_token_delete.dart';
 import '../../graphql_operations/mutations/customer_access_token_create.dart';

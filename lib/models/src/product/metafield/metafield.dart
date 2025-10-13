@@ -4,7 +4,7 @@ part 'metafield.freezed.dart';
 part 'metafield.g.dart';
 
 @freezed
-class Metafield with _$Metafield {
+abstract class Metafield with _$Metafield {
   const Metafield._();
 
   factory Metafield({

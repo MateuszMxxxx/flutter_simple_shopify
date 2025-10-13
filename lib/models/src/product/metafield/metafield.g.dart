@@ -6,17 +6,16 @@ part of 'metafield.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MetafieldImpl _$$MetafieldImplFromJson(Map<String, dynamic> json) =>
-    _$MetafieldImpl(
-      id: json['id'] as String,
-      namespace: json['namespace'] as String,
-      key: json['key'] as String,
-      value: json['value'] as String,
-      valueType: json['valueType'] as String,
-      description: json['description'] as String? ?? '',
-    );
+_Metafield _$MetafieldFromJson(Map<String, dynamic> json) => _Metafield(
+  id: json['id'] as String,
+  namespace: json['namespace'] as String,
+  key: json['key'] as String,
+  value: json['value'] as String,
+  valueType: json['valueType'] as String,
+  description: json['description'] as String? ?? '',
+);
 
-Map<String, dynamic> _$$MetafieldImplToJson(_$MetafieldImpl instance) =>
+Map<String, dynamic> _$MetafieldToJson(_Metafield instance) =>
     <String, dynamic>{
       'id': instance.id,
       'namespace': instance.namespace,

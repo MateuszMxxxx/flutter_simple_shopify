@@ -4,7 +4,7 @@ part 'associated_collections.freezed.dart';
 part 'associated_collections.g.dart';
 
 @freezed
-class AssociatedCollections with _$AssociatedCollections {
+abstract class AssociatedCollections with _$AssociatedCollections {
   const AssociatedCollections._();
 
   factory AssociatedCollections({

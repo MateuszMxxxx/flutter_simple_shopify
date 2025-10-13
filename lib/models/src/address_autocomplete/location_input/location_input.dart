@@ -4,7 +4,7 @@ part 'location_input.freezed.dart';
 part 'location_input.g.dart';
 
 @freezed
-class LocationInput with _$LocationInput {
+abstract class LocationInput with _$LocationInput {
   factory LocationInput({
     double? latitude,
     double? longitude,

@@ -4,7 +4,7 @@ part 'comment.freezed.dart';
 part 'comment.g.dart';
 
 @freezed
-class Comment with _$Comment {
+abstract class Comment with _$Comment {
   const Comment._();
   factory Comment({
     String? email,

@@ -8,7 +8,7 @@ part 'shopify_user.freezed.dart';
 part 'shopify_user.g.dart';
 
 @freezed
-class ShopifyUser with _$ShopifyUser {
+abstract class ShopifyUser with _$ShopifyUser {
   factory ShopifyUser({
     Addresses? address,
     Address? defaultAddress,

@@ -9,7 +9,7 @@ part 'product_variant.freezed.dart';
 part 'product_variant.g.dart';
 
 @freezed
-class ProductVariant with _$ProductVariant {
+abstract class ProductVariant with _$ProductVariant {
   const ProductVariant._();
 
   factory ProductVariant({

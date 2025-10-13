@@ -6,7 +6,7 @@ part 'price_v_2.freezed.dart';
 part 'price_v_2.g.dart';
 
 @freezed
-class PriceV2 with _$PriceV2 {
+abstract class PriceV2 with _$PriceV2 {
   PriceV2._();
 
   factory PriceV2({

@@ -8,7 +8,7 @@ part 'article.freezed.dart';
 part 'article.g.dart';
 
 @freezed
-class Article with _$Article {
+abstract class Article with _$Article {
   const Article._();
 
   factory Article({

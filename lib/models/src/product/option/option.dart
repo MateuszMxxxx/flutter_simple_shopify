@@ -4,7 +4,7 @@ part 'option.freezed.dart';
 part 'option.g.dart';
 
 @freezed
-class Option with _$Option {
+abstract class Option with _$Option {
   const Option._();
 
   factory Option({

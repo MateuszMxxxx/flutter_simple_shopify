@@ -8,7 +8,7 @@ part 'discount_application.freezed.dart';
 part 'discount_application.g.dart';
 
 @freezed
-class DiscountApplication with _$DiscountApplication {
+abstract class DiscountApplication with _$DiscountApplication {
   const DiscountApplication._();
   factory DiscountApplication({required DiscountApplicationAllocationMethod allocationMethod,
     required DiscountApplicationTargetSelection targetSelection, required DiscountApplicationTargetType targetType, required PricingValue value}) =

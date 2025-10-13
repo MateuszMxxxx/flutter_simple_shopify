@@ -4,7 +4,7 @@ part 'selected_option.freezed.dart';
 part 'selected_option.g.dart';
 
 @freezed
-class SelectedOption with _$SelectedOption {
+abstract class SelectedOption with _$SelectedOption {
   const SelectedOption._();
 
   factory SelectedOption({

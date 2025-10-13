@@ -5,7 +5,7 @@ part 'addresses.freezed.dart';
 part 'addresses.g.dart';
 
 @freezed
-class Addresses with _$Addresses {
+abstract class Addresses with _$Addresses {
   const Addresses._();
   factory Addresses({required List<Address> addressList}) = _Addresses;
   factory Addresses.fromJson(Map<String, dynamic> json) =>

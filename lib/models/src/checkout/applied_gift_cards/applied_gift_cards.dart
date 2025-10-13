@@ -5,7 +5,7 @@ part 'applied_gift_cards.freezed.dart';
 part 'applied_gift_cards.g.dart';
 
 @freezed
-class AppliedGiftCards with _$AppliedGiftCards {
+abstract class AppliedGiftCards with _$AppliedGiftCards {
   const AppliedGiftCards._();
 
   factory AppliedGiftCards(

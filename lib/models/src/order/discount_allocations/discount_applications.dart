@@ -5,7 +5,7 @@ part 'discount_applications.freezed.dart';
 part 'discount_applications.g.dart';
 
 @freezed
-class DiscountApplications with _$DiscountApplications {
+abstract class DiscountApplications with _$DiscountApplications {
   const DiscountApplications._();
   factory DiscountApplications({required List<DiscountApplication> discountApplicationList}) =
   _DiscountApplications;

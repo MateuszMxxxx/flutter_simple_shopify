@@ -8,7 +8,7 @@ part 'product_variant_checkout.freezed.dart';
 part 'product_variant_checkout.g.dart';
 
 @freezed
-class ProductVariantCheckout with _$ProductVariantCheckout {
+abstract class ProductVariantCheckout with _$ProductVariantCheckout {
   ProductVariantCheckout._();
 
   factory ProductVariantCheckout({

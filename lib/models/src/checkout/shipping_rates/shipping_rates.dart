@@ -5,7 +5,7 @@ part 'shipping_rates.freezed.dart';
 part 'shipping_rates.g.dart';
 
 @freezed
-class ShippingRates with _$ShippingRates {
+abstract class ShippingRates with _$ShippingRates {
   const ShippingRates._();
   factory ShippingRates(
       {required String handle,

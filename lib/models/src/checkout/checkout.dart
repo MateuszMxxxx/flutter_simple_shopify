@@ -14,7 +14,7 @@ part 'checkout.freezed.dart';
 part 'checkout.g.dart';
 
 @freezed
-class Checkout with _$Checkout {
+abstract class Checkout with _$Checkout {
   const Checkout._();
 
   factory Checkout({

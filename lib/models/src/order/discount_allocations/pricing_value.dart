@@ -4,7 +4,7 @@ part 'pricing_value.freezed.dart';
 part 'pricing_value.g.dart';
 
 @freezed
-class PricingValue with _$PricingValue {
+abstract class PricingValue with _$PricingValue {
   const PricingValue._();
   factory PricingValue({required String? amount, required double? percentage}) =
   _PricingValue;

@@ -5,7 +5,7 @@ part 'blog.freezed.dart';
 part 'blog.g.dart';
 
 @freezed
-class Blog with _$Blog {
+abstract class Blog with _$Blog {
   const Blog._();
   factory Blog({
     String? id,

@@ -6,7 +6,7 @@ part 'collections.freezed.dart';
 part 'collections.g.dart';
 
 @freezed
-class Collections with _$Collections {
+abstract class Collections with _$Collections {
   factory Collections(
       {required List<Collection> collectionList,
       required bool hasNextPage}) = _Collections;

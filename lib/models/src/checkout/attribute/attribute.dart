@@ -4,7 +4,7 @@ part 'attribute.freezed.dart';
 part 'attribute.g.dart';
 
 @freezed
-class Attribute with _$Attribute {
+abstract class Attribute with _$Attribute {
   const Attribute._();
 
   factory Attribute({

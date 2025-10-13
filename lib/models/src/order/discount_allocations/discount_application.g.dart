@@ -6,30 +6,33 @@ part of 'discount_application.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DiscountApplicationImpl _$$DiscountApplicationImplFromJson(
-        Map<String, dynamic> json) =>
-    _$DiscountApplicationImpl(
+_DiscountApplication _$DiscountApplicationFromJson(Map<String, dynamic> json) =>
+    _DiscountApplication(
       allocationMethod: $enumDecode(
-          _$DiscountApplicationAllocationMethodEnumMap,
-          json['allocationMethod']),
+        _$DiscountApplicationAllocationMethodEnumMap,
+        json['allocationMethod'],
+      ),
       targetSelection: $enumDecode(
-          _$DiscountApplicationTargetSelectionEnumMap, json['targetSelection']),
+        _$DiscountApplicationTargetSelectionEnumMap,
+        json['targetSelection'],
+      ),
       targetType: $enumDecode(
-          _$DiscountApplicationTargetTypeEnumMap, json['targetType']),
+        _$DiscountApplicationTargetTypeEnumMap,
+        json['targetType'],
+      ),
       value: PricingValue.fromJson(json['value'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$DiscountApplicationImplToJson(
-        _$DiscountApplicationImpl instance) =>
-    <String, dynamic>{
-      'allocationMethod': _$DiscountApplicationAllocationMethodEnumMap[
-          instance.allocationMethod]!,
-      'targetSelection': _$DiscountApplicationTargetSelectionEnumMap[
-          instance.targetSelection]!,
-      'targetType':
-          _$DiscountApplicationTargetTypeEnumMap[instance.targetType]!,
-      'value': instance.value,
-    };
+Map<String, dynamic> _$DiscountApplicationToJson(
+  _DiscountApplication instance,
+) => <String, dynamic>{
+  'allocationMethod':
+      _$DiscountApplicationAllocationMethodEnumMap[instance.allocationMethod]!,
+  'targetSelection':
+      _$DiscountApplicationTargetSelectionEnumMap[instance.targetSelection]!,
+  'targetType': _$DiscountApplicationTargetTypeEnumMap[instance.targetType]!,
+  'value': instance.value,
+};
 
 const _$DiscountApplicationAllocationMethodEnumMap = {
   DiscountApplicationAllocationMethod.ACROSS: 'ACROSS',

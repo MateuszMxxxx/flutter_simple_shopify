@@ -6,17 +6,19 @@ part of 'checkout_order.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CheckoutOrderImpl _$$CheckoutOrderImplFromJson(Map<String, dynamic> json) =>
-    _$CheckoutOrderImpl(
+_CheckoutOrder _$CheckoutOrderFromJson(Map<String, dynamic> json) =>
+    _CheckoutOrder(
       id: json['id'] as String,
       orderNumber: (json['orderNumber'] as num).toInt(),
-      totalPriceV2:
-          PriceV2.fromJson(json['totalPriceV2'] as Map<String, dynamic>),
+      totalPriceV2: PriceV2.fromJson(
+        json['totalPriceV2'] as Map<String, dynamic>,
+      ),
       totalShippingPriceV2: PriceV2.fromJson(
-          json['totalShippingPriceV2'] as Map<String, dynamic>),
+        json['totalShippingPriceV2'] as Map<String, dynamic>,
+      ),
     );
 
-Map<String, dynamic> _$$CheckoutOrderImplToJson(_$CheckoutOrderImpl instance) =>
+Map<String, dynamic> _$CheckoutOrderToJson(_CheckoutOrder instance) =>
     <String, dynamic>{
       'id': instance.id,
       'orderNumber': instance.orderNumber,

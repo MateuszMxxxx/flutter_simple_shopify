@@ -4,7 +4,7 @@ part 'author_v_2.freezed.dart';
 part 'author_v_2.g.dart';
 
 @freezed
-class AuthorV2 with _$AuthorV2 {
+abstract class AuthorV2 with _$AuthorV2 {
   factory AuthorV2(
       {String? bio,
       String? email,

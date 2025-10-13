@@ -6,7 +6,7 @@ part 'custom_attributes.freezed.dart';
 part 'custom_attributes.g.dart';
 
 @freezed
-class CustomAttributes with _$CustomAttributes {
+abstract class CustomAttributes with _$CustomAttributes {
   factory CustomAttributes({
     required List<CustomAttribute> attributes
   }) = _CustomAttributes;

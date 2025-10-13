@@ -4,7 +4,7 @@ part 'shipping_address.freezed.dart';
 part 'shipping_address.g.dart';
 
 @freezed
-class ShippingAddress with _$ShippingAddress {
+abstract class ShippingAddress with _$ShippingAddress {
   factory ShippingAddress({
     required String id,
     String? address1,

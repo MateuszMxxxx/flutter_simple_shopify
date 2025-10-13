@@ -5,7 +5,7 @@ part 'line_items.freezed.dart';
 part 'line_items.g.dart';
 
 @freezed
-class LineItems with _$LineItems {
+abstract class LineItems with _$LineItems {
   factory LineItems({required List<LineItem> lineItemList}) = _LineItems;
 
   factory LineItems.fromJson(Map<String, dynamic> json) =>

@@ -7,7 +7,7 @@ part 'last_incomplete_checkout.freezed.dart';
 part 'last_incomplete_checkout.g.dart';
 
 @freezed
-class LastIncompleteCheckout with _$LastIncompleteCheckout {
+abstract class LastIncompleteCheckout with _$LastIncompleteCheckout {
   factory LastIncompleteCheckout(
           {String? completedAt,
           String? createdAt,

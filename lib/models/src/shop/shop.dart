@@ -10,7 +10,7 @@ part 'shop.freezed.dart';
 part 'shop.g.dart';
 
 @freezed
-class Shop with _$Shop {
+abstract class Shop with _$Shop {
   factory Shop({
     String? description,
     String? moneyFormat,

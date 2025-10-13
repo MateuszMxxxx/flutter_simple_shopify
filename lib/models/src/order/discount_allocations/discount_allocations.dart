@@ -5,7 +5,7 @@ part 'discount_allocations.freezed.dart';
 part 'discount_allocations.g.dart';
 
 @freezed
-class DiscountAllocations with _$DiscountAllocations {
+abstract class DiscountAllocations with _$DiscountAllocations {
   const DiscountAllocations._();
   factory DiscountAllocations({required PriceV2? allocatedAmount}) =
       _DiscountAllocations;

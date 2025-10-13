@@ -4,7 +4,7 @@ part 'unit_price_measurement.freezed.dart';
 part 'unit_price_measurement.g.dart';
 
 @freezed
-class UnitPriceMeasurement with _$UnitPriceMeasurement {
+abstract class UnitPriceMeasurement with _$UnitPriceMeasurement {
   const UnitPriceMeasurement._();
   factory UnitPriceMeasurement({
     required String measuredType,

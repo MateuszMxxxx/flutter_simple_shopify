@@ -6,7 +6,7 @@ part 'blogs.freezed.dart';
 part 'blogs.g.dart';
 
 @freezed
-class Blogs with _$Blogs {
+abstract class Blogs with _$Blogs {
   factory Blogs({required List<Blog> blogList}) = _Blogs;
   factory Blogs.fromJson(Map<String, dynamic> json) => _$BlogsFromJson(json);
 

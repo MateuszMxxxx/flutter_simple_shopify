@@ -4,7 +4,7 @@ part 'terms_of_service.freezed.dart';
 part 'terms_of_service.g.dart';
 
 @freezed
-class TermsOfService with _$TermsOfService {
+abstract class TermsOfService with _$TermsOfService {
   factory TermsOfService({
     String? body,
     String? handle,

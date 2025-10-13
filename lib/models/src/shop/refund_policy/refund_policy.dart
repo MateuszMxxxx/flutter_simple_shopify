@@ -4,7 +4,7 @@ part 'refund_policy.freezed.dart';
 part 'refund_policy.g.dart';
 
 @freezed
-class RefundPolicy with _$RefundPolicy {
+abstract class RefundPolicy with _$RefundPolicy {
   factory RefundPolicy({
     String? body,
     String? handle,

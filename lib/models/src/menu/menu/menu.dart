@@ -5,7 +5,7 @@ part 'menu.freezed.dart';
 part 'menu.g.dart';
 
 @freezed
-class Menu with _$Menu {
+abstract class Menu with _$Menu {
   const Menu._();
 
   factory Menu({required String title, required String id, required List<MenuItem> items, required int itemsCount}) = _Menu;
