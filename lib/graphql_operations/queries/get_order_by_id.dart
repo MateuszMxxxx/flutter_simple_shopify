@@ -11,17 +11,50 @@ query getSingleOrder($orderId: String!, $accessToken: String!) {
           currencyCode
           customerUrl
           canceledAt
-          customAttributes { key value }
-          currentSubtotalPrice      { amount currencyCode }
-          currentTotalDuties        { amount currencyCode }
-          currentTotalPrice         { amount currencyCode }
-          currentTotalShippingPrice { amount currencyCode }
-          currentTotalTax           { amount currencyCode }
-          subtotalPriceV2           { amount currencyCode }
-          totalPriceV2              { amount currencyCode }
-          totalRefundedV2           { amount currencyCode }
-          totalShippingPriceV2      { amount currencyCode }
-          totalTaxV2                { amount currencyCode }
+          customAttributes {
+            key
+            value
+          }
+          currentSubtotalPrice {
+            amount
+            currencyCode
+          }
+          currentTotalDuties {
+            amount
+            currencyCode
+          }
+          currentTotalPrice {
+            amount
+            currencyCode
+          }
+          currentTotalShippingPrice {
+            amount
+            currencyCode
+          }
+          currentTotalTax {
+            amount
+            currencyCode
+          }
+          subtotalPriceV2 {
+            amount
+            currencyCode
+          }
+          totalPriceV2 {
+            amount
+            currencyCode
+          }
+          totalRefundedV2 {
+            amount
+            currencyCode
+          }
+          totalShippingPriceV2 {
+            amount
+            currencyCode
+          }
+          totalTaxV2 {
+            amount
+            currencyCode
+          }
           lineItems(first: 250) {
             edges {
               node {
@@ -29,36 +62,102 @@ query getSingleOrder($orderId: String!, $accessToken: String!) {
                 quantity
                 title
                 discountAllocations {
-                  allocatedAmount { amount currencyCode }
+                  allocatedAmount {
+                    amount
+                    currencyCode
+                  }
                 }
-                discountedTotalPrice { amount currencyCode }
-                originalTotalPrice   { amount currencyCode }
+                discountedTotalPrice {
+                  amount
+                  currencyCode
+                }
+                originalTotalPrice {
+                  amount
+                  currencyCode
+                }
                 variant {
                   id
                   title
-                  priceV2          { amount currencyCode }
-                  compareAtPriceV2 { amount currencyCode }
+                  priceV2 {
+                    amount
+                    currencyCode
+                  }
+                  compareAtPriceV2 {
+                    amount
+                    currencyCode
+                  }
                   weight
                   weightUnit
                   sku
                   availableForSale
                   requiresShipping
-                  image { id altText url }
+                  image {
+                    id
+                    altText
+                    url
+                  }
                   product {
                     id
-                    itemSize:      metafield(namespace: "custom",     key: "item_size")       { value type }
-                    packSize:      metafield(namespace: "custom",     key: "pack_size")       { value type }
-                    unitOfMeasure: metafield(namespace: "custom",     key: "unit_of_measure") { value type }
-                    productTitle:  metafield(namespace: "custom",     key: "product_title")   { value type }
-                    rewardPoints:  metafield(namespace: "attributes", key: "reward_points")   { value type }
-                    rewardId:      metafield(namespace: "attributes", key: "reward_id")       { value type }
-                    locationId:    metafield(namespace: "custom",     key: "location_id")     { value type }
-                    companyId:     metafield(namespace: "custom",     key: "company_id")      { value type }
-                    department:    metafield(namespace: "custom",     key: "department")      { value type }
-                    category:      metafield(namespace: "custom",     key: "category")        { value type }
-                    subCategory:   metafield(namespace: "custom",     key: "sub_category")    { value type }
-                    categoryClass: metafield(namespace: "custom",     key: "class")           { value type }
-                    departmentId:  metafield(namespace: "custom",     key: "department_id")   { value type }
+                    itemSize: metafield(namespace: "custom", key: "item_size") {
+                      value
+                      type
+                    }
+                    packSize: metafield(namespace: "custom", key: "pack_size") {
+                      value
+                      type
+                    }
+                    unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
+                      value
+                      type
+                    }
+                    productTitle: metafield(namespace: "custom", key: "product_title") {
+                      value
+                      type
+                    }
+                    rewardPoints: metafield(namespace: "attributes", key: "reward_points") {
+                      value
+                      type
+                    }
+                    rewardId: metafield(namespace: "attributes", key: "reward_id") {
+                      value
+                      type
+                    }
+                    locationId: metafield(namespace: "custom", key: "location_id") {
+                      value
+                      type
+                    }
+                    companyId: metafield(namespace: "custom", key: "company_id") {
+                      value
+                      type
+                    }
+                    department: metafield(namespace: "custom", key: "department") {
+                      value
+                      type
+                    }
+                    category: metafield(namespace: "custom", key: "category") {
+                      value
+                      type
+                    }
+                    subCategory: metafield(namespace: "custom", key: "sub_category") {
+                      value
+                      type
+                    }
+                    categoryClass: metafield(namespace: "custom", key: "class") {
+                      value
+                      type
+                    }
+                    departmentId: metafield(namespace: "custom", key: "department_id") {
+                      value
+                      type
+                    }
+                    abv: metafield(namespace: "custom", key: "abv") {
+                      value
+                      type
+                    }
+                    proof: metafield(namespace: "custom", key: "proof") {
+                      value
+                      type
+                    }
                   }
                 }
               }
@@ -94,8 +193,13 @@ query getSingleOrder($orderId: String!, $accessToken: String!) {
                 targetSelection
                 targetType
                 value {
-                  ... on MoneyV2               { amount currencyCode }
-                  ... on PricingPercentageValue { percentage }
+                  ... on MoneyV2 {
+                    amount
+                    currencyCode
+                  }
+                  ... on PricingPercentageValue {
+                    percentage
+                  }
                 }
               }
             }

@@ -1,5 +1,5 @@
 const String getProductByHandleQuery = r'''
-query getProductByHandle($handle : String!){
+query getProductByHandle($handle: String!) {
   productByHandle(handle: $handle) {
     options(first: 50) {
       id
@@ -131,6 +131,14 @@ query getProductByHandle($handle : String!){
       type
     }
     departmentId: metafield(namespace: "custom", key: "department_id") {
+      value
+      type
+    }
+    abv: metafield(namespace: "custom", key: "abv") {
+      value
+      type
+    }
+    proof: metafield(namespace: "custom", key: "proof") {
       value
       type
     }

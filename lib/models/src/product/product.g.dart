@@ -50,6 +50,8 @@ _Product _$ProductFromJson(Map<String, dynamic> json) => _Product(
   subCategory: json['subCategory'] as String?,
   categoryClass: json['categoryClass'] as String?,
   departmentId: json['departmentId'] as String?,
+  abv: json['abv'] as String?,
+  proof: json['proof'] as String?,
 );
 
 Map<String, dynamic> _$ProductToJson(_Product instance) => <String, dynamic>{
@@ -86,4 +88,6 @@ Map<String, dynamic> _$ProductToJson(_Product instance) => <String, dynamic>{
   'subCategory': instance.subCategory,
   'categoryClass': instance.categoryClass,
   'departmentId': instance.departmentId,
+  'abv': instance.abv,
+  'proof': instance.proof,
 };

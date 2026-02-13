@@ -48,6 +48,8 @@ abstract class Product with _$Product {
     String? subCategory,
     String? categoryClass,
     String? departmentId,
+    String? abv,
+    String? proof,
   }) = _Product;
 
   static Product fromGraphJson(Map<String, dynamic> json) {
@@ -72,7 +74,8 @@ abstract class Product with _$Product {
       option: _getOptionList((json['node'] ?? const {})),
       vendor: (json['node'] ?? const {})['vendor'],
       metafields: _getMetafieldList(
-          (json['node'] ?? const {})['metafields'] ?? const {}),
+        (json['node'] ?? const {})['metafields'] ?? const {},
+      ),
       metafieldItemSize: json['node']['itemSize'] != null
           ? double.tryParse(json['node']['itemSize']["value"])
           : null,
@@ -112,6 +115,10 @@ abstract class Product with _$Product {
       departmentId: json['node']['departmentId'] != null
           ? json['node']['departmentId']["value"]
           : null,
+      abv: json['node']['abv'] != null ? json['node']['abv']["value"] : null,
+      proof: json['node']['proof'] != null
+          ? json['node']['proof']["value"]
+          : null,
     );
   }
 
@@ -140,7 +147,8 @@ abstract class Product with _$Product {
   }
 
   static List<AssociatedCollections> _getCollectionList(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     if ((json['node'] ?? const {})['collections'] == null) return [];
 
     return (((json['node'] ?? const {})['collections'] ?? const {})['edges']
@@ -152,15 +160,19 @@ abstract class Product with _$Product {
   static _getImageList(Map<String, dynamic> json) {
     List<ShopifyImage> imageList = [];
     if (json['edges'] != null)
-      json['edges'].forEach((image) =>
-          imageList.add(ShopifyImage.fromJson(image['node'] ?? const {})));
+      json['edges'].forEach(
+        (image) =>
+            imageList.add(ShopifyImage.fromJson(image['node'] ?? const {})),
+      );
     return imageList;
   }
 
   static _getMetafieldList(Map<String, dynamic> json) {
     List<Metafield> metafieldList = [];
-    json['edges']?.forEach((metafield) =>
-        metafieldList.add(Metafield.fromGraphJson(metafield ?? const {})));
+    json['edges']?.forEach(
+      (metafield) =>
+          metafieldList.add(Metafield.fromGraphJson(metafield ?? const {})),
+    );
     return metafieldList;
   }
 }

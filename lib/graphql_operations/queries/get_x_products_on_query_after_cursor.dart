@@ -1,13 +1,13 @@
 const String getXProductsOnQueryAfterCursorQuery = r'''
-query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String, $reverse: Boolean){
+query($cursor: String, $limit: Int, $sortKey: ProductSortKeys, $query: String, $reverse: Boolean) {
   products(query: $query, first: $limit, after: $cursor, sortKey: $sortKey, reverse: $reverse) {
     edges {
       node {
-      options(first: 50) {
-            id
-            name
-            values
-            } 
+        options(first: 50) {
+          id
+          name
+          values
+        }
         id
         handle
         availableForSale
@@ -22,46 +22,54 @@ query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String
         updatedAt
         totalInventory
         vendor
-              itemSize: metafield(namespace: "custom", key: "item_size") {
-        value
-        type
-      }
-      packSize: metafield(namespace: "custom", key: "pack_size") {
-        value
-        type
-      }
-      unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
-        value
-        type
-      }
-                          locationId: metafield(namespace: "custom", key: "location_id") {
-                      value
-                      type
-                    }
-                    companyId: metafield(namespace: "custom", key: "company_id") {
-                      value
-                      type
-                    }
-                                         department: metafield(namespace: "custom", key: "department") {
-                      value
-                      type
-                    }   
-                    category: metafield(namespace: "custom", key: "category") {
-                      value
-                      type
-                    }   
-                    subCategory: metafield(namespace: "custom", key: "sub_category") {
-                      value
-                      type
-                    }    
-                    categoryClass: metafield(namespace: "custom", key: "class") {
-                      value
-                      type
-                    }
-                    departmentId: metafield(namespace: "custom", key: "department_id") {
-                      value
-                      type
-                    }  
+        itemSize: metafield(namespace: "custom", key: "item_size") {
+          value
+          type
+        }
+        packSize: metafield(namespace: "custom", key: "pack_size") {
+          value
+          type
+        }
+        unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
+          value
+          type
+        }
+        locationId: metafield(namespace: "custom", key: "location_id") {
+          value
+          type
+        }
+        companyId: metafield(namespace: "custom", key: "company_id") {
+          value
+          type
+        }
+        department: metafield(namespace: "custom", key: "department") {
+          value
+          type
+        }
+        category: metafield(namespace: "custom", key: "category") {
+          value
+          type
+        }
+        subCategory: metafield(namespace: "custom", key: "sub_category") {
+          value
+          type
+        }
+        categoryClass: metafield(namespace: "custom", key: "class") {
+          value
+          type
+        }
+        departmentId: metafield(namespace: "custom", key: "department_id") {
+          value
+          type
+        }
+        abv: metafield(namespace: "custom", key: "abv") {
+          value
+          type
+        }
+        proof: metafield(namespace: "custom", key: "proof") {
+          value
+          type
+        }
         images(first: 250) {
           edges {
             node {
@@ -119,4 +127,5 @@ query( $cursor: String, $limit : Int, $sortKey : ProductSortKeys, $query: String
       hasNextPage
     }
   }
-}''';
+}
+''';

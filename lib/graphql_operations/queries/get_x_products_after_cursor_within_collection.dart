@@ -1,11 +1,5 @@
 const String getXProductsAfterCursorWithinCollectionQuery = r'''
-query (
-  $id: ID!
-  $cursor: String
-  $limit: Int
-  $sortKeyProducts: ProductCollectionSortKeys
-  $reverse: Boolean
-) {
+query($id: ID!, $cursor: String, $limit: Int, $sortKeyProducts: ProductCollectionSortKeys, $reverse: Boolean) {
   collection(id: $id) {
     id
     description
@@ -18,12 +12,7 @@ query (
       id
       url
     }
-    products(
-      first: $limit
-      after: $cursor
-      sortKey: $sortKeyProducts
-      reverse: $reverse
-    ) {
+    products(first: $limit, after: $cursor, sortKey: $sortKeyProducts, reverse: $reverse) {
       edges {
         cursor
         node {
@@ -87,39 +76,43 @@ query (
             value
             type
           }
-                              locationId: metafield(namespace: "custom", key: "location_id") {
-                      value
-                      type
-                    }
-                    companyId: metafield(namespace: "custom", key: "company_id") {
-                      value
-                      type
-                    }
-                    
-                     department: metafield(namespace: "custom", key: "department") {
-                      value
-                      type
-                    }   
-                    category: metafield(namespace: "custom", key: "category") {
-                      value
-                      type
-                    }   
-                    subCategory: metafield(namespace: "custom", key: "sub_category") {
-                      value
-                      type
-                    }    
-                    categoryClass: metafield(namespace: "custom", key: "class") {
-                      value
-                      type
-                    }
-                    departmentId: metafield(namespace: "custom", key: "department_id") {
-                      value
-                      type
-                    }  
-          unitOfMeasure: metafield(
-            namespace: "custom"
-            key: "unit_of_measure"
-          ) {
+          locationId: metafield(namespace: "custom", key: "location_id") {
+            value
+            type
+          }
+          companyId: metafield(namespace: "custom", key: "company_id") {
+            value
+            type
+          }
+          department: metafield(namespace: "custom", key: "department") {
+            value
+            type
+          }
+          category: metafield(namespace: "custom", key: "category") {
+            value
+            type
+          }
+          subCategory: metafield(namespace: "custom", key: "sub_category") {
+            value
+            type
+          }
+          categoryClass: metafield(namespace: "custom", key: "class") {
+            value
+            type
+          }
+          departmentId: metafield(namespace: "custom", key: "department_id") {
+            value
+            type
+          }
+          abv: metafield(namespace: "custom", key: "abv") {
+            value
+            type
+          }
+          proof: metafield(namespace: "custom", key: "proof") {
+            value
+            type
+          }
+          unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
             value
             type
           }

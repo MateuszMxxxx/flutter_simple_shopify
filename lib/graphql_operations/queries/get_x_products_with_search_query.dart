@@ -1,145 +1,141 @@
 const String getXProductsWithSearchQuery = r'''
-	query ($cursor: String, $limit: Int, $query: String!) {
-		search(
-			query: $query
-			first: $limit
-			after: $cursor
-			types: PRODUCT
-			prefix: LAST
-			unavailableProducts: LAST
-			sortKey: RELEVANCE
-		) {
-			edges {
-				node {
-					... on Product {
-						id
-						title
-						handle
-						availableForSale
-						createdAt
-						description
-						descriptionHtml
-						onlineStoreUrl
-						productType
-						publishedAt
-						tags
-						title
-						updatedAt
-						totalInventory
-						vendor
-						productTitle: metafield(namespace: "custom", key: "product_title") {
-							value
-							type
-						}
-            rewardPoints: metafield(namespace: "attributes", key: "reward_points") {
-              value
-              type
+query($cursor: String, $limit: Int, $query: String!) {
+  search(query: $query, first: $limit, after: $cursor, types: PRODUCT, prefix: LAST, unavailableProducts: LAST, sortKey: RELEVANCE) {
+    edges {
+      node {
+        ... on Product {
+          id
+          title
+          handle
+          availableForSale
+          createdAt
+          description
+          descriptionHtml
+          onlineStoreUrl
+          productType
+          publishedAt
+          tags
+          title
+          updatedAt
+          totalInventory
+          vendor
+          productTitle: metafield(namespace: "custom", key: "product_title") {
+            value
+            type
+          }
+          rewardPoints: metafield(namespace: "attributes", key: "reward_points") {
+            value
+            type
+          }
+          rewardId: metafield(namespace: "attributes", key: "reward_id") {
+            value
+            type
+          }
+          itemSize: metafield(namespace: "custom", key: "item_size") {
+            value
+            type
+          }
+          locationId: metafield(namespace: "custom", key: "location_id") {
+            value
+            type
+          }
+          companyId: metafield(namespace: "custom", key: "company_id") {
+            value
+            type
+          }
+          packSize: metafield(namespace: "custom", key: "pack_size") {
+            value
+            type
+          }
+          unitOfMeasure: metafield(namespace: "custom", key: "unit_of_measure") {
+            value
+            type
+          }
+          department: metafield(namespace: "custom", key: "department") {
+            value
+            type
+          }
+          category: metafield(namespace: "custom", key: "category") {
+            value
+            type
+          }
+          subCategory: metafield(namespace: "custom", key: "sub_category") {
+            value
+            type
+          }
+          categoryClass: metafield(namespace: "custom", key: "class") {
+            value
+            type
+          }
+          departmentId: metafield(namespace: "custom", key: "department_id") {
+            value
+            type
+          }
+          abv: metafield(namespace: "custom", key: "abv") {
+            value
+            type
+          }
+          proof: metafield(namespace: "custom", key: "proof") {
+            value
+            type
+          }
+          images(first: 250) {
+            edges {
+              node {
+                altText
+                id
+                url
+              }
             }
-            rewardId: metafield(namespace: "attributes", key: "reward_id") {
-              value
-              type
+          }
+          variants(first: 250) {
+            edges {
+              node {
+                title
+                image {
+                  altText
+                  id
+                  url
+                }
+                price {
+                  amount
+                  currencyCode
+                }
+                priceV2 {
+                  amount
+                  currencyCode
+                }
+                compareAtPrice {
+                  amount
+                  currencyCode
+                }
+                compareAtPriceV2 {
+                  amount
+                  currencyCode
+                }
+                weight
+                weightUnit
+                availableForSale
+                sku
+                barcode
+                requiresShipping
+                selectedOptions {
+                  name
+                  value
+                }
+                id
+                currentlyNotInStock
+                quantityAvailable
+              }
             }
-						itemSize: metafield(namespace: "custom", key: "item_size") {
-							value
-							type
-						}
-						locationId: metafield(namespace: "custom", key: "location_id") {
-							value
-							type
-						}
-						companyId: metafield(namespace: "custom", key: "company_id") {
-							value
-							type
-						}
-						packSize: metafield(namespace: "custom", key: "pack_size") {
-							value
-							type
-						}
-						unitOfMeasure: metafield(
-							namespace: "custom"
-							key: "unit_of_measure"
-						) {
-							value
-							type
-						}
-						
-                     department: metafield(namespace: "custom", key: "department") {
-                      value
-                      type
-                    }   
-                    category: metafield(namespace: "custom", key: "category") {
-                      value
-                      type
-                    }   
-                    subCategory: metafield(namespace: "custom", key: "sub_category") {
-                      value
-                      type
-                    }    
-                    categoryClass: metafield(namespace: "custom", key: "class") {
-                      value
-                      type
-                    }
-                    departmentId: metafield(namespace: "custom", key: "department_id") {
-                      value
-                      type
-                    }  
-						images(first: 250) {
-							edges {
-								node {
-									altText
-									id
-									url
-								}
-							}
-						}
-						variants(first: 250) {
-							edges {
-								node {
-									title
-									image {
-										altText
-										id
-										url
-									}
-									price {
-										amount
-										currencyCode
-									}
-									priceV2 {
-										amount
-										currencyCode
-									}
-									compareAtPrice {
-										amount
-										currencyCode
-									}
-									compareAtPriceV2 {
-										amount
-										currencyCode
-									}
-									weight
-									weightUnit
-									availableForSale
-									sku
-									barcode
-									requiresShipping
-									selectedOptions {
-										name
-										value
-									}
-									id
-									currentlyNotInStock
-									quantityAvailable
-								}
-							}
-						}
-					}
-				}
-				cursor
-			}
-			pageInfo {
-				hasNextPage
-			}
-		}
-	}
+          }
+        }
+      }
+      cursor
+    }
+    pageInfo {
+      hasNextPage
+    }
+  }
+}
 ''';
