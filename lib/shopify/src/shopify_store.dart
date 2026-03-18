@@ -631,6 +631,35 @@ class ShopifyStore with ShopifyError {
     return null;
   }
 
+  /// Returns whether a collection contains alcohol based on its metafield.
+  Future<bool> getCollectionContainsAlcohol(String collectionId) async {
+    const query = r'''
+      query getCollectionAlcohol($id: ID!) {
+        collection(id: $id) {
+          containsAlcohol: metafield(namespace: "custom", key: "contains_alcohol") {
+            value
+          }
+        }
+      }
+    ''';
+    try {
+      final options = WatchQueryOptions(
+        fetchPolicy: FetchPolicy.networkOnly,
+        document: gql(query),
+        variables: {'id': collectionId},
+      );
+      final result = await _graphQLClient!.query(options);
+      checkForError(result);
+      final metafield = result.data?['collection']?['containsAlcohol'];
+      if (metafield == null) return false;
+      final value = metafield['value'];
+      return value == true || value == 'true';
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
   /// Returns a List of [Product].
   ///
   /// Gets [limit] amount of [Product] from the [query] using search endpoint.
