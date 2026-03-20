@@ -636,7 +636,9 @@ class ShopifyStore with ShopifyError {
     const query = r'''
       query getCollectionAlcohol($id: ID!) {
         collection(id: $id) {
+          id
           containsAlcohol: metafield(namespace: "custom", key: "contains_alcohol") {
+            id
             value
           }
         }
